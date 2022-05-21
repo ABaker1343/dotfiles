@@ -1,0 +1,25 @@
+general {
+    colors = true
+    color_good = "#3399ff"
+    color_degraded = "#ebcb8b"
+    color_bad = "#6f616a"
+    interval = 5
+    separator = "|"
+}
+
+tztime local {
+    format = "%Y-%m-%d %H:%M:%S"
+}
+
+memory {
+    format = "Mem: %used"
+    format_degraded = "MEMORY: %free"
+}
+
+cpu_usage{
+    format = "CPU: %usage"
+}
+
+order += "cpu_usage"
+order += "memory"
+order += "tztime local"
