@@ -5,6 +5,9 @@ xrandr --output HDMI-0 --pos 0x0 --output DVI-D-0 --primary --mode 1920x1080 --p
 xinput set-prop 9 301 -0.7
 xinput set-prop 10 310 -0.7
 
+# gb keyboard
+setxkbmap gb
+
 # make the bar show the time
 #~/dwm/barscript.sh &
 
