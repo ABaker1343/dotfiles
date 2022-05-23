@@ -2,8 +2,8 @@
 xrandr --output HDMI-0 --pos 0x0 --output DVI-D-0 --primary --mode 1920x1080 --pos 1024x0 --rate 144.00
 
 # set up the mouse
-xinput set-prop 9 301 -0.7
-xinput set-prop 10 310 -0.7
+xinput set-prop 9 299 -0.6
+xinput set-prop 10 310 -0.6
 
 # gb keyboard
 setxkbmap gb
@@ -15,7 +15,7 @@ setxkbmap gb
 dunst &
 
 # start the composite manager
-xcompmgr -c &
+xcompmgr -c -f &
 
 # restore the desktop background
 nitrogen --restore
