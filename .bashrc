@@ -1,6 +1,7 @@
 #
 # ~/.bashrc
 #
+cd ~
 
 # set the transparency
 # transset-df "0.65" --id "$WINDOWID" >/dev/null
