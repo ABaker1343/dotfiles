@@ -206,8 +206,9 @@ bindsym $mod+F6 exec playerctl -p spotify play-pause
 
 # colors
 set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
-set_from_resource $sel i3wm.color3 #0f0f0f
+#set_from_resource $bg i3wm.color2 #f0f0f0
+set $bg #222222
+set_from_resource $sel i3wm.color2 #0f0f0f
 
 # class                         border          background      text            indicator       child_border
 #client.focused                  #3399ff         #3399ff         #ffffff         $coloratt       #3399ff

@@ -10,7 +10,7 @@ xinput set-prop $MOUSE "libinput Accel Speed" -0.65
 setxkbmap gb
 
 # make the bar show the time
-#~/dwm/barscript.sh &
+~/.source/dwm/barscript.sh &
 
 # set the notification server
 dunst &
@@ -26,5 +26,5 @@ nitrogen --restore
 flameshot &
 
 # start the window manager
-# exec dwm
-exec i3
+exec dwm
+#exec i3
