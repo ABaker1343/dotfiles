@@ -10,6 +10,14 @@ packer.startup(function()
     packer.use 'ray-x/lsp_signature.nvim' -- for function signitures
 
     packer.use 'windwp/nvim-autopairs' -- autopairing some characters
+
+    packer.use 'kyazdani42/nvim-web-devicons'
+    packer.use {                        -- file tree
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+            'kyazdani42/nvim-web-devicons'
+        },
+    }
 end)
 
 --configure the lsp
@@ -70,3 +78,11 @@ lspsig.setup({})
 -- configure autopair
 
 require('nvim-autopairs').setup{}
+
+
+-- configure the nvim filetree
+
+tree = require('nvim-tree')
+
+tree.setup()
+

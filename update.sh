@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 cd ~
 cp .bashrc dotfiles/.bashrc
 cp .bash_profile dotfiles/.bash_profile
