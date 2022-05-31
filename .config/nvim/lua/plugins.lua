@@ -25,6 +25,7 @@ end)
 local lspconfig = require('lspconfig')
 
 lspconfig.ccls.setup {}
+lspconfig.gopls.setup {}
 
 -- configure cmp
 

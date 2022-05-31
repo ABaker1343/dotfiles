@@ -6,6 +6,9 @@ MOUSE=$(xinput list --id-only "Kingsis Peripherals ZOWIE Gaming mouse")
 ACCELPROP="libinput Accel Speed"
 xinput set-prop $MOUSE "libinput Accel Speed" -0.65
 
+# set the key repeat delay
+xset r rate 300 50
+
 # gb keyboard
 setxkbmap gb
 
