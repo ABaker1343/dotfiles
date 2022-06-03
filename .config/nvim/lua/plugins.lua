@@ -26,6 +26,7 @@ local lspconfig = require('lspconfig')
 
 lspconfig.ccls.setup {}
 lspconfig.gopls.setup {}
+lspconfig.sumneko_lua.setup {}
 
 -- configure cmp
 
@@ -85,5 +86,9 @@ require('nvim-autopairs').setup{}
 
 tree = require('nvim-tree')
 
-tree.setup()
+tree.setup {
+    view = {
+        side = "left",
+    }
+}
 
