@@ -2,9 +2,10 @@
 xrandr --output HDMI-0 --pos 0x0 --output DVI-D-0 --primary --mode 1920x1080 --pos 1024x0 --rate 144.00
 
 # set up the mouse
-MOUSE=$(xinput list --id-only "Kingsis Peripherals ZOWIE Gaming mouse")
-ACCELPROP="libinput Accel Speed"
-xinput set-prop $MOUSE "libinput Accel Speed" -0.65
+MOUSE=$(xinput list --id-only "Razer Razer Viper Mini")
+#ACCELPROP="libinput Accel Speed"
+#xinput set-prop $MOUSE "libinput Accel Speed" -0.65
+xinput set-prop "pointer:Razer Razer Viper Mini" "libinput Accel Speed" -0.65
 
 # set the key repeat delay
 xset r rate 300 50
@@ -29,5 +30,6 @@ nitrogen --restore
 flameshot &
 
 # start the window manager
+#exec budgie-desktop
 exec dwm
 #exec i3

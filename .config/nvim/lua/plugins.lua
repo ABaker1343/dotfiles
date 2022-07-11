@@ -27,6 +27,7 @@ local lspconfig = require('lspconfig')
 lspconfig.ccls.setup {}
 lspconfig.gopls.setup {}
 lspconfig.sumneko_lua.setup {}
+lspconfig.pyright.setup {}
 
 -- configure cmp
 

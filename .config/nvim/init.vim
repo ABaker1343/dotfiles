@@ -5,4 +5,5 @@ set shiftwidth=4
 set expandtab
 set number
 set relativenumber
+set splitright
 lua require('plugins')
