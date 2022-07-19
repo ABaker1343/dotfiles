@@ -14,22 +14,24 @@ xset r rate 300 50
 setxkbmap gb
 
 # make the bar show the time
-~/.source/dwm/barscript.sh &
+#~/.source/dwm/barscript.sh &
 
 # set the notification server
 dunst &
 
 # start the composite manager
-xcompmgr -f -C -I 0.030 -O 0.036 -D 5 &
+#xcompmgr -f -C -I 0.030 -O 0.036 -D 5 &
+picom --experimental-backend --config ~/.config/picom/picom.conf
 
 # restore the desktop background
 wal -R -n
-nitrogen --restore
+#nitrogen --restore
 
 # start flameshot so that you can copy screenshots
 flameshot &
 
 # start the window manager
 #exec budgie-desktop
-exec dwm
+#exec dwm
+exec awesome
 #exec i3
