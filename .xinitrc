@@ -21,7 +21,7 @@ dunst &
 
 # start the composite manager
 #xcompmgr -f -C -I 0.030 -O 0.036 -D 5 &
-picom --experimental-backend --config ~/.config/picom/picom.conf
+picom --experimental-backend --config ~/.config/picom/picom.conf &
 
 # restore the desktop background
 wal -R -n

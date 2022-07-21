@@ -348,7 +348,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey}, "F6", function() awful.util.spawn("playerctl -p spotify play-pause") end),
     awful.key({ modkey}, "F5", function() awful.util.spawn("playerctl -p spotify previous") end),
 
-    awful.key({modkey}, "F10", function() awful.util.spawn("transset-df -a") end),
+    awful.key({modkey}, "F10", function() awful.util.spawn("transset-df -a 0.8") end),
+    awful.key({modkey}, "F9", function() awful.util.spawn("transset-df -a 1") end),
 
     awful.key({modkey}, "b", function() myscreen = awful.screen.focused()
         myscreen.mywibox.visible = not myscreen.mywibox.visible 
@@ -357,8 +358,29 @@ globalkeys = gears.table.join(
 
     -- layout keys
 
-    awful.key({modkey}, "t", function() awful.layout.set(awful.layout.suit.tile) end),
-    awful.key({modkey}, "s", function() awful.layout.set(awful.layout.suit.max) end)
+    awful.key({modkey}, "t", function()
+        if awful.layout.get(awful.screen.focused()) == awful.layout.suit.tile then
+            awful.layout.set(awful.layout.suit.tile.bottom)
+        else
+            awful.layout.set(awful.layout.suit.tile)
+        end
+    end),
+
+    awful.key({modkey}, "s", function() awful.layout.set(awful.layout.suit.max) end),
+
+    -- gaps keys
+    awful.key({modkey, "Control"}, "Page_Up", function()
+        if beautiful.useless_gap < 80 then
+            beautiful.useless_gap = beautiful.useless_gap + 4
+            awful.layout.arrange(awful.screen.focused())
+        end
+    end),
+    awful.key({modkey, "Control"}, "Page_Down", function()
+        if beautiful.useless_gap > 0 then
+            beautiful.useless_gap = beautiful.useless_gap - 4
+            awful.layout.arrange(awful.screen.focused())
+        end
+    end)
 )
 
 clientkeys = gears.table.join(
@@ -485,7 +507,8 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+                     placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+                     size_hints_honor = false
      }
     },
 
@@ -528,6 +551,12 @@ awful.rules.rules = {
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
+
+    -- Stop using st size hints
+    rule = {
+        {class = "st-256color"},
+        properties = {size_hints_honor = false}
+    },
 }
 -- }}}
 
@@ -595,5 +624,3 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 --
-
--- remove bars from the top of the screen
