@@ -63,18 +63,18 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.tile,
+    --awful.layout.suit.tile,
     --awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    --awful.layout.suit.fair,
+    --awful.layout.suit.tile.top,
+    awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
-    --awful.layout.suit.spiral,
+    awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
-    awful.layout.suit.floating,
+    --awful.layout.suit.magnifier,
+    --awful.layout.suit.floating,
     --awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
@@ -331,29 +331,44 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
 
     -- custom hotkeys
-    awful.key({ modkey, "Shift"}, "b", function() awful.util.spawn("firefox") end),
-    awful.key({ modkey, "Shift"}, "s", function() awful.util.spawn("spotify") end),
-    awful.key({ modkey, "Shift"}, "d", function() awful.util.spawn("discord") end),
-    awful.key({ modkey, "Shift"}, "g", function() awful.util.spawn("steam") end),
-    awful.key({ modkey, "Shift"}, "p", function() awful.util.spawn("firefox --private") end),
+    awful.key({ modkey, "Shift"}, "b", function() awful.util.spawn("firefox") end,
+    {description = "spawn a browser (firefox)"}),
+    awful.key({ modkey, "Shift"}, "s", function() awful.util.spawn("spotify") end,
+    {description = "spawn spotify"}),
+    awful.key({ modkey, "Shift"}, "d", function() awful.util.spawn("discord") end,
+    {description = "spawn discord"}),
+    awful.key({ modkey, "Shift"}, "g", function() awful.util.spawn("steam") end,
+    {description = "spawn steam"}),
+    awful.key({ modkey, "Shift"}, "p", function() awful.util.spawn("firefox --private") end,
+    {description = "s[awn private browser (firefox)"}),
 
-    awful.key({ modkey, "Shift"}, "r", function() awful.util.spawn("st -e ranger") end),
-    awful.key({ modkey, "Shift"}, "h", function() awful.util.spawn("st -e htop") end),
+    awful.key({ modkey, "Shift"}, "r", function() awful.util.spawn("st -e ranger") end,
+    {description = "spawn a terminal instance running ranger"}),
+    awful.key({ modkey, "Shift"}, "h", function() awful.util.spawn("st -e htop") end,
+    {description = "spawn a terminal instance running htop"}),
 
-    awful.key({ modkey, "Shift"}, "a", function() awful.util.spawn("sh /bin/soundSelect.sh") end),
+    awful.key({ modkey, "Shift"}, "a", function() awful.util.spawn("sh /bin/soundSelect.sh") end,
+    {desription = "spawn dmenu for selecting audio output"}),
 
-    awful.key({}, "Print", function() awful.util.spawn("flameshot gui") end),
+    awful.key({}, "Print", function() awful.util.spawn("flameshot gui") end,
+    {description = "spawn flameshot for taking screenshots"}),
 
-    awful.key({ modkey}, "F7", function() awful.util.spawn("playerctl -p spotify next") end),
-    awful.key({ modkey}, "F6", function() awful.util.spawn("playerctl -p spotify play-pause") end),
-    awful.key({ modkey}, "F5", function() awful.util.spawn("playerctl -p spotify previous") end),
+    awful.key({ modkey}, "F7", function() awful.util.spawn("playerctl -p spotify next") end,
+    {description = "next spotify track"}),
+    awful.key({ modkey}, "F6", function() awful.util.spawn("playerctl -p spotify play-pause") end,
+    {descrption = "spotify play/pause"}),
+    awful.key({ modkey}, "F5", function() awful.util.spawn("playerctl -p spotify previous") end,
+    {description = "previous spotify track"}),
 
-    awful.key({modkey}, "F10", function() awful.util.spawn("transset-df -a 0.8") end),
-    awful.key({modkey}, "F9", function() awful.util.spawn("transset-df -a 1") end),
+    awful.key({modkey}, "F10", function() awful.util.spawn("transset-df -a 0.8") end,
+    {description = "add transparency to current window"}),
+    awful.key({modkey}, "F9", function() awful.util.spawn("transset-df -a 1") end,
+    {description = "remove transparency from current window"}),
 
-    awful.key({modkey}, "b", function() myscreen = awful.screen.focused()
-        myscreen.mywibox.visible = not myscreen.mywibox.visible 
-    end),
+    awful.key({modkey}, "b", function() local myscreen = awful.screen.focused()
+        myscreen.mywibox.visible = not myscreen.mywibox.visible
+    end,
+    {description = "toggle bar visibility"}),
 
 
     -- layout keys
@@ -364,9 +379,11 @@ globalkeys = gears.table.join(
         else
             awful.layout.set(awful.layout.suit.tile)
         end
-    end),
+    end,
+    {description = "toggle tile right and tile bottom"}),
 
-    awful.key({modkey}, "s", function() awful.layout.set(awful.layout.suit.max) end),
+    awful.key({modkey}, "s", function() awful.layout.set(awful.layout.suit.max) end,
+    {description = "set layout max"}),
 
     -- gaps keys
     awful.key({modkey, "Control"}, "Page_Up", function()
@@ -374,13 +391,15 @@ globalkeys = gears.table.join(
             beautiful.useless_gap = beautiful.useless_gap + 4
             awful.layout.arrange(awful.screen.focused())
         end
-    end),
+    end,
+    {description = "increase window gaps"}),
     awful.key({modkey, "Control"}, "Page_Down", function()
         if beautiful.useless_gap > 0 then
             beautiful.useless_gap = beautiful.useless_gap - 4
             awful.layout.arrange(awful.screen.focused())
         end
-    end)
+    end,
+    {description = "decrease window gaps"})
 )
 
 clientkeys = gears.table.join(
@@ -622,5 +641,6 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
---
+-- }}}-
+
+awful.layout.set(awful.layout.suit.tile)
