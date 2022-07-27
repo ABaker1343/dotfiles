@@ -198,25 +198,52 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, visible = false })
+    s.mywibox = awful.wibar({
+        position = "top",
+        screen = s,
+        visible = false,
+        border_width = 10
+    })
 
     -- Add widgets to the wibox
-    s.mywibox:setup {
+    --[[s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
+            --mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
-        s.mytasklist, -- Middle widget
+        { -- Middle widget
+            --s.mytasklist,
+            layout = wibox.container.place,
+            mytextclock,
+            halign = "center",
+        },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
+            --mykeyboardlayout,
             wibox.widget.systray(),
-            mytextclock,
-            s.mylayoutbox,
+            --mytextclock,
+            --s.mylayoutbox,
         },
+    }--]]
+
+    -- Add widgets to the wibar
+    s.mywibox:setup {
+        layout = wibox.layout.flex.horizontal,
+        s.mytaglist,
+        {
+            layout = wibox.container.place,
+            mytextclock,
+            --wibox.widget.calendar.month(os.date('*t')),
+            halign = "center",
+        },
+        {
+            layout = wibox.container.place,
+            wibox.widget.systray(),
+            halign = "right"
+        }
     }
 end)
 -- }}}
@@ -388,14 +415,18 @@ globalkeys = gears.table.join(
     -- gaps keys
     awful.key({modkey, "Control"}, "Page_Up", function()
         if beautiful.useless_gap < 80 then
-            beautiful.useless_gap = beautiful.useless_gap + 4
+            local tag = awful.screen.focused().selected_tag
+            tag.gap = tag.gap + 4
+            --beautiful.useless_gap = beautiful.useless_gap + 4
             awful.layout.arrange(awful.screen.focused())
         end
     end,
     {description = "increase window gaps"}),
     awful.key({modkey, "Control"}, "Page_Down", function()
         if beautiful.useless_gap > 0 then
-            beautiful.useless_gap = beautiful.useless_gap - 4
+            --beautiful.useless_gap = beautiful.useless_gap - 4
+            local tag = awful.screen.focused().selected_tag
+            tag.gap = tag.gap - 4
             awful.layout.arrange(awful.screen.focused())
         end
     end,

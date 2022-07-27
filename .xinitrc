@@ -30,6 +30,9 @@ wal -R -n
 # start flameshot so that you can copy screenshots
 flameshot &
 
+# start the nightlight
+redshift -l 50:3.5 &
+
 # start the window manager
 #exec budgie-desktop
 #exec dwm
