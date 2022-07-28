@@ -110,6 +110,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+local mycalendar = wibox.widget.calendar.month(os.date('*t'))
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -197,12 +198,22 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = tasklist_buttons
     }
 
+    local isBarVisible
+    if s.index == 1 then isBarVisible = true
+    else isBarVisible = false
+    end
+
     -- Create the wibox
     s.mywibox = awful.wibar({
         position = "top",
         screen = s,
-        visible = false,
-        border_width = 10
+        visible = isBarVisible,
+        height = 30,
+        border_width = 10,
+        shape = function (cr, width, height)
+            gears.shape.partially_rounded_rect(cr, width, height,
+            true, true, true, true, 15)
+        end,
     })
 
     -- Add widgets to the wibox
@@ -236,6 +247,7 @@ awful.screen.connect_for_each_screen(function(s)
         {
             layout = wibox.container.place,
             mytextclock,
+            --mycalendar,
             --wibox.widget.calendar.month(os.date('*t')),
             halign = "center",
         },
