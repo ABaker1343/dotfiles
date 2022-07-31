@@ -8,3 +8,5 @@ vim.opt.relativenumber = true
 vim.opt.smartindent = true
 
 vim.opt.splitright = true
+
+vim.opt.cursorline = true

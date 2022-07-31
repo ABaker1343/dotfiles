@@ -208,12 +208,13 @@ awful.screen.connect_for_each_screen(function(s)
         position = "top",
         screen = s,
         visible = isBarVisible,
-        height = 30,
-        border_width = 10,
+        height = 35,
+        border_width = 8,
         shape = function (cr, width, height)
             gears.shape.partially_rounded_rect(cr, width, height,
             true, true, true, true, 15)
         end,
+        ontop = false,
     })
 
     -- Add widgets to the wibox
@@ -243,7 +244,15 @@ awful.screen.connect_for_each_screen(function(s)
     -- Add widgets to the wibar
     s.mywibox:setup {
         layout = wibox.layout.flex.horizontal,
-        s.mytaglist,
+        {
+            layout = wibox.layout.fixed.horizontal,
+            s.mytaglist,
+            {
+                layout = wibox.container.place,
+                halign = "right",
+                s.mytasklist,
+            }
+        },
         {
             layout = wibox.container.place,
             mytextclock,
@@ -252,9 +261,13 @@ awful.screen.connect_for_each_screen(function(s)
             halign = "center",
         },
         {
-            layout = wibox.container.place,
-            wibox.widget.systray(),
-            halign = "right"
+            --layout = wibox.layout.flex.horizontal,
+            layout = wibox.layout.flex.horizontal,
+            {
+                layout = wibox.container.place,
+                halign = "right",
+                wibox.widget.systray(),
+            }
         }
     }
 end)
@@ -379,7 +392,11 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"}, "g", function() awful.util.spawn("steam") end,
     {description = "spawn steam"}),
     awful.key({ modkey, "Shift"}, "p", function() awful.util.spawn("firefox --private") end,
-    {description = "s[awn private browser (firefox)"}),
+    {description = "spawn private browser (firefox)"}),
+    awful.key({modkey , "Shift"}, "f", function() awful.util.spawn("pcmanfm") end,
+    {description = "spawn a gui file manager"}),
+    awful.key({modkey, "Shift"}, "m", function() awful.util.spawn("thunderbird") end,
+    {description = "spawn an email client"}),
 
     awful.key({ modkey, "Shift"}, "r", function() awful.util.spawn("st -e ranger") end,
     {description = "spawn a terminal instance running ranger"}),
