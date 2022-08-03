@@ -1,0 +1,42 @@
+@import "/home/alex/.cache/wal/colors.css";
+
+#contentAreaContextMenu{ margin: 20px 20px 20px 20px }
+
+/*hbox {
+    background-color: var(--color0) !important;
+}*/
+
+#nav-bar {
+    background-color: var(--color0) !important;
+}
+
+#TabsToolbar {
+    background-color: var(--color0) !important;
+}
+
+.tabbrowser-tab {
+    background-color: var(--color0) !important;
+}
+
+.tabbrowser-tab .tab-stack {
+    background-color: var(--color0) !important;
+}
+
+.tabbrowser-tab .tab-background:not([selected]) {
+    background-color: var(--color0) !important;
+} 
+.tabbrowser-tab .tab-background[selected] {
+    background-color: var(--color2) !important;
+    background-image: none !important;
+}
+
+.tabbrowser-tab .tab-content[selected] {
+    background-color: var(--color2) !important;
+    color: var(--color7) !important;
+    margin: 4px !important;
+}
+
+.tabbrowser-tab .tabcontent:not([selected]){
+    /*background-color: var(--color0) !important;*/
+    color: var(--color0) !important;
+}

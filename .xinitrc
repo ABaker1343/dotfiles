@@ -2,7 +2,7 @@
 xrandr --output HDMI-0 --pos 0x0 --output DVI-D-0 --primary --mode 1920x1080 --pos 1024x0 --rate 144.00
 
 # set up the mouse
-MOUSE=$(xinput list --id-only "Razer Razer Viper Mini")
+#MOUSE=$(xinput list --id-only "Razer Razer Viper Mini")
 #ACCELPROP="libinput Accel Speed"
 #xinput set-prop $MOUSE "libinput Accel Speed" -0.65
 xinput set-prop "pointer:Razer Razer Viper Mini" "libinput Accel Speed" -0.65

@@ -27,7 +27,7 @@ theme.fg_focus      = xres.color7
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap   = 4
+theme.useless_gap   = 0
 theme.border_width  = dpi(2)
 theme.border_normal = xres.color0
 theme.border_focus  = xres.color7
@@ -128,16 +128,6 @@ theme.awesome_icon = theme_assets.awesome_icon(
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
-
--- Wibar styling
-theme.wibar_height = 30
-theme.wibar_width = 1536
-theme.wibar_shape = function (cr, width, height)
-    gears.shape.partially_rounded_rect(cr, width, height,
-        true, true, true, true, 15)
-end
-theme.wibar_ontop = false;
-theme.wibar_border_width = theme.useless_gap
 
 return theme
 

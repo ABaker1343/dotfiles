@@ -46,8 +46,25 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 --beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-local themepath = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "default")
-beautiful.init(themepath)
+
+-- read the current them
+local theme = "default"
+local cThemePath = string.format("%s/.config/awesome/themes/currentTheme", os.getenv("HOME"))
+
+local themeFile = io.open(cThemePath)
+if themeFile then
+    theme = themeFile:read("*a")
+    themeFile:close()
+    gears.debug.print_warning(theme)
+    gears.debug.print_warning("theme found")
+else
+    gears.debug.print_warning("couldnt read current theme file")
+end
+
+local themepath = string.format("%s/.config/awesome/themes/%s/", os.getenv("HOME"), theme)
+
+beautiful.init(themepath .. "theme.lua")
+local themeFuncs = dofile(themepath .. "imports.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "st"
@@ -198,48 +215,13 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = tasklist_buttons
     }
 
-    local isBarVisible
-    if s.index == 1 then isBarVisible = true
-    else isBarVisible = false
+    --local isBarVisible
+    if s.index == 1 then s.isBarVisible = true
+    else s.isBarVisible = false
     end
 
     -- Create the wibox
-    s.mywibox = awful.wibar({
-        position = "top",
-        screen = s,
-        visible = isBarVisible,
-        height = 35,
-        border_width = 8,
-        shape = function (cr, width, height)
-            gears.shape.partially_rounded_rect(cr, width, height,
-            true, true, true, true, 15)
-        end,
-        ontop = false,
-    })
-
-    -- Add widgets to the wibox
-    --[[s.mywibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            --mylauncher,
-            s.mytaglist,
-            s.mypromptbox,
-        },
-        { -- Middle widget
-            --s.mytasklist,
-            layout = wibox.container.place,
-            mytextclock,
-            halign = "center",
-        },
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            --mykeyboardlayout,
-            wibox.widget.systray(),
-            --mytextclock,
-            --s.mylayoutbox,
-        },
-    }--]]
+    s.mywibox = themeFuncs.themeWibar(s, s.isBarVisible)
 
     -- Add widgets to the wibar
     s.mywibox:setup {
@@ -440,6 +422,21 @@ globalkeys = gears.table.join(
 
     awful.key({modkey}, "s", function() awful.layout.set(awful.layout.suit.max) end,
     {description = "set layout max"}),
+
+    -- theme keys
+    awful.key({modkey, "Control"}, "l", function()
+        local f = io.open(cThemePath, "w")
+        if not f then return end
+        io.output(f)
+        if theme == "default" then
+            io.write("clean")
+        else
+            io.write("default")
+        end
+        f:close()
+        awesome.restart()
+    end,
+    {description = "change the current theme"}),
 
     -- gaps keys
     awful.key({modkey, "Control"}, "Page_Up", function()
