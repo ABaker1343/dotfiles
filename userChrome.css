@@ -43,29 +43,37 @@
 
 /* url bar coloring */
 
-#urlbar-container {
-    background-color var(--color2) !important;
-}
 #urlbar-background {
-    background-color var(--color2) !important;
-}
-#urlbar {
-    background-color var(--color2) !important;
+    background-color: var(--color0) !important;
 }
 #urlbar ::selection {
     background: var(--color2) !important;
 }
 
 .urlbarView {
-    background-color: var(--color2) !important;
+    /*background-color: var(--color2) !important;*/
+    background-color: var(--color0) !important;
     margin: none !important;
     border: none !important;
 }
 
-.urlbarView-body-outer {
+/*.urlbarView-body-outer {
+    background-color: var(--color2) !important;
+}*/
+
+/*.urlbarView-body-inner {
+    background-color: var(--color2) !important;
+}*/
+
+
+#nav-bar-customization-target {
+    background-color: var(--color0) !important;
+}
+
+.urlbarView-row ::selection {
     background-color: var(--color2) !important;
 }
 
-.urlbarView-body-inner {
+.urlbarView-row :hover {
     background-color: var(--color2) !important;
 }
