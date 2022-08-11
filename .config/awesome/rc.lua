@@ -449,7 +449,7 @@ globalkeys = gears.table.join(
     end,
     {description = "increase window gaps"}),
     awful.key({modkey, "Control"}, "Page_Down", function()
-        if beautiful.useless_gap > 0 then
+        if beautiful.useless_gap >= 0 then
             --beautiful.useless_gap = beautiful.useless_gap - 4
             local tag = awful.screen.focused().selected_tag
             tag.gap = tag.gap - 4
