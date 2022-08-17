@@ -13,3 +13,4 @@ then
 fi
 
 # startx
+export PATH=$PATH:/home/alex/.spicetify

@@ -16,10 +16,10 @@ local xres = xresources.get_current_theme ()
 
 theme.font          = "UbuntuMonoLigaturized 16"
 
-theme.bg_normal     = xres.color2
+theme.bg_normal     = xres.color1
 theme.bg_focus      = xres.color0
-theme.bg_urgent     = "#ff0000"
-theme.bg_minimize   = "#444444"
+theme.bg_urgent     = xres.color4
+theme.bg_minimize   = xres.color3
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = xres.color0
@@ -28,7 +28,7 @@ theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
 theme.useless_gap   = 4
-theme.border_width  = dpi(2)
+theme.border_width  = dpi(3)
 theme.border_normal = xres.color0
 theme.border_focus  = xres.color7
 theme.border_marked = "#91231c"
@@ -136,8 +136,6 @@ theme.wibar_shape = function (cr, width, height)
     gears.shape.partially_rounded_rect(cr, width, height,
         true, true, true, true, 15)
 end
-theme.wibar_ontop = false;
-theme.wibar_border_width = theme.useless_gap
 
 return theme
 

@@ -80,7 +80,7 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    --awful.layout.suit.tile,
+    awful.layout.suit.tile,
     --awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
@@ -127,7 +127,11 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
-local mycalendar = wibox.widget.calendar.month(os.date('*t'))
+
+-- Calendar widget
+local mymonthcalendar = awful.widget.calendar_popup.month()
+ --attach to the clock and position top center
+mymonthcalendar:attach(mytextclock, "tc")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -365,6 +369,14 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
 
     -- custom hotkeys
+
+    -- scratch terminal
+    awful.key({modkey}, "Return", function()
+        --local s = awful.screen.focused()
+        awful.util.spawn(terminal .. " -c scratch")
+    end,
+    {description = "spawn a scratch terminal"}),
+
     awful.key({ modkey, "Shift"}, "b", function() awful.util.spawn("firefox") end,
     {description = "spawn a browser (firefox)"}),
     awful.key({ modkey, "Shift"}, "s", function() awful.util.spawn("spotify") end,
@@ -632,6 +644,28 @@ awful.rules.rules = {
     rule = {
         {class = "st-256color"},
         properties = {size_hints_honor = false}
+    },
+    {
+        -- make scratch windows float in the middle of the screen
+        rule = { class = "scratch" },
+        properties = {
+            floating = true,
+            x = awful.screen.focused().geometry.width * 0.25 + awful.screen.focused().geometry.x,
+            y = awful.screen.focused().geometry.height * 0.25  + awful.screen.focused().geometry.y,
+            width = awful.screen.focused().geometry.width * 0.5,
+            height = awful.screen.focused().geometry.height * 0.5,
+        }
+    },
+    {
+        -- make steam open on tag 3
+        rule_any = {
+            class = {"Steam"},
+            instance = {"Steam"},
+            name = {"Steam"}
+        },
+        properties = {
+            tag = "3"
+        }
     },
 }
 -- }}}
