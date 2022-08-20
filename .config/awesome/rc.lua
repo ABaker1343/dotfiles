@@ -67,16 +67,18 @@ beautiful.init(themepath .. "theme.lua")
 local themeFuncs = dofile(themepath .. "imports.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "st"
+-- terminal = "st"
+terminal = "kitty --single-instance -c ~/.config/kitty/kitty.conf -c ~/.config/kitty/colors.conf"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
+local compositorActive = true
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod4"
+modkey = "Mod4" -- super key
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -193,7 +195,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -314,7 +316,7 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey, "Shift"   }, "Return", function () awful.spawn(terminal) end,
+    awful.key({ modkey, "Shift"   }, "Return", function () awful.spawn.with_shell(terminal) end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -373,7 +375,7 @@ globalkeys = gears.table.join(
     -- scratch terminal
     awful.key({modkey}, "Return", function()
         --local s = awful.screen.focused()
-        awful.util.spawn(terminal .. " -c scratch")
+        awful.util.spawn("st -c scratch")
     end,
     {description = "spawn a scratch terminal"}),
 
@@ -392,9 +394,9 @@ globalkeys = gears.table.join(
     awful.key({modkey, "Shift"}, "m", function() awful.util.spawn("thunderbird") end,
     {description = "spawn an email client"}),
 
-    awful.key({ modkey, "Shift"}, "r", function() awful.util.spawn("st -e ranger") end,
+    awful.key({ modkey, "Shift"}, "r", function() awful.spawn.with_shell(terminal .. " -e ranger") end,
     {description = "spawn a terminal instance running ranger"}),
-    awful.key({ modkey, "Shift"}, "h", function() awful.util.spawn("st -e htop") end,
+    awful.key({ modkey, "Shift"}, "h", function() awful.spawn.with_shell(terminal .. " -e htop") end,
     {description = "spawn a terminal instance running htop"}),
 
     awful.key({ modkey, "Shift"}, "a", function() awful.util.spawn("sh /bin/soundSelect.sh") end,
@@ -468,7 +470,18 @@ globalkeys = gears.table.join(
             awful.layout.arrange(awful.screen.focused())
         end
     end,
-    {description = "decrease window gaps"})
+    {description = "decrease window gaps"}),
+
+    -- enable/disable compositor
+    awful.key({modkey, "Control"}, "c", function()
+        if not compositorActive then
+            awful.spawn.with_shell("picom --experimental-backend --config ~/.config/picom/picom.conf")
+        else
+            awful.spawn.with_shell("killall picom")
+        end
+        compositorActive = not compositorActive
+    end,
+    {description = "kill/restore the compositor"})
 )
 
 clientkeys = gears.table.join(
@@ -667,6 +680,12 @@ awful.rules.rules = {
             tag = "3"
         }
     },
+    {
+        rule = {class = "steam_app_.*"},
+        properties = {
+            fullscreen = true
+        }
+    }
 }
 -- }}}
 
@@ -734,4 +753,8 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}-
 
+-- set the starting layouts
+-- set the initial layout to tile
 awful.layout.set(awful.layout.suit.tile)
+-- set screen 1 tag 3 to max layout (this screen is used for steam and games)
+awful.tag.find_by_name(awful.screen[1], "").layout = awful.layout.suit.max

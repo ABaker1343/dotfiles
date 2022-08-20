@@ -2,10 +2,6 @@
 
 #contentAreaContextMenu{ margin: 20px 20px 20px 20px }
 
-/*hbox {
-    background-color: var(--color0) !important;
-}*/
-
 #nav-bar {
     background-color: var(--color0) !important;
 }
@@ -14,19 +10,19 @@
     background-color: var(--color0) !important;
 }
 
-.tabbrowser-tab {
-    background-color: var(--color0) !important;
+#tabbrowser-arrowscrollbox {
+    background-color: var(--color1) !important;
 }
 
 .tabbrowser-tab .tab-stack {
-    background-color: var(--color0) !important;
+    background-color: var(--color1) !important;
 }
 
 .tabbrowser-tab .tab-background:not([selected]) {
     background-color: var(--color0) !important;
 } 
 .tabbrowser-tab .tab-background[selected] {
-    background-color: var(--color1) !important;
+    background-color: var(--color2) !important;
     background-image: none !important;
 }
 
@@ -50,20 +46,10 @@
 }
 
 .urlbarView {
-    /*background-color: var(--color2) !important;*/
     background-color: var(--color0) !important;
     margin: none !important;
     border: none !important;
 }
-
-/*.urlbarView-body-outer {
-    background-color: var(--color2) !important;
-}*/
-
-/*.urlbarView-body-inner {
-    background-color: var(--color2) !important;
-}*/
-
 
 #nav-bar-customization-target {
     background-color: var(--color0) !important;
@@ -81,7 +67,7 @@
 /* home page customisations */
 
 @-moz-document url-prefix(about:home), url-prefix(about:newtab) {
-
+    background-color: var(--color1) !important;
     #root {
         background-color: var(--color2) !important;
     }
@@ -90,8 +76,4 @@
         background-color: var(--color2) !important;
     }
 
-}
-
-.top-site-outer {
-    background-color: var(--color2) !important;
 }

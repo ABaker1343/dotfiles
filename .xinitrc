@@ -1,3 +1,4 @@
+#
 # set up monitors
 xrandr --output HDMI-0 --pos 0x0 --output DVI-D-0 --primary --mode 1920x1080 --pos 1024x0 --rate 144.00
 
@@ -25,6 +26,7 @@ picom --experimental-backend --config ~/.config/picom/picom.conf &
 
 # restore the desktop background
 wal -R -n
+echo "background_opacity 0.75" >> ~/.cache/wal/colors-kitty.conf
 #nitrogen --restore
 
 # start flameshot so that you can copy screenshots
@@ -32,6 +34,9 @@ flameshot &
 
 # start the nightlight
 redshift -l 50:3.5 &
+
+# clipboard manager
+copyq &
 
 # start the window manager
 #exec budgie-desktop
