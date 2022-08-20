@@ -437,6 +437,9 @@ globalkeys = gears.table.join(
     awful.key({modkey}, "s", function() awful.layout.set(awful.layout.suit.max) end,
     {description = "set layout max"}),
 
+    awful.key({modkey}, "y", function() awful.layout.set(awful.layout.suit.floating) end,
+    {description = "set layout floating"}),
+
     -- theme keys
     awful.key({modkey, "Control"}, "l", function()
         local f = io.open(cThemePath, "w")
@@ -677,7 +680,7 @@ awful.rules.rules = {
             name = {"Steam"}
         },
         properties = {
-            tag = "3"
+            tag = ""
         }
     },
     {

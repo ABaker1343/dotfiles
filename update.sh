@@ -19,6 +19,7 @@ cp ~/.mozilla/firefox/m5q2ch62.default-release/chrome/userChrome.css ~/.source/d
 
 #spicetify colors file
 cp ~/.config/spicetify/Themes/marketplace/color.ini ~/.source/dotfiles/color.ini
+
 # shell scripts
-cp /bin/soundSelect.sh ~/.source/dotfiles/soundSelect.sh
-cp /bin/setbg ~/.source/dotfiles/setbg
+cp /bin/soundSelect.sh ~/.source/dotfiles/scripts/soundSelect.sh
+cp /bin/setbg ~/.source/dotfiles/scripts/setbg

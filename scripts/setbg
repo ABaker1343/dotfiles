@@ -2,6 +2,7 @@
 cp $1 ~/bg/bg1.png
 wal -n -i ~/bg/bg1.png
 echo "background_opacity 0.75" >> ~/.cache/wal/colors-kitty.conf
+~/.spicetify/spicetify apply
 cd ~/.source/st/
 sudo make clean install
 
