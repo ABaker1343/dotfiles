@@ -1,9 +1,0 @@
-"colorscheme monokai
-colorscheme colors-wal
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set number
-set relativenumber
-set splitright
-lua require('plugins')

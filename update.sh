@@ -17,8 +17,8 @@ cp -r ~/.config/picom ~/.source/dotfiles/.config/
 
 cp ~/.mozilla/firefox/m5q2ch62.default-release/chrome/userChrome.css ~/.source/dotfiles/userChrome.css
 
-#spicetify colors file
-cp ~/.config/spicetify/Themes/marketplace/color.ini ~/.source/dotfiles/color.ini
+#spicetify theme and colors files
+cp -r ~/.spicetify/Themes/Sleek ~/.source/dotfiles/spicetify-themes/
 
 # shell scripts
 cp /bin/soundSelect.sh ~/.source/dotfiles/scripts/soundSelect.sh
