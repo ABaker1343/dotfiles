@@ -18,6 +18,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+--local power = require("power_widget")
+
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -71,7 +74,17 @@ local themeFuncs = dofile(themepath .. "imports.lua")
 terminal = "kitty --single-instance -c ~/.config/kitty/kitty.conf -c ~/.config/kitty/colors.conf"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
-local compositorActive = true
+local compositorActive = false
+
+--power.warning_config = {
+    --percentage = 15,
+    --message = "Low battery",
+    --preset = {
+        --shape = gears.shape.rounded_rect,
+        --bg = "#a0a0a0",
+        --fg = "fffffff",
+    --},
+--}
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -255,6 +268,7 @@ awful.screen.connect_for_each_screen(function(s)
                 layout = wibox.container.place,
                 halign = "right",
                 wibox.widget.systray(),
+                power,
             }
         }
     }
@@ -683,6 +697,13 @@ awful.rules.rules = {
             tag = ""
         }
     },
+    {
+        rule = {class = "steam_app.*"},
+        properties = {
+            tag = "",
+            fullscreen = true,
+        }
+    },
 }
 -- }}}
 
@@ -755,3 +776,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.layout.set(awful.layout.suit.tile)
 -- set screen 1 tag 3 to max layout (this screen is used for steam and games)
 awful.tag.find_by_name(awful.screen[1], "").layout = awful.layout.suit.max
+
+-- launch the compositor
+awful.spawn.with_shell("killall picom && picom --experimental-backend --config ~/.config/picom/picom"..theme..".conf")
+awful.spawn.with_shell("picom --experimental-backend --config ~/.config/picom/picom"..theme..".conf")
+compositorActive = true

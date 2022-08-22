@@ -1,4 +1,6 @@
 #
+make sure the luarocks path is set
+eval "$(luarocks path --bin)"
 # set up monitors
 xrandr --output HDMI-0 --pos 0x0 --output DVI-D-0 --primary --mode 1920x1080 --pos 1024x0 --rate 144.00
 
@@ -22,7 +24,7 @@ dunst &
 
 # start the composite manager
 #xcompmgr -f -C -I 0.030 -O 0.036 -D 5 &
-picom --experimental-backend --config ~/.config/picom/picom.conf &
+#picom --experimental-backend --config ~/.config/picom/picom.conf &
 
 # restore the desktop background
 wal -R -n
