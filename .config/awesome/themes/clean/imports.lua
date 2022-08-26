@@ -19,4 +19,8 @@ function themeFuncs.themeWibar(screen, visible)
     })
 end
 
+function themeFuncs.startCompositor()
+    awful.spawn.with_shell("killall picom")
+end
+
 return themeFuncs

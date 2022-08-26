@@ -19,6 +19,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 --local power = require("power_widget")
+local battery_widget = require("battery-widget")
 
 
 -- {{{ Error handling
@@ -268,8 +269,15 @@ awful.screen.connect_for_each_screen(function(s)
                 layout = wibox.container.place,
                 halign = "right",
                 wibox.widget.systray(),
-                power,
-            }
+                battery_widget {
+                    battery_prefix = {
+                        {25, "#--- "},
+                        {50, "##-- "},
+                        {75, "###- "},
+                        {100, "#### "},
+                    },
+                },
+            },
         }
     }
 end)
@@ -492,7 +500,7 @@ globalkeys = gears.table.join(
     -- enable/disable compositor
     awful.key({modkey, "Control"}, "c", function()
         if not compositorActive then
-            awful.spawn.with_shell("picom --experimental-backend --config ~/.config/picom/picom.conf")
+            themeFuncs.startCompositor()
         else
             awful.spawn.with_shell("killall picom")
         end
@@ -778,6 +786,5 @@ awful.layout.set(awful.layout.suit.tile)
 awful.tag.find_by_name(awful.screen[1], "").layout = awful.layout.suit.max
 
 -- launch the compositor
-awful.spawn.with_shell("killall picom && picom --experimental-backend --config ~/.config/picom/picom"..theme..".conf")
-awful.spawn.with_shell("picom --experimental-backend --config ~/.config/picom/picom"..theme..".conf")
+themeFuncs.startCompositor()
 compositorActive = true

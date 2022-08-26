@@ -20,4 +20,16 @@ function themeFuncs.themeWibar(screen, visible)
     })
 end
 
+function themeFuncs.startCompositor()
+    local handle = io.popen("pidof picom")
+    if not handle then return end
+    local result = handle:read("*a")
+    handle:close()
+    if not result == "\n" then
+        awful.spawn.with_shell("killall picom && picom --experimental-backend --config ~/.config/picom/picomdefault.conf")
+    else
+        awful.spawn.with_shell("picom --experimental-backend --config ~/.config/picom/picomdefault.conf")
+    end
+end
+
 return themeFuncs

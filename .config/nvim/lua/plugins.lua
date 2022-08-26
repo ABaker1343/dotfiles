@@ -24,7 +24,8 @@ end)
 
 local lspconfig = require('lspconfig')
 
-lspconfig.ccls.setup {}
+--lspconfig.ccls.setup {}
+lspconfig.clangd.setup {}
 lspconfig.gopls.setup {}
 lspconfig.sumneko_lua.setup {}
 lspconfig.pyright.setup {}
