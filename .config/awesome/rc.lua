@@ -267,10 +267,10 @@ awful.screen.connect_for_each_screen(function(s)
             battery_widget {
                 adapter = "BAT0",
                 battery_prefix = {
-                    {25, "#---"},
-                    {50, "##--"},
-                    {75, "###-"},
-                    {100, "####"},
+                    {25, "[#---]"},
+                    {50, "[##--]"},
+                    {75, "[###-]"},
+                    {100, "[####]"},
                 }
             },
             {
