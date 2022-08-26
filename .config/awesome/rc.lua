@@ -263,20 +263,20 @@ awful.screen.connect_for_each_screen(function(s)
             halign = "center",
         },
         {
-            --layout = wibox.layout.flex.horizontal,
             layout = wibox.layout.flex.horizontal,
+            battery_widget {
+                adapter = "BAT0",
+                battery_prefix = {
+                    {25, "#---"},
+                    {50, "##--"},
+                    {75, "###-"},
+                    {100, "####"},
+                }
+            },
             {
                 layout = wibox.container.place,
                 halign = "right",
                 wibox.widget.systray(),
-                battery_widget {
-                    battery_prefix = {
-                        {25, "#--- "},
-                        {50, "##-- "},
-                        {75, "###- "},
-                        {100, "#### "},
-                    },
-                },
             },
         }
     }
