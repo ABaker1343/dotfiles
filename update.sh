@@ -23,3 +23,4 @@ cp -r ~/.spicetify/Themes/Sleek ~/.source/dotfiles/spicetify-themes/
 # shell scripts
 cp /bin/soundSelect.sh ~/.source/dotfiles/scripts/soundSelect.sh
 cp /bin/setbg ~/.source/dotfiles/scripts/setbg
+cp /bin/layoutSelect.sh ~/.source/dotfiles/scripts/layoutSelect.sh

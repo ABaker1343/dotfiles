@@ -17,5 +17,6 @@ echo "userChrome.css will have to be installed manually"
 
 cp -r spicetify-themes/* ~/.spicetify/Themes
 
-cp scripts/soundSelect.sh /bin/soundSelect.sh
-cp scripts/setbg /bin/setbg
+sudo cp scripts/soundSelect.sh /bin/soundSelect.sh
+sudo cp scripts/setbg /bin/setbg
+sudo cp scripts/layoutSelect.sh /bin/layoutSelect.sh

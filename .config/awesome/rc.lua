@@ -19,8 +19,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 --local power = require("power_widget")
-local battery_widget = require("battery-widget")
-
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -59,6 +57,7 @@ local themeFile = io.open(cThemePath)
 if themeFile then
     theme = themeFile:read("*a")
     themeFile:close()
+    theme = theme:sub(1, -2) -- remove the newline
     gears.debug.print_warning(theme)
     gears.debug.print_warning("theme found")
 else
@@ -148,6 +147,21 @@ mytextclock = wibox.widget.textclock()
 local mymonthcalendar = awful.widget.calendar_popup.month()
  --attach to the clock and position top center
 mymonthcalendar:attach(mytextclock, "tc")
+
+-- battery widget
+local battery_widget = require("battery-widget") {
+    adapter = "BAT0",
+    battery_prefix = {
+        {25, "[#---]"},
+        {50, "[##--]"},
+        {75, "[###-]"},
+        {100, "[####]"},
+    }
+}
+
+-- volume widget
+local volume_widget, volume_timer = awful.widget.watch('sh -c "pactl get-sink-volume @DEFAULT_SINK@ | awk \'{print $5}\'"', 60*5)
+
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -240,6 +254,14 @@ awful.screen.connect_for_each_screen(function(s)
     else s.isBarVisible = false
     end
 
+    -- if theme is laptop then we dont need a battery widget
+    if theme ~= "laptop" then
+        battery_widget = wibox.widget {
+            markup = "",
+            widget = wibox.widget.textbox,
+        }
+    end
+
     -- Create the wibox
     s.mywibox = themeFuncs.themeWibar(s, s.isBarVisible)
 
@@ -264,15 +286,8 @@ awful.screen.connect_for_each_screen(function(s)
         },
         {
             layout = wibox.layout.flex.horizontal,
-            battery_widget {
-                adapter = "BAT0",
-                battery_prefix = {
-                    {25, "[#---]"},
-                    {50, "[##--]"},
-                    {75, "[###-]"},
-                    {100, "[####]"},
-                }
-            },
+            battery_widget,
+            volume_widget,
             {
                 layout = wibox.container.place,
                 halign = "right",
@@ -427,12 +442,25 @@ globalkeys = gears.table.join(
     awful.key({}, "Print", function() awful.util.spawn("flameshot gui") end,
     {description = "spawn flameshot for taking screenshots"}),
 
+    -- media control keys
+
     awful.key({ modkey}, "F7", function() awful.util.spawn("playerctl -p spotify next") end,
     {description = "next spotify track"}),
     awful.key({ modkey}, "F6", function() awful.util.spawn("playerctl -p spotify play-pause") end,
     {descrption = "spotify play/pause"}),
     awful.key({ modkey}, "F5", function() awful.util.spawn("playerctl -p spotify previous") end,
     {description = "previous spotify track"}),
+
+    awful.key({modkey}, "F2", function()
+        awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ -10%")
+        volume_timer:emit_signal("timeout")
+    end,
+    {description = "Lower system volume by 10%"}),
+    awful.key({modkey}, "F3", function()
+        awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ +10%")
+        volume_timer:emit_signal("timeout")
+    end,
+    {description = "Raise system volume by 10%"}),
 
     awful.key({modkey}, "F10", function() awful.util.spawn("transset-df -a 0.8") end,
     {description = "add transparency to current window"}),
@@ -464,16 +492,7 @@ globalkeys = gears.table.join(
 
     -- theme keys
     awful.key({modkey, "Control"}, "l", function()
-        local f = io.open(cThemePath, "w")
-        if not f then return end
-        io.output(f)
-        if theme == "default" then
-            io.write("clean")
-        else
-            io.write("default")
-        end
-        f:close()
-        awesome.restart()
+        awful.util.spawn("/bin/layoutSelect.sh")
     end,
     {description = "change the current theme"}),
 
