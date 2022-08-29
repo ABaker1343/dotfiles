@@ -10,3 +10,5 @@ vim.opt.smartindent = true
 vim.opt.splitright = true
 
 vim.opt.cursorline = true
+
+vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeOpen<CR>", {})

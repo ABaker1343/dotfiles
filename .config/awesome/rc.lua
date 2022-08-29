@@ -801,6 +801,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- set the starting layouts
 -- set the initial layout to tile
 awful.layout.set(awful.layout.suit.tile)
+awful.tag.incmwfact(0.05)
 -- set screen 1 tag 3 to max layout (this screen is used for steam and games)
 awful.tag.find_by_name(awful.screen[1], "").layout = awful.layout.suit.max
 
