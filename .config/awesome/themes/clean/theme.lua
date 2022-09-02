@@ -22,7 +22,7 @@ theme.bg_urgent     = xres.color4
 theme.bg_minimize   = xres.color3
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = xres.color0
+theme.fg_normal     = xres.color7
 theme.fg_focus      = xres.color7
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
