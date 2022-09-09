@@ -14,7 +14,8 @@ local theme = {}
 
 local xres = xresources.get_current_theme ()
 
-theme.font          = "UbuntuMonoLigaturized 16"
+--theme.font          = "UbuntuMonoLigaturized 16"
+theme.font          = "Go Mono Bold Nerd Font Complete 14"
 
 theme.bg_normal     = xres.color1
 theme.bg_focus      = xres.color0

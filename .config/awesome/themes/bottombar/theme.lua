@@ -14,7 +14,8 @@ local theme = {}
 
 local xres = xresources.get_current_theme ()
 
-theme.font          = "UbuntuMonoLigaturized 16"
+--theme.font          = "UbuntuMonoLigaturized 16"
+theme.font          = "Go Mono Bold Nerd Font Complete 14"
 
 theme.bg_normal     = xres.color1
 theme.bg_focus      = xres.color0
@@ -28,7 +29,7 @@ theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
 theme.useless_gap   = 4
-theme.border_width  = dpi(3)
+theme.border_width  = dpi(2)
 theme.border_normal = xres.color0
 theme.border_focus  = xres.color7
 theme.border_marked = "#91231c"
