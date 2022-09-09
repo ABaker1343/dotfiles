@@ -574,7 +574,7 @@ clientkeys = gears.table.join(
         -- brightness keys
         awful.key({modkey}, "F4", function() awful.spawn.with_shell("xbacklight -dec 10") end,
         {description = "lower brightness by 10%"}),
-        awful.key({modkey}, "F5", function() awful.spawn.with_shell("xbacklight -inc 10") end,
+        awful.key({modkey, "Control"}, "F5", function() awful.spawn.with_shell("xbacklight -inc 10") end,
         {description = "increase brightness by 10%"})
 )
 
