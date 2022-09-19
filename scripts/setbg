@@ -1,6 +1,25 @@
 #!/bin/sh
-cp $1 ~/bg/bg1.png
-wal -n -i ~/bg/bg1.png
+saturation=""
+file=""
+while getopts "f:s:" opt; do
+    case $opt in
+    s) saturation=$OPTARG;;
+    f) file=$OPTARG;;
+    ?) echo "invalid switch\n"; exit;;
+    esac
+done
+if [ ! -n "$file" ]; then
+    exit
+fi
+
+cp $file ~/bg/bg1.png
+
+if [ ! -n "$saturation" ]; then
+    wal -n -i ~/bg/bg1.png
+else
+    wal -n -i ~/bg/bg1.png --saturate $saturation
+fi
+
 echo "background_opacity 0.75" >> ~/.cache/wal/colors-kitty.conf
 cd ~/.source/st/
 sudo make clean install
