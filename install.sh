@@ -4,6 +4,7 @@ cp .bash_profile ~/.bash_profile
 cp .xinitrc ~/.xinitrc
 
 cp -r .config/kitty ~/.config/
+cp -r .config/alacritty ~/.config/
 cp -r .config/nvim ~/.config/
 cp -r .config/ranger ~/.config/
 
@@ -20,3 +21,4 @@ cp -r spicetify-themes/* ~/.spicetify/Themes
 sudo cp scripts/soundSelect.sh /bin/soundSelect.sh
 sudo cp scripts/setbg /bin/setbg
 sudo cp scripts/layoutSelect.sh /bin/layoutSelect.sh
+sudo cp scripts/pywal-extender/pywal-extender /bin/pywal-extender

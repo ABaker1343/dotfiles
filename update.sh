@@ -5,6 +5,7 @@ cp ~/.bash_profile ~/.source/dotfiles/.bash_profile
 cp ~/.xinitrc ~/.source/dotfiles/.xinitrc
 
 cp -r ~/.config/kitty ~/.source/dotfiles/.config/
+cp -r ~/.config/alacritty ~/.source/dotfiles/.config/
 cp -r ~/.config/nvim ~/.source/dotfiles/.config/
 cp -r ~/.config/ranger ~/.source/dotfiles/.config/
 

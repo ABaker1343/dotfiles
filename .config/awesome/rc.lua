@@ -71,7 +71,8 @@ local themeFuncs = dofile(themepath .. "imports.lua")
 
 -- This is used later as the default terminal and editor to run.
 -- terminal = "st"
-terminal = "kitty --single-instance -c ~/.config/kitty/kitty.conf -c ~/.config/kitty/colors.conf"
+-- terminal = "kitty --single-instance -c ~/.config/kitty/kitty.conf -c ~/.config/kitty/colors.conf"
+terminal = "alacritty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 local compositorActive = false
