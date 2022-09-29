@@ -18,4 +18,4 @@ alias icat='kitty +kitten icat'
 # PS1='[\u@\h \W]\$ '
 PS1='\[\e[1;32m\]\W \[\e[1;34m\] >>\[\e[0m\] '
 
-export PATH=$PATH:/home/alex/.spicetify
+export PATH=$PATH:/home/alex/.spicetify:~/.local/bin/
