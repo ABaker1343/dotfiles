@@ -20,6 +20,13 @@ packer.startup(function()
     }
 
     packer.use {
+        "folke/trouble.nvim",
+        requires = {
+            'kyazdani42/nvim-web-devicons'
+        },
+    }
+
+    packer.use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
@@ -105,3 +112,9 @@ tree.setup {
     }
 }
 
+-- set up trouble plugin
+
+trouble = require("trouble")
+trouble.setup {
+
+}
