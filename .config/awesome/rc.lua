@@ -164,6 +164,10 @@ local battery_widget = require("battery-widget") {
 local volume_widget, volume_timer = awful.widget.watch('sh -c "pactl get-sink-volume @DEFAULT_SINK@ | awk \'{print $5}\'"', 60*5)
 
 
+function is_terminal(c)
+    return (c.class and c.class:match(terminal)) and true or false
+end
+
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
@@ -526,7 +530,12 @@ globalkeys = gears.table.join(
         end
         compositorActive = not compositorActive
     end,
-    {description = "kill/restore the compositor"})
+    {description = "kill/restore the compositor"}),
+
+
+    -- screen recorder hotkeys
+    awful.key({modkey}, "F12", function() awful.spawn.with_shell("killall -SIGUSR1 gpu-screen-recorder") end,
+    {description = "save a replay video using screen recorder"})
 )
 
 clientkeys = gears.table.join(
@@ -803,6 +812,16 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.connect_signal("manage", function(c)
+    if is_terminal(c) then
+        return
+    end
+    local parent_client = awful.client.focus.history.get(c.screen, 1)
+    if parent_client and is_terminal(parent_client) then
+        parent_client:map(1)
+    end
+end
+)
 -- }}}-
 
 -- set the starting layouts
