@@ -582,14 +582,14 @@ clientkeys = gears.table.join(
         {description = "(un)maximize horizontally", group = "client"}),
 
         -- brightness keys
-        awful.key({modkey, "Control"}, "F4", function() awful.spawn.with_shell("brightnessctl -c backlight s +10%") end,
+        awful.key({modkey, "Control"}, "F4", function() awful.spawn.with_shell("brightnessctl -c backlight s 10%-") end,
         {description = "lower brightness by 10%"}),
-        awful.key({modkey, "Control"}, "F5", function() awful.spawn.with_shell("brightnessctl -c backlight s 10%-") end,
+        awful.key({modkey, "Control"}, "F5", function() awful.spawn.with_shell("brightnessctl -c backlight s +10%") end,
         {description = "increase brightness by 10%"}),
 
-        awful.key({modkey, "Control", "Shift"}, "F4", function() awful.spawn.with_shell("brightnessctl -d *kbd_backlight s +50%") end,
+        awful.key({modkey, "Control", "Shift"}, "F4", function() awful.spawn.with_shell("brightnessctl -d *kbd_backlight s 50%-") end,
         {description = "lower brightness by 10%"}),
-        awful.key({modkey, "Control", "Shift"}, "F5", function() awful.spawn.with_shell("brightnessctl -d *kbd_backlight s 50%-") end,
+        awful.key({modkey, "Control", "Shift"}, "F5", function() awful.spawn.with_shell("brightnessctl -d *kbd_backlight s +50%") end,
         {description = "increase brightness by 10%"})
 )
 
