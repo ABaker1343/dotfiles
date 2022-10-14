@@ -43,6 +43,9 @@ copyq &
 #start screen recorder
 gpu-screen-recorder -c mp4 -f 60 -w DVI-D-0 -a "$(pactl get-default-sink).monitor" -a "$(pactl get-default-source)" -o /bigboi/recorder-save -r 30 &
 
+# start the network manager
+nm-applet &
+
 # start the window manager
 #exec budgie-desktop
 #exec dwm
