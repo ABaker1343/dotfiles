@@ -13,10 +13,13 @@ if [ ! -n "$file" ]; then
 fi
 
 cp $file ~/bg/bg1.png
+echo "new background: $file"
 
-if [ ! -n "$saturation" ]; then
+if test -z "$saturation"; then
+    echo "no saturation given"
     wal -n -i ~/bg/bg1.png
 else
+    echo "saturation $saturation"
     wal -n -i ~/bg/bg1.png --saturate $saturation
 fi
 
