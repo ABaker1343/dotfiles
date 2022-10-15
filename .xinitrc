@@ -41,7 +41,7 @@ redshift -l 50:3.5 &
 copyq &
 
 #start screen recorder
-gpu-screen-recorder -c mp4 -f 60 -w DVI-D-0 -a "$(pactl get-default-sink).monitor" -a "$(pactl get-default-source)" -o /bigboi/recorder-save -r 30 &
+gpu-screen-recorder -c mp4 -f 60 -w DVI-D-0 -a "$(pactl get-default-sink).monitor" -a "$(pactl get-default-source)" -o /bigboi/recorder-save -r 60 &
 
 # start the network manager
 nm-applet &
