@@ -427,7 +427,7 @@ globalkeys = gears.table.join(
     {description = "spawn spotify"}),
     awful.key({ modkey, "Shift"}, "d", function() awful.util.spawn("discord") end,
     {description = "spawn discord"}),
-    awful.key({ modkey, "Shift"}, "g", function() awful.util.spawn("steam") end,
+    awful.key({ modkey, "Shift"}, "g", function() awful.spawn.with_shell("gamemoderun steam") end,
     {description = "spawn steam"}),
     awful.key({ modkey, "Shift"}, "p", function() awful.util.spawn("firefox --private") end,
     {description = "spawn private browser (firefox)"}),
