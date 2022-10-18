@@ -17,10 +17,10 @@ echo "new background: $file"
 
 if test -z "$saturation"; then
     echo "no saturation given"
-    wal -n -i ~/bg/bg1.png
+    wal -n -i $file
 else
     echo "saturation $saturation"
-    wal -n -i ~/bg/bg1.png --saturate $saturation
+    wal -n -i $file --saturate $saturation
 fi
 
 echo "background_opacity 0.75" >> ~/.cache/wal/colors-kitty.conf
