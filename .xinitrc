@@ -2,7 +2,7 @@
 make sure the luarocks path is set
 eval "$(luarocks path --bin)"
 # set up monitors
-xrandr --output HDMI-0 --pos 0x0 --output DVI-D-0 --primary --mode 1920x1080 --pos 1024x0 --rate 144.00
+xrandr --output HDMI-A-0 --mode 1024x768 --pos 0x0 --output DisplayPort-2 --primary --mode 1920x1080 --pos 1024x0 --rate 144.00
 
 # set up the mouse
 #MOUSE=$(xinput list --id-only "Razer Razer Viper Mini")
