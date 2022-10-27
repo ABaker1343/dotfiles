@@ -42,6 +42,7 @@ lspconfig.clangd.setup {}
 lspconfig.gopls.setup {}
 lspconfig.sumneko_lua.setup {}
 lspconfig.pyright.setup {}
+lspconfig.texlab.setup {}
 
 -- configure cmp
 
