@@ -9,7 +9,7 @@ function themeFuncs.themeWibar(screen, visible)
         visible = visible,
         position = "top",
         width = screen.geometry.width,
-        height = screen.geometry.height * 0.027,
+        height = screen.geometry.height * 0.035,
         border_width = 0,
         ontop = false,
 
