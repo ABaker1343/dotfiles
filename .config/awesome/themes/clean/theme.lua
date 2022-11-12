@@ -17,8 +17,8 @@ local xres = xresources.get_current_theme ()
 --theme.font          = "UbuntuMonoLigaturized 16"
 theme.font          = "Go Mono Bold Nerd Font Complete 14"
 
-theme.bg_normal     = xres.color1
-theme.bg_focus      = xres.color0
+theme.bg_normal     = "#000000"
+theme.bg_focus      = "#5f5f5f"
 theme.bg_urgent     = xres.color4
 theme.bg_minimize   = xres.color3
 theme.bg_systray    = theme.bg_normal
@@ -28,7 +28,7 @@ theme.fg_focus      = xres.color7
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap   = 0
+theme.useless_gap   = 2
 theme.border_width  = dpi(1)
 theme.border_normal = xres.color0
 theme.border_focus  = xres.color7
