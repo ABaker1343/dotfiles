@@ -43,6 +43,16 @@ lspconfig.gopls.setup {}
 lspconfig.sumneko_lua.setup {}
 lspconfig.pyright.setup {}
 lspconfig.texlab.setup {}
+lspconfig.glslls.setup {
+    cmd = {
+        "glslls", "--stdin",
+    },
+    filetypes = {
+        "glsl",
+        "vert",
+        "frag",
+    }
+}
 
 -- configure cmp
 

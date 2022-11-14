@@ -419,65 +419,65 @@ globalkeys = gears.table.join(
         --local s = awful.screen.focused()
         awful.util.spawn("st -c scratch")
     end,
-    {description = "spawn a scratch terminal"}),
+    {description = "spawn a scratch terminal", group="spawning"}),
 
     awful.key({ modkey, "Shift"}, "b", function() awful.util.spawn("firefox") end,
-    {description = "spawn a browser (firefox)"}),
+    {description = "spawn a browser (firefox)", group="spawning"}),
     awful.key({ modkey, "Shift"}, "s", function() awful.util.spawn("spotify") end,
-    {description = "spawn spotify"}),
+    {description = "spawn spotify", group="spawning"}),
     awful.key({ modkey, "Shift"}, "d", function() awful.util.spawn("discord") end,
-    {description = "spawn discord"}),
+    {description = "spawn discord", group="spawning"}),
     awful.key({ modkey, "Shift"}, "g", function() awful.spawn.with_shell("gamemoderun steam") end,
-    {description = "spawn steam with gamemode"}),
+    {description = "spawn steam with gamemode", group="spawning"}),
     awful.key({modkey, "Control"}, "g", function() awful.spawn.with_shell("bottles") end,
-    {description = "spawn bottles with gamemode"}),
+    {description = "spawn bottles with gamemode", group="spawning"}),
     awful.key({ modkey, "Shift"}, "p", function() awful.util.spawn("firefox --private") end,
-    {description = "spawn private browser (firefox)"}),
+    {description = "spawn private browser (firefox)", group="spawning"}),
     awful.key({modkey , "Shift"}, "f", function() awful.util.spawn("pcmanfm") end,
-    {description = "spawn a gui file manager"}),
+    {description = "spawn a gui file manager", group="spawning"}),
     awful.key({modkey, "Shift"}, "m", function() awful.util.spawn("thunderbird") end,
-    {description = "spawn an email client"}),
+    {description = "spawn an email client", group="spawning"}),
 
     awful.key({ modkey, "Shift"}, "r", function() awful.spawn.with_shell(terminal .. " -e ranger") end,
-    {description = "spawn a terminal instance running ranger"}),
+    {description = "spawn a terminal instance running ranger", group="spawning"}),
     awful.key({ modkey, "Shift"}, "h", function() awful.spawn.with_shell(terminal .. " -e htop") end,
-    {description = "spawn a terminal instance running htop"}),
+    {description = "spawn a terminal instance running htop", group="spawning"}),
 
     awful.key({ modkey, "Shift"}, "a", function() awful.util.spawn("sh /bin/soundSelect.sh") end,
-    {desription = "spawn dmenu for selecting audio output"}),
+    {desription = "spawn dmenu for selecting audio output", group="spawning"}),
 
     awful.key({}, "Print", function() awful.util.spawn("flameshot gui") end,
-    {description = "spawn flameshot for taking screenshots"}),
+    {description = "spawn flameshot for taking screenshots", group="spawning"}),
 
     -- media control keys
 
     awful.key({ modkey}, "F7", function() awful.util.spawn("playerctl -p spotify next") end,
-    {description = "next spotify track"}),
+    {description = "next spotify track", group="media"}),
     awful.key({ modkey}, "F6", function() awful.util.spawn("playerctl -p spotify play-pause") end,
-    {descrption = "spotify play/pause"}),
+    {descrption = "spotify play/pause", group="media"}),
     awful.key({ modkey}, "F5", function() awful.util.spawn("playerctl -p spotify previous") end,
-    {description = "previous spotify track"}),
+    {description = "previous spotify track", group="media"}),
 
     awful.key({modkey}, "F2", function()
         awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ -10%")
         volume_timer:emit_signal("timeout")
     end,
-    {description = "Lower system volume by 10%"}),
+    {description = "Lower system volume by 10%", group="media"}),
     awful.key({modkey}, "F3", function()
         awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ +10%")
         volume_timer:emit_signal("timeout")
     end,
-    {description = "Raise system volume by 10%"}),
+    {description = "Raise system volume by 10%", group="media"}),
 
     awful.key({modkey}, "F10", function() awful.util.spawn("transset-df -a 0.8") end,
-    {description = "add transparency to current window"}),
+    {description = "add transparency to current window", group="compositor"}),
     awful.key({modkey}, "F9", function() awful.util.spawn("transset-df -a 1") end,
-    {description = "remove transparency from current window"}),
+    {description = "remove transparency from current window", group="compositor"}),
 
     awful.key({modkey}, "b", function() local myscreen = awful.screen.focused()
         myscreen.mywibox.visible = not myscreen.mywibox.visible
     end,
-    {description = "toggle bar visibility"}),
+    {description = "toggle bar visibility", group="awesome"}),
 
 
     -- layout keys
@@ -489,19 +489,19 @@ globalkeys = gears.table.join(
             awful.layout.set(awful.layout.suit.tile)
         end
     end,
-    {description = "toggle tile right and tile bottom"}),
+    {description = "toggle tile right and tile bottom", group="layout"}),
 
     awful.key({modkey}, "s", function() awful.layout.set(awful.layout.suit.max) end,
-    {description = "set layout max"}),
+    {description = "set layout max", group="layout"}),
 
     awful.key({modkey}, "y", function() awful.layout.set(awful.layout.suit.floating) end,
-    {description = "set layout floating"}),
+    {description = "set layout floating", group="layout"}),
 
     -- theme keys
     awful.key({modkey, "Control"}, "l", function()
         awful.util.spawn("/bin/layoutSelect.sh")
     end,
-    {description = "change the current theme"}),
+    {description = "change the current theme", group="layout"}),
 
     -- gaps keys
     awful.key({modkey, "Control"}, "Page_Up", function()
@@ -512,7 +512,7 @@ globalkeys = gears.table.join(
             awful.layout.arrange(awful.screen.focused())
         end
     end,
-    {description = "increase window gaps"}),
+    {description = "increase window gaps", group="layout"}),
     awful.key({modkey, "Control"}, "Page_Down", function()
         if beautiful.useless_gap >= 0 then
             --beautiful.useless_gap = beautiful.useless_gap - 4
@@ -521,7 +521,7 @@ globalkeys = gears.table.join(
             awful.layout.arrange(awful.screen.focused())
         end
     end,
-    {description = "decrease window gaps"}),
+    {description = "decrease window gaps", group="layout"}),
 
     -- enable/disable compositor
     awful.key({modkey, "Control"}, "c", function()
@@ -532,7 +532,7 @@ globalkeys = gears.table.join(
         end
         compositorActive = not compositorActive
     end,
-    {description = "kill/restore the compositor"}),
+    {description = "kill/restore the compositor", group="compositor"}),
 
 
     -- screen recorder hotkeys
@@ -585,14 +585,14 @@ clientkeys = gears.table.join(
 
         -- brightness keys
         awful.key({modkey, "Control"}, "F4", function() awful.spawn.with_shell("brightnessctl -c backlight s 10%-") end,
-        {description = "lower brightness by 10%"}),
+        {description = "lower brightness by 10%", group="brightness"}),
         awful.key({modkey, "Control"}, "F5", function() awful.spawn.with_shell("brightnessctl -c backlight s +10%") end,
-        {description = "increase brightness by 10%"}),
+        {description = "increase brightness by 10%", group="brightness"}),
 
         awful.key({modkey, "Control", "Shift"}, "F4", function() awful.spawn.with_shell("brightnessctl -d *kbd_backlight s 50%-") end,
-        {description = "lower brightness by 10%"}),
+        {description = "lower brightness by 10%", group="brightness"}),
         awful.key({modkey, "Control", "Shift"}, "F5", function() awful.spawn.with_shell("brightnessctl -d *kbd_backlight s +50%") end,
-        {description = "increase brightness by 10%"})
+        {description = "increase brightness by 10%", group="brightness"})
 )
 
 -- Bind all key numbers to tags.
