@@ -150,15 +150,21 @@ local mymonthcalendar = awful.widget.calendar_popup.month()
 mymonthcalendar:attach(mytextclock, "tc")
 
 -- battery widget
-local battery_widget = require("battery-widget") {
-    adapter = "BAT0",
-    battery_prefix = {
-        {25, "[#---]"},
-        {50, "[##--]"},
-        {75, "[###-]"},
-        {100, "[####]"},
+
+local battery_widget = nil
+
+local battery_file = io.open("/sys/class/power_supply/BAT0")
+if not battery_file == nil then
+    battery_widget = require("battery-widget") {
+        adapter = "BAT0",
+        battery_prefix = {
+            {25, "[#---]"},
+            {50, "[##--]"},
+            {75, "[###-]"},
+            {100, "[####]"},
+        }
     }
-}
+end
 
 -- volume widget
 local volume_widget, volume_timer = awful.widget.watch('sh -c "pactl get-sink-volume @DEFAULT_SINK@ | awk \'{print $5}\'"', 60*5)
@@ -259,13 +265,13 @@ awful.screen.connect_for_each_screen(function(s)
     else s.isBarVisible = false
     end
 
-    -- if theme is laptop then we dont need a battery widget
-    if theme ~= "laptop" then
-        battery_widget = wibox.widget {
-            markup = "",
-            widget = wibox.widget.textbox,
-        }
-    end
+    -- if theme is not laptop then we dont need a battery widget
+    --if theme ~= "laptop" then
+        --battery_widget = wibox.widget {
+            --markup = "",
+            --widget = wibox.widget.textbox,
+        --}
+    --end
 
     -- Create the wibox
     s.mywibox = themeFuncs.themeWibar(s, s.isBarVisible)
