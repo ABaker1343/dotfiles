@@ -153,8 +153,8 @@ mymonthcalendar:attach(mytextclock, "tc")
 
 local battery_widget = nil
 
-local battery_file = io.open("/sys/class/power_supply/BAT0")
-if not battery_file == nil then
+local battery_file = io.open("/sys/class/power_supply/BAT0/type", "r")
+if battery_file ~= nil then
     battery_widget = require("battery-widget") {
         adapter = "BAT0",
         battery_prefix = {
