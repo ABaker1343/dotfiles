@@ -26,9 +26,9 @@ function themeFuncs.startCompositor()
     local result = handle:read("*a")
     handle:close()
     if not result == "\n" then
-        awful.spawn.with_shell("killall picom && picom --experimental-backend --config ~/.config/picom/picomdefault.conf")
+        awful.spawn.with_shell("killall picom && picom --config ~/.config/picom/picomdefault.conf")
     else
-        awful.spawn.with_shell("picom --experimental-backend --config ~/.config/picom/picomdefault.conf")
+        awful.spawn.with_shell("picom --config ~/.config/picom/picomdefault.conf")
     end
 end
 
