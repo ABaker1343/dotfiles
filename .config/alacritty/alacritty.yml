@@ -120,8 +120,8 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: GoMono NF
-    #family: LigaSauceCodePro Nerd Font
+    #family: GoMono NF
+    family: LigaSauceCodePro Nerd Font
     #family: Fira Code
 
     # The `style` can be specified to pick a specific face.
