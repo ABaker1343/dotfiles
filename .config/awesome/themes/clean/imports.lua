@@ -27,7 +27,7 @@ function themeFuncs.setupWibar(w, widgets, theme)
         layout = wibox.layout.flex.horizontal,
         {
             layout = wibox.layout.fixed.horizontal,
-            wibox.mytaglist,
+            widgets.taglist,
             {
                 layout = wibox.container.place,
                 halign = "right",

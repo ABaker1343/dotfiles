@@ -1,10 +1,11 @@
 #!/bin/sh
 saturation=""
 file=""
-while getopts "f:s:" opt; do
+while getopts "f:s:t:" opt; do
     case $opt in
     s) saturation=$OPTARG;;
     f) file=$OPTARG;;
+    t) theme=$OPTARG;;
     ?) echo "invalid switch\n"; exit;;
     esac
 done
@@ -17,10 +18,12 @@ echo "new background: $file"
 
 if test -z "$saturation"; then
     echo "no saturation given"
-    wal -n -i $file
+    saturation=0.6
+fi
+if test -z "$theme"; then
+	wal -n -i $file --saturate $saturation
 else
-    echo "saturation $saturation"
-    wal -n -i $file --saturate $saturation
+	wal -n --theme $theme
 fi
 
 echo "background_opacity 0.75" >> ~/.cache/wal/colors-kitty.conf
