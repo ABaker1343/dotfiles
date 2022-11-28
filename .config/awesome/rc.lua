@@ -277,7 +277,17 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = themeFuncs.themeWibar(s, s.isBarVisible)
 
     -- Add widgets to the wibar
-    s.mywibox:setup {
+    themeFuncs.setupWibar(s.mywibox,
+    {
+    clock_widget = mytextclock,
+    battery_widget = battery_widget,
+    volume_widget = volume_widget,
+    tasklist = s.mytasklist,
+    taglist = s.mytaglist,
+    },
+    beautiful)
+
+    --[[s.mywibox:setup {
         layout = wibox.layout.flex.horizontal,
         {
             layout = wibox.layout.fixed.horizontal,
@@ -305,7 +315,7 @@ awful.screen.connect_for_each_screen(function(s)
                 wibox.widget.systray(),
             },
         }
-    }
+    }--]]
 end)
 -- }}}
 

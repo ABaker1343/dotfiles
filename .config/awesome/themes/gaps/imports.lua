@@ -11,12 +11,13 @@ function themeFuncs.themeWibar(screen, visible)
         position = "top",
         width = screen.geometry.width * 0.99,
         height = screen.geometry.height * 0.027,
-        border_width = 4,
+        border_width = 1,
         ontop = false,
 
+        bg = "#00000000",
+
         shape = function (cr, width, height)
-            return gears.shape.partially_rounded_rect(cr,width,height,
-            true, true, true, true, 10)
+            return gears.shape.rectangle(cr,width,height)
         end
     })
 end
@@ -28,7 +29,7 @@ function themeFuncs.setupWibar(w, widgets, theme)
         layout = wibox.layout.flex.horizontal,
         {
             layout = wibox.layout.fixed.horizontal,
-            wibox.mytaglist,
+            wibox.widget.background(widgets.taglist, theme.bg_normal),
             {
                 layout = wibox.container.place,
                 halign = "right",
@@ -37,15 +38,15 @@ function themeFuncs.setupWibar(w, widgets, theme)
         },
         {
             layout = wibox.container.place,
-            widgets.clock_widget,
+            wibox.widget.background(widgets.clock_widget, theme.bg_normal),
             --mycalendar,
             --wibox.widget.calendar.month(os.date('*t')),
             halign = "center",
         },
         {
             layout = wibox.layout.flex.horizontal,
-            widgets.battery_widget,
-            widgets.volume_widget,
+            wibox.widget.background(widgets.battery_widget, theme.bg_normal),
+            wibox.widget.background(widgets.volume_widget, theme.bg_normal),
             {
                 layout = wibox.container.place,
                 halign = "right",
@@ -62,9 +63,9 @@ function themeFuncs.startCompositor()
     local result = handle:read("*a")
     handle:close()
     if not result == "\n" then
-        awful.spawn.with_shell("killall picom && picom --config ~/.config/picom/picomdefault.conf")
+        awful.spawn.with_shell("killall picom && picom --config ~/.config/picom/picom.conf")
     else
-        awful.spawn.with_shell("picom --config ~/.config/picom/picomdefault.conf")
+        awful.spawn.with_shell("picom --config ~/.config/picom/picom.conf")
     end
 end
 
