@@ -45,7 +45,7 @@ function themeFuncs.setupWibar(w, widgets, theme)
         },
         {
             layout = wibox.layout.flex.horizontal,
-            wibox.widget.background(widgets.battery_widget, theme.bg_normal),
+            widgets.battery_widget,
             wibox.widget.background(widgets.volume_widget, theme.bg_normal),
             {
                 layout = wibox.container.place,
