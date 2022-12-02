@@ -265,14 +265,6 @@ awful.screen.connect_for_each_screen(function(s)
     else s.isBarVisible = false
     end
 
-    -- if theme is not laptop then we dont need a battery widget
-    --if theme ~= "laptop" then
-        --battery_widget = wibox.widget {
-            --markup = "",
-            --widget = wibox.widget.textbox,
-        --}
-    --end
-
     -- Create the wibox
     s.mywibox = themeFuncs.themeWibar(s, s.isBarVisible)
 
@@ -287,35 +279,6 @@ awful.screen.connect_for_each_screen(function(s)
     },
     beautiful)
 
-    --[[s.mywibox:setup {
-        layout = wibox.layout.flex.horizontal,
-        {
-            layout = wibox.layout.fixed.horizontal,
-            s.mytaglist,
-            {
-                layout = wibox.container.place,
-                halign = "right",
-                s.mytasklist,
-            }
-        },
-        {
-            layout = wibox.container.place,
-            mytextclock,
-            --mycalendar,
-            --wibox.widget.calendar.month(os.date('*t')),
-            halign = "center",
-        },
-        {
-            layout = wibox.layout.flex.horizontal,
-            battery_widget,
-            volume_widget,
-            {
-                layout = wibox.container.place,
-                halign = "right",
-                wibox.widget.systray(),
-            },
-        }
-    }--]]
 end)
 -- }}}
 

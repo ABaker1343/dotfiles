@@ -11,14 +11,15 @@ function themeFuncs.themeWibar(screen, visible)
         position = "top",
         width = screen.geometry.width * 0.99,
         height = screen.geometry.height * 0.027,
-        border_width = 1,
+        border_width = 0,
         ontop = false,
 
         bg = "#00000000",
 
-        shape = function (cr, width, height)
-            return gears.shape.rectangle(cr,width,height)
-        end
+        --shape = function (cr, width, height)
+            --return gears.shape.rectangle(cr,width,height)
+        --end
+        shape = gears.shape.rounded_rect,
     })
 end
 
@@ -29,16 +30,16 @@ function themeFuncs.setupWibar(w, widgets, theme)
         layout = wibox.layout.flex.horizontal,
         {
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.background(widgets.taglist, theme.bg_normal),
+            wibox.widget.background(widgets.taglist, theme.bg_normal, gears.shape.rounded_rect),
             {
                 layout = wibox.container.place,
                 halign = "right",
-                widgets.tasklist,
+                wibox.widget.background(widgets.tasklist, theme.bg_normal, gears.shape.rounded_rect)
             }
         },
         {
             layout = wibox.container.place,
-            wibox.widget.background(widgets.clock_widget, theme.bg_normal),
+            wibox.widget.background(widgets.clock_widget, theme.bg_normal, gears.shape.rounded_rect),
             --mycalendar,
             --wibox.widget.calendar.month(os.date('*t')),
             halign = "center",
@@ -46,11 +47,11 @@ function themeFuncs.setupWibar(w, widgets, theme)
         {
             layout = wibox.layout.flex.horizontal,
             widgets.battery_widget,
-            wibox.widget.background(widgets.volume_widget, theme.bg_normal),
+            wibox.widget.background(widgets.volume_widget, theme.bg_normal, gears.shape.rounded_rect),
             {
                 layout = wibox.container.place,
                 halign = "right",
-                wibox.widget.systray(),
+                wibox.widget.background(wibox.widget.systray(), theme.bg_normal, gears.shape.rounded_rect)
             },
         }
     }

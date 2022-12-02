@@ -21,7 +21,7 @@ theme.bg_normal     = xres.color1
 theme.bg_focus      = xres.color0
 theme.bg_urgent     = xres.color4
 theme.bg_minimize   = xres.color3
-theme.bg_systray    = theme.bg_normal
+theme.bg_systray    = "#00000000"
 
 theme.fg_normal     = xres.color7
 theme.fg_focus      = xres.color7
@@ -39,6 +39,9 @@ theme.border_marked = "#91231c"
 -- defined, the sets are:
 -- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
 -- tasklist_[bg|fg]_[focus|urgent]
+theme.tasklist_bg_normal = "#00000000"
+theme.tasklist_bg_focus = "#00000000"
+
 -- titlebar_[bg|fg]_[normal|focus]
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
