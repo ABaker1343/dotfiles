@@ -12,7 +12,7 @@ xrandr --output DisplayPort-1 --primary --mode 1920x1080 --pos 1024x0 --rate 144
 xinput set-prop "pointer:Razer Razer Viper Mini" "libinput Accel Speed" -0.65
 
 # set the key repeat delay
-xset r rate 300 50
+xset r rate 250 66
 
 # gb keyboard
 setxkbmap gb
