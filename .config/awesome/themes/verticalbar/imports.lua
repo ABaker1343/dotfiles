@@ -8,44 +8,54 @@ function themeFuncs.themeWibar(screen, visible)
     return awful.wibar({
         screen = screen,
         visible = visible,
-        position = "top",
-        width = screen.geometry.width * 0.99,
-        height = screen.geometry.height * 0.030,
-        border_width = 4,
+        position = "right",
+        width = screen.geometry.width * 0.015,
+        height = screen.geometry.height,
+        border_width = 0,
         ontop = false,
 
         shape = function (cr, width, height)
-            return gears.shape.partially_rounded_rect(cr,width,height,
-            true, true, true, true, 10)
+            return gears.shape.rectangle(cr,width,height)
         end
     })
 end
 
 function themeFuncs.setupWibar(w, widgets, theme)
     w:setup {
-        layout = wibox.layout.flex.horizontal,
+        layout = wibox.layout.align.vertical,
         {
-            layout = wibox.layout.fixed.horizontal,
-            widgets.taglist,
+            layout = wibox.layout.fixed.vertical,
             {
-                layout = wibox.container.place,
+                layout = wibox.container.rotate,
+                direction = "west",
+                widgets.taglist,
+            },
+            {
+                layout = wibox.container.rotate,
+                direction = "west",
                 halign = "right",
                 widgets.tasklist,
             }
         },
         {
-            layout = wibox.container.place,
+            layout = wibox.container.rotate,
+            direction = "west",
             widgets.clock_widget,
             --mycalendar,
             --wibox.widget.calendar.month(os.date('*t')),
             halign = "center",
         },
         {
-            layout = wibox.layout.flex.horizontal,
-            widgets.battery_widget,
-            widgets.volume_widget,
+            layout = wibox.layout.flex.vertical,
             {
-                layout = wibox.container.place,
+                layout = wibox.container.rotate,
+                direction = "west",
+                widgets.battery_widget,
+                widgets.volume_widget,
+            },
+            {
+                layout = wibox.container.rotate,
+                direction = "west",
                 halign = "right",
                 wibox.widget.systray(),
             },
