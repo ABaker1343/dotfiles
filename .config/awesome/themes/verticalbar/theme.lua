@@ -8,6 +8,7 @@ local dpi = xresources.apply_dpi
 
 local gears = require("gears")
 local gfs = require("gears.filesystem")
+local naughty = require("naughty")
 local themes_path = gfs.get_themes_dir()
 
 local theme = {}
@@ -23,7 +24,19 @@ theme.bg_urgent     = xres.color4
 theme.bg_minimize   = xres.color3
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = xres.color7
+local bg_R = string.sub(theme.bg_normal, 2,3)
+local bg_G = string.sub(theme.bg_normal, 4,5)
+local bg_B = string.sub(theme.bg_normal, 6,7)
+local grey_scale = 0.2126 * tonumber(bg_R,16) + 0.7152 * tonumber(bg_G, 16) + 0.0722 * tonumber(bg_B, 16)
+if grey_scale > 128 then
+    theme.fg_normal = "#000000"
+else
+    theme.fg_normal = "#ffffff"
+end
+naughty.notify({text=tostring(grey_scale)})
+naughty.notify({text=bg_R})
+
+--theme.fg_normal     = xres.color7
 theme.fg_focus      = xres.color7
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
