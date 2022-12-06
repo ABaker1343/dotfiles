@@ -22,7 +22,7 @@ end
 
 function themeFuncs.setupWibar(w, widgets, theme)
     w:setup {
-        layout = wibox.layout.align.vertical,
+        layout = wibox.layout.flex.vertical,
         {
             layout = wibox.layout.fixed.vertical,
             {
@@ -40,10 +40,13 @@ function themeFuncs.setupWibar(w, widgets, theme)
         {
             layout = wibox.container.rotate,
             direction = "west",
+            {
+                layout = wibox.container.place,
             widgets.clock_widget,
             --mycalendar,
             --wibox.widget.calendar.month(os.date('*t')),
             halign = "center",
+        }
         },
         {
             layout = wibox.layout.flex.vertical,
@@ -56,8 +59,11 @@ function themeFuncs.setupWibar(w, widgets, theme)
             {
                 layout = wibox.container.rotate,
                 direction = "west",
-                halign = "right",
-                wibox.widget.systray(),
+                {
+                    layout = wibox.container.place,
+                    halign = "right",
+                    wibox.widget.systray(),
+                }
             },
         }
     }
