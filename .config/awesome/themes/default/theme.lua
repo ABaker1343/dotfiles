@@ -31,7 +31,7 @@ theme.fg_minimize   = "#ffffff"
 theme.useless_gap   = 4
 theme.border_width  = dpi(3)
 theme.border_normal = xres.color0
-theme.border_focus  = xres.color7
+theme.border_focus  = theme.bg_normal
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
