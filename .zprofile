@@ -2,8 +2,11 @@
 # ~/.zprofile
 #
 
+export PATH=$PATH:/home/alex/.spicetify
+
 export EDITOR='nvim'
 export VISUAL='nvim'
+export GIT_EDITOR='nvim'
 
 eval `luarocks path --bin`
 
@@ -13,5 +16,3 @@ if [ "$(tty)" == /dev/tty1 ]
 then
     startx
 fi
-
-export PATH=$PATH:/home/alex/.spicetify
