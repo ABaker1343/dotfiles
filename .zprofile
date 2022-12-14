@@ -1,5 +1,5 @@
 #
-# ~/.profile
+# ~/.zprofile
 #
 
 export EDITOR='nvim'

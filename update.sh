@@ -3,6 +3,8 @@ cd ~
 cp ~/.bashrc ~/.source/dotfiles/.bashrc
 cp ~/.bash_profile ~/.source/dotfiles/.bash_profile
 cp ~/.xinitrc ~/.source/dotfiles/.xinitrc
+cp ~/.zprofile ~/.source/dotfiles/.zprofile
+cp ~/.zshrc ~/.source/dotfiles/.zshrc
 
 cp -r ~/.config/kitty ~/.source/dotfiles/.config/
 cp -r ~/.config/alacritty ~/.source/dotfiles/.config/

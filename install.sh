@@ -2,6 +2,8 @@
 cp .bashrc ~/.bashrc
 cp .bash_profile ~/.bash_profile
 cp .xinitrc ~/.xinitrc
+cp .zshrc ~/.zshrc
+cp .zprofile ~/.zprofile
 
 cp -r .config/kitty ~/.config/
 cp -r .config/alacritty ~/.config/
