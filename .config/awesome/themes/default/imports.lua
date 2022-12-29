@@ -42,6 +42,7 @@ function themeFuncs.setupWibar(w, widgets, theme)
         },
         {
             layout = wibox.layout.flex.horizontal,
+            widgets.memoryWidget,
             widgets.battery_widget,
             widgets.volume_widget,
             {

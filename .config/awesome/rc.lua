@@ -169,6 +169,8 @@ end
 -- volume widget
 local volume_widget, volume_timer = awful.widget.watch('sh -c "pactl get-sink-volume @DEFAULT_SINK@ | awk \'{print $5}\'"', 60*5)
 
+local memWidget = awful.widget.watch('bash -c "free -h | awk \'/^Mem/ {print $3}\'"' ,1)
+
 
 function is_terminal(c)
     return (c.class and c.class:match(terminal)) and true or false
@@ -276,6 +278,7 @@ awful.screen.connect_for_each_screen(function(s)
     volume_widget = volume_widget,
     tasklist = s.mytasklist,
     taglist = s.mytaglist,
+    memoryWidget = memWidget,
     },
     beautiful)
 
@@ -408,8 +411,8 @@ globalkeys = gears.table.join(
     {description = "spawn discord", group="spawning"}),
     awful.key({ modkey, "Shift"}, "g", function() awful.spawn.with_shell("gamemoderun steam") end,
     {description = "spawn steam with gamemode", group="spawning"}),
-    awful.key({modkey, "Control"}, "g", function() awful.spawn.with_shell("bottles") end,
-    {description = "spawn bottles with gamemode", group="spawning"}),
+    awful.key({modkey, "Control"}, "g", function() awful.spawn.with_shell("lutris") end,
+    {description = "spawn lutris", group="spawning"}),
     awful.key({ modkey, "Shift"}, "p", function() awful.util.spawn("firefox --private") end,
     {description = "spawn private browser (firefox)", group="spawning"}),
     awful.key({modkey , "Shift"}, "f", function() awful.util.spawn("pcmanfm") end,
