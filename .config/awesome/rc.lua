@@ -14,7 +14,7 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
--- Enable hotkeys help widget for VIM and other apps
+-- Enable atkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
@@ -574,7 +574,13 @@ clientkeys = gears.table.join(
         awful.key({modkey, "Control", "Shift"}, "F4", function() awful.spawn.with_shell("brightnessctl -d *kbd_backlight s 50%-") end,
         {description = "lower brightness by 10%", group="brightness"}),
         awful.key({modkey, "Control", "Shift"}, "F5", function() awful.spawn.with_shell("brightnessctl -d *kbd_backlight s +50%") end,
-        {description = "increase brightness by 10%", group="brightness"})
+        {description = "increase brightness by 10%", group="brightness"}),
+
+        -- screen rotate
+        awful.key({modkey, "Control", "Shift"}, "s", function() awful.spawn.with_shell("xrandr -o right") end,
+        {description = "rotate main display right"}),
+        awful.key({modkey, "Control", "Shift"}, "n", function() awful.spawn.with_shell("xrandr -o normal") end,
+        {description = "rotate main display normal"})
 )
 
 -- Bind all key numbers to tags.
