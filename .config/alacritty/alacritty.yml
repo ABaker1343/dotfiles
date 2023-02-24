@@ -121,7 +121,8 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     #family: GoMono NF
-    family: LigaSauceCodePro Nerd Font
+    #family: LigaSauceCodePro Nerd Font
+    family: Terminus
     #family: Fira Code
 
     # The `style` can be specified to pick a specific face.
