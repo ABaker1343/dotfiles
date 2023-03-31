@@ -57,6 +57,8 @@ lspconfig.glslls.setup {
     }
 }
 
+lspconfig.ltex.setup {}
+
 -- configure cmp
 
 local cmp = require('cmp')
