@@ -34,6 +34,9 @@ packer.startup(function()
 
     packer.use 'nvim-treesitter/nvim-treesitter'
     packer.use 'nvim-treesitter/nvim-treesitter-context'
+
+    -- colorscheme monokai
+    packer.use 'tanvirtin/monokai.nvim'
 end)
 
 --configure the lsp
@@ -57,7 +60,13 @@ lspconfig.glslls.setup {
     }
 }
 
-lspconfig.ltex.setup {}
+lspconfig.ltex.setup {
+    settings = {
+        ltex = {
+            language = "en-GB",
+        },
+    },
+}
 
 -- configure cmp
 
@@ -226,3 +235,8 @@ require'treesitter-context'.setup{
     -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
     separator = nil,
 }
+
+
+-- configure colorscheme
+
+monokai = require('monokai').setup {}

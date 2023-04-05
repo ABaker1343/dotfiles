@@ -17,4 +17,4 @@ vim.opt.guicursor="n-v-c:block,i:block"
 
 vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", {})
 vim.api.nvim_set_keymap("n", "<C-f>", ":Telescope find_files<CR>", {})
-vim.api.nvim_set_keymap("n", "<C-c>", ":colors monokai<CR>", {})
+vim.api.nvim_set_keymap("n", "<C-c>", ":colors sonokai<CR>", {})
