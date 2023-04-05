@@ -236,6 +236,14 @@ require'treesitter-context'.setup{
     separator = nil,
 }
 
+tsconfig = require('nvim-treesitter.configs')
+tsconfig.setup {
+    ensure_installed = {"c", "cpp", "python", "go"},
+    highlight = {
+        enable = true,
+    },
+}
+
 
 -- configure colorscheme
 
