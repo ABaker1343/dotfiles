@@ -95,9 +95,9 @@ tsconfig.setup {
     ensure_installed = {"c", "cpp", "python", "go", "latex", "lua"},
     highlight = {
         enable = true,
-        custom_captures = {
-            ["function.call"] = "TSFunction"
-        },
+        --custom_captures = {
+            --["function.call"] = "TSFunction"
+        --},
     },
     playground = {
         enable = true,

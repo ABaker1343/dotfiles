@@ -31,6 +31,7 @@ packer.startup(function()
         -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+    packer.use 'sharkdp/fd'
 
     packer.use 'nvim-treesitter/nvim-treesitter'
     packer.use 'nvim-treesitter/nvim-treesitter-context'
@@ -66,4 +67,7 @@ require('plugin-settings.treesitter-settings')
 
 -- configure colorscheme
 require('plugin-settings.colorscheme-settings')
+
+-- configure telescope
+require('plugin-settings.telescope-settings')
 

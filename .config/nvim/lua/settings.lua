@@ -9,6 +9,8 @@ vim.opt.smartindent = true
 
 vim.opt.splitright = true
 
+vim.opt.linebreak = true
+
 --vim.opt.cursorline = true
 --vim.opt.cursorcolumn = true
 
@@ -16,5 +18,5 @@ vim.opt.splitright = true
 vim.opt.guicursor="n-v-c:block,i:block"
 
 vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", {})
-vim.api.nvim_set_keymap("n", "<C-f>", ":Telescope find_files<CR>", {})
+--vim.api.nvim_set_keymap("n", "<C-f>", ":Telescope find_files<CR>", {})
 vim.api.nvim_set_keymap("n", "<C-c>", ":colors sonokai<CR>", {})
