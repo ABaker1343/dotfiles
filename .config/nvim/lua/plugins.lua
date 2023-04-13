@@ -29,7 +29,9 @@ packer.startup(function()
     packer.use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = {
+            {'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep'}
+        }
     }
     packer.use 'sharkdp/fd'
 
