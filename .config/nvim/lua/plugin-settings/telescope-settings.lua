@@ -14,7 +14,7 @@ telescope.setup {
 
     pickers = {
         find_files = {
-            theme = "dropdown",
+
         },
     },
 
@@ -28,3 +28,7 @@ vim.keymap.set('n', "<leader>ff", builtin.find_files, {})
 --vim.keymap.set('n', "<leader>fb", builtin.file_browser, {})
 vim.keymap.set('n', "<leader>fb", ":Telescope file_browser<CR>", {noremap = true})
 
+vim.keymap.set('n', "<leader>lr", builtin.lsp_references, {})
+vim.keymap.set('n', "<leader>li", builtin.lsp_implementations, {})
+vim.keymap.set('n', "<leader>ld", builtin.lsp_definitions, {})
+vim.keymap.set('n', "<leader>le", builtin.diagnostics, {})
