@@ -56,7 +56,7 @@ function themeFuncs.setupWibar(w, widgets, theme)
 end
 
 function themeFuncs.startCompositor()
-    awful.spawn.with_shell("killall picom")
+    awful.spawn.with_shell("picom")
 end
 
 return themeFuncs
