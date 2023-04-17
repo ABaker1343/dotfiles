@@ -4,7 +4,7 @@ lspconfig.clangd.setup {}
 
 lspconfig.gopls.setup {}
 
-lspconfig.sumneko_lua.setup {}
+lspconfig.lua_ls.setup {}
 
 lspconfig.pyright.setup {}
 

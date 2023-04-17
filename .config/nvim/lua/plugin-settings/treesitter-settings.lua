@@ -105,3 +105,10 @@ tsconfig.setup {
     additional_vim_regex_highlighting = true,
 }
 
+--vim.treesitter.language.register('glsl', 'vert')
+--vim.treesitter.language.register('glsl', 'frag')
+
+vim.filetype.add("frag")
+vim.filetype.add("vert")
+
+
