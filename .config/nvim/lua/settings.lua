@@ -17,8 +17,3 @@ vim.opt.linebreak = true
 --vim.opt.guicursor="n-v-c:block,i:blinkwait500-blinkon250-blinkoff120-hor55"
 vim.opt.guicursor="n-v-c:block,i:block"
 
-vim.g.mapleader=' '
-
-vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", {})
---vim.api.nvim_set_keymap("n", "<C-f>", ":Telescope find_files<CR>", {})
-vim.api.nvim_set_keymap("n", "<C-c>", ":colors sonokai<CR>", {})
