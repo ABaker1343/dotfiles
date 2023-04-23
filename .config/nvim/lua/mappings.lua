@@ -3,6 +3,10 @@ vim.g.mapleader=' '
 -- key remaps
 vim.api.nvim_set_keymap("n", "n", "nzzNn", {noremap=true})
 
+vim.api.nvim_set_keymap("n", "<leader>tn", ":tabnew<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>tl", ":tabn<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>th", ":tabp<CR>", {noremap=true})
+
 -- nvim tree mappings
 vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", {})
 
