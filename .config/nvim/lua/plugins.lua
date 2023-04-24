@@ -46,8 +46,8 @@ packer.startup(function()
     packer.use "EdenEast/nightfox.nvim"
     packer.use "sainnhe/sonokai"
     packer.use "folke/tokyonight.nvim"
-    packer.use {"bluz71/vim-moonfly-colors", as = "moonfly"}
-    packer.use "rafamadriz/neon"
+    packer.use "tanvirtin/monokai.nvim"
+
 end)
 
 -- configure lsp
