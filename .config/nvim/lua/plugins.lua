@@ -1,6 +1,6 @@
 local packer = require('packer')
 packer.startup(function()
-    packer.use 'neovim/nvim-lspconfig' -- languager server
+    packer.use 'neovim/nvim-lspconfig' -- language server
 
     packer.use 'hrsh7th/cmp-nvim-lsp' -- completion from lsp
     packer.use 'hrsh7th/nvim-cmp' -- completion plugin
@@ -19,6 +19,7 @@ packer.startup(function()
         },
     }
 
+    -- trouble
     packer.use {
         "folke/trouble.nvim",
         requires = {
@@ -26,6 +27,7 @@ packer.startup(function()
         },
     }
 
+    -- telescope
     packer.use {
         'nvim-telescope/telescope-file-browser.nvim',
         -- or                            , branch = '0.1.x',
@@ -35,18 +37,21 @@ packer.startup(function()
     }
     packer.use 'sharkdp/fd'
 
+    -- treesitter
     packer.use 'nvim-treesitter/nvim-treesitter'
     packer.use 'nvim-treesitter/nvim-treesitter-context'
     packer.use 'nvim-treesitter/playground'
 
-    -- colorscheme monokai
+    -- lualine
+    packer.use "nvim-lualine/lualine.nvim"
+
+    -- colorschemes
     packer.use 'tanvirtin/monokai.nvim'
     packer.use 'Mofiqul/dracula.nvim'
     packer.use 'cpea2506/one_monokai.nvim'
     packer.use "EdenEast/nightfox.nvim"
     packer.use "sainnhe/sonokai"
     packer.use "folke/tokyonight.nvim"
-    packer.use "tanvirtin/monokai.nvim"
 
 end)
 
@@ -76,4 +81,7 @@ require('plugin-settings.colorscheme-settings')
 
 -- configure telescope
 require('plugin-settings.telescope-settings')
+
+--configure lualine
+require('plugin-settings.lualine-settings')
 

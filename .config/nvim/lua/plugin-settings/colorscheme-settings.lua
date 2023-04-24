@@ -4,7 +4,15 @@
 vim.cmd[[colorscheme colors-wal]]
 
 monokai = require("monokai").setup {}
+require('tokyonight').setup {
 
+}
+
+--vim.cmd[[colorscheme tokyonight-storm]]
 
 vim.g.sonokai_style = 'atlantis'
-vim.cmd[[colorscheme tokyonight-storm]]
+
+--vim.g.sonokai_transparent_background=1
+
+
+vim.cmd[[colorscheme sonokai]]
