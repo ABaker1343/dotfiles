@@ -44,6 +44,10 @@ packer.startup(function()
     packer.use 'Mofiqul/dracula.nvim'
     packer.use 'cpea2506/one_monokai.nvim'
     packer.use "EdenEast/nightfox.nvim"
+    packer.use "sainnhe/sonokai"
+    packer.use "folke/tokyonight.nvim"
+    packer.use {"bluz71/vim-moonfly-colors", as = "moonfly"}
+    packer.use "rafamadriz/neon"
 end)
 
 -- configure lsp

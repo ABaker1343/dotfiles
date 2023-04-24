@@ -2,6 +2,12 @@ vim.g.mapleader=' '
 
 -- key remaps
 vim.api.nvim_set_keymap("n", "n", "nzzNn", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>nh", ":nohl<CR>", {noremap=true})
+
+vim.api.nvim_set_keymap("n", "<C-u>", "<C-y>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<C-y>", "<C-u>", {noremap = true})
+
+vim.api.nvim_set_keymap("n", "<leader>w", "<C-w>", {noremap=true})
 
 vim.api.nvim_set_keymap("n", "<leader>tn", ":tabnew<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<leader>tl", ":tabn<CR>", {noremap=true})
@@ -25,3 +31,4 @@ vim.keymap.set('n', "gr", telescopeFuncs.lsp_references, {})
 vim.keymap.set('n', "gi", telescopeFuncs.lsp_implementations, {})
 vim.keymap.set('n', "gd", telescopeFuncs.lsp_definitions, {})
 vim.keymap.set('n', "<leader>le", telescopeFuncs.diagnostics, {})
+vim.keymap.set('n', "<leader>lt", telescopeFuncs.treesitter, {noremap = true})
