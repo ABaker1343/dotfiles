@@ -15,74 +15,94 @@ vim.opt.rtp:prepend(lazypath)
 local lazy  = require('lazy')
 
 local plugins = {
-    'neovim/nvim-lspconfig',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/nvim-cmp',
-    'L3MON4D3/LuaSnip',
-    'ray-x/lsp_signature.nvim',
-    'windwp/nvim-autopairs',
-    'kyazdani42/nvim-web-devicons',
-    {                        -- file tree
-        'kyazdani42/nvim-tree.lua',
-        dependencies = {
-            'kyazdani42/nvim-web-devicons'
-        },
-    },
     {
-        "folke/trouble.nvim",
+        'neovim/nvim-lspconfig',
+        config = function()
+            require('plugin-settings.lsp-settings')
+        end,
         dependencies = {
-            'kyazdani42/nvim-web-devicons'
-        },
-    },
-    {
-        'nvim-telescope/telescope-file-browser.nvim',
-        -- or                            , branch = '0.1.x',
-        dependencies = {
-            {'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep'}
+            'hrsh7th/cmp-nvim-lsp',
+            {
+                'hrsh7th/nvim-cmp',
+                config = function()
+                    require('plugin-settings.completion-settings')
+                end,
+            },
+            {
+                'ray-x/lsp_signature.nvim',
+                config = function ()
+                    require('plugin-settings.func-signiture-settings')
+                end,
+            }
         }
     },
-    'sharkdp/fd',
+
+    {
+        'windwp/nvim-autopairs',
+        config = function()
+            require('plugin-settings.autopair-settings')
+        end,
+    },
+    'kyazdani42/nvim-web-devicons',
+    {
+    'kyazdani42/nvim-tree.lua',
+    config = function ()
+        require('plugin-settings.nvim-tree-settings')
+    end,
+    dependencies = {
+        'kyazdani42/nvim-web-devicons'
+    },
+},
+{
+    "folke/trouble.nvim",
+    config = function()
+        require('plugin-settings.trouble-settings')
+    end,
+    dependencies = {
+        'kyazdani42/nvim-web-devicons'
+    },
+},
+{
+    'nvim-telescope/telescope-file-browser.nvim',
+    config = function()
+        require('plugin-settings.telescope-settings')
+    end,
+    dependencies = {
+        {'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep'}
+    }
+},
+'sharkdp/fd',
+{
     'nvim-treesitter/nvim-treesitter',
-    'nvim-treesitter/nvim-treesitter-context',
-    'nvim-treesitter/playground',
+    config = function()
+        require("plugin-settings.treesitter-settings")
+    end,
+    dependencies = {
+        'nvim-treesitter/nvim-treesitter-context',
+    }
+},
+'nvim-treesitter/playground',
+{
     "nvim-lualine/lualine.nvim",
-    'tanvirtin/monokai.nvim',
-    'Mofiqul/dracula.nvim',
-    'cpea2506/one_monokai.nvim',
-    "EdenEast/nightfox.nvim",
-    "sainnhe/sonokai",
-    "folke/tokyonight.nvim",
+    config = function()
+        require('plugin-settings.lualine-settings')
+    end,
+},
+-- colorschemes
+'tanvirtin/monokai.nvim',
+'Mofiqul/dracula.nvim',
+'cpea2506/one_monokai.nvim',
+"EdenEast/nightfox.nvim",
+"sainnhe/sonokai",
+"folke/tokyonight.nvim",
+"nyngwang/nvimgelion",
+'glepnir/zephyr-nvim',
+'marko-cerovac/material.nvim',
+{ "catppuccin/nvim", name = "catppuccin" },
+{ 'embark-theme/vim', name = 'embark' },
 }
 
 lazy.setup(plugins, {})
 
--- configure lsp
-require('plugin-settings.lsp-settings')
-
--- configure cmp
-require('plugin-settings.completion-settings')
-
--- configure function signitures
-require('plugin-settings.func-signiture-settings')
-
--- configure autopair
-require('plugin-settings.autopair-settings')
-
--- configure the nvim filetree
-require('plugin-settings.nvim-tree-settings')
-
--- set up trouble plugin
-require('plugin-settings.trouble-settings')
-
--- set up treesitter
-require('plugin-settings.treesitter-settings')
-
--- configure colorscheme
 require('plugin-settings.colorscheme-settings')
-
--- configure telescope
-require('plugin-settings.telescope-settings')
-
---configure lualine
-require('plugin-settings.lualine-settings')
 

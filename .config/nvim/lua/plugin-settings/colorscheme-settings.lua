@@ -11,8 +11,9 @@ require('tokyonight').setup {
 --vim.cmd[[colorscheme tokyonight-storm]]
 
 vim.g.sonokai_style = 'atlantis'
+vim.g.material_style = 'oceanic'
 
 --vim.g.sonokai_transparent_background=1
 
 
-vim.cmd[[colorscheme sonokai]]
+vim.cmd[[colorscheme catppuccin-macchiato]]
