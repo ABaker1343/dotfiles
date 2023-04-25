@@ -1,59 +1,60 @@
-local packer = require('packer')
-packer.startup(function()
-    packer.use 'neovim/nvim-lspconfig' -- language server
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
 
-    packer.use 'hrsh7th/cmp-nvim-lsp' -- completion from lsp
-    packer.use 'hrsh7th/nvim-cmp' -- completion plugin
 
-    packer.use 'L3MON4D3/LuaSnip' -- snippet engine
+local lazy  = require('lazy')
 
-    packer.use 'ray-x/lsp_signature.nvim' -- for function signitures
-
-    packer.use 'windwp/nvim-autopairs' -- autopairing some characters
-
-    packer.use 'kyazdani42/nvim-web-devicons'
-    packer.use {                        -- file tree
+local plugins = {
+    'neovim/nvim-lspconfig',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/nvim-cmp',
+    'L3MON4D3/LuaSnip',
+    'ray-x/lsp_signature.nvim',
+    'windwp/nvim-autopairs',
+    'kyazdani42/nvim-web-devicons',
+    {                        -- file tree
         'kyazdani42/nvim-tree.lua',
-        requires = {
+        dependencies = {
             'kyazdani42/nvim-web-devicons'
         },
-    }
-
-    -- trouble
-    packer.use {
+    },
+    {
         "folke/trouble.nvim",
-        requires = {
+        dependencies = {
             'kyazdani42/nvim-web-devicons'
         },
-    }
-
-    -- telescope
-    packer.use {
+    },
+    {
         'nvim-telescope/telescope-file-browser.nvim',
         -- or                            , branch = '0.1.x',
-        requires = {
+        dependencies = {
             {'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep'}
         }
-    }
-    packer.use 'sharkdp/fd'
+    },
+    'sharkdp/fd',
+    'nvim-treesitter/nvim-treesitter',
+    'nvim-treesitter/nvim-treesitter-context',
+    'nvim-treesitter/playground',
+    "nvim-lualine/lualine.nvim",
+    'tanvirtin/monokai.nvim',
+    'Mofiqul/dracula.nvim',
+    'cpea2506/one_monokai.nvim',
+    "EdenEast/nightfox.nvim",
+    "sainnhe/sonokai",
+    "folke/tokyonight.nvim",
+}
 
-    -- treesitter
-    packer.use 'nvim-treesitter/nvim-treesitter'
-    packer.use 'nvim-treesitter/nvim-treesitter-context'
-    packer.use 'nvim-treesitter/playground'
-
-    -- lualine
-    packer.use "nvim-lualine/lualine.nvim"
-
-    -- colorschemes
-    packer.use 'tanvirtin/monokai.nvim'
-    packer.use 'Mofiqul/dracula.nvim'
-    packer.use 'cpea2506/one_monokai.nvim'
-    packer.use "EdenEast/nightfox.nvim"
-    packer.use "sainnhe/sonokai"
-    packer.use "folke/tokyonight.nvim"
-
-end)
+lazy.setup(plugins, {})
 
 -- configure lsp
 require('plugin-settings.lsp-settings')
