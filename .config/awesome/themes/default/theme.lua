@@ -131,12 +131,12 @@ theme.awesome_icon = theme_assets.awesome_icon(
 theme.icon_theme = nil
 
 -- Wibar styling
-theme.wibar_height = 30
-theme.wibar_width = 1536
-theme.wibar_shape = function (cr, width, height)
-    gears.shape.partially_rounded_rect(cr, width, height,
-        true, true, true, true, 15)
-end
+--theme.wibar_height = 30
+--theme.wibar_width = 1536
+--theme.wibar_shape = function (cr, width, height)
+    --gears.shape.partially_rounded_rect(cr, width, height,
+        --true, true, true, true, 15)
+--end
 
 return theme
 
