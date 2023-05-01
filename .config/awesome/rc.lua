@@ -403,7 +403,7 @@ globalkeys = gears.table.join(
     end,
     {description = "spawn a scratch terminal", group="spawning"}),
 
-    awful.key({ modkey, "Shift"}, "b", function() awful.util.spawn("firefox") end,
+    awful.key({ modkey, "Shift"}, "b", function() awful.util.spawn("librewolf") end,
     {description = "spawn a browser (firefox)", group="spawning"}),
     awful.key({ modkey, "Shift"}, "s", function() awful.util.spawn("spotify") end,
     {description = "spawn spotify", group="spawning"}),

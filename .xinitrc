@@ -50,6 +50,6 @@ nm-applet &
 # start the window manager
 #exec budgie-desktop
 #exec dwm
-exec awesome
+#exec awesome
 #exec i3
 #exec sway

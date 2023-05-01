@@ -32,3 +32,8 @@ vim.keymap.set('n', "gi", telescopeFuncs.lsp_implementations, {})
 vim.keymap.set('n', "gd", telescopeFuncs.lsp_definitions, {})
 vim.keymap.set('n', "<leader>le", telescopeFuncs.diagnostics, {})
 vim.keymap.set('n', "<leader>lt", telescopeFuncs.treesitter, {noremap = true})
+
+-- neovide specific mappings
+if vim.g.neovide then
+    vim.keymap.set('n', "<S-Insert>", "<C-R>+", {noremap = true})
+end

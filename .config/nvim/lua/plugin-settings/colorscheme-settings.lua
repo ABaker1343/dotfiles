@@ -16,4 +16,4 @@ vim.g.material_style = 'oceanic'
 --vim.g.sonokai_transparent_background=1
 
 
-vim.cmd[[colorscheme catppuccin-macchiato]]
+vim.cmd[[colorscheme catppuccin]]
