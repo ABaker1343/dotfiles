@@ -15,8 +15,9 @@ function themeFuncs.themeWibar(screen, visible)
         ontop = false,
 
         shape = function (cr, width, height)
-            return gears.shape.partially_rounded_rect(cr,width,height,
-            true, true, true, true, 10)
+            --return gears.shape.partially_rounded_rect(cr,width,height,
+            --true, true, true, true, 15)
+            return gears.shape.rounded_rect(cr, width, height, 20)
         end
     })
 end
