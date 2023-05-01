@@ -88,6 +88,12 @@ local plugins = {
         require('plugin-settings.lualine-settings')
     end,
 },
+{
+    'ThePrimeagen/harpoon',
+    dependencies = {
+        'nvim-lua/plenary.nvim'
+    }
+},
 -- colorschemes
 'tanvirtin/monokai.nvim',
 'Mofiqul/dracula.nvim',

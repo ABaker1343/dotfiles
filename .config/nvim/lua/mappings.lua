@@ -20,7 +20,7 @@ vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<CR>", {})
 vim.api.nvim_set_keymap("n", "<C-c>", ":colors sonokai<CR>", {})
 
 -- telescope mappings
-telescopeFuncs = require('telescope.builtin')
+local telescopeFuncs = require('telescope.builtin')
 vim.keymap.set('n', "<C-f>", telescopeFuncs.find_files, {})
 vim.keymap.set('n', "<leader>fg", telescopeFuncs.live_grep, {})
 vim.keymap.set('n', "<leader>ff", telescopeFuncs.find_files, {})
@@ -32,6 +32,15 @@ vim.keymap.set('n', "gi", telescopeFuncs.lsp_implementations, {})
 vim.keymap.set('n', "gd", telescopeFuncs.lsp_definitions, {})
 vim.keymap.set('n', "<leader>le", telescopeFuncs.diagnostics, {})
 vim.keymap.set('n', "<leader>lt", telescopeFuncs.treesitter, {noremap = true})
+
+-- harpoon mappings
+local harpoonUI = require('harpoon.ui')
+local harpoonMark = require('harpoon.mark')
+
+vim.keymap.set('n', "<leader>ha", harpoonMark.add_file, {noremap = false})
+vim.keymap.set('n', "<leader>hl", harpoonUI.nav_next, {noremap = false})
+vim.keymap.set('n', "<leader>hh", harpoonUI.nav_prev, {noremap = false})
+vim.keymap.set('n', "<leader>hm", harpoonUI.toggle_quick_menu, {noremap = false})
 
 -- neovide specific mappings
 if vim.g.neovide then

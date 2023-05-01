@@ -4,6 +4,7 @@
   "dracula.nvim": { "branch": "main", "commit": "26d04c8ced02f02207e7aec1d5730c3a9ebadeeb" },
   "embark": { "branch": "main", "commit": "0e2c7d36b766dcebba2d8a3a0639784446dea086" },
   "fd": { "branch": "master", "commit": "42244e5f320441bf0ec200e97f93b655ea056c03" },
+  "harpoon": { "branch": "master", "commit": "f7040fd0c44e7a4010369136547de5604b9c22a1" },
   "lazy.nvim": { "branch": "main", "commit": "903f0fe542fc35b74f3c09494f9c175346dfa76d" },
   "lsp_signature.nvim": { "branch": "master", "commit": "1fdc742af68f4725a22c05c132f971143be447fc" },
   "lualine.nvim": { "branch": "master", "commit": "84ffb80e452d95e2c46fa29a98ea11a240f7843e" },
