@@ -11,6 +11,7 @@ cp -r ~/.config/alacritty ~/.source/dotfiles/.config/
 cp -r ~/.config/nvim ~/.source/dotfiles/.config/
 cp -r ~/.config/ranger ~/.source/dotfiles/.config/
 cp -r ~/.config/zathura ~/.source/dotfiles/.config/
+cp -r ~/.config/tmux ~/.source/dotfiles/.config/
 
 cp -r ~/.config/i3 ~/.source/dotfiles/.config/
 cp -r ~/.config/i3status/ ~/.source/dotfiles/.config/
