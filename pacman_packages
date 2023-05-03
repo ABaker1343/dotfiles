@@ -34,3 +34,4 @@ python
 clangd
 pyright
 lua-language-server
+rofi

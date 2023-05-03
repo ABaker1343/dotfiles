@@ -11,6 +11,7 @@ cp -r .config/nvim ~/.config/
 cp -r .config/ranger ~/.config/
 cp -r .config/zathura ~/.config/
 cp -r .config/tmux ~/.config/
+cp -r .config/rofi ~/.config/
 
 cp -r .config/i3 ~/.config/
 cp -r .config/i3status ~/.config/
