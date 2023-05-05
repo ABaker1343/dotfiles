@@ -103,6 +103,7 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
+
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
@@ -115,6 +116,8 @@ globalkeys = gears.table.join(
         awful.util.spawn("st -c scratch")
     end,
     {description = "spawn a scratch terminal", group="spawning"}),
+
+    -- applications
 
     awful.key({ modkey, "Shift"}, "b", function() awful.util.spawn("librewolf") end,
     {description = "spawn a browser (firefox)", group="spawning"}),
@@ -163,6 +166,9 @@ globalkeys = gears.table.join(
         volume_timer:emit_signal("timeout")
     end,
     {description = "Raise system volume by 10%", group="media"}),
+
+    awful.key({modkey, "Control"}, "v", function() awful.util.spawn("copyq menu") end,
+    {description = "spawn clipboard manager menu"}),
 
     awful.key({modkey}, "F10", function() awful.util.spawn("transset-df -a 0.8") end,
     {description = "add transparency to current window", group="compositor"}),
