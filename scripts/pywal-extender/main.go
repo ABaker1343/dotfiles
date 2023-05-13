@@ -116,8 +116,8 @@ func main () {
     data.Special.Background = strings.Replace(data.Special.Background, "#", "", 1)
     data.Special.Foreground = strings.Replace(data.Special.Foreground, "#", "", 1)
 
-    hyprlandColors := "$colorForeground = 0x" + data.Special.Foreground + "ff\n" +
-    "$colorBackground = 0x" + data.Special.Background + "ff\n" +
+    hyprlandColors := "$colorForeground = 0xff" + data.Special.Foreground + "\n" +
+    "$colorBackground = 0xff" + data.Special.Background + "\n" +
     "$color0 = 0xff" + data.Colors.Color0 + "\n" +
     "$color1 = 0xff" + data.Colors.Color1 + "\n" +
     "$color2 = 0xff" + data.Colors.Color2 + "\n" +
