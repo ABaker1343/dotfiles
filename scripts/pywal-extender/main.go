@@ -104,6 +104,21 @@ func main () {
     os.WriteFile(waldir + "colors-alacritty.yml", []byte(alacrittyColors), 0664)
     fmt.Println(alacrittyColors)
 
+    waybarColors :=
+    "@define-color background " + data.Special.Background + ";\n" +
+    "@define-color foreground " + data.Special.Foreground + ";\n" +
+    "@define-color color0 " + data.Colors.Color0 + ";\n" +
+    "@define-color color1 " + data.Colors.Color1 + ";\n" +
+    "@define-color color2 " + data.Colors.Color2 + ";\n" +
+    "@define-color color3 " + data.Colors.Color3 + ";\n" +
+    "@define-color color4 " + data.Colors.Color4 + ";\n" +
+    "@define-color color5 " + data.Colors.Color5 + ";\n" +
+    "@define-color color6 " + data.Colors.Color6 + ";\n" +
+    "@define-color color7 " + data.Colors.Color7 + ";\n"
+
+    os.WriteFile(waldir + "colors-waybar.css", []byte(waybarColors), 0664)
+    fmt.Println(waybarColors)
+
     data.Colors.Color0 = strings.Replace(data.Colors.Color0, "#", "", 1)
     data.Colors.Color1 = strings.Replace(data.Colors.Color1, "#", "", 1)
     data.Colors.Color2 = strings.Replace(data.Colors.Color2, "#", "", 1)
