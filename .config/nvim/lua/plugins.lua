@@ -94,6 +94,8 @@ local plugins = {
         'nvim-lua/plenary.nvim'
     }
 },
+-- debug adpater
+'mfussenegger/nvim-dap',
 -- colorschemes
 'tanvirtin/monokai.nvim',
 'Mofiqul/dracula.nvim',

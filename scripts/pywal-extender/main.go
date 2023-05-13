@@ -4,6 +4,7 @@ import(
     "os"
     "encoding/json"
     "fmt"
+    "strings"
 )
 
 type walStruct struct {
@@ -102,5 +103,31 @@ func main () {
 
     os.WriteFile(waldir + "colors-alacritty.yml", []byte(alacrittyColors), 0664)
     fmt.Println(alacrittyColors)
+
+    data.Colors.Color0 = strings.Replace(data.Colors.Color0, "#", "", 1)
+    data.Colors.Color1 = strings.Replace(data.Colors.Color1, "#", "", 1)
+    data.Colors.Color2 = strings.Replace(data.Colors.Color2, "#", "", 1)
+    data.Colors.Color3 = strings.Replace(data.Colors.Color3, "#", "", 1)
+    data.Colors.Color4 = strings.Replace(data.Colors.Color4, "#", "", 1)
+    data.Colors.Color5 = strings.Replace(data.Colors.Color5, "#", "", 1)
+    data.Colors.Color6 = strings.Replace(data.Colors.Color6, "#", "", 1)
+    data.Colors.Color7 = strings.Replace(data.Colors.Color7, "#", "", 1)
+
+    data.Special.Background = strings.Replace(data.Special.Background, "#", "", 1)
+    data.Special.Foreground = strings.Replace(data.Special.Foreground, "#", "", 1)
+
+    hyprlandColors := "$colorForeground = 0x" + data.Special.Foreground + "ff\n" +
+    "$colorBackground = 0x" + data.Special.Background + "ff\n" +
+    "$color0 = 0x" + data.Colors.Color0 + "ff\n" +
+    "$color1 = 0x" + data.Colors.Color1 + "ff\n" +
+    "$color2 = 0x" + data.Colors.Color2 + "ff\n" +
+    "$color3 = 0x" + data.Colors.Color3 + "ff\n" +
+    "$color4 = 0x" + data.Colors.Color4 + "ff\n" +
+    "$color5 = 0x" + data.Colors.Color5 + "ff\n" +
+    "$color6 = 0x" + data.Colors.Color6 + "ff\n" +
+    "$color7 = 0x" + data.Colors.Color7 + "ff\n"
+
+    os.WriteFile(waldir + "colors-hyprland.conf", []byte(hyprlandColors), 0664)
+    fmt.Println(hyprlandColors)
 
 }

@@ -12,11 +12,13 @@ cp -r .config/ranger ~/.config/
 cp -r .config/zathura ~/.config/
 cp -r .config/tmux ~/.config/
 cp -r .config/rofi ~/.config/
+cp -r .config/waybar/ ~/.config/
 
 cp -r .config/i3 ~/.config/
 cp -r .config/i3status ~/.config/
 
 cp -r .config/awesome ~/.config/
+cp -r .config/hypr/ ~/.config/
 cp -r .config/picom ~/.config/
 
 echo "userChrome.css will have to be installed manually"

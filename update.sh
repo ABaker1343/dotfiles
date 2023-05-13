@@ -13,11 +13,13 @@ cp -r ~/.config/ranger ~/.source/dotfiles/.config/
 cp -r ~/.config/zathura ~/.source/dotfiles/.config/
 cp -r ~/.config/tmux ~/.source/dotfiles/.config/
 cp -r ~/.config/rofi ~/.source/dotfiles/.config/
+cp -r ~/.config/waybar/ ~/.source/dotfiles/.config/
 
 cp -r ~/.config/i3 ~/.source/dotfiles/.config/
 cp -r ~/.config/i3status/ ~/.source/dotfiles/.config/
 
 cp -r ~/.config/awesome ~/.source/dotfiles/.config/
+cp -r ~/.config/hypr ~/.source/dotfiles/.config/
 
 cp -r ~/.config/picom ~/.source/dotfiles/.config/
 
