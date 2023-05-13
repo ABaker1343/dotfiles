@@ -118,14 +118,14 @@ func main () {
 
     hyprlandColors := "$colorForeground = 0x" + data.Special.Foreground + "ff\n" +
     "$colorBackground = 0x" + data.Special.Background + "ff\n" +
-    "$color0 = 0x" + data.Colors.Color0 + "ff\n" +
-    "$color1 = 0x" + data.Colors.Color1 + "ff\n" +
-    "$color2 = 0x" + data.Colors.Color2 + "ff\n" +
-    "$color3 = 0x" + data.Colors.Color3 + "ff\n" +
-    "$color4 = 0x" + data.Colors.Color4 + "ff\n" +
-    "$color5 = 0x" + data.Colors.Color5 + "ff\n" +
-    "$color6 = 0x" + data.Colors.Color6 + "ff\n" +
-    "$color7 = 0x" + data.Colors.Color7 + "ff\n"
+    "$color0 = 0xff" + data.Colors.Color0 + "\n" +
+    "$color1 = 0xff" + data.Colors.Color1 + "\n" +
+    "$color2 = 0xff" + data.Colors.Color2 + "\n" +
+    "$color3 = 0xff" + data.Colors.Color3 + "\n" +
+    "$color4 = 0xff" + data.Colors.Color4 + "\n" +
+    "$color5 = 0xff" + data.Colors.Color5 + "\n" +
+    "$color6 = 0xff" + data.Colors.Color6 + "\n" +
+    "$color7 = 0xff" + data.Colors.Color7 + "\n"
 
     os.WriteFile(waldir + "colors-hyprland.conf", []byte(hyprlandColors), 0664)
     fmt.Println(hyprlandColors)
