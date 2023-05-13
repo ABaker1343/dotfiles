@@ -1,6 +1,5 @@
 {
         "position" : "top",
-        "height" : 15,
 
         "modules-left" : ["wlr/workspaces", "wlr/taskbar"],
         "modules-center" : ["clock"],
@@ -13,9 +12,8 @@
             },
 
         "wlr/taskbar" : {
-                "format" : "{icon}",
+                "format" : "{icon} {app_id}",
                 "icon-size" : 14,
-                "tooltip-format" : "{title}",
                 "on-click" : "activate",
                 "on-click-middle" : "close",
             },

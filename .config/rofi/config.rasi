@@ -4,3 +4,4 @@ configuration {
 }
 
 @theme "~/.config/rofi/nord.rasi"
+@theme "~/.cache/wal/colors-rofi-light.rasi"

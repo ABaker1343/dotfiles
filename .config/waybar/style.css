@@ -1,0 +1,25 @@
+@import "/home/alex/.cache/wal/colors-waybar.css";
+
+window#waybar {
+    background: @background;
+}
+
+#pulseaudio {
+    background: @color1;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#clock {
+    background: @foreground;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+#workspaces {
+    background: @color1;
+}
+
+#taskbar {
+    background: @color3;
+}

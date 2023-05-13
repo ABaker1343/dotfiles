@@ -1,12 +1,19 @@
 #!/bin/sh
+
+printUsage() {
+    echo "    -f : file path of image
+    -t : pywal theme to use
+    -s : saturation value"
+}
+
 saturation=""
 file=""
-while getopts "f:s:t:" opt; do
+while getopts "f:s:t" opt; do
     case $opt in
     s) saturation=$OPTARG;;
     f) file=$OPTARG;;
     t) theme=$OPTARG;;
-    ?) echo "invalid switch\n"; exit;;
+    ?) echo "invalid switch"; printUsage; exit;;
     esac
 done
 if [ ! -n "$file" ]; then
