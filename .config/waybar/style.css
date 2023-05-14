@@ -12,6 +12,7 @@ window#waybar {
 
 #clock {
     background: @foreground;
+    color: @background;
     padding-left: 12px;
     padding-right: 12px;
 }
