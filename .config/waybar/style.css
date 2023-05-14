@@ -22,4 +22,11 @@ window#waybar {
 
 #taskbar {
     background: @color3;
+    padding: 0px;
+}
+
+#tray {
+    background: @color5;
+    padding-left: 12px;
+    padding-right: 12px;
 }

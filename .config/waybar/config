@@ -1,9 +1,10 @@
 {
+        "output" : "DP-2",
         "position" : "top",
 
         "modules-left" : ["wlr/workspaces", "wlr/taskbar"],
         "modules-center" : ["clock"],
-        "modules-right" : ["pulseaudio"],
+        "modules-right" : ["pulseaudio", "tray"],
 
 
         "wlr/workspaces" : {
@@ -26,5 +27,10 @@
         "pulseaudio" : {
                 "format" : "{volume}% {icon}",
                 "onclick" : "soundSelect.sh",
+            },
+
+        "tray" : {
+                "icon-size" : 14,
+                "spacing" : 5,
             },
     }
