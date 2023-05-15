@@ -26,6 +26,12 @@ window#waybar {
     padding: 0px;
 }
 
+#battery {
+    background: @color2;
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
 #tray {
     background: @color5;
     padding-left: 12px;

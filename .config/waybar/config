@@ -4,7 +4,7 @@
 
         "modules-left" : ["wlr/workspaces", "wlr/taskbar"],
         "modules-center" : ["clock"],
-        "modules-right" : ["pulseaudio", "tray"],
+        "modules-right" : ["battery", "pulseaudio", "tray"],
 
 
         "wlr/workspaces" : {
@@ -22,6 +22,15 @@
         "clock" : {
                 "interval" : 30,
                 "format" : "{:%H:%M %a %d}",
+            },
+
+        "battery" : {
+                "interval" : 60,
+                "states" : {
+                        "warning" : 25,
+                        "critical" : 10,
+                    },
+                    "format" : "{capacity}%",
             },
 
         "pulseaudio" : {
