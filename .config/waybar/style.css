@@ -1,7 +1,12 @@
 @import "/home/alex/.cache/wal/colors-waybar.css";
 
-window#waybar {
+/* {
+    border-radius: 10px;
+}*/
+
+#waybar {
     background: @background;
+    border-radius:10px;
 }
 
 #pulseaudio {
@@ -28,6 +33,24 @@ window#waybar {
 
 #battery {
     background: @color2;
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+#backlight {
+    background: @color6;
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+#cpu {
+    background: @color4;
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+#memory {
+    background: @color6;
     padding-right: 12px;
     padding-left: 12px;
 }

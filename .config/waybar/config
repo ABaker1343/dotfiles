@@ -4,7 +4,7 @@
 
         "modules-left" : ["wlr/workspaces", "wlr/taskbar"],
         "modules-center" : ["clock"],
-        "modules-right" : ["battery", "pulseaudio", "tray"],
+        "modules-right" : ["battery", "backlight", "cpu", "memory", "pulseaudio", "tray"],
 
 
         "wlr/workspaces" : {
@@ -31,6 +31,20 @@
                         "critical" : 10,
                     },
                     "format" : "{capacity}%",
+            },
+
+        "cpu" : {
+                "interval" : 1,
+                "format" : "{}%"
+            },
+
+        "memory" : {
+                "interval" : 1,
+                "format" : "{used}/{total}",
+            },
+
+        "backlight" : {
+                "format" : "{percent}%",
             },
 
         "pulseaudio" : {
