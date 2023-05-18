@@ -21,6 +21,8 @@ cp -r ~/.config/i3status/ ~/.source/dotfiles/.config/
 cp -r ~/.config/awesome ~/.source/dotfiles/.config/
 cp -r ~/.config/hypr ~/.source/dotfiles/.config/
 
+cp -r ~/.config/kglobalshortcutsrc ~/.source/dotfiles/.config/
+
 cp -r ~/.config/picom ~/.source/dotfiles/.config/
 
 cp ~/.mozilla/firefox/m5q2ch62.default-release/chrome/userChrome.css ~/.source/dotfiles/userChrome.css

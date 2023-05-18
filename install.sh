@@ -19,6 +19,9 @@ cp -r .config/i3status ~/.config/
 
 cp -r .config/awesome ~/.config/
 cp -r .config/hypr/ ~/.config/
+
+cp -r .config/kglobalshortcutsrc ~/.config/
+
 cp -r .config/picom ~/.config/
 
 echo "userChrome.css will have to be installed manually"

@@ -30,7 +30,7 @@
                         "warning" : 25,
                         "critical" : 10,
                     },
-                    "format" : "{capacity}%",
+                    "format" : "🔋 {capacity}%",
             },
 
         "cpu" : {
@@ -48,7 +48,7 @@
             },
 
         "pulseaudio" : {
-                "format" : "{volume}% {icon}",
+                "format" : "🔊 {volume}%",
                 "onclick" : "soundSelect.sh",
             },
 
