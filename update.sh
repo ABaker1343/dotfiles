@@ -12,6 +12,7 @@ cp -r ~/.config/nvim ~/.source/dotfiles/.config/
 cp -r ~/.config/ranger ~/.source/dotfiles/.config/
 cp -r ~/.config/zathura ~/.source/dotfiles/.config/
 cp -r ~/.config/tmux ~/.source/dotfiles/.config/
+cp -r ~/.config/powerline ~/.source/dotfiles/config/
 cp -r ~/.config/rofi ~/.source/dotfiles/.config/
 cp -r ~/.config/waybar/ ~/.source/dotfiles/.config/
 
