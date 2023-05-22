@@ -11,6 +11,7 @@
 
 #pulseaudio {
     background: @color1;
+    color: @tcolor1;
     padding-right: 10px;
     padding-left: 10px;
 }
@@ -24,39 +25,46 @@
 
 #workspaces {
     background: @color1;
+    color: @tcolor1;
 }
 
 #taskbar {
     background: @color3;
+    color: @tcolor3;
     padding: 0px;
 }
 
 #battery {
     background: @color2;
+    color: @tcolor2;
     padding-right: 12px;
     padding-left: 12px;
 }
 
 #backlight {
     background: @color6;
+    color: @tcolor6;
     padding-right: 12px;
     padding-left: 12px;
 }
 
 #cpu {
     background: @color4;
+    color: @tcolor4;
     padding-right: 12px;
     padding-left: 12px;
 }
 
 #memory {
     background: @color6;
+    color: @tcolor6;
     padding-right: 12px;
     padding-left: 12px;
 }
 
 #tray {
     background: @color5;
+    color: @tcolor5;
     padding-left: 12px;
     padding-right: 12px;
 }
