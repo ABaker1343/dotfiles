@@ -13,6 +13,12 @@ _launch=none,none,Alacritty
 Switch to Next Keyboard Layout=Meta+Alt+K,Meta+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
+[firefox.desktop]
+_k_friendly_name=Firefox
+_launch=Meta+Shift+B,none,Firefox
+new-private-window=Meta+Shift+P,none,New Private Window
+new-window=none,none,New Window
+
 [htop.desktop]
 _k_friendly_name=Htop
 _launch=Meta+Shift+T,none,Htop
@@ -214,8 +220,8 @@ view_zoom_out=Meta+-,Meta+-,Zoom Out
 [librewolf.desktop]
 _k_friendly_name=LibreWolf
 _launch=none,none,LibreWolf
-new-private-window=Meta+Shift+P,none,New Private Window
-new-window=Meta+Shift+B,none,New Window
+new-private-window=none,none,New Private Window
+new-window=none,none,New Window
 profile-manager=none,none,Open the Profile Manager
 
 [mediacontrol]
