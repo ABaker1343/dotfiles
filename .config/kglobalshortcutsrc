@@ -5,13 +5,17 @@ switch-to-activity-bd44d5d1-9e77-45c5-a4ed-3780a175e1a1=none,none,Switch to acti
 switch-to-activity-ea9bbb6e-4185-4574-866d-6012fe4e8c11=none,none,Switch to activity "Default"
 
 [Alacritty.desktop]
-New=Meta+Shift+Return,none,New Terminal
+New=none,none,New Terminal
 _k_friendly_name=Alacritty
 _launch=none,none,Alacritty
 
 [KDE Keyboard Layout Switcher]
 Switch to Next Keyboard Layout=Meta+Alt+K,Meta+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
+
+[discord.desktop]
+_k_friendly_name=Discord
+_launch=Meta+Shift+D,none,Discord
 
 [firefox.desktop]
 _k_friendly_name=Firefox
@@ -41,6 +45,10 @@ display=Display\tMeta+P,Display\tMeta+P,Switch Display
 [khotkeys]
 _k_friendly_name=Custom Shortcuts Service
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none,none,Search
+
+[kitty.desktop]
+_k_friendly_name=kitty
+_launch=Meta+Shift+Return,none,kitty
 
 [kmix]
 _k_friendly_name=Audio Volume
