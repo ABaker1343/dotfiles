@@ -8,6 +8,8 @@ vim.api.nvim_set_keymap("n", "<C-u>", "<C-y>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<C-y>", "<C-u>", {noremap = true})
 
 vim.api.nvim_set_keymap("n", "<leader>w", "<C-w>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>sv", ":vsplit<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>sh", ":split<CR>", {noremap=true})
 
 vim.api.nvim_set_keymap("n", "<leader>tn", ":tabnew<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<leader>tl", ":tabn<CR>", {noremap=true})

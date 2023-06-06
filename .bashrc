@@ -15,7 +15,7 @@ alias icat='kitty +kitten icat'
 alias vim='nvim'
 alias gvim='neovide'
 alias clone='alacritty --working-directory $(pwd) & disown'
-alias neovide='devour neovide'
+#alias neovide='devour neovide'
 
 #PS1='\[\e[1;32m\]\w \[\e[1;34m\] >>\[\e[0m\] '
 PS1='\[\e[1;32m\]\w \[\e[1;34m\] \n>>\[\e[0m\] '
