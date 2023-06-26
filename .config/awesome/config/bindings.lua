@@ -121,9 +121,9 @@ globalkeys = gears.table.join(
 
     awful.key({ modkey, "Shift"}, "b", function() awful.util.spawn("librewolf") end,
     {description = "spawn a browser (firefox)", group="spawning"}),
-    awful.key({ modkey, "Shift"}, "s", function() awful.util.spawn("flatpak run spotify") end,
+    awful.key({ modkey, "Shift"}, "s", function() awful.util.spawn("flatpak run com.spotify.Client") end,
     {description = "spawn spotify", group="spawning"}),
-    awful.key({ modkey, "Shift"}, "d", function() awful.util.spawn("flatpak run discord") end,
+    awful.key({ modkey, "Shift"}, "d", function() awful.util.spawn("flatpak run com.discordapp.Discord") end,
     {description = "spawn discord", group="spawning"}),
     awful.key({ modkey, "Shift"}, "g", function() awful.spawn.with_shell("gamemoderun steam") end,
     {description = "spawn steam with gamemode", group="spawning"}),
