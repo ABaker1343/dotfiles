@@ -119,7 +119,7 @@ globalkeys = gears.table.join(
 
     -- applications
 
-    awful.key({ modkey, "Shift"}, "b", function() awful.util.spawn("librewolf") end,
+    awful.key({ modkey, "Shift"}, "b", function() awful.util.spawn("firefox") end,
     {description = "spawn a browser (firefox)", group="spawning"}),
     awful.key({ modkey, "Shift"}, "s", function() awful.util.spawn("flatpak run com.spotify.Client") end,
     {description = "spawn spotify", group="spawning"}),
