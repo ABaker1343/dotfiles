@@ -23,6 +23,8 @@ cp -r ~/.config/awesome ~/.source/dotfiles/.config/
 cp -r ~/.config/hypr ~/.source/dotfiles/.config/
 
 cp -r ~/.config/kglobalshortcutsrc ~/.source/dotfiles/.config/
+cp -r ~/.config/plasmashellr ~/.source/dotfiles/.config/
+cp -r ~/.config/plasma-org.kde.plasma.desktop-appletsrc ~/.source/dotfiles/.config/
 
 cp -r ~/.config/picom ~/.source/dotfiles/.config/
 

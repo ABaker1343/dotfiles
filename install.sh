@@ -22,6 +22,8 @@ cp -r .config/awesome ~/.config/
 cp -r .config/hypr/ ~/.config/
 
 cp -r .config/kglobalshortcutsrc ~/.config/
+cp -r .config/plasmashellr ~/.config/
+cp -r .config/plasma-org.kde.plasma.desktop-appletsrc ~/.config/
 
 cp -r .config/picom ~/.config/
 
