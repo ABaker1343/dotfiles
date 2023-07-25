@@ -18,12 +18,13 @@ alias clone='alacritty --working-directory $(pwd) & disown'
 #alias neovide='devour neovide'
 
 #PS1='\[\e[1;32m\]\w \[\e[1;34m\] >>\[\e[0m\] '
-PS1='\[\e[1;32m\]\w \[\e[1;34m\] \n>>\[\e[0m\] '
+PS1=$'\[\e[1;32m\]\w \[\e[1;34m\]\udb80\udf3d \n>>\[\e[0m\] '
+#
 
 export PATH=$PATH:/home/alex/.spicetify:~/.local/bin/
 
 # powerline
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /usr/share/powerline/bindings/bash/powerline.sh
+#powerline-daemon -q
+#POWERLINE_BASH_CONTINUATION=1
+#POWERLINE_BASH_SELECT=1
+#. /usr/share/powerline/bindings/bash/powerline.sh

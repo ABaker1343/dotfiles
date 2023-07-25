@@ -125,7 +125,8 @@ font:
     #family: LigaSauceCodePro Nerd Font
     #family: TerminessTTF Nerd Font
     #family: Terminess Nerd Font Mono
-    family: JetBrainsMonoNerdFont
+    #family: JetBrainsMonoNerdFont
+    family: GoMonoNerdFont
     #family: Fira Code
 
     # The `style` can be specified to pick a specific face.
@@ -165,7 +166,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 12.0
+  size: 12.0 # JetBrains Mono
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter

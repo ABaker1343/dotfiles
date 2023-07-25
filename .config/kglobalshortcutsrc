@@ -1,5 +1,6 @@
 [ActivityManager]
 _k_friendly_name=Activity Manager
+switch-to-activity-435cf9c8-d893-4db6-a05a-eb7507454aa7=none,none,Switch to activity "Default"
 switch-to-activity-5b5f9033-996d-45bc-a0de-9d36add638df=none,none,Switch to activity "Default"
 switch-to-activity-968e6439-7bcb-4966-953e-da5619853db2=none,none,Switch to activity "Default"
 switch-to-activity-bd44d5d1-9e77-45c5-a4ed-3780a175e1a1=none,none,Switch to activity "Default"
@@ -168,12 +169,12 @@ Walk Through Desktops=none,,Walk Through Desktops
 Walk Through Desktops (Reverse)=none,,Walk Through Desktops (Reverse)
 Walk Through Windows=Alt+Tab,Alt+Tab,Walk Through Windows
 Walk Through Windows (Reverse)=Alt+Shift+Backtab,Alt+Shift+Backtab,Walk Through Windows (Reverse)
-Walk Through Windows Alternative=,,Walk Through Windows Alternative
-Walk Through Windows Alternative (Reverse)=,,Walk Through Windows Alternative (Reverse)
+Walk Through Windows Alternative=none,,Walk Through Windows Alternative
+Walk Through Windows Alternative (Reverse)=none,,Walk Through Windows Alternative (Reverse)
 Walk Through Windows of Current Application=Alt+`,Alt+`,Walk Through Windows of Current Application
 Walk Through Windows of Current Application (Reverse)=Alt+~,Alt+~,Walk Through Windows of Current Application (Reverse)
-Walk Through Windows of Current Application Alternative=,,Walk Through Windows of Current Application Alternative
-Walk Through Windows of Current Application Alternative (Reverse)=,,Walk Through Windows of Current Application Alternative (Reverse)
+Walk Through Windows of Current Application Alternative=none,,Walk Through Windows of Current Application Alternative
+Walk Through Windows of Current Application Alternative (Reverse)=none,,Walk Through Windows of Current Application Alternative (Reverse)
 Window Above Other Windows=none,,Keep Window Above Others
 Window Below Other Windows=none,,Keep Window Below Others
 Window Close=Meta+Shift+Q\tAlt+F4,Alt+F4,Close Window
