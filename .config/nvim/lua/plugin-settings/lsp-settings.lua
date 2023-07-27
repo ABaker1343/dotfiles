@@ -22,3 +22,5 @@ lspconfig.glslls.setup {
 }
 
 lspconfig.ltex.setup {}
+
+lspconfig.tsserver.setup {}

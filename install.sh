@@ -35,3 +35,4 @@ sudo cp scripts/soundSelect.sh /bin/soundSelect.sh
 sudo cp scripts/setbg /bin/setbg
 sudo cp scripts/layoutSelect.sh /bin/layoutSelect.sh
 sudo cp scripts/pywal-extender/pywal-extender /bin/pywal-extender
+sudo cp -r sddm.conf.d/ /etc/
