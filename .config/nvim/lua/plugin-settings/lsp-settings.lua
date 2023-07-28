@@ -23,4 +23,8 @@ lspconfig.glslls.setup {
 
 lspconfig.ltex.setup {}
 
+--typescript-language-server
 lspconfig.tsserver.setup {}
+
+--css-languageserver
+lspconfig.cssls.setup {}
