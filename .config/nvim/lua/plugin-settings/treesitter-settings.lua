@@ -92,7 +92,7 @@ require'treesitter-context'.setup{
 tsconfig = require('nvim-treesitter.configs')
 
 tsconfig.setup {
-    ensure_installed = {"c", "cpp", "python", "go", "latex", "lua"},
+    ensure_installed = {"c", "cpp", "python", "go", "latex", "lua", "typescript", "tsx"},
     highlight = {
         enable = true,
         --custom_captures = {
@@ -107,3 +107,4 @@ tsconfig.setup {
 
 vim.treesitter.language.register('glsl', 'vert')
 vim.treesitter.language.register('glsl', 'frag')
+vim.treesitter.language.register('tsx', 'typescript')

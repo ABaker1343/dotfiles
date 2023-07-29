@@ -6,7 +6,27 @@
 
 #waybar {
     background: @background;
-    border-radius:10px;
+}
+
+.background > .horizontal {
+    padding: 2px
+}
+
+.modules-left > * > * {
+    border-radius: 12px;
+    margin-left: 8px;
+    padding: 0px;
+}
+
+.modules-center > * > * {
+    border-radius: 12px;
+    padding: 0px;
+}
+
+.modules-right > * > * {
+    border-radius: 12px;
+    margin-right: 8px;
+    padding: 0px;
 }
 
 #pulseaudio {
@@ -28,10 +48,18 @@
     color: @tcolor1;
 }
 
+#workspaces .active {
+    background: @color3;
+}
+
 #taskbar {
     background: @color3;
     color: @tcolor3;
     padding: 0px;
+}
+
+#taskbar .active {
+    background: @color1;
 }
 
 #battery {

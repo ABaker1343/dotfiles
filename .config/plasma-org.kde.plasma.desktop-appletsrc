@@ -85,14 +85,14 @@ immutability=1
 plugin=org.kde.plasma.mediacontroller
 
 [Containments][31][Applets][43][Configuration]
-PreloadWeight=2
+PreloadWeight=0
 
 [Containments][31][Applets][44]
 immutability=1
 plugin=org.kde.plasma.nightcolorcontrol
 
 [Containments][31][Applets][44][Configuration]
-PreloadWeight=42
+PreloadWeight=34
 
 [Containments][31][Applets][45]
 immutability=1
@@ -166,7 +166,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][55][Applets][74][Configuration]
-PreloadWeight=75
+PreloadWeight=95
 popupHeight=432
 popupWidth=324
 
@@ -234,7 +234,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][60][Applets][66][Configuration]
-PreloadWeight=75
+PreloadWeight=85
 
 [Containments][60][Applets][66][Configuration][General]
 migrated=true
@@ -244,7 +244,7 @@ immutability=1
 plugin=org.kde.plasma.clipboard
 
 [Containments][60][Applets][67][Configuration]
-PreloadWeight=55
+PreloadWeight=70
 
 [Containments][60][Applets][68]
 immutability=1
@@ -259,14 +259,14 @@ immutability=1
 plugin=org.kde.plasma.mediacontroller
 
 [Containments][60][Applets][70][Configuration]
-PreloadWeight=20
+PreloadWeight=0
 
 [Containments][60][Applets][71]
 immutability=1
 plugin=org.kde.plasma.nightcolorcontrol
 
 [Containments][60][Applets][71][Configuration]
-PreloadWeight=18
+PreloadWeight=0
 
 [Containments][60][Applets][72]
 immutability=1

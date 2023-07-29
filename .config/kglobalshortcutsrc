@@ -277,7 +277,7 @@ stopmedia=Media Stop,Media Stop,Stop media playback
 
 [org.kde.dolphin.desktop]
 _k_friendly_name=Dolphin
-_launch=Meta+E,Meta+E,Dolphin
+_launch=Meta+E\tMeta+Shift+F,Meta+E,Dolphin
 
 [org.kde.krunner.desktop]
 RunClipboard=Alt+Shift+F2,Alt+Shift+F2,Run command on clipboard contents
@@ -298,6 +298,12 @@ WindowUnderCursorScreenShot=Meta+Ctrl+Print,Meta+Ctrl+Print,Capture Window Under
 _k_friendly_name=Spectacle
 _launch=Print,Print,Launch Spectacle
 
+[org.mozilla.Thunderbird.desktop]
+ComposeMessage=none,none,Write New Message
+OpenAddressBook=none,none,Name=Open the Address Book
+_k_friendly_name=Thunderbird
+_launch=Meta+Shift+M,none,Thunderbird
+
 [org_kde_powerdevil]
 Decrease Keyboard Brightness=Keyboard Brightness Down,Keyboard Brightness Down,Decrease Keyboard Brightness
 Decrease Screen Brightness=Monitor Brightness Down,Monitor Brightness Down,Decrease Screen Brightness
@@ -313,7 +319,7 @@ _k_friendly_name=Power Management
 
 [pcmanfm.desktop]
 _k_friendly_name=File Manager PCManFM
-_launch=Meta+Shift+F,none,File Manager PCManFM
+_launch=none,none,File Manager PCManFM
 
 [plasmashell]
 _k_friendly_name=Plasma
@@ -347,6 +353,10 @@ switch to next activity=none,,Switch to Next Activity
 switch to previous activity=none,,Switch to Previous Activity
 toggle do not disturb=none,,Toggle do not disturb
 
+[ranger.desktop]
+_k_friendly_name=ranger
+_launch=Meta+Shift+R,none,ranger
+
 [systemsettings.desktop]
 _k_friendly_name=System Settings
 _launch=Tools,Tools,System Settings
@@ -355,9 +365,3 @@ kcm-lookandfeel=none,none,Global Theme
 kcm-users=none,none,Users
 powerdevilprofilesconfig=none,none,Energy Saving
 screenlocker=none,none,Screen Locking
-
-[thunderbird.desktop]
-ComposeMessage=none,none,Write new message
-OpenAddressBook=none,none,Open address book
-_k_friendly_name=Thunderbird
-_launch=Meta+Shift+M,none,Thunderbird
