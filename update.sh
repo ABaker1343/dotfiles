@@ -15,6 +15,7 @@ cp -r ~/.config/tmux ~/.source/dotfiles/.config/
 cp -r ~/.config/powerline ~/.source/dotfiles/config/
 cp -r ~/.config/rofi ~/.source/dotfiles/.config/
 cp -r ~/.config/waybar/ ~/.source/dotfiles/.config/
+cp -r ~/.config/dunst/ ~/.source/dotfiles/.config/
 
 cp -r ~/.config/i3 ~/.source/dotfiles/.config/
 cp -r ~/.config/i3status/ ~/.source/dotfiles/.config/
