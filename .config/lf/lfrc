@@ -2,11 +2,15 @@ set previewer ~/.config/lf/preview.sh
 set cleaner ~/.config/lf/cleaner.sh
 set preview true
 
+
 cmd open ${{
-    case $(file --mime-type -Lb $f) in
-        text/*) nvim $fx;;
-        image/*) imv $fx;;
-        video/*) mpv $f;;
+    echo "f: $f fx: $fx"
+    filetype=$(file --mime-type -Lb "$f")
+    echo "$filetype"
+    case "$filetype" in
+        text/*) nvim "$f";;
+        image/*) imv "$f";;
+        video/*) mpv "$f";;
         application/pdf) zathura $f;;
         application/vnd.oasis.opendocument.*) libreoffice $f;;
     esac
