@@ -6,7 +6,7 @@ cmd open ${{
     case $(file --mime-type -Lb $f) in
         text/*) nvim $fx;;
         image/*) imv $fx;;
-        video/*) mpv $fx;;
+        video/*) mpv $f;;
         application/pdf) zathura $f;;
         application/vnd.oasis.opendocument.*) libreoffice $f;;
     esac

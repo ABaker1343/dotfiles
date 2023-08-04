@@ -4,9 +4,15 @@
     border-radius: 10px;
 }*/
 
+* {
+    padding: 1px;
+    margin: 0px;
+}
+
 #waybar {
     background: @background;
     padding: 0px;
+    margin: 0px;
 }
 
 .background {
@@ -71,7 +77,8 @@
     background: @color3;
     color: @tcolor3;
     padding-top: 0px;
-    padding-bottom: 0px
+    padding-bottom: 0px;
+    padding-right: 1px;
 }
 
 #taskbar .active {
