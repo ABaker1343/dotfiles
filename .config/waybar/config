@@ -1,6 +1,7 @@
 {
         "output" : ["DP-2", "eDP-1"],
         "position" : "top",
+        "height" : 5,
 
         "modules-left" : ["wlr/workspaces", "wlr/taskbar"],
         "modules-center" : ["clock"],

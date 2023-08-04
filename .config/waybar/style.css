@@ -6,6 +6,7 @@
 
 #waybar {
     background: @background;
+    padding: 0px;
 }
 
 .background {
@@ -42,6 +43,8 @@
     color: @tcolor1;
     padding-right: 10px;
     padding-left: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px
 }
 
 #clock {
@@ -49,11 +52,15 @@
     color: @background;
     padding-left: 12px;
     padding-right: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px
 }
 
 #workspaces {
     background: @color1;
     color: @tcolor1;
+    padding-top: 0px;
+    padding-bottom: 0px
 }
 
 #workspaces .active {
@@ -63,7 +70,8 @@
 #taskbar {
     background: @color3;
     color: @tcolor3;
-    padding: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px
 }
 
 #taskbar .active {
@@ -75,6 +83,8 @@
     color: @tcolor2;
     padding-right: 12px;
     padding-left: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px
 }
 
 #backlight {
@@ -82,6 +92,8 @@
     color: @tcolor6;
     padding-right: 12px;
     padding-left: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px
 }
 
 #cpu {
@@ -89,6 +101,8 @@
     color: @tcolor4;
     padding-right: 12px;
     padding-left: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px
 }
 
 #memory {
@@ -96,6 +110,8 @@
     color: @tcolor6;
     padding-right: 12px;
     padding-left: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px
 }
 
 #tray {
@@ -103,4 +119,6 @@
     color: @tcolor5;
     padding-left: 12px;
     padding-right: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px
 }
