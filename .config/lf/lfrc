@@ -1,6 +1,8 @@
+set preview true;
 set previewer ~/.config/lf/preview.sh
 set cleaner ~/.config/lf/cleaner.sh
-set preview true
+
+set relativenumber true
 
 
 cmd open ${{
