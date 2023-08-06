@@ -1,4 +1,5 @@
 {
+  "Abstract-cs": { "branch": "main", "commit": "965149e55ea83d3489514c9e68ce5d7d047cb1f5" },
   "catppuccin": { "branch": "main", "commit": "dd176757cc745f71bd54c472a9f58d5f8a54661d" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "0e6b2ed705ddcff9738ec4ea838141654f12eeef" },
   "dracula.nvim": { "branch": "main", "commit": "26d04c8ced02f02207e7aec1d5730c3a9ebadeeb" },

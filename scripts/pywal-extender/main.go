@@ -3,7 +3,6 @@ package main
 import(
     "os"
     "encoding/json"
-    "fmt"
     "strings"
     "strconv"
 )
@@ -83,15 +82,15 @@ func main () {
     var data walStruct
     json.Unmarshal([]byte(jsonData), &data)
 
-    var textColors walStruct
-    textColors.Colors.Color0 = CalculateTextColor(data.Colors.Color0)
-    textColors.Colors.Color1 = CalculateTextColor(data.Colors.Color1)
-    textColors.Colors.Color2 = CalculateTextColor(data.Colors.Color2)
-    textColors.Colors.Color3 = CalculateTextColor(data.Colors.Color3)
-    textColors.Colors.Color4 = CalculateTextColor(data.Colors.Color4)
-    textColors.Colors.Color5 = CalculateTextColor(data.Colors.Color5)
-    textColors.Colors.Color6 = CalculateTextColor(data.Colors.Color6)
-    textColors.Colors.Color7 = CalculateTextColor(data.Colors.Color7)
+    var textColors Colors
+    textColors.Color0 = CalculateTextColor(data.Colors.Color0)
+    textColors.Color1 = CalculateTextColor(data.Colors.Color1)
+    textColors.Color2 = CalculateTextColor(data.Colors.Color2)
+    textColors.Color3 = CalculateTextColor(data.Colors.Color3)
+    textColors.Color4 = CalculateTextColor(data.Colors.Color4)
+    textColors.Color5 = CalculateTextColor(data.Colors.Color5)
+    textColors.Color6 = CalculateTextColor(data.Colors.Color6)
+    textColors.Color7 = CalculateTextColor(data.Colors.Color7)
 
     genColorsAlacritty(data, waldir)
     genColorsWaybar(data, waldir, textColors)
@@ -133,7 +132,6 @@ func genColorsAlacritty(data walStruct, waldir string) {
     "    white: '" + data.Colors.Color7 + "'\n"
 
     os.WriteFile(waldir + "colors-alacritty.yml", []byte(alacrittyColors), 0664)
-    fmt.Println(alacrittyColors)
 }
 
 func genColorsWaybar(data walStruct, waldir string, textColors Colors) {
@@ -159,7 +157,6 @@ func genColorsWaybar(data walStruct, waldir string, textColors Colors) {
     "@define-color tcolor7 " + textColors.Color7 + ";\n"
 
     os.WriteFile(waldir + "colors-waybar.css", []byte(waybarColors), 0664)
-    fmt.Println(waybarColors)
 }
 
 func genColorsHyprland(data walStruct, waldir string) {
@@ -187,5 +184,4 @@ func genColorsHyprland(data walStruct, waldir string) {
     "$color7 = 0xff" + data.Colors.Color7 + "\n"
 
     os.WriteFile(waldir + "colors-hyprland.conf", []byte(hyprlandColors), 0664)
-    fmt.Println(hyprlandColors)
 }

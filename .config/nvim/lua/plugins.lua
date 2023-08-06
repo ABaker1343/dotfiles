@@ -96,6 +96,7 @@ local plugins = {
 },
 -- debug adpater
 'mfussenegger/nvim-dap',
+
 -- colorschemes
 'tanvirtin/monokai.nvim',
 'Mofiqul/dracula.nvim',
@@ -106,6 +107,7 @@ local plugins = {
 "nyngwang/nvimgelion",
 'glepnir/zephyr-nvim',
 'marko-cerovac/material.nvim',
+'Abstract-IDE/Abstract-cs',
 { "catppuccin/nvim", name = "catppuccin" },
 { 'embark-theme/vim', name = 'embark' },
 }

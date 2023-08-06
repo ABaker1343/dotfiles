@@ -35,9 +35,10 @@ fi
 
 echo "background_opacity 0.75" >> ~/.cache/wal/colors-kitty.conf
 pywal-extender
-cd ~/.source/st/
-sudo make clean install
-cd ~/.source/dmenu/
-sudo make clean install
-~/.spicetify/spicetify apply
+
+if [ -n "$(type -p spicetify)"]; then
+    ~/.spicetify/spicetify apply
+fi
+
+echo "finished setting wallpaper and colorscheme\n"
 
