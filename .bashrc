@@ -12,9 +12,11 @@
 alias ls='ls --color=auto'
 alias pacadopt='sudo pacman -Qtdq | sudo pacman -Rns'
 alias icat='kitty +kitten icat'
-alias vim='nvim'
+#alias vim='nvim'
+alias vi='nvim'
 alias gvim='neovide'
 alias clone='alacritty --working-directory $(pwd) & disown'
+alias neovide='WINIT_UNIX_BACKEND=x11 neovide'
 #alias neovide='devour neovide'
 
 #PS1='\[\e[1;32m\]\w \[\e[1;34m\] >>\[\e[0m\] '

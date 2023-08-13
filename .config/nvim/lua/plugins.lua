@@ -108,6 +108,8 @@ local plugins = {
 'glepnir/zephyr-nvim',
 'marko-cerovac/material.nvim',
 'Abstract-IDE/Abstract-cs',
+"rebelot/kanagawa.nvim",
+'NLKNguyen/papercolor-theme',
 { "catppuccin/nvim", name = "catppuccin" },
 { 'embark-theme/vim', name = 'embark' },
 }

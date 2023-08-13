@@ -1,6 +1,6 @@
 set preview true
-set previewer ~/.config/lf/preview.sh
 set cleaner ~/.config/lf/cleaner.sh
+set previewer ~/.config/lf/preview.sh
 
 set relativenumber true
 

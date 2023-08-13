@@ -4,6 +4,7 @@ cp .bash_profile ~/.bash_profile
 cp .xinitrc ~/.xinitrc
 cp .zshrc ~/.zshrc
 cp .zprofile ~/.zprofile
+cp .vimrc ~/.vimrc
 
 cp -r .config/kitty ~/.config/
 cp -r .config/alacritty ~/.config/
@@ -38,3 +39,7 @@ sudo cp scripts/setbg /bin/setbg
 sudo cp scripts/layoutSelect.sh /bin/layoutSelect.sh
 sudo cp scripts/pywal-extender/pywal-extender /bin/pywal-extender
 sudo cp -r sddm.conf.d/ /etc/
+
+# emacs
+cp .config/emacs/init.el ~/.config/emacs/init.el
+cp .config/emacs/config.org ~/.config/emacs/config.org

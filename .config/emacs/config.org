@@ -1,0 +1,224 @@
+#+TITLE:ABaker1343 emacs config
+#+AUTHOR:ABaker1343
+#+DESCRIPTION: emacs configuration
+#+STARTUP: showeverything
+
+* TABLE OF CONTENTS :toc:
+- [[#package-manager-setup][Package manager setup]]
+- [[#theme][Theme]]
+- [[#evil-mode][Evil Mode]]
+- [[#org-mode-configs][Org Mode Configs]]
+- [[#projectile][Projectile]]
+- [[#ivy][Ivy]]
+- [[#lsp][LSP]]
+- [[#tree-sitter][Tree Sitter]]
+- [[#general-keybindings][General Keybindings]]
+- [[#which-key][Which Key]]
+- [[#gui-options][GUI options]]
+- [[#other-general-settings][Other General Settings]]
+
+* Package manager setup
+
+#+begin_src emacs-lisp
+  (require 'package)
+  (add-to-list 'package-archives
+      '("melpa" . "https://melpa.org/packages/")
+  )
+  (package-initialize)
+  ;;(package-refresh-contents)
+#+end_src
+
+* Theme
+#+begin_src emacs-lisp
+  (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
+  (unless (package-installed-p 'dracula-theme)
+      (package-install 'dracula-theme)
+  )
+  (load-theme 'dracula t)
+#+end_src
+
+* Evil Mode
+
+#+begin_src emacs-lisp
+  ;; download evil
+  (unless (package-installed-p 'evil)
+      (package-install 'evil)
+  )
+  (unless (package-installed-p 'evil-leader)
+      (package-install 'evil-leader)
+  )
+  (require 'evil)
+  (require 'evil-leader)
+
+  ;; set configs
+  (setq evil-shift-width 4)
+  (setq evil-vsplit-window-right t)
+  (setq evil-split-window-bottom nil)
+  (setq evil-insert-state-cursor '(box))
+
+  ;; start evil mode
+  (evil-mode 1)
+#+end_src
+
+* Org Mode Configs
+#+begin_src emacs-lisp
+  ;; install toc-org
+  (unless (package-installed-p 'toc-org)
+      (package-install 'toc-org)
+  )
+
+  (require 'toc-org)
+  (add-hook 'org-mode-hook 'toc-org-mode)
+  (add-hook 'org-mode-hook 'org-indent-mode)
+
+  ;; install org bullets
+  (unless (package-installed-p 'org-bullets)
+      (package-install 'org-bullets)
+  )
+
+  (require 'org-bullets)
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+#+end_src
+
+* Projectile
+#+begin_src emacs-lisp
+  ;; install projectile
+  (unless (package-installed-p 'projectile)
+      (package-install 'projectile)
+  )
+
+  (require 'projectile)
+  (projectile-mode +1)
+
+#+end_src
+
+* Ivy
+#+begin_src emacs-lisp
+  ;; install ivy
+  (unless (package-installed-p 'ivy)
+      (package-install 'ivy)
+  )
+
+  (require 'ivy)
+  (ivy-mode)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+#+end_src
+
+* LSP
+#+begin_src emacs-lisp
+  (unless (package-installed-p 'lsp-mode)
+      (package-install 'lsp-mode)
+  )
+  (unless (package-installed-p 'lsp-ui)
+      (package-install 'lsp-ui)
+  )
+  (unless (package-installed-p 'lsp-treemacs)
+      (package-install 'lsp-treemacs)
+  )
+  (unless (package-installed-p 'lsp-ivy)
+      (package-install 'lsp-ivy)
+  )
+  (unless (package-installed-p 'flycheck)
+      (package-install 'flycheck)
+  )
+  (unless (package-installed-p 'company) ;; completions
+      (package-install 'company)
+  )
+
+  (require 'lsp-mode)
+  (require 'lsp-ui)
+  (require 'lsp-ivy)
+  (require 'flycheck)
+  (require 'company)
+
+  (add-hook 'c++-mode-hook #'lsp)
+  (add-hook 'python-mode-hook #'lsp)
+  (add-hook 'c-mode-hook #'lsp)
+
+#+end_src
+
+* Tree Sitter
+#+begin_src emacs-lisp
+  (unless (package-installed-p 'tree-sitter)
+      (package-install 'tree-sitter)
+  )
+  (unless (package-installed-p 'tree-sitter-langs)
+      (package-install 'tree-sitter-langs)
+  )
+
+  (require 'tree-sitter)
+  (require 'tree-sitter-langs)
+
+  (global-tree-sitter-mode)
+  (add-hook 'treesitter-after-on-hook 'tree-sitter-hl-mode)
+#+end_src
+
+
+* General Keybindings
+
+#+begin_src emacs-lisp
+  ;; install general
+  (unless (package-installed-p 'general)
+      (package-install 'general)
+  )
+
+  (require 'general)
+  (general-evil-setup)
+
+  (general-create-definer normal-leader-def
+      :states 'normal
+      :prefix "SPC" ;; Space
+  )
+
+  (normal-leader-def
+      "f" '(:ignore t :wk "file commands")
+      "f d" '(dired :wk "dired")
+      "f f" '(find-file :wk "find file")
+  )
+
+  (normal-leader-def
+      "c" '(:ignore t :wk "code commands")
+      "c d" '(lsp-find-definition :wk "find definition")
+      "c r" '(lsp-find-references :wk "find references")
+      "c c" '(compile :wk "recompile")
+      "c C" '(compile :wk "compile")
+      "c s" '(lsp-ivy-workspace-symbol :wk "find symbol")
+  )
+
+#+end_src
+
+* Which Key
+
+#+begin_src emacs-lisp
+  (unless (package-installed-p 'which-key)
+      (package-install 'which-key)
+  )
+
+  (require 'which-key)
+  (which-key-mode 1)
+#+end_src
+
+* GUI options
+
+#+begin_src emacs-lisp
+  ;; remove window bars and headings
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  ;; relative line mode
+  (setq display-line-numbers-type 'relative)
+  (global-display-line-numbers-mode)
+#+end_src
+
+* Other General Settings
+
+#+begin_src emacs-lisp
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-always-indent nil)
+  (setq-default tab-width 4)
+  (setq c-basic-offset 4)
+
+  (setq-default auto-save-default nil)
+  (setq-default make-backup-files nil)
+#+end_src

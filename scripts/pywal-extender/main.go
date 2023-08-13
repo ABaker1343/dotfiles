@@ -136,7 +136,7 @@ func genColorsAlacritty(data walStruct, waldir string) {
 
 func genColorsWaybar(data walStruct, waldir string, textColors Colors) {
     waybarColors :=
-    "@define-color background " + data.Special.Background + "aa" + ";\n" +
+    "@define-color background " + data.Special.Background  + ";\n" +
     "@define-color foreground " + data.Special.Foreground + ";\n" +
     "@define-color color0 " + data.Colors.Color0 + ";\n" +
     "@define-color color1 " + data.Colors.Color1 + ";\n" +

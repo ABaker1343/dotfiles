@@ -5,6 +5,7 @@ cp ~/.bash_profile ~/.source/dotfiles/.bash_profile
 cp ~/.xinitrc ~/.source/dotfiles/.xinitrc
 cp ~/.zprofile ~/.source/dotfiles/.zprofile
 cp ~/.zshrc ~/.source/dotfiles/.zshrc
+cp ~/.vimrc ~/.source/dotfiles/.vimrc
 
 cp -r ~/.config/kitty ~/.source/dotfiles/.config/
 cp -r ~/.config/alacritty ~/.source/dotfiles/.config/
@@ -42,3 +43,7 @@ cp /bin/layoutSelect.sh ~/.source/dotfiles/scripts/layoutSelect.sh
 
 # sddm config
 cp -r /etc/sddm.conf.d/ ~/.source/dotfiles/
+
+# emacs config
+cp ~/.config/emacs/init.el ~/.source/dotfiles/.config/emacs/init.el
+cp ~/.config/emacs/config.org ~/.source/dotfiles/.config/emacs/config.org

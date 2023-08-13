@@ -9,7 +9,7 @@ switch-to-activity-ea9bbb6e-4185-4574-866d-6012fe4e8c11=none,none,Switch to acti
 [Alacritty.desktop]
 New=none,none,New Terminal
 _k_friendly_name=Alacritty
-_launch=Meta+Shift+Return,none,Alacritty
+_launch=none,none,Alacritty
 
 [KDE Keyboard Layout Switcher]
 Switch keyboard layout to English (UK)=none,none,Switch keyboard layout to English (UK)
@@ -87,7 +87,7 @@ _k_friendly_name=Custom Shortcuts Service
 
 [kitty.desktop]
 _k_friendly_name=kitty
-_launch=none,none,kitty
+_launch=Meta+Shift+Return,none,kitty
 
 [kmix]
 _k_friendly_name=Audio Volume
@@ -266,11 +266,11 @@ view_zoom_out=Meta+-,Meta+-,Zoom Out
 
 [mediacontrol]
 _k_friendly_name=Media Controller
-mediavolumedown=none,,Media volume down
-mediavolumeup=none,,Media volume up
+mediavolumedown=none,none,Media volume down
+mediavolumeup=none,none,Media volume up
 nextmedia=Media Next,Media Next,Media playback next
 pausemedia=Media Pause,Media Pause,Pause media playback
-playmedia=none,,Play media playback
+playmedia=none,none,Play media playback
 playpausemedia=Media Play,Media Play,Play/Pause media playback
 previousmedia=Media Previous,Media Previous,Media playback previous
 stopmedia=Media Stop,Media Stop,Stop media playback
