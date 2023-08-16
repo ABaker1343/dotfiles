@@ -1,9 +1,14 @@
-configuration {
-    modes: "window,run,ssh,drun";
-    show-icons: true;
-}
-
 //@theme "~/.config/rofi/nord.rasi"
 //@theme "~/.cache/wal/colors-rofi-light.rasi"
 //@theme "~/.cache/wal/colors-rofi-dark.rasi"
+
 @theme "./rounded-nord-dark.rasi"
+
+configuration {
+    modes: "window,run,ssh,drun";
+    show-icons: true;
+    location: 0;
+    fixed-num-lines: true;
+    terminal: "kitty";
+}
+

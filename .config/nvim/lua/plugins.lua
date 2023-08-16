@@ -109,6 +109,7 @@ local plugins = {
 'marko-cerovac/material.nvim',
 'Abstract-IDE/Abstract-cs',
 "rebelot/kanagawa.nvim",
+"savq/melange-nvim",
 'NLKNguyen/papercolor-theme',
 { "catppuccin/nvim", name = "catppuccin" },
 { 'embark-theme/vim', name = 'embark' },

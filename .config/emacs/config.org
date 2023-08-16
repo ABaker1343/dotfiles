@@ -4,8 +4,8 @@
 #+STARTUP: showeverything
 
 * TABLE OF CONTENTS :toc:
-- [[#package-manager-setup][Package manager setup]]
 - [[#theme][Theme]]
+- [[#package-manager-setup][Package manager setup]]
 - [[#evil-mode][Evil Mode]]
 - [[#org-mode-configs][Org Mode Configs]]
 - [[#projectile][Projectile]]
@@ -17,6 +17,13 @@
 - [[#gui-options][GUI options]]
 - [[#other-general-settings][Other General Settings]]
 
+* Theme
+#+begin_src emacs-lisp
+  (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
+  ;;(load-theme 'dracula t)
+  ;;(load-theme 'spacegray t)
+#+end_src
+
 * Package manager setup
 
 #+begin_src emacs-lisp
@@ -26,15 +33,6 @@
   )
   (package-initialize)
   ;;(package-refresh-contents)
-#+end_src
-
-* Theme
-#+begin_src emacs-lisp
-  (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
-  (unless (package-installed-p 'dracula-theme)
-      (package-install 'dracula-theme)
-  )
-  (load-theme 'dracula t)
 #+end_src
 
 * Evil Mode
@@ -132,9 +130,7 @@
   (require 'flycheck)
   (require 'company)
 
-  (add-hook 'c++-mode-hook #'lsp)
-  (add-hook 'python-mode-hook #'lsp)
-  (add-hook 'c-mode-hook #'lsp)
+  (add-hook 'prog-mode-hook #'lsp)
 
 #+end_src
 
@@ -150,8 +146,15 @@
   (require 'tree-sitter)
   (require 'tree-sitter-langs)
 
-  (global-tree-sitter-mode)
-  (add-hook 'treesitter-after-on-hook 'tree-sitter-hl-mode)
+  (tree-sitter-require 'c)
+  (tree-sitter-require 'cpp)
+  (tree-sitter-require 'lua)
+  (tree-sitter-require 'python)
+  (tree-sitter-require 'typescript)
+
+  ;;(global-tree-sitter-mode)
+
+  ;;(add-hook 'prog-mode-hook 'tree-sitter-hl-mode)
 #+end_src
 
 
@@ -166,24 +169,55 @@
   (require 'general)
   (general-evil-setup)
 
+  (defun tab-and-terminal ()
+      (interactive)
+      (evil-window-split)
+      (shell)
+  )
+
   (general-create-definer normal-leader-def
-      :states 'normal
+      :states '(normal emacs)
       :prefix "SPC" ;; Space
+      :keymaps 'override
   )
 
   (normal-leader-def
       "f" '(:ignore t :wk "file commands")
       "f d" '(dired :wk "dired")
-      "f f" '(find-file :wk "find file")
+      "f f" '(find-file :wk "find file (project)")
+      "f F" '(projectile-find-file :wk "find file (project)")
   )
 
   (normal-leader-def
       "c" '(:ignore t :wk "code commands")
       "c d" '(lsp-find-definition :wk "find definition")
       "c r" '(lsp-find-references :wk "find references")
-      "c c" '(compile :wk "recompile")
-      "c C" '(compile :wk "compile")
+      "c c" '(compile :wk "compile")
+      "c C" '(projectile-compile-project :wk "compile (project)")
       "c s" '(lsp-ivy-workspace-symbol :wk "find symbol")
+  )
+
+  (normal-leader-def
+      "w" '(:ignore t :wk "window commands")
+      ;"w v" '(split-window-horizontally :wk "split window vertically")
+      ;"w s" '(split-window-vertically :wk "split window horizontally")
+      "w v" '(evil-window-vsplit :wk "split window vertically")
+      "w s" '(evil-window-split :wk "split window horizontally")
+      "w c" '(evil-window-delete :wk "close window")
+      "w j" '(evil-window-down :wk "window down")
+      "w k" '(evil-window-up :wk "window up")
+      "w h" '(evil-window-left :wk "window left")
+      "w l" '(evil-window-right :wk "window right")
+      ;;"w t" '((lambda () ((interactive) (split-window-vertically) (shell))) :wk "shell in new tab")
+      "w t" '(tab-and-terminal :wk "shell in new tab")
+  )
+
+  (normal-leader-def
+      "t" '(:ignore t :wk "tab commands")
+      "t l" '(tab-next :wk "next tab")
+      "t h" '(tab-next :wk "previous tab")
+      "t n" '(tab-new-to :wk "new tab")
+      "t c" '(tab-close :wk "close tab")
   )
 
 #+end_src
@@ -214,11 +248,21 @@
 * Other General Settings
 
 #+begin_src emacs-lisp
+  (setq-default electric-indent-mode t)
   (setq-default indent-tabs-mode nil)
-  (setq-default tab-always-indent nil)
+  (setq-default tab-always-indent t)
   (setq-default tab-width 4)
-  (setq c-basic-offset 4)
+  ;;(setq c-basic-offset 4)
 
   (setq-default auto-save-default nil)
   (setq-default make-backup-files nil)
+
+  (setq-default max-mini-window-height 0.3)
+
+  (defun custom-c-hook ()
+      (setq c-basic-offset 4)
+      (c-set-offset 'substatement-open 0)
+  )
+  (add-hook 'c++-mode-hook 'custom-c-hook)
+  (add-hook 'c-mode-hook 'custom-c-hook)
 #+end_src

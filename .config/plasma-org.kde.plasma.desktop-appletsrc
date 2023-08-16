@@ -166,7 +166,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][55][Applets][74][Configuration]
-PreloadWeight=95
+PreloadWeight=100
 popupHeight=432
 popupWidth=324
 
@@ -216,7 +216,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][60][Applets][63][Configuration]
-PreloadWeight=70
+PreloadWeight=75
 
 [Containments][60][Applets][64]
 immutability=1
@@ -244,7 +244,7 @@ immutability=1
 plugin=org.kde.plasma.clipboard
 
 [Containments][60][Applets][67][Configuration]
-PreloadWeight=70
+PreloadWeight=90
 
 [Containments][60][Applets][68]
 immutability=1
@@ -437,3 +437,4 @@ knownItems=org.kde.plasma.vault,org.kde.plasma.keyboardindicator,org.kde.plasma.
 
 [ScreenMapping]
 itemsOnDisabledScreens=
+screenMapping=

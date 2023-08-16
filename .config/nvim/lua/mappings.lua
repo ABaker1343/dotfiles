@@ -36,6 +36,8 @@ vim.keymap.set('n', "gi", telescopeFuncs.lsp_implementations, {})
 vim.keymap.set('n', "gd", telescopeFuncs.lsp_definitions, {})
 vim.keymap.set('n', "<leader>le", telescopeFuncs.diagnostics, {})
 vim.keymap.set('n', "<leader>lt", telescopeFuncs.treesitter, {noremap = true})
+vim.keymap.set('n', "<leader>lf", vim.diagnostic.open_float, {noremap = true})
+vim.keymap.set('n', "<leader>ld", vim.diagnostic.setloclist, {noremap = true})
 
 -- harpoon mappings
 local harpoonUI = require('harpoon.ui')
