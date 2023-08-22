@@ -125,12 +125,15 @@
   )
 
   (require 'lsp-mode)
-  (require 'lsp-ui)
+  ;(require 'lsp-ui)
   (require 'lsp-ivy)
   (require 'flycheck)
   (require 'company)
 
   (add-hook 'prog-mode-hook #'lsp)
+
+  (setq gc-cons-threshold 100000000) ; 100mb
+  (setq read-process-output-max (* 1024 1024))
 
 #+end_src
 
@@ -265,4 +268,6 @@
   )
   (add-hook 'c++-mode-hook 'custom-c-hook)
   (add-hook 'c-mode-hook 'custom-c-hook)
+
+  (set-frame-font "JetBrainsMono Nerd Font 10")
 #+end_src

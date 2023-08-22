@@ -5,6 +5,7 @@ import(
     "encoding/json"
     "strings"
     "strconv"
+    "fmt"
 )
 
 type walStruct struct {
@@ -59,9 +60,12 @@ func CalculateTextColor(_inColor string) string {
         panic("failed to parse blue value of string: " + _inColor)
     }
 
-    luminosity := 0.21 * float32(redVal) + 0.72 * float32(greenVal) + 0.07 * float32(blueVal)
+    fmt.Println(redVal, ", ", greenVal, ", ", blueVal, ", ");
+    luminosity := (0.21 * float32(redVal)) + (0.72 * float32(greenVal)) + (0.07 * float32(blueVal))
 
-    if luminosity < 0.5 {
+    fmt.Println("in color: ", _inColor, " out color: ", luminosity);
+
+    if luminosity < 120 {
         return "#ffffff"
     } else {
         return "#000000"

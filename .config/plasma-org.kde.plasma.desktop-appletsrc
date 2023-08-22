@@ -92,7 +92,7 @@ immutability=1
 plugin=org.kde.plasma.nightcolorcontrol
 
 [Containments][31][Applets][44][Configuration]
-PreloadWeight=34
+PreloadWeight=0
 
 [Containments][31][Applets][45]
 immutability=1
@@ -216,7 +216,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][60][Applets][63][Configuration]
-PreloadWeight=75
+PreloadWeight=85
 
 [Containments][60][Applets][64]
 immutability=1
@@ -234,7 +234,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][60][Applets][66][Configuration]
-PreloadWeight=90
+PreloadWeight=100
 
 [Containments][60][Applets][66][Configuration][General]
 migrated=true
@@ -244,7 +244,7 @@ immutability=1
 plugin=org.kde.plasma.clipboard
 
 [Containments][60][Applets][67][Configuration]
-PreloadWeight=90
+PreloadWeight=100
 
 [Containments][60][Applets][68]
 immutability=1

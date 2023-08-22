@@ -8,8 +8,8 @@ $terminal = kitty
 
 #KEYBINDS
 
-$screenshot = grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/Screenshots/$(date)_grim.png" | wl-copy
-$screenshotWhole = grim "$(xdg-user-dir PICTURES)/Screenshots/$(date)_grim.png" | wl-copy
+$screenshot = grim -o "$(xdg-user-dir PICTURES)/Screenshots/$(date)_grim.png" -g "$(slurp)" | wl-copy
+$screenshotWhole = grim -o "~/Pictures/Screenshots/$(date)_grim.png" | wl-copy
 $spotify = flatpak run com.spotify.Client
 $discord = flatpak run com.discordapp.Discord
 $steam = flatpak run com.valvesoftware.Steam
@@ -30,15 +30,15 @@ bind = $launchMod, m, exec, thunderbird
 bind = $launchMod, s, exec, $spotify
 bind = $launchMod, d, exec, $discord
 bind = $launchMod, g, exec, $steam
-bind = $launchMod, n, exec, nvim-qt
-#bind = $launchMod, n, exec, $terminal -e nvim
+#bind = $launchMod, n, exec, nvim-qt
+bind = $launchMod, n, exec, $terminal -e nvim
 bind = $launchMod, a, exec, soundSelect.sh
 #bind = $launchMod, r, exec, $terminal -e lf
 bind = $launchMod, r, exec, $terminal -e ranger
 bind = $launchMod, t, exec, $terminal -e htop
 bind = $launchMod, f, exec, pcmanfm
 bind = , Print, exec, $screenshot
-bind = SHIFT, Print, exec, $screenshotWhole
+bind = SHIFT, Print, exec, $screenshoyWhole
 bind = $mainMod, r, exec, rofi -show run
 bind = $controlMod, v, exec, copyq menu
 

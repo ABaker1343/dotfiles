@@ -1,60 +1,68 @@
 {
         "output" : ["DP-2", "eDP-1"],
         "position" : "top",
-        "height" : 5,
+        "height" : 35,
+        "start_hidden" : true,
 
         "modules-left" : ["wlr/workspaces", "wlr/taskbar"],
         "modules-center" : ["clock"],
         "modules-right" : ["battery", "backlight", "cpu", "memory", "pulseaudio", "tray"],
-
+        "_width" : 1900,
+        "_margin-top" : 4,
 
         "wlr/workspaces" : {
             "format" : "{name}",
             "sort-by-number" : true,
-            },
+        },
 
         "wlr/taskbar" : {
-                "format" : "{icon} {app_id}",
-                "icon-size" : 14,
-                "on-click" : "activate",
-                "on-click-middle" : "close",
-            },
+            "format" : "{icon} {app_id}",
+            "icon-size" : 14,
+            "on-click" : "activate",
+            "on-click-middle" : "close",
+        },
 
         "clock" : {
-                "interval" : 30,
-                "format" : "{:%H:%M %a %d}",
+            "interval" : 30,
+            "format" : "{:%H:%M %a %d}",
+            "calendar" : {
+                "mode" : "month",
             },
+            "actions" : {
+                "on-click" : "mode",
+            },
+        },
 
         "battery" : {
-                "interval" : 60,
-                "states" : {
-                        "warning" : 25,
-                        "critical" : 10,
-                    },
-                    "format" : "🔋 {capacity}%",
+            "interval" : 60,
+            "states" : {
+                "warning" : 25,
+                "critical" : 10,
             },
+            "format" : "🔋 {capacity}%",
+        },
 
         "cpu" : {
-                "interval" : 1,
-                "format" : "{}%"
-            },
+            "interval" : 1,
+            "format" : "{}%"
+        },
 
         "memory" : {
-                "interval" : 1,
-                "format" : "{used}/{total}",
-            },
+            "interval" : 1,
+            "format" : "{used}/{total}",
+        },
 
         "backlight" : {
-                "format" : "{percent}%",
-            },
+            "format" : "{percent}%",
+        },
 
         "pulseaudio" : {
-                "format" : "🔊 {volume}%",
-                "onclick" : "soundSelect.sh",
-            },
+            "format" : "🔊 {volume}%",
+            "onclick" : "soundSelect.sh",
+        },
 
         "tray" : {
-                "icon-size" : 14,
-                "spacing" : 5,
-            },
+            "icon-size" : 14,
+            "spacing" : 5,
+        },
     }

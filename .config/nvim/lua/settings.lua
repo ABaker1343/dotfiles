@@ -13,8 +13,8 @@ vim.opt.splitright = true
 
 vim.opt.linebreak = true
 
---vim.opt.cursorline = true
---vim.opt.cursorcolumn = true
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = false
 
 --vim.opt.guicursor="n-v-c:block,i:blinkwait500-blinkon250-blinkoff120-hor55"
 vim.opt.guicursor="n-v-c:block,i:block"

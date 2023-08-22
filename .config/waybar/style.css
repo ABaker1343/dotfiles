@@ -6,17 +6,18 @@
 
 * {
     padding: 1px;
-    margin: 0px;
+    /*margin: 0px;*/
 }
 
 #waybar {
     background: @background;
+    /*background-color: transparent;*/
     padding: 0px;
-    margin: 0px;
+    /*border-radius: 20px;*/
 }
 
 .background {
-    opacity: 1.0;
+    background-color: transparent;
 }
 
 .background > .horizontal {
@@ -71,6 +72,7 @@
 
 #workspaces .active {
     background: @color3;
+    border-radius: 12px;
 }
 
 #taskbar {
@@ -83,6 +85,9 @@
 
 #taskbar .active {
     background: @color1;
+    border-radius: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 #battery {
