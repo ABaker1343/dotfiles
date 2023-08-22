@@ -251,7 +251,7 @@
 * Other General Settings
 
 #+begin_src emacs-lisp
-  (setq-default electric-indent-mode t)
+  (setq-default electric-indent-mode 0)
   (setq-default indent-tabs-mode nil)
   (setq-default tab-always-indent t)
   (setq-default tab-width 4)
