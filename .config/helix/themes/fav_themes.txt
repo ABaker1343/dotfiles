@@ -1,0 +1,8 @@
+amberwood
+ayu_evolve
+catppuccin_mocha
+dracula
+molokai
+monokai_pro
+nightfox
+tokyonight_storm

@@ -1,0 +1,13 @@
+theme = "catppuccin_macchiato"
+
+[editor]
+line-number = "relative"
+auto-format = false
+
+[keys.normal]
+C-e = "scroll_down"
+C-y = "scroll_up"
+
+[keys.normal."space"]
+c = ":run-shell-command cmake --build build"
+C = ":run-shell-command make"

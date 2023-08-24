@@ -9,6 +9,7 @@ cp .vimrc ~/.vimrc
 cp -r .config/kitty ~/.config/
 cp -r .config/alacritty ~/.config/
 cp -r .config/nvim ~/.config/
+cp -r .config/helix ~/.config/
 cp -r .config/ranger ~/.config/
 cp -r .config/lf/ ~/.config/
 cp -r .config/zathura ~/.config/

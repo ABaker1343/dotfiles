@@ -1,49 +1,49 @@
 #!/bin/sh
-cd ~
-cp ~/.bashrc ~/.source/dotfiles/.bashrc
-cp ~/.bash_profile ~/.source/dotfiles/.bash_profile
-cp ~/.xinitrc ~/.source/dotfiles/.xinitrc
-cp ~/.zprofile ~/.source/dotfiles/.zprofile
-cp ~/.zshrc ~/.source/dotfiles/.zshrc
-cp ~/.vimrc ~/.source/dotfiles/.vimrc
+cp ~/.bashrc ./.bashrc
+cp ~/.bash_profile ./.bash_profile
+cp ~/.xinitrc ./.xinitrc
+cp ~/.zprofile ./.zprofile
+cp ~/.zshrc ./.zshrc
+cp ~/.vimrc ./.vimrc
 
-cp -r ~/.config/kitty ~/.source/dotfiles/.config/
-cp -r ~/.config/alacritty ~/.source/dotfiles/.config/
-cp -r ~/.config/nvim ~/.source/dotfiles/.config/
-cp -r ~/.config/ranger ~/.source/dotfiles/.config/
-cp -r ~/.config/lf/ ~/.source/dotfiles/.config/
-cp -r ~/.config/zathura ~/.source/dotfiles/.config/
-cp -r ~/.config/tmux ~/.source/dotfiles/.config/
-cp -r ~/.config/powerline ~/.source/dotfiles/config/
-cp -r ~/.config/rofi ~/.source/dotfiles/.config/
-cp -r ~/.config/waybar/ ~/.source/dotfiles/.config/
-cp -r ~/.config/dunst/ ~/.source/dotfiles/.config/
+cp -r ~/.config/kitty ./.config/
+cp -r ~/.config/alacritty ./.config/
+cp -r ~/.config/nvim ./.config/
+cp -r ~/.config/helix ./.config/
+cp -r ~/.config/ranger ./.config/
+cp -r ~/.config/lf/ ./.config/
+cp -r ~/.config/zathura ./.config/
+cp -r ~/.config/tmux ./.config/
+cp -r ~/.config/powerline ./config/
+cp -r ~/.config/rofi ./.config/
+cp -r ~/.config/waybar/ ./.config/
+cp -r ~/.config/dunst/ ./.config/
 
-cp -r ~/.config/i3 ~/.source/dotfiles/.config/
-cp -r ~/.config/i3status/ ~/.source/dotfiles/.config/
+cp -r ~/.config/i3 ./.config/
+cp -r ~/.config/i3status/ ./.config/
 
-cp -r ~/.config/awesome ~/.source/dotfiles/.config/
-cp -r ~/.config/hypr ~/.source/dotfiles/.config/
+cp -r ~/.config/awesome ./.config/
+cp -r ~/.config/hypr ./.config/
 
-cp -r ~/.config/kglobalshortcutsrc ~/.source/dotfiles/.config/
-cp -r ~/.config/plasmashellr ~/.source/dotfiles/.config/
-cp -r ~/.config/plasma-org.kde.plasma.desktop-appletsrc ~/.source/dotfiles/.config/
+cp -r ~/.config/kglobalshortcutsrc ./.config/
+cp -r ~/.config/plasmashellr ./.config/
+cp -r ~/.config/plasma-org.kde.plasma.desktop-appletsrc ./.config/
 
-cp -r ~/.config/picom ~/.source/dotfiles/.config/
+cp -r ~/.config/picom ./.config/
 
-cp ~/.mozilla/firefox/m5q2ch62.default-release/chrome/userChrome.css ~/.source/dotfiles/userChrome.css
+cp ~/.mozilla/firefox/m5q2ch62.default-release/chrome/userChrome.css ./userChrome.css
 
 #spicetify theme and colors files
-cp -r ~/.spicetify/Themes/Sleek ~/.source/dotfiles/spicetify-themes/
+cp -r ~/.spicetify/Themes/Sleek ./spicetify-themes/
 
 # shell scripts
-cp /bin/soundSelect.sh ~/.source/dotfiles/scripts/soundSelect.sh
-cp /bin/setbg ~/.source/dotfiles/scripts/setbg
-cp /bin/layoutSelect.sh ~/.source/dotfiles/scripts/layoutSelect.sh
+cp /bin/soundSelect.sh ./scripts/soundSelect.sh
+cp /bin/setbg ./scripts/setbg
+cp /bin/layoutSelect.sh ./scripts/layoutSelect.sh
 
 # sddm config
-cp -r /etc/sddm.conf.d/ ~/.source/dotfiles/
+cp -r /etc/sddm.conf.d/ ./
 
 # emacs config
-cp ~/.config/emacs/init.el ~/.source/dotfiles/.config/emacs/init.el
-cp ~/.config/emacs/config.org ~/.source/dotfiles/.config/emacs/config.org
+cp ~/.config/emacs/init.el ./.config/emacs/init.el
+cp ~/.config/emacs/config.org ./.config/emacs/config.org

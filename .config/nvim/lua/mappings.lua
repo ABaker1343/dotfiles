@@ -26,16 +26,23 @@ vim.api.nvim_set_keymap("n", "<C-c>", ":colors sonokai<CR>", {})
 -- telescope mappings
 local telescopeFuncs = require('telescope.builtin')
 vim.keymap.set('n', "<C-f>", telescopeFuncs.find_files, {})
-vim.keymap.set('n', "<leader>fg", telescopeFuncs.live_grep, {})
-vim.keymap.set('n', "<leader>ff", telescopeFuncs.find_files, {})
+--vim.keymap.set('n', "<leader>fg", telescopeFuncs.live_grep, {})
+--vim.keymap.set('n', "<leader>ff", telescopeFuncs.find_files, {})
 --vim.keymap.set('n', "<leader>fb", telescopeFuncs.file_browser, {})
-vim.keymap.set('n', "<leader>fb", ":Telescope file_browser<CR>", {noremap = true})
+--vim.keymap.set('n', "<leader>fb", ":Telescope file_browser<CR>", {noremap = true})
+
+vim.keymap.set('n', "<leader>f", telescopeFuncs.find_files, {})
+vim.keymap.set('n', "<leader>/", telescopeFuncs.live_grep, {})
+vim.keymap.set('n', "<leader>d", telescopeFuncs.diagnostics, {})
+vim.keymap.set('n', "<leader>s", telescopeFuncs.treesitter, {noremap = true})
+vim.keymap.set('n', "<leader>b", ":Telescope file_browser<CR>", {noremap = true})
 
 vim.keymap.set('n', "gr", telescopeFuncs.lsp_references, {})
 vim.keymap.set('n', "gi", telescopeFuncs.lsp_implementations, {})
 vim.keymap.set('n', "gd", telescopeFuncs.lsp_definitions, {})
-vim.keymap.set('n', "<leader>le", telescopeFuncs.diagnostics, {})
-vim.keymap.set('n', "<leader>lt", telescopeFuncs.treesitter, {noremap = true})
+
+--vim.keymap.set('n', "<leader>le", telescopeFuncs.diagnostics, {})
+--vim.keymap.set('n', "<leader>lt", telescopeFuncs.treesitter, {noremap = true})
 vim.keymap.set('n', "<leader>lf", vim.diagnostic.open_float, {noremap = true})
 vim.keymap.set('n', "<leader>ld", vim.diagnostic.setloclist, {noremap = true})
 
