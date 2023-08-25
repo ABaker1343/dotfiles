@@ -4,7 +4,7 @@ com.spotify.Spotify
 com.usebottles.bottles
 com.valvesoftware.Steam
 com.valvesoftware.Steam.CompatibilityTool.Proton
-com.valvesoftware.Steam.Utility.gamescope
+org.freedesktop.Platform.VulkanLayer.gamescope
 io.gitlab.librewolf-community
 org.mozilla.Thunderbird
 com.bitwarden.desktop
