@@ -1,36 +1,60 @@
-#!/bin/sh
+#!/bin/bash
 
 printUsage() {
-    echo "    -f : file path of image
-    -t : pywal theme to use
-    -s : saturation value"
+    echo "    -f | --file : file path of image
+    -t | --theme : pywal theme to use
+    -s | --saturation : saturation value"
 }
 
 saturation=""
 file=""
-while getopts "f:s:t" opt; do
-    case $opt in
-    s) saturation=$OPTARG;;
-    f) file=$OPTARG;;
-    t) theme=$OPTARG;;
-    ?) echo "invalid switch"; printUsage; exit;;
+theme=""
+
+for arg in $@; do
+    echo "$arg"
+    case $arg in
+        -f | --file)
+            shift
+            file=$1
+            shift
+            echo "$file"
+            ;;
+        -s | --saturation)
+            shift
+            saturation=$1
+            shift
+            echo "$saturation"
+            ;;
+        -t | --theme)
+            shift
+            theme=$1
+            shift
+            echo "$theme"
+            ;;
+        -h | --help)
+            printUsage
+            exit 0
+            ;;
     esac
 done
-if [ ! -n "$file" ]; then
-    exit
+
+if ["$file" == ""]; then
+    echo "no file selected"
+    exit 1
 fi
 
 cp $file ~/bg/bg1.png
 echo "new background: $file"
 
-if test -z "$saturation"; then
+if ["$saturation" == ""]; then
     echo "no saturation given"
     saturation=0.6
 fi
-if test -z "$theme"; then
+
+if ["$theme" == ""]; then
 	wal -n -i $file --saturate $saturation
 else
-	wal -n --theme $theme
+	wal -n --theme "$theme"
 fi
 
 echo "background_opacity 0.75" >> ~/.cache/wal/colors-kitty.conf
@@ -39,6 +63,12 @@ pywal-extender
 if [ -n "$(type -p spicetify)"]; then
     ~/.spicetify/spicetify apply
 fi
+
+# restart any desktop elements that are using the colorscheme
+killall waybar
+killall swaybg
+waybar & disown
+swaybg -i ~/bg/bg1.png & disown
 
 echo "finished setting wallpaper and colorscheme\n"
 
