@@ -1,0 +1,24 @@
+
+for opt in $@; do
+	case $opt in
+		--pretty)
+			hyprctl --batch "\
+			keyword animations:enabled true;\
+			keyword decoration:rounding 5;\
+			keyword decoration:drop_shadow true;\
+			keyword general:gaps_in 4;\
+			keyword general:gaps_out 8;\
+			keyword master:no_gaps_when_only false"
+			;;
+		--no-pretty)
+			hyprctl --batch "\
+			keyword animations:enabled false;\
+			keyword decoration:rounding 0;\
+			keyword decoration:drop_shadow false;\
+			keyword general:gaps_in 2;\
+			keyword general:gaps_out 4;\
+			keyword master:no_gaps_when_only true"
+			;;
+	esac
+done
+			

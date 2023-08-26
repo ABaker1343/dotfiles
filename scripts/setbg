@@ -67,8 +67,9 @@ fi
 # restart any desktop elements that are using the colorscheme
 killall waybar
 killall swaybg
-waybar & disown
-swaybg -i ~/bg/bg1.png & disown
-
+# waybar & disown
+# swaybg -i ~/bg/bg1.png & disown
+nohup waybar &
+nohup swaybg -i ~/bg/bg1.png &
 echo "finished setting wallpaper and colorscheme\n"
 

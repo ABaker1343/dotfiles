@@ -11,9 +11,9 @@
 
 #waybar {
     background: @background;
-    /*background-color: transparent;*/
+    background-color: transparent;
     padding: 0px;
-    /*border-radius: 20px;*/
+    border-radius: 20px;
 }
 
 .background {
@@ -55,8 +55,10 @@
 }
 
 #clock {
-    background: @foreground;
-    color: @background;
+    /*background: @foreground;
+    color: @background;*/
+    background: @background;
+    color: @tcolor0;
     padding-left: 12px;
     padding-right: 12px;
     padding-top: 0px;
