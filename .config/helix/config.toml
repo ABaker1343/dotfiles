@@ -9,5 +9,5 @@ C-e = "scroll_down"
 C-y = "scroll_up"
 
 [keys.normal."space"]
-c = ":run-shell-command cmake --build build"
+c = ":run-shell-command kitty"
 C = ":run-shell-command make"

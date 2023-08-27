@@ -3,6 +3,6 @@ ayu_evolve
 catppuccin_mocha
 dracula
 molokai
-monokai_pro
+monokai_aqua
 nightfox
 tokyonight_storm
