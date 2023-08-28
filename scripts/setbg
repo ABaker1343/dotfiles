@@ -69,7 +69,7 @@ killall waybar
 killall swaybg
 # waybar & disown
 # swaybg -i ~/bg/bg1.png & disown
-nohup waybar &
-nohup swaybg -i ~/bg/bg1.png &
+nohup waybar & > /dev/null
+nohup swaybg -i ~/bg/bg1.png & > /dev/null
 echo "finished setting wallpaper and colorscheme\n"
 

@@ -2,8 +2,10 @@
 # ~/.profile
 #
 
-export EDITOR='nvim'
-export VISUAL='nvim'
+# export EDITOR='nvim'
+# export VISUAL='nvim'
+export EDITOR='helix'
+export VISUAL='helix'
 
 eval `luarocks path --bin`
 
