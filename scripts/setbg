@@ -1,64 +1,81 @@
 #!/bin/bash
 
 printUsage() {
-    echo "    -f | --file : file path of image
-    -t | --theme : pywal theme to use
-    -s | --saturation : saturation value"
+echo "setbg script for setting wallpaper and colorscheme
+
+Example usage
+    setbg -s 0.8 -t monokai -f path/to/wallpaper.png
+
+Options:
+    -f, --file         set the file to use as your wallpaper
+    -t, --theme        set a pywal theme to use instead of a generated theme from the wallpaper
+    -s, --saturation   set the saturation for the colorscheme
+    --no-theme         do not generate a new colorscheme
+    --help             print this help message
+
+Dependancies:
+    pywal (python-pywal)
+    swagbg
+    pywal-extender (see https://github.com/ABaker1343/dotfiles/scripts/pywal-extender)
+"
 }
 
-saturation=""
+saturation=0.6
 file=""
 theme=""
+setTheme=true
 
 for arg in $@; do
-    echo "$arg"
     case $arg in
         -f | --file)
             shift
             file=$1
             shift
-            echo "$file"
             ;;
         -s | --saturation)
             shift
             saturation=$1
             shift
-            echo "$saturation"
             ;;
         -t | --theme)
             shift
             theme=$1
             shift
-            echo "$theme"
             ;;
         -h | --help)
             printUsage
             exit 0
             ;;
+        --no-theme)
+            shift
+            setTheme=false
     esac
 done
 
-if ["$file" == ""]; then
-    echo "no file selected"
+if [ "$file" == "" ] && [ "$theme" ==  "" ]; then
+    echo "no file or theme selected"
     exit 1
 fi
 
-cp $file ~/bg/bg1.png
-echo "new background: $file"
-
-if ["$saturation" == ""]; then
-    echo "no saturation given"
-    saturation=0.6
+# set wallpaper
+if [ "$file" != "" ]; then
+    cp $file ~/bg/bg1.png
+    echo "new wallpaper: $file"
+    killall swaybg
+    nohup swaybg -i ~/bg/bg1.png > /dev/null &
 fi
 
-if ["$theme" == ""]; then
-	wal -n -i $file --saturate $saturation
-else
-	wal -n --theme "$theme"
+# set colorscheme
+if [ "$setTheme" == "true" ]; then
+    if [ "$theme" == "" ]; then
+    	wal -n -i $file --saturate $saturation
+    else
+    	wal -n --theme "$theme" --saturate $saturation
+    fi
+    pywal-extender
 fi
 
 echo "background_opacity 0.75" >> ~/.cache/wal/colors-kitty.conf
-pywal-extender
 
 if [ -n "$(type -p spicetify)"]; then
     ~/.spicetify/spicetify apply
@@ -66,10 +83,6 @@ fi
 
 # restart any desktop elements that are using the colorscheme
 killall waybar
-killall swaybg
-# waybar & disown
-# swaybg -i ~/bg/bg1.png & disown
-nohup waybar & > /dev/null
-nohup swaybg -i ~/bg/bg1.png & > /dev/null
+nohup waybar > /dev/null &
 echo "finished setting wallpaper and colorscheme\n"
 

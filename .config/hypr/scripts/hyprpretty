@@ -8,6 +8,7 @@ for opt in $@; do
 			keyword decoration:drop_shadow true;\
 			keyword general:gaps_in 4;\
 			keyword general:gaps_out 8;\
+			keyword general:border_size 4;\
 			keyword master:no_gaps_when_only false"
 			;;
 		--no-pretty)
@@ -17,6 +18,7 @@ for opt in $@; do
 			keyword decoration:drop_shadow false;\
 			keyword general:gaps_in 2;\
 			keyword general:gaps_out 4;\
+			keyword general:border_size 2;\
 			keyword master:no_gaps_when_only true"
 			;;
 	esac
