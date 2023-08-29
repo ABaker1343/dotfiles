@@ -1,4 +1,3 @@
-awesome
 hyprland
 sddm
 
@@ -17,7 +16,6 @@ ffmpegthumbs
 pipewire
 ueberzug
 os-prober
-xorg
 python
 upower
 
@@ -27,16 +25,14 @@ flameshot
 zathura
 zathura-pdf-poppler
 dunst
-redshift
-copyq
-firefox
+wl-copy
+grim
+slurp
 lxappearance
 mpv
 imv
-picom
 bitwarden
 rofi
-hyprpaper
 swaybg
 swaylock
 waybar
