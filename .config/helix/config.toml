@@ -1,5 +1,6 @@
-# theme = "catppuccin_macchiato"
-theme = "molokai"
+theme = "catppuccin_macchiato"
+# theme = "molokai"
+# theme = "monokai_pro_machine"
 
 [editor]
 line-number = "relative"

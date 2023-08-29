@@ -1,8 +1,8 @@
 amberwood
-ayu_evolve
+ayu_mirage
 catppuccin_mocha
 dracula
 molokai
-monokai_aqua
+monokai_pro_machine
 nightfox
 tokyonight_storm

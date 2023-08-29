@@ -10,6 +10,7 @@ Options:
     -f, --file         set the file to use as your wallpaper
     -t, --theme        set a pywal theme to use instead of a generated theme from the wallpaper
     -s, --saturation   set the saturation for the colorscheme
+    -b, --backend      set the backend used by pywal to generate colorscheme
     --no-theme         do not generate a new colorscheme
     --help             print this help message
 
@@ -23,6 +24,7 @@ Dependancies:
 saturation=0.6
 file=""
 theme=""
+backend="wal"
 setTheme=true
 
 for arg in $@; do
@@ -42,6 +44,11 @@ for arg in $@; do
             theme=$1
             shift
             ;;
+        -b | --backend)
+            shift
+            backend=$1
+            shift
+        ;;
         -h | --help)
             printUsage
             exit 0
@@ -68,9 +75,9 @@ fi
 # set colorscheme
 if [ "$setTheme" == "true" ]; then
     if [ "$theme" == "" ]; then
-    	wal -n -i $file --saturate $saturation
+    	wal -n -i $file --saturate $saturation --backend $backend
     else
-    	wal -n --theme "$theme" --saturate $saturation
+    	wal -n --theme "$theme" --saturate $saturation --backend $backend
     fi
     pywal-extender
 fi
