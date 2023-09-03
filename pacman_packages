@@ -44,3 +44,5 @@ lua-language-server
 clang
 css-languageserver
 pyright
+
+libnotify

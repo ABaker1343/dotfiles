@@ -24,6 +24,7 @@ cp -r .config/i3status ~/.config/
 
 cp -r .config/awesome ~/.config/
 cp -r .config/hypr/ ~/.config/
+cp -r .config/gammastep/ ~/.config/
 
 cp -r .config/kglobalshortcutsrc ~/.config/
 cp -r .config/plasmashellr ~/.config/

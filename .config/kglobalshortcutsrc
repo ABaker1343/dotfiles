@@ -20,10 +20,6 @@ _k_friendly_name=Keyboard Layout Switcher
 _k_friendly_name=alacritty -e htop
 _launch=none,none,alacritty -e htop
 
-[com.discordapp.Discord.desktop]
-_k_friendly_name=Discord
-_launch=Meta+Shift+D,none,Discord
-
 [com.spotify.Client.desktop]
 _k_friendly_name=Spotify
 _launch=Meta+Shift+S,none,Spotify
@@ -261,27 +257,27 @@ Window to Screen 6=none,,Window to Screen 6
 Window to Screen 7=none,,Window to Screen 7
 _k_friendly_name=KWin
 view_actual_size=none,Meta+0,Zoom to Actual Size
-view_zoom_in=Meta++\tMeta+=,Meta++,Zoom In
+view_zoom_in=Meta++\tMeta+=,Meta+=,Zoom In
 view_zoom_out=Meta+-,Meta+-,Zoom Out
 
 [mediacontrol]
 _k_friendly_name=Media Controller
-mediavolumedown=none,,Media volume down
-mediavolumeup=none,,Media volume up
+mediavolumedown=none,none,Media volume down
+mediavolumeup=none,none,Media volume up
 nextmedia=Media Next,Media Next,Media playback next
 pausemedia=Media Pause,Media Pause,Pause media playback
-playmedia=none,,Play media playback
+playmedia=none,none,Play media playback
 playpausemedia=Media Play,Media Play,Play/Pause media playback
 previousmedia=Media Previous,Media Previous,Media playback previous
 stopmedia=Media Stop,Media Stop,Stop media playback
 
 [nvim-qt.desktop]
 _k_friendly_name=Neovim-Qt
-_launch=Meta+Shift+N,none,Neovim-Qt
+_launch=none,none,Neovim-Qt
 
 [nvim.desktop]
 _k_friendly_name=Neovim
-_launch=none,none,Neovim
+_launch=Meta+Shift+N,none,Neovim
 
 [org.kde.dolphin.desktop]
 _k_friendly_name=Dolphin
@@ -300,15 +296,15 @@ _launch=Meta+.\tMeta+Ctrl+Alt+Shift+Space,Meta+.\tMeta+Ctrl+Alt+Shift+Space,Emoj
 ActiveWindowScreenShot=Meta+Print,Meta+Print,Capture Active Window
 CurrentMonitorScreenShot=none,none,Capture Current Monitor
 FullScreenScreenShot=Shift+Print,Shift+Print,Capture Entire Desktop
-OpenWithoutScreenshot=none,none,Launch Spectacle without capturing
+OpenWithoutScreenshot=none,none,Launch without taking a screenshot
 RectangularRegionScreenShot=Meta+Shift+Print,Meta+Shift+Print,Capture Rectangular Region
 WindowUnderCursorScreenShot=Meta+Ctrl+Print,Meta+Ctrl+Print,Capture Window Under Cursor
 _k_friendly_name=Spectacle
-_launch=Print,Print,Launch Spectacle
+_launch=none,Print,Spectacle
 
 [org.mozilla.Thunderbird.desktop]
 ComposeMessage=none,none,Write New Message
-OpenAddressBook=none,none,Name=Open the Address Book
+OpenAddressBook=none,none,Open the Address Book
 _k_friendly_name=Thunderbird
 _launch=Meta+Shift+M,none,Thunderbird
 

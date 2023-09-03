@@ -24,6 +24,7 @@ cp -r ~/.config/i3status/ ./.config/
 
 cp -r ~/.config/awesome ./.config/
 cp -r ~/.config/hypr ./.config/
+cp -r ~/.config/gammastep ./.config/
 
 cp -r ~/.config/kglobalshortcutsrc ./.config/
 cp -r ~/.config/plasmashellr ./.config/
@@ -46,5 +47,5 @@ cp -r /etc/sddm.conf.d/ ./sddm/
 cp -r /usr/share/sddm/themes/sddm-wal-theme/ ./sddm/
 
 # emacs config
-cp ~/.config/emacs/init.el ./.config/emacs/init.el
-cp ~/.config/emacs/config.org ./.config/emacs/config.org
+# cp ~/.config/emacs/init.el ./.config/emacs/init.el
+# cp ~/.config/emacs/config.org ./.config/emacs/config.org

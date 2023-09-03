@@ -8,6 +8,9 @@ lspconfig.lua_ls.setup {}
 
 lspconfig.pyright.setup {}
 
+--markdown lsp
+lspconfig.marksman.setup {}
+
 lspconfig.texlab.setup {}
 
 lspconfig.glslls.setup {
