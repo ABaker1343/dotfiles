@@ -47,5 +47,5 @@ cp -r /etc/sddm.conf.d/ ./sddm/
 cp -r /usr/share/sddm/themes/sddm-wal-theme/ ./sddm/
 
 # emacs config
-# cp ~/.config/emacs/init.el ./.config/emacs/init.el
-# cp ~/.config/emacs/config.org ./.config/emacs/config.org
+cp ~/.config/emacs/init.el ./.config/emacs/init.el
+cp ~/.config/emacs/config.org ./.config/emacs/config.org

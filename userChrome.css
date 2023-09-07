@@ -1,68 +1,5 @@
 @import "/home/alex/.cache/wal/colors.css";
 
-#contentAreaContextMenu{ margin: 20px 20px 20px 20px }
-
-#nav-bar {
-    background-color: var(--color0) !important;
-}
-
-#TabsToolbar {
-    background-color: var(--color0) !important;
-}
-
-#tabbrowser-arrowscrollbox {
-    background-color: var(--color0) !important;
-}
-
-.tabbrowser-tab .tab-stack {
-    background-color: var(--color0) !important;
-}
-
-.tabbrowser-tab .tab-background:not([selected]) {
-    background-color: var(--color0) !important;
-} 
-.tabbrowser-tab .tab-background[selected] {
-    background-color: var(--color1) !important;
-    background-image: none !important;
-}
-
-.tabbrowser-tab .tab-content[selected] {
-    color: var(--color15) !important;
-    margin: 4px !important;
-}
-
-.tabbrowser-tab .tabcontent:not([selected]){
-    /*background-color: var(--color0) !important;*/
-    color: var(--color0) !important;
-}
-
-/* url bar coloring */
-
-#urlbar-background {
-    background-color: var(--color0) !important;
-}
-#urlbar ::selection {
-    background: var(--color1) !important;
-}
-
-.urlbarView {
-    background-color: var(--color0) !important;
-    margin: none !important;
-    border: none !important;
-}
-
-#nav-bar-customization-target {
-    background-color: var(--color0) !important;
-}
-
-.urlbarView-row ::selection {
-    background-color: var(--color2) !important;
-}
-
-.urlbarView-row :hover {
-    background-color: var(--color4) !important;
-}
-
 
 /* home page customisations */
 
@@ -112,6 +49,8 @@
                   If you're looking for a **mouse-friendly** clone please check out Waterfall.
                   https://github.com/crambaud/waterfall
 
+  Additions:     added color theming explicitly for tabs
+
 *==============================================================================================*/
 
 
@@ -136,9 +75,9 @@
 
     @media (prefers-color-scheme: dark) { :root {
 
-        --window-colour:                     var(--color0);
-        --secondary-colour:                  #191B1C;
-        --inverted-colour:                   #FAFAFC;
+        --window-colour:                     var(--background);
+        --secondary-colour:                  var(--color1);
+        --inverted-colour:                   var(--foreground);
 
         /* Containter Tab Colours */
         --uc-identity-colour-blue:            #7ED6DF;
@@ -284,8 +223,11 @@
 :root {
 
     --uc-theme-colour:                          var(--window-colour,    var(--toolbar-bgcolor));
-    --uc-hover-colour:                          var(--color1);
+    --uc-hover-colour:                          var(--color2);
     --uc-inverted-colour:                       var(--inverted-colour,  var(--toolbar-color));
+    --uc-active-tab-colour:                     var(--color2);
+    --uc-inactive-tab-colour:                   var(--color3);
+    --uc-navbar-background-colour:              var(--color4);
 
     --button-bgcolor:                           var(--uc-theme-colour)    !important;
     --button-hover-bgcolor:                     var(--uc-hover-colour)    !important;
@@ -343,6 +285,12 @@ window,
 
 
 
+#nav-bar-customization-target {
+    background: var(--uc-navbar-background-colour) !important;
+}
+#TabsToolbar {
+    background: var(--uc-navbar-background-colour) !important;
+}
 
 
 /* remove gap after pinned tabs */
@@ -351,22 +299,25 @@ window,
     > .tabbrowser-tab[first-visible-unpinned-tab] { margin-inline-start: 0 !important; }
 
 
+
 /* remove tab shadow */
 .tabbrowser-tab
     >.tab-stack
-    > .tab-background { box-shadow: none !important;  }
+    > .tab-background {
+        box-shadow: none !important;
+    }
 
 
 /* tab background */
 .tabbrowser-tab
     > .tab-stack
-    > .tab-background { background: var(--uc-theme-colour) !important; }
+    > .tab-background { background: var(--uc-inactive-tab-colour) !important; }
 
 
 /* active tab background */
 .tabbrowser-tab[selected]
     > .tab-stack
-    > .tab-background { background: var(--uc-hover-colour) !important; }
+    > .tab-background { background: var(--uc-active-tab-colour) !important; }
 
 
 /* multi tab selection */
@@ -437,7 +388,7 @@ window,
 .tabbrowser-tab[selected] .tab-icon-overlay:not([sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) {
 
   stroke: var(--uc-hover-colour) !important;
-  background-color: var(--uc-hover-colour) !important;
+  background-color: var(--uc-active-tab-colour) !important;
 
 }
 

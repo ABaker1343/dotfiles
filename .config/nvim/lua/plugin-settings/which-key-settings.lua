@@ -13,18 +13,21 @@ wk.register({
         l = {"<C-w>l", "Right"},
         j = {"<C-w>j", "Down"},
         k = {"<C-w>k", "Up"},
+        H = {"<C-w>H", "Move Left"},
+        L = {"<C-w>L", "Move Right"},
+        J = {"<C-w>J", "Move Down"},
+        K = {"<C-w>K", "Move Up"},
         f = {"<cmd>NvimTreeToggle<CR>", "File Tree"},
-        t = {"<cmd>tabnew<CR><cmd>terminal<CR>A", "Terminal"},
         ["<Left>"] = {"<C-w>20<", "Resize -x"},
         ["<Right>"] = {"<C-w>20>", "Resize +x"},
-        ["<Up>"] = {"<C-w>20+", "Resize +y"},
-        ["<Down>"] = {"<C-w>20-", "Resize -y"},
+        ["<Up>"] = {"<C-w>10+", "Resize +y"},
+        ["<Down>"] = {"<C-w>10-", "Resize -y"},
     },
     t = {
         name = "Tab",
         n = {"<cmd>tabnew<CR>", "New"},
-        l = {"<cmd>tabn", "Next"},
-        h = {"<cmd>tabn", "Previous"},
+        l = {"<cmd>tabn<CR>", "Next"},
+        h = {"<cmd>tabn<CR>", "Previous"},
     },
     f = {
         name = "File",
@@ -40,6 +43,8 @@ wk.register({
         s = { telescopeFuncs.treesitter, "Symbols"},
         k = { vim.lsp.buf.hover, "Lsp Hover"},
         f = { vim.diagnostic.open_float, "Floating Diagnostics"},
+        c = { "<cmd>FloatermNew make<CR>", "Run Makefile"},
+        C = { "<cmd>FloatermNew cmake --build build<CR>", "Cmake build"},
     },
     r = {
         name = "Replace",
@@ -53,6 +58,13 @@ wk.register({
         l = { harpoonUI.nav_next, "Next"},
         h = { harpoonUI.nav_next, "Previous"},
         m = { harpoonUI.toggle_quick_menu, "Next"},
+    },
+    s = {
+        name = "Shell",
+        t = {"<cmd>tabnew<CR><cmd>terminal<CR>A", "New Tab"},
+        n = {"<cmd>FloatermNew<CR>", "New Floating"},
+        s = {"<cmd>FloatermToggle<CR>", "Toggle Floating"},
+        c = {"<cmd>FloatermKill<CR>", "Kill Floating"}
     }
 },
 {

@@ -27,67 +27,106 @@
 * Package manager setup
 
 #+begin_src emacs-lisp
-  (require 'package)
-  (add-to-list 'package-archives
-      '("melpa" . "https://melpa.org/packages/")
-      '("elpa" . "https://elpa.gnu.org/packages/")
+  (defvar elpaca-installer-version 0.5)
+  (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
+  (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
+  (defvar elpaca-repos-directory (expand-file-name "repos/" elpaca-directory))
+  (defvar elpaca-order '(elpaca :repo "https://github.com/progfolio/elpaca.git"
+                                :ref nil
+                                :files (:defaults (:exclude "extensions"))
+                                :build (:not elpaca--activate-package)))
+  (let* ((repo  (expand-file-name "elpaca/" elpaca-repos-directory))
+         (build (expand-file-name "elpaca/" elpaca-builds-directory))
+         (order (cdr elpaca-order))
+         (default-directory repo))
+    (add-to-list 'load-path (if (file-exists-p build) build repo))
+    (unless (file-exists-p repo)
+      (make-directory repo t)
+      (when (< emacs-major-version 28) (require 'subr-x))
+      (condition-case-unless-debug err
+          (if-let ((buffer (pop-to-buffer-same-window "*elpaca-bootstrap*"))
+                   ((zerop (call-process "git" nil buffer t "clone"
+                                         (plist-get order :repo) repo)))
+                   ((zerop (call-process "git" nil buffer t "checkout"
+                                         (or (plist-get order :ref) "--"))))
+                   (emacs (concat invocation-directory invocation-name))
+                   ((zerop (call-process emacs nil buffer nil "-Q" "-L" "." "--batch"
+                                         "--eval" "(byte-recompile-directory \".\" 0 'force)")))
+                   ((require 'elpaca))
+                   ((elpaca-generate-autoloads "elpaca" repo)))
+              (progn (message "%s" (buffer-string)) (kill-buffer buffer))
+            (error "%s" (with-current-buffer buffer (buffer-string))))
+        ((error) (warn "%s" err) (delete-directory repo 'recursive))))
+    (unless (require 'elpaca-autoloads nil t)
+      (require 'elpaca)
+      (elpaca-generate-autoloads "elpaca" repo)
+      (load "./elpaca-autoloads")))
+  (add-hook 'after-init-hook #'elpaca-process-queues)
+  (elpaca `(,@elpaca-order))
+
+    ;(require 'package)
+    ;(add-to-list 'package-archives
+        ;'("elpa" . "https://elpa.gnu.org/packages/")
+        ;'("melpa" . "https://melpa.org/packages/")
+    ;)
+    ;(package-initialize)
+
+  (elpaca elpaca-use-package
+    (elpaca-use-package-mode)
+    (setq elpaca-use-package-by-default t)
   )
-  (package-initialize)
-  ;;(package-refresh-contents)
+
+  (elpaca-wait)
+
+    ;;(package-refresh-contents)
 #+end_src
 
 * Evil Mode
 
 #+begin_src emacs-lisp
-  ;; download evil
-  (unless (package-installed-p 'evil)
-      (package-install 'evil)
+  (use-package undo-tree
+    :init
+    (setq undo-tree-history-directory-alist '(("." . "~/.config/emacs/undo")))
+    :config
+    (global-undo-tree-mode)
   )
-  (unless (package-installed-p 'evil-leader)
-      (package-install 'evil-leader)
+  (use-package evil
+    :init
+    (setq evil-undo-system 'undo-tree)
+    (setq evil-shift-width 4)
+    (setq evil-vsplit-window-right t)
+    (setq evil-split-window-bottom nil)
+    (setq evil-insert-state-cursor '(box))
+    :config
+    (evil-mode 1)
   )
-  (require 'evil)
-  (require 'evil-leader)
-
-  ;; set configs
-  (setq evil-shift-width 4)
-  (setq evil-vsplit-window-right t)
-  (setq evil-split-window-bottom nil)
-  (setq evil-insert-state-cursor '(box))
-
-  ;; start evil mode
-  (evil-mode 1)
 #+end_src
 
 * Org Mode Configs
 #+begin_src emacs-lisp
-  ;; install toc-org
-  (unless (package-installed-p 'toc-org)
-      (package-install 'toc-org)
+  (use-package toc-org
+    :init
+    :config
+    (add-hook 'org-mode-hook 'toc-org-mode)
+    (add-hook 'org-mode-hook 'org-indent-mode)
   )
+  ;(use-package org-bullets
+    ;:init
+    ;:config
+    ;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  ;)
 
-  (require 'toc-org)
-  (add-hook 'org-mode-hook 'toc-org-mode)
-  (add-hook 'org-mode-hook 'org-indent-mode)
-
-  ;; install org bullets
-  (unless (package-installed-p 'org-bullets)
-      (package-install 'org-bullets)
-  )
-
-  (require 'org-bullets)
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 #+end_src
 
 * Projectile
 #+begin_src emacs-lisp
   ;; install projectile
-  (unless (package-installed-p 'projectile)
-      (package-install 'projectile)
-  )
 
-  (require 'projectile)
-  (projectile-mode +1)
+  (use-package projectile
+    :init
+    :config
+    (projectile-mode +1)
+  )
 
 #+end_src
 
@@ -98,41 +137,29 @@
       (package-install 'ivy)
   )
 
-  (require 'ivy)
-  (ivy-mode)
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
+  (use-package ivy
+    :init
+    (setq ivy-use-virtual-buffers t)
+    (setq enable-recursive-minibuffers t)
+    :config
+    (ivy-mode)
+  )
 #+end_src
 
 * LSP
 #+begin_src emacs-lisp
-  (unless (package-installed-p 'lsp-mode)
-      (package-install 'lsp-mode)
+  (use-package lsp-mode
+    :init
+    :config
+    (add-hook 'prog-mode-hook #'lsp)
+    (lsp-mode)
   )
-  (unless (package-installed-p 'lsp-ui)
-      (package-install 'lsp-ui)
-  )
-  (unless (package-installed-p 'lsp-treemacs)
-      (package-install 'lsp-treemacs)
-  )
-  (unless (package-installed-p 'lsp-ivy)
-      (package-install 'lsp-ivy)
-  )
-  (unless (package-installed-p 'flycheck)
-      (package-install 'flycheck)
-  )
-  (unless (package-installed-p 'company) ;; completions
-      (package-install 'company)
-  )
+  (use-package lsp-ui)
+  (use-package lsp-ivy)
+  (use-package flycheck)
+  (use-package company)
 
-  (require 'lsp-mode)
-  ;(require 'lsp-ui)
-  (require 'lsp-ivy)
-  (require 'flycheck)
-  (require 'company)
-
-  (add-hook 'prog-mode-hook #'lsp)
-
+  ; performace optimisations to allow more memory
   (setq gc-cons-threshold 100000000) ; 100mb
   (setq read-process-output-max (* 1024 1024))
 
@@ -140,25 +167,16 @@
 
 * Tree Sitter
 #+begin_src emacs-lisp
-  (unless (package-installed-p 'tree-sitter)
-      (package-install 'tree-sitter)
-  )
-  (unless (package-installed-p 'tree-sitter-langs)
-      (package-install 'tree-sitter-langs)
-  )
 
-  (require 'tree-sitter)
-  (require 'tree-sitter-langs)
-
-  (tree-sitter-require 'c)
-  (tree-sitter-require 'cpp)
-  (tree-sitter-require 'lua)
-  (tree-sitter-require 'python)
-  (tree-sitter-require 'typescript)
-
-  ;;(global-tree-sitter-mode)
-
-  ;;(add-hook 'prog-mode-hook 'tree-sitter-hl-mode)
+  "(use-package tree-sitter
+    :init
+    :config
+    (tree-sitter-require 'c)
+    (tree-sitter-require 'cpp)
+    (tree-sitter-require 'lua)
+    (tree-sitter-require 'python)
+    (tree-sitter-require 'typescript)
+  )"
 #+end_src
 
 
@@ -166,62 +184,69 @@
 
 #+begin_src emacs-lisp
   ;; install general
-  (unless (package-installed-p 'general)
-      (package-install 'general)
-  )
 
-  (require 'general)
-  (general-evil-setup)
+  (use-package general
+    :init
+    :config
+    (general-evil-setup)
 
-  (defun tab-and-terminal ()
-      (interactive)
-      (evil-window-split)
-      (shell)
-  )
+    (defun tab-and-terminal ()
+        (interactive)
+        (evil-window-split)
+        (shell)
+    )
 
-  (general-create-definer normal-leader-def
-      :states '(normal emacs)
-      :prefix "SPC" ;; Space
-      :keymaps 'override
-  )
+    (general-create-definer normal-leader-def
+        :states '(normal emacs)
+        :prefix "SPC" ;; Space
+        :keymaps 'override
+    )
 
-  (normal-leader-def
-      "f" '(:ignore t :wk "file commands")
-      "f d" '(dired :wk "dired")
-      "f f" '(find-file :wk "find file (project)")
-      "f F" '(projectile-find-file :wk "find file (project)")
-  )
+    (normal-leader-def
+        "f" '(:ignore t :wk "file commands")
+        "f d" '(dired :wk "dired")
+        "f f" '(find-file :wk "find file (directory)")
+        "f F" '(projectile-find-file :wk "find file (project)")
+        "f /" '(project-search :wk "search project")
+        "f w" '(projectile-find-other-window :wk "find file (new window)")
+    )
 
-  (normal-leader-def
-      "c" '(:ignore t :wk "code commands")
-      "c d" '(lsp-find-definition :wk "find definition")
-      "c r" '(lsp-find-references :wk "find references")
-      "c c" '(compile :wk "compile")
-      "c C" '(projectile-compile-project :wk "compile (project)")
-      "c s" '(lsp-ivy-workspace-symbol :wk "find symbol")
-  )
+    (normal-leader-def
+        "g" '(:ignore t :wk "goto commands")
+        "g d" '(lsp-find-definition :wk "definition")
+        "g r" '(lsp-find-references :wk "references")
+    )
 
-  (normal-leader-def
-      "w" '(:ignore t :wk "window commands")
-      ;"w v" '(split-window-horizontally :wk "split window vertically")
-      ;"w s" '(split-window-vertically :wk "split window horizontally")
-      "w v" '(evil-window-vsplit :wk "split window vertically")
-      "w s" '(evil-window-split :wk "split window horizontally")
-      "w c" '(evil-window-delete :wk "close window")
-      "w j" '(evil-window-down :wk "window down")
-      "w k" '(evil-window-up :wk "window up")
-      "w h" '(evil-window-left :wk "window left")
-      "w l" '(evil-window-right :wk "window right")
-      ;;"w t" '((lambda () ((interactive) (split-window-vertically) (shell))) :wk "shell in new tab")
-      "w t" '(tab-and-terminal :wk "shell in new tab")
-  )
+    (normal-leader-def
+        "c" '(:ignore t :wk "code commands")
+        "c d" '(lsp-find-definition :wk "find definition")
+        "c r" '(lsp-find-references :wk "find references")
+        "c c" '(compile :wk "compile")
+        "c C" '(projectile-compile-project :wk "compile (project)")
+        "c s" '(lsp-ivy-workspace-symbol :wk "find symbol")
+    )
 
-  (normal-leader-def
-      "t" '(:ignore t :wk "tab commands")
-      "t l" '(tab-next :wk "next tab")
-      "t h" '(tab-next :wk "previous tab")
-      "t n" '(tab-new-to :wk "new tab")
-      "t c" '(tab-close :wk "close tab")
+    (normal-leader-def
+        "w" '(:ignore t :wk "window commands")
+        "w v" '(evil-window-vsplit :wk "split window vertically")
+        "w s" '(evil-window-split :wk "split window horizontally")
+        "w c" '(evil-window-delete :wk "close window")
+        "w j" '(evil-window-down :wk "window down")
+        "w k" '(evil-window-up :wk "window up")
+        "w h" '(evil-window-left :wk "window left")
+        "w l" '(evil-window-right :wk "window right")
+        ;;"w t" '((lambda () ((interactive) (split-window-vertically) (shell))) :wk "shell in new tab")
+        "w t" '(tab-and-terminal :wk "shell in new tab")
+        "w f" '(treemacs :wk "file tree")
+    )
+
+    (normal-leader-def
+        "t" '(:ignore t :wk "tab commands")
+        "t l" '(tab-next :wk "next tab")
+        "t h" '(tab-next :wk "previous tab")
+        "t n" '(tab-new-to :wk "new tab")
+        "t c" '(tab-close :wk "close tab")
+    )
   )
 
 #+end_src
@@ -229,12 +254,12 @@
 * Which Key
 
 #+begin_src emacs-lisp
-  (unless (package-installed-p 'which-key)
-      (package-install 'which-key)
-  )
 
-  (require 'which-key)
-  (which-key-mode 1)
+  (use-package which-key
+    :init
+    :config
+    (which-key-mode 1)
+  )
 #+end_src
 
 * GUI options
@@ -244,6 +269,10 @@
   (menu-bar-mode -1)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
+
+  ; set scroll to stop jumping at the bottom of the page
+  (setq scroll-conservatively 101)
+
   ;; relative line mode
   (setq display-line-numbers-type 'relative)
   (global-display-line-numbers-mode)
@@ -252,23 +281,33 @@
 * Other General Settings
 
 #+begin_src emacs-lisp
-  (setq-default electric-indent-mode 0)
-  (setq-default indent-tabs-mode nil)
-  (setq-default tab-always-indent t)
-  (setq-default tab-width 4)
+      ; indentation settings
+    (setq-default electric-indent-mode 0)
+    (setq-default indent-tabs-mode nil)
+    (setq-default tab-always-indent t)
+    (setq-default tab-width 4)
   ;;(setq c-basic-offset 4)
-
-  (setq-default auto-save-default nil)
-  (setq-default make-backup-files nil)
-
-  (setq-default max-mini-window-height 0.3)
-
-  (defun custom-c-hook ()
+  ;; custom language hooks for indentation
+    (defun custom-c-hook ()
       (setq c-basic-offset 4)
-      (c-set-offset 'substatement-open 0)
-  )
-  (add-hook 'c++-mode-hook 'custom-c-hook)
-  (add-hook 'c-mode-hook 'custom-c-hook)
+        (c-set-offset 'substatement-open 0)
+      )
+    (add-hook 'c++-mode-hook 'custom-c-hook)
+    (add-hook 'c-mode-hook 'custom-c-hook)
 
-  (set-frame-font "JetBrainsMono Nerd Font 10")
+      ; stop emacs from littering backup files all over my goddamn working directories !!!!!!!!!
+      ; that's really annoying please stop that
+    (setq-default auto-save-default nil)
+    (setq-default make-backup-files nil)
+
+    (setq-default max-mini-window-height 0.3)
+
+    ;; stop emacs from changinf directory when finding files
+    (add-hook 'find-file-hook
+      (lambda ()
+        (setq default-directory command-line-default-directory)
+      )
+    )
+
+    (set-frame-font "JetBrainsMono Nerd Font 11")
 #+end_src

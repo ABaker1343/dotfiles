@@ -1,8 +1,27 @@
 //@theme "~/.config/rofi/nord.rasi"
 //@theme "~/.cache/wal/colors-rofi-light.rasi"
-//@theme "~/.cache/wal/colors-rofi-dark.rasi"
 
 @theme "./rounded-nord-dark.rasi"
+@theme "~/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    font: "Roboto 16";
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    border-radius: 24px;
+    width: 480;
+    height: 400;
+}
+
+inputbar {
+    border-radius: 16px;
+}
 
 configuration {
     modes: "window,run,ssh,drun";

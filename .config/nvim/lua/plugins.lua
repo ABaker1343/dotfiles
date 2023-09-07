@@ -121,6 +121,11 @@ local plugins = {
         end,
     },
 
+    -- floating terminal
+    {
+        "voldikss/vim-floaterm",
+    },
+
     -- debug adpater
     'mfussenegger/nvim-dap',
 

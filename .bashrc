@@ -21,7 +21,7 @@ alias neovide='WINIT_UNIX_BACKEND=x11 neovide'
 #alias neovide='devour neovide'
 
 #PS1='\[\e[1;32m\]\w \[\e[1;34m\] >>\[\e[0m\] '
-PS1=$'\u@\H:\[\e[1;32m\]\w \[\e[1;34m\]\udb80\udf3d \n>>\[\e[0m\] '
+PS1=$'\u@\H:\[\e[1;32m\]\w \[\e[1;34m\]\udb80\udf3d\n$\[\e[0m\] '
 #
 
 export PATH=$PATH:/home/alex/.spicetify:~/.local/bin/

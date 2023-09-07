@@ -4,8 +4,8 @@
 
 # export EDITOR='nvim'
 # export VISUAL='nvim'
-export EDITOR='helix'
-export VISUAL='helix'
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 eval `luarocks path --bin`
 
