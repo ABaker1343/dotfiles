@@ -1,0 +1,7 @@
+include "~/.cache/wal/colors-sway"
+
+client.background $background
+
+# client | border color | background color | text color
+client.focused $color1 $color1 $foreground
+client.unfocused $background $background $foreground

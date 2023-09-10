@@ -82,8 +82,6 @@ if [ "$setTheme" == "true" ]; then
     pywal-extender
 fi
 
-echo "background_opacity 0.75" >> ~/.cache/wal/colors-kitty.conf
-
 if [ -n "$(type -p spicetify)"]; then
     ~/.spicetify/spicetify apply
 fi

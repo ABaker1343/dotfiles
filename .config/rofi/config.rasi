@@ -6,6 +6,7 @@
 
 * {
     font: "Roboto 16";
+    background-color: transparent;
 }
 
 element-text, element-icon {
@@ -16,7 +17,7 @@ element-text, element-icon {
 window {
     border-radius: 24px;
     width: 480;
-    height: 400;
+    height: 200;
 }
 
 inputbar {

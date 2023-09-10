@@ -1,0 +1,31 @@
+#!/bin/bash
+
+fullscreen=false
+filepath="$(xdg-user-dir PICTURES)/Screenshots/$(date +%Y-%m-%d-%R:%S)_grim.png"
+
+for opt in $@; do
+	case $opt in
+		-f | --fullscreen)
+			fullscreen=true
+			shift
+			echo "fullscreen"
+		;;
+		-o | --output)
+			shift
+			filepath=$1
+			shift
+		;;
+	esac
+done
+
+if [ "$fullscreen" = "true" ]; then
+	grim - |\
+	tee "$filepath" |\
+	wl-copy
+else
+	grim -g "$(slurp)" - | \
+	tee "$filepath" | \
+	wl-copy
+fi
+
+exit 0

@@ -1,0 +1,8 @@
+
+include "./monitors"
+include "./inputs"
+include "./bindings"
+include "./colors"
+include "./bar"
+include /etc/sway/config.d/*
+include "./autostart"

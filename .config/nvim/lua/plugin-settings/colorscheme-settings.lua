@@ -11,7 +11,7 @@ require('material').setup({})
 
 vim.g.sonokai_style = 'atlantis'
 vim.g.material_style = 'deep ocean'
-
+vim.g.modus_termtrans_enable=0
 --vim.g.sonokai_transparent_background=1
 
 
@@ -29,4 +29,5 @@ vim.o.termguicolors = true;
 --vim.cmd [[colorscheme zephyr]]
 --vim.cmd [[colorscheme embark]]
 --vim.cmd [[colorscheme melange]]
-vim.cmd [[colorscheme nordic]]
+--vim.cmd [[colorscheme nordic]]
+vim.cmd[[colorscheme modus-vivendi]]

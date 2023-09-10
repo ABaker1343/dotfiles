@@ -75,6 +75,8 @@ wk.register({
     r = { telescopeFuncs.lsp_references, "Goto References"},
     i = { telescopeFuncs.lsp_implementations, "Goto Implementations"},
     d = { telescopeFuncs.lsp_definitions, "Goto Definitions"},
+    l = { "$", "Goto End of Line"},
+    h = { "^", "Goto Start of Line"},
 },
 {
     prefix = "g"
