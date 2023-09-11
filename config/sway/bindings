@@ -14,6 +14,7 @@ set $games com.valvesoftware.Steam
 set $audioSelect soundSelect.sh
 set $chat com.discordapp.Discord
 set $mail org.mozilla.Thunderbird
+#set $text neovide --novsync
 set $text $term -e nvim
 set $lock swaylock -c 000000
 set $files pcmanfm
@@ -39,10 +40,12 @@ set $controlMod $mod+Control
     bindsym $dangerMod+l exec ~/.config/sway/scripts/lock.sh
     bindsym $mod+b bar mode dock
     bindsym $controlMod+b bar mode invisible
+    bindsym $controlMod+p exec ~/.config/sway/scripts/pretty.sh --no-pretty
+    bindsym $mod+p exec ~/.config/sway/scripts/pretty.sh --pretty
 
     floating_modifier $mod normal
     bindsym Print exec ~/.config/sway/scripts/screenshot
-    bindsym Shift+Print exec ~/.config/swayscripts/screenshot --fullscreen
+    bindsym Shift+Print exec ~/.config/sway/scripts/screenshot --fullscreen
 
 #
 # Applications:

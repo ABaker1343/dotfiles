@@ -16,6 +16,8 @@ output $monitor2 {
 output * bg ~/bg/bg1.png fill
 
 default_border pixel
+titlebar_border_thickness 0
+titlebar_padding 0 0
 
 workspace 1 output $monitor1
 workspace 2 output $monitor1
