@@ -183,14 +183,14 @@ immutability=1
 plugin=org.kde.plasma.icontasks
 
 [Containments][55][Applets][80][Configuration][General]
-launchers=applications:systemsettings.desktop,applications:org.kde.discover.desktop,preferred://filemanager,applications:io.gitlab.librewolf-community.desktop
+launchers=
 
 [Containments][55][ConfigDialog]
-DialogHeight=84
+DialogHeight=74
 DialogWidth=1920
 
 [Containments][55][General]
-AppletOrder=58;80;75;74;56;76;59
+AppletOrder=80;75;74;56;76;59;58
 
 [Containments][60]
 activityId=
@@ -206,6 +206,9 @@ wallpaperplugin=org.kde.image
 [Containments][60][Applets][61]
 immutability=1
 plugin=org.kde.plasma.vault
+
+[Containments][60][Applets][61][Configuration]
+PreloadWeight=55
 
 [Containments][60][Applets][62]
 immutability=1
@@ -227,7 +230,7 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][60][Applets][65][Configuration]
-PreloadWeight=70
+PreloadWeight=75
 
 [Containments][60][Applets][66]
 immutability=1
@@ -277,7 +280,7 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][60][Applets][73][Configuration]
-PreloadWeight=55
+PreloadWeight=65
 
 [Containments][60][ConfigDialog]
 DialogHeight=540

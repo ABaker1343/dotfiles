@@ -11,6 +11,7 @@ Options:
     -t, --theme        set a pywal theme to use instead of a generated theme from the wallpaper
     -s, --saturation   set the saturation for the colorscheme
     -b, --backend      set the backend used by pywal to generate colorscheme
+    -c, --color        set the background to a solid color
     --no-theme         do not generate a new colorscheme
     --help             print this help message
 
@@ -23,6 +24,7 @@ Dependancies:
 
 saturation=0.6
 file=""
+bgColor=""
 theme=""
 backend="wal"
 setTheme=true
@@ -39,6 +41,11 @@ for arg in $@; do
             saturation=$1
             shift
             ;;
+        -c | --color)
+            shift
+            bgColor=$1
+            shift
+            ;;
         -t | --theme)
             shift
             theme=$1
@@ -48,7 +55,7 @@ for arg in $@; do
             shift
             backend=$1
             shift
-        ;;
+            ;;
         -h | --help)
             printUsage
             exit 0
@@ -70,6 +77,11 @@ if [ "$file" != "" ]; then
     echo "new wallpaper: $file"
     killall swaybg
     nohup swaybg -i ~/bg/bg1.png > /dev/null &
+else 
+    if [ "$bgColor" != "" ]; then
+        killall swaybg
+        nohup swaybg -c "$bgColor" > /dev/null &
+    fi
 fi
 
 # set colorscheme
