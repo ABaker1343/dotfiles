@@ -273,7 +273,7 @@ stopmedia=Media Stop,Media Stop,Stop media playback
 
 [neovide.desktop]
 _k_friendly_name=Neovide
-_launch=,none,Neovide
+_launch=Meta+Shift+N,none,Neovide
 
 [nvim-qt.desktop]
 _k_friendly_name=Neovim-Qt
