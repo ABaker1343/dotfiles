@@ -9,6 +9,7 @@ wk.register({
         name = "Window",
         s = {"<cmd>split<CR>", "Horizontal Split"},
         v = {"<cmd>vsplit<CR>", "Vertical Split"},
+        c = {"<C-w>c", "Close"},
         h = {"<C-w>h", "Left"},
         l = {"<C-w>l", "Right"},
         j = {"<C-w>j", "Down"},
@@ -57,7 +58,11 @@ wk.register({
         a = { harpoonMark.add_file, "Add"},
         l = { harpoonUI.nav_next, "Next"},
         h = { harpoonUI.nav_next, "Previous"},
-        m = { harpoonUI.toggle_quick_menu, "Next"},
+        m = { harpoonUI.toggle_quick_menu, "Menu"},
+        ["1"] = { "<cmd> lua require('harpoon.ui').nav_file(1)<CR>", "Harpoon 1"},
+        ["2"] = { "<cmd> lua require('harpoon.ui').nav_file(2)<CR>", "Harpoon 2"},
+        ["3"] = { "<cmd> lua require('harpoon.ui').nav_file(3)<CR>", "Harpoon 3"},
+        ["4"] = { "<cmd> lua require('harpoon.ui').nav_file(4)<CR>", "Harpoon 4"},
     },
     s = {
         name = "Shell",
@@ -65,6 +70,9 @@ wk.register({
         n = {"<cmd>FloatermNew<CR>", "New Floating"},
         s = {"<cmd>FloatermToggle<CR>", "Toggle Floating"},
         c = {"<cmd>FloatermKill<CR>", "Kill Floating"}
+    },
+    ["."] = {
+        c ={ telescopeFuncs.colorscheme, "Colorscheme"},
     }
 },
 {

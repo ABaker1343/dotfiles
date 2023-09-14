@@ -2,7 +2,10 @@
 include "./monitors"
 include "./inputs"
 include "./bindings"
+
+# keep colors included before bar as bar uses the colors
 include "./colors"
 include "./bar"
+
 include /etc/sway/config.d/*
 include "./autostart"

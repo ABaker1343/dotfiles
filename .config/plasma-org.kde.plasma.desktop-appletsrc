@@ -134,7 +134,7 @@ popupHeight=450
 popupWidth=396
 
 [Containments][55][Applets][56][Configuration][Appearance]
-dateFormat=longDate
+dateFormat=custom
 use24hFormat=2
 
 [Containments][55][Applets][56][Configuration][ConfigDialog]
@@ -148,7 +148,7 @@ plugin=org.kde.plasma.kickoff
 [Containments][55][Applets][58][Configuration]
 PreloadWeight=100
 popupHeight=514
-popupWidth=677
+popupWidth=679
 
 [Containments][55][Applets][58][Configuration][General]
 favoritesPortedToKAstats=true

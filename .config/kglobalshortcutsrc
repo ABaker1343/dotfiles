@@ -53,7 +53,7 @@ _launch=none,none,flameshot gui
 
 [htop.desktop]
 _k_friendly_name=Htop
-_launch=Meta+Shift+H,none,Htop
+_launch=Meta+Shift+T,none,Htop
 
 [io.gitlab.librewolf-community.desktop]
 _k_friendly_name=LibreWolf
@@ -262,14 +262,18 @@ view_zoom_out=Meta+-,Meta+-,Zoom Out
 
 [mediacontrol]
 _k_friendly_name=Media Controller
-mediavolumedown=none,none,Media volume down
-mediavolumeup=none,none,Media volume up
+mediavolumedown=none,,Media volume down
+mediavolumeup=none,,Media volume up
 nextmedia=Media Next,Media Next,Media playback next
 pausemedia=Media Pause,Media Pause,Pause media playback
-playmedia=none,none,Play media playback
+playmedia=none,,Play media playback
 playpausemedia=Media Play,Media Play,Play/Pause media playback
 previousmedia=Media Previous,Media Previous,Media playback previous
 stopmedia=Media Stop,Media Stop,Stop media playback
+
+[neovide.desktop]
+_k_friendly_name=Neovide
+_launch=,none,Neovide
 
 [nvim-qt.desktop]
 _k_friendly_name=Neovim-Qt
@@ -277,7 +281,7 @@ _launch=none,none,Neovim-Qt
 
 [nvim.desktop]
 _k_friendly_name=Neovim
-_launch=Meta+Shift+N,none,Neovim
+_launch=none,none,Neovim
 
 [org.kde.dolphin.desktop]
 _k_friendly_name=Dolphin
@@ -296,11 +300,11 @@ _launch=Meta+.\tMeta+Ctrl+Alt+Shift+Space,Meta+.\tMeta+Ctrl+Alt+Shift+Space,Emoj
 ActiveWindowScreenShot=Meta+Print,Meta+Print,Capture Active Window
 CurrentMonitorScreenShot=none,none,Capture Current Monitor
 FullScreenScreenShot=Shift+Print,Shift+Print,Capture Entire Desktop
-OpenWithoutScreenshot=none,none,Launch without taking a screenshot
-RectangularRegionScreenShot=Meta+Shift+Print,Meta+Shift+Print,Capture Rectangular Region
+OpenWithoutScreenshot=none,none,Launch Spectacle without capturing
+RectangularRegionScreenShot=Meta+Shift+Print\tPrint,Meta+Shift+Print,Capture Rectangular Region
 WindowUnderCursorScreenShot=Meta+Ctrl+Print,Meta+Ctrl+Print,Capture Window Under Cursor
 _k_friendly_name=Spectacle
-_launch=none,Print,Spectacle
+_launch=none,Print,Launch Spectacle
 
 [org.mozilla.Thunderbird.desktop]
 ComposeMessage=none,none,Write New Message

@@ -9,9 +9,13 @@ bar {
     font JetBrainsMono 10
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        statusline $foreground
+        background $background
+
+        # border | background | text
+        # focused_workspace $color1 $color1 $foreground
+        focused_workspace $color1 $color1 $background
+        inactive_workspace $color2 $color2 $foreground
     }
 
     output $monitor1

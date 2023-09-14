@@ -10,6 +10,9 @@ telescope.setup {
                 ["<C-h>"] = "which_key",
             },
         },
+        layout_config = {
+            prompt_position = 'top'
+        },
     },
 
     pickers = {

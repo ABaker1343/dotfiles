@@ -1,8 +1,7 @@
-hyprland
-sddm
 
 alacritty
 neovim
+neovide
 tmux
 ranger
 htop
@@ -33,8 +32,13 @@ mpv
 imv
 bitwarden
 rofi
+
+hyprland
+sway
 swaybg
 swaylock
+sddm
+
 waybar
 openssh
 git
@@ -46,3 +50,4 @@ css-languageserver
 pyright
 
 libnotify
+flatpak

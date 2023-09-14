@@ -7,15 +7,15 @@ set $right l
 
 # Prefered Applications
 set $term kitty
-set $menu rofi -show run
+set $menu rofi -show run -m 1
 set $browser io.gitlab.librewolf-community
 set $music com.spotify.Client
 set $games com.valvesoftware.Steam
 set $audioSelect soundSelect.sh
 set $chat com.discordapp.Discord
 set $mail org.mozilla.Thunderbird
-#set $text neovide --novsync
-set $text $term -e nvim
+set $text neovide --novsync --multigrid
+# set $text $term -e nvim
 set $lock swaylock -c 000000
 set $files pcmanfm
 set $altFiles $term -e ranger
@@ -144,6 +144,7 @@ set $controlMod $mod+Control
 
     # Toggle the current focus between tiling and floating mode
     bindsym $controlMod+space floating toggle
+    bindsym $mod+button3 floating toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
