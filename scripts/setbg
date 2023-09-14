@@ -79,6 +79,7 @@ if [ "$file" != "" ]; then
     nohup swaybg -i ~/bg/bg1.png > /dev/null &
 else 
     if [ "$bgColor" != "" ]; then
+	convert -size 1x1 xc:$bgColor ~/bg/bg1.png
         killall swaybg
         nohup swaybg -c "$bgColor" > /dev/null &
     fi
