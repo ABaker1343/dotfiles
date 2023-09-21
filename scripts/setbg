@@ -66,10 +66,10 @@ for arg in $@; do
     esac
 done
 
-if [ "$file" == "" ] && [ "$theme" ==  "" ]; then
-    echo "no file or theme selected"
-    exit 1
-fi
+#if [ "$file" == "" ] && [ "$theme" ==  "" ]; then
+    #echo "no file or theme selected"
+    #exit 1
+#fi
 
 # set wallpaper
 if [ "$file" != "" ]; then

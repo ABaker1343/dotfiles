@@ -77,16 +77,17 @@
     border-radius: 12px;
 }
 
-#taskbar {
-    background: @color3;
+#taskbar button {
     color: @tcolor3;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-right: 1px;
+    background: @color3;
+    /*padding-top: 0px;*/
+    /*padding-bottom: 0px;*/
+    /*padding-right: 1px;*/
 }
 
-#taskbar .active {
+#taskbar button.active {
     background: @color1;
+    color: @tcolor1;
     border-radius: 10px;
     padding-left: 2px;
     padding-right: 2px;
