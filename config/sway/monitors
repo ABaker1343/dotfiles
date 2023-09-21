@@ -15,15 +15,21 @@ output $monitor2 {
 
 output * bg ~/bg/bg1.png fill
 
-default_border pixel
 titlebar_border_thickness 0
 titlebar_padding 0 0
 font JetBrainsMono 8
 
-gaps inner 0
-gaps outer 0
+#default_border pixel 1
+#gaps inner 0
+#gaps outer 0
+#smart_gaps off
+#smart_borders on
+
+default_border pixel 4
+gaps inner 4
+gaps outer 4
 smart_gaps off
-smart_borders on
+smart_borders off
 
 tiling_drag enable
 
@@ -45,11 +51,12 @@ assign [class="^steam$"] $gamesWorkspace
 assign [class="^gamescope-brokey$"] $gamesWorkspace
 assign [class="^steam_app"] $gamesWorkspace
 assign [class="^discord$"] 9
-assign [class="^spotify$"] 10
+assign [class="^(spotify|Spotify)$"] 10
 
 for_window {
-    [class="^steam_app"] floating enable
-    [class="^gamescope"] floating enable
+    [class="^steam_app"] floating enable, fullscreen
+    [class="^gamescope"] floating enable, fullscreen
+}
 }
 
 focus $monitor1

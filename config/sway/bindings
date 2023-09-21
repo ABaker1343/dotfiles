@@ -10,7 +10,7 @@ set $term kitty
 set $menu rofi -show run -m 1
 set $browser io.gitlab.librewolf-community
 set $music com.spotify.Client
-set $games com.valvesoftware.Steam
+set $games gamemoderun com.valvesoftware.Steam
 set $audioSelect soundSelect.sh
 set $chat com.discordapp.Discord
 set $mail org.mozilla.Thunderbird
