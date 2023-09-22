@@ -51,3 +51,6 @@ pyright
 
 libnotify
 flatpak
+
+v4l2lloopback-dkms
+linux-headers
