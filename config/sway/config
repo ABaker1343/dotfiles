@@ -1,11 +1,11 @@
 
-include "./monitors"
-include "./inputs"
-include "./bindings"
+include ./monitors
+include ./inputs
+include ./bindings
 
 # keep colors included before bar as bar uses the colors
-include "./colors"
-include "./bar"
+include ./colors
+include ./bar
 
+include ./autostart
 include /etc/sway/config.d/*
-include "./autostart"

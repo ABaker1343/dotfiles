@@ -2,6 +2,7 @@ exec xdg-desktop-portal-wlr
 exec nm-applet
 exec dunst
 exec xrandr --output DP-2 --primary
+exec export XDG_CURRENT_DESKTOP=sway
 
 # exec swayidle -w \
 #          timeout 300 'swaylock -f -c 000000' \

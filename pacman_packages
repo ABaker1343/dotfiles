@@ -24,7 +24,7 @@ flameshot
 zathura
 zathura-pdf-poppler
 dunst
-wl-copy
+wl-clipboard
 grim
 slurp
 lxappearance
@@ -32,6 +32,7 @@ mpv
 imv
 bitwarden
 rofi
+dolphin
 
 hyprland
 sway
@@ -46,11 +47,13 @@ noto-fonts-emoji
 
 lua-language-server
 clang
-css-languageserver
 pyright
 
 libnotify
 flatpak
+xdg-desktop-portal-wlr
+xdg-desktop-portal-gtk
+xdg-user-dirs
 
-v4l2lloopback-dkms
+v4l2loopback-dkms
 linux-headers

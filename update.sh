@@ -22,6 +22,7 @@ cp -r ~/.config/dunst/ ./.config/
 cp -r ~/.config/i3 ./.config/
 cp -r ~/.config/i3status/ ./.config/
 cp -r ~/.config/sway/ ./config/
+cp -r ~/.config/xdg-desktop-portal/ .config/
 
 cp -r ~/.config/awesome ./.config/
 cp -r ~/.config/hypr ./.config/
