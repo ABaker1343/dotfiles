@@ -1,8 +1,10 @@
 exec xdg-desktop-portal-wlr
+exec /usr/lib/polkit-kde-authentication-agent-1
 exec nm-applet
 exec dunst
 exec xrandr --output DP-2 --primary
 exec export XDG_CURRENT_DESKTOP=sway
+exec corectrl
 
 # exec swayidle -w \
 #          timeout 300 'swaylock -f -c 000000' \
