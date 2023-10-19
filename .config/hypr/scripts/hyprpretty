@@ -10,16 +10,20 @@ for opt in $@; do
 			keyword general:gaps_out 8;\
 			keyword general:border_size 4;\
 			keyword master:no_gaps_when_only false"
+            killall waybar
+            waybar
 			;;
 		--no-pretty)
 			hyprctl --batch "\
 			keyword animations:enabled false;\
 			keyword decoration:rounding 0;\
 			keyword decoration:drop_shadow false;\
-			keyword general:gaps_in 2;\
-			keyword general:gaps_out 4;\
+			keyword general:gaps_in 0;\
+			keyword general:gaps_out 0;\
 			keyword general:border_size 2;\
 			keyword master:no_gaps_when_only true"
+            killall waybar
+            waybar --style ~/.config/waybar/plain.css
 			;;
 	esac
 done

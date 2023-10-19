@@ -1,0 +1,145 @@
+@import "/home/alex/.cache/wal/colors-waybar.css";
+
+/* {
+    border-radius: 10px;
+}*/
+
+* {
+    padding: 1px;
+    /*margin: 0px;*/
+}
+
+#waybar {
+    background: @background;
+    /*background-color: transparent; */
+    padding: 0px;
+    /*border-radius: 20px;*/
+}
+
+.background {
+    /*background-color: transparent;*/
+}
+
+.background > .horizontal {
+    padding: 2px;
+    opacity: 1.0;
+}
+
+.modules-left > * > * {
+    border-radius: 12px;
+    margin-left: 8px;
+    padding: 0px;
+    opacity: 1;
+}
+
+.modules-center > * > * {
+    border-radius: 12px;
+    padding: 0px;
+    opacity: 1;
+}
+
+.modules-right > * > * {
+    border-radius: 12px;
+    margin-right: 8px;
+    padding: 0px;
+    opacity: 1;
+}
+
+#pulseaudio {
+    background: @color1;
+    color: @tcolor1;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px
+}
+
+#clock {
+    /*background: @foreground;
+    color: @background;*/
+    background: @background;
+    color: @tcolor0;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px
+}
+
+#workspaces {
+    background: @color1;
+    color: @tcolor1;
+    padding-top: 0px;
+    padding-bottom: 0px
+}
+
+#workspaces .active {
+    background: @color3;
+    border-radius: 12px;
+}
+
+#taskbar { 
+    border-radius: 10px;
+    background: @color3;
+}
+
+#taskbar button {
+    color: @tcolor3;
+    background: @color3;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 1px;
+    border-radius: 10px;
+}
+
+#taskbar button.active {
+    background: @color1;
+    color: @tcolor1;
+    border-radius: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#battery {
+    background: @color2;
+    color: @tcolor2;
+    padding-right: 12px;
+    padding-left: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px
+}
+
+#backlight {
+    background: @color6;
+    color: @tcolor6;
+    padding-right: 12px;
+    padding-left: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px
+}
+
+#cpu {
+    background: @color4;
+    color: @tcolor4;
+    padding-right: 12px;
+    padding-left: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px
+}
+
+#memory {
+    background: @color6;
+    color: @tcolor6;
+    padding-right: 12px;
+    padding-left: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px
+}
+
+#tray {
+    background: @color5;
+    color: @tcolor5;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px
+}

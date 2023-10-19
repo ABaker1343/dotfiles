@@ -12,7 +12,7 @@
 alias ls='ls --color=auto'
 alias pacadopt='sudo pacman -Qtdq | sudo pacman -Rns'
 alias icat='kitty +kitten icat'
-#alias vim='nvim'
+alias vim='nvim'
 alias vi='nvim'
 alias hx='helix'
 alias gvim='neovide'

@@ -1,7 +1,7 @@
 {
         "output" : ["DP-2", "eDP-1"],
         "position" : "top",
-        "layer" : "top",
+        "layer" : "bottom",
         "height" : 20,
         "start_hidden" : true,
 
