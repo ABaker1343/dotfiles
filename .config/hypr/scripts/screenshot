@@ -3,6 +3,10 @@
 fullscreen=false
 filepath="$(xdg-user-dir PICTURES)/Screenshots/$(date +%Y-%m-%d-%R:%S)_grim.png"
 
+if [ ! -d "$(xdg-user-dir PICTURES)/Screenshots/" ]; then
+    mkdir -p "$(xdg-user-dir PICTURES)/Screenshots/"
+fi
+
 for opt in $@; do
 	case $opt in
 		-f | --fullscreen)

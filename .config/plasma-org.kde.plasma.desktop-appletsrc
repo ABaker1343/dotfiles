@@ -290,10 +290,10 @@ DialogWidth=720
 extraItems=org.kde.plasma.vault,org.kde.plasma.keyboardindicator,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.clipboard,org.kde.plasma.networkmanagement,org.kde.plasma.mediacontroller,org.kde.kscreen,org.kde.plasma.nightcolorcontrol,org.kde.plasma.manage-inputmethod
 knownItems=org.kde.plasma.vault,org.kde.plasma.keyboardindicator,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.clipboard,org.kde.plasma.networkmanagement,org.kde.plasma.mediacontroller,org.kde.kscreen,org.kde.plasma.nightcolorcontrol,org.kde.plasma.manage-inputmethod
 
-[Containments][77]
+[Containments][81]
 ItemGeometries-1920x1080=
 ItemGeometriesHorizontal=
-activityId=435cf9c8-d893-4db6-a05a-eb7507454aa7
+activityId=8f200be0-8157-43d2-88d5-313d8521f2d9
 formfactor=0
 immutability=1
 lastScreen=0
@@ -301,30 +301,14 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
-[Containments][77][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
-[Containments][77][Wallpaper][org.kde.image][General]
-Image=/home/alex/bg/bg1.png
-SlidePaths=/usr/share/wallpapers/
-
-[Containments][78]
-activityId=435cf9c8-d893-4db6-a05a-eb7507454aa7
+[Containments][82]
+activityId=8f200be0-8157-43d2-88d5-313d8521f2d9
 formfactor=0
 immutability=1
 lastScreen=1
 location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
-
-[Containments][78][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
-[Containments][78][Wallpaper][org.kde.image][General]
-Image=/home/alex/bg/bg1.png
-SlidePaths=/usr/share/wallpapers/
 
 [Containments][9]
 activityId=
