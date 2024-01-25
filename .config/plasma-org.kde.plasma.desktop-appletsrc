@@ -117,10 +117,10 @@ knownItems=org.kde.plasma.vault,org.kde.plasma.keyboardindicator,org.kde.plasma.
 
 [Containments][55]
 activityId=
-formfactor=2
+formfactor=3
 immutability=1
 lastScreen=0
-location=3
+location=6
 plugin=org.kde.panel
 wallpaperplugin=org.kde.image
 
@@ -147,8 +147,8 @@ plugin=org.kde.plasma.kickoff
 
 [Containments][55][Applets][58][Configuration]
 PreloadWeight=100
-popupHeight=514
-popupWidth=679
+popupHeight=524
+popupWidth=683
 
 [Containments][55][Applets][58][Configuration][General]
 favoritesPortedToKAstats=true
@@ -174,10 +174,6 @@ popupWidth=324
 immutability=1
 plugin=org.kde.plasma.panelspacer
 
-[Containments][55][Applets][76]
-immutability=1
-plugin=org.kde.plasma.panelspacer
-
 [Containments][55][Applets][80]
 immutability=1
 plugin=org.kde.plasma.icontasks
@@ -186,18 +182,18 @@ plugin=org.kde.plasma.icontasks
 launchers=
 
 [Containments][55][ConfigDialog]
-DialogHeight=74
-DialogWidth=1920
+DialogHeight=1080
+DialogWidth=157
 
 [Containments][55][General]
-AppletOrder=80;75;74;56;76;59;58
+AppletOrder=58;80;75;59;56;74
 
 [Containments][60]
 activityId=
-formfactor=2
+formfactor=3
 immutability=1
 lastScreen=0
-location=3
+location=6
 plugin=org.kde.plasma.private.systemtray
 popupHeight=432
 popupWidth=432
@@ -219,7 +215,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][60][Applets][63][Configuration]
-PreloadWeight=85
+PreloadWeight=100
 
 [Containments][60][Applets][64]
 immutability=1
@@ -275,12 +271,15 @@ PreloadWeight=0
 immutability=1
 plugin=org.kde.plasma.battery
 
+[Containments][60][Applets][72][Configuration]
+PreloadWeight=42
+
 [Containments][60][Applets][73]
 immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][60][Applets][73][Configuration]
-PreloadWeight=65
+PreloadWeight=100
 
 [Containments][60][ConfigDialog]
 DialogHeight=540
@@ -301,7 +300,17 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
+[Containments][81][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][81][Wallpaper][org.kde.image][General]
+Image=/home/alex/bg/monsterhunter/GC2fcoHaoAAGfu3.jpg
+SlidePaths=/home/alex/.local/share/wallpapers/,/usr/share/wallpapers/
+
 [Containments][82]
+ItemGeometries-1920x1080=
+ItemGeometriesHorizontal=
 activityId=8f200be0-8157-43d2-88d5-313d8521f2d9
 formfactor=0
 immutability=1
@@ -309,6 +318,14 @@ lastScreen=1
 location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
+
+[Containments][82][ConfigDialog]
+DialogHeight=1016
+DialogWidth=1920
+
+[Containments][82][Wallpaper][org.kde.image][General]
+Image=/home/alex/bg/monsterhunter/GC2fcoHaoAAGfu3.jpg
+SlidePaths=/home/alex/.local/share/wallpapers/,/usr/share/wallpapers/
 
 [Containments][9]
 activityId=
@@ -399,7 +416,7 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][9][Applets][22][Configuration]
-PreloadWeight=42
+PreloadWeight=34
 
 [Containments][9][Applets][23]
 immutability=1

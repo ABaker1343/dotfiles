@@ -1,17 +1,17 @@
 {
         "output" : ["DP-2", "eDP-1"],
         "position" : "top",
-        "layer" : "bottom",
-        "height" : 20,
-        "start_hidden" : true,
+        "layer" : "top",
+        "height" : 12,
+        "start_hidden" : false,
 
-        "modules-left" : ["wlr/workspaces", "wlr/taskbar"],
+        "modules-left" : ["wlr/workspaces", "wlr/taskbar", "privacy"],
         "modules-center" : ["clock"],
         "modules-right" : ["battery", "backlight", "cpu", "memory", "pulseaudio", "tray"],
         "_width" : 1900,
         "_margin-top" : 4,
 
-        "_wlr/workspaces" : {
+        "_hyprland/workspaces" : {
             "format" : "{name}",
             "sort-by-number" : true,
         },
@@ -23,14 +23,33 @@
             "on-click-middle" : "close",
         },
 
+        "privacy" : {
+            "icon-spacing" : 100,
+            "transition-duration" : 10,
+            "modules" : [
+                {
+                    "type" : "audio-out",
+                    "tooltip" : true,
+                },
+                {
+                    "type" : "screenshare",
+                    "tooltip" : false,
+                },
+            ]
+        },
+
         "clock" : {
             "interval" : 30,
             "format" : "{:%H:%M %a %d}",
+            "tooltip-format": "<tt>{calendar}</tt>",
             "calendar" : {
                 "mode" : "month",
+                "on-scroll" : 1,
             },
             "actions" : {
                 "on-click" : "mode",
+                "on-scroll-up" : "shift_down",
+                "on-scroll-down" : "shift_up",
             },
         },
 
@@ -66,4 +85,5 @@
             "icon-size" : 14,
             "spacing" : 5,
         },
+
     }

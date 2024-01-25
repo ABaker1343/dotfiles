@@ -20,14 +20,18 @@ _launch=Meta+Shift+S,none,Spotify
 BigPicture=none,none,Big Picture
 Community=none,none,Community
 Friends=none,none,Friends
-Library=none,none,Library
+Library=Meta+Shift+G,none,Library
 News=none,none,News
 Screenshots=none,none,Screenshots
 Servers=none,none,Servers
 Settings=none,none,Settings
 Store=none,none,Store
 _k_friendly_name=Steam
-_launch=Meta+Shift+G,none,Steam
+_launch=none,none,Steam
+
+[gamemoderun.desktop]
+_k_friendly_name=gamemoderun flatpak run com.valvesoftware.Steam
+_launch=none,none,gamemoderun flatpak run com.valvesoftware.Steam
 
 [htop.desktop]
 _k_friendly_name=Htop
@@ -36,7 +40,7 @@ _launch=Meta+Shift+T,none,Htop
 [io.gitlab.librewolf-community.desktop]
 _k_friendly_name=LibreWolf
 _launch=Meta+Shift+B,none,LibreWolf
-new-private-window=none,none,Open a New Private Window
+new-private-window=Meta+Shift+P,none,Open a New Private Window
 new-window=none,none,Open a New Window
 profilemanager=none,none,Open the Profile Manager
 
@@ -235,16 +239,16 @@ Window to Screen 6=none,,Window to Screen 6
 Window to Screen 7=none,,Window to Screen 7
 _k_friendly_name=KWin
 view_actual_size=none,Meta+0,Zoom to Actual Size
-view_zoom_in=Meta++\tMeta+=,Meta++,Zoom In
+view_zoom_in=Meta++\tMeta+=,Meta++\tMeta+=,Zoom In
 view_zoom_out=Meta+-,Meta+-,Zoom Out
 
 [mediacontrol]
 _k_friendly_name=Media Controller
-mediavolumedown=none,none,Media volume down
-mediavolumeup=none,none,Media volume up
+mediavolumedown=none,,Media volume down
+mediavolumeup=none,,Media volume up
 nextmedia=Media Next,Media Next,Media playback next
 pausemedia=Media Pause,Media Pause,Pause media playback
-playmedia=none,none,Play media playback
+playmedia=none,,Play media playback
 playpausemedia=Media Play,Media Play,Play/Pause media playback
 previousmedia=Media Previous,Media Previous,Media playback previous
 stopmedia=Media Stop,Media Stop,Stop media playback
@@ -255,7 +259,7 @@ _launch=Meta+Shift+N,none,Neovide
 
 [org.kde.dolphin.desktop]
 _k_friendly_name=Dolphin
-_launch=Meta+E,Meta+E,Dolphin
+_launch=Meta+Shift+F\tMeta+E,Meta+E,Dolphin
 
 [org.kde.krunner.desktop]
 RunClipboard=Alt+Shift+F2,Alt+Shift+F2,Run command on clipboard contents
@@ -271,7 +275,7 @@ ActiveWindowScreenShot=Meta+Print,Meta+Print,Capture Active Window
 CurrentMonitorScreenShot=none,none,Capture Current Monitor
 FullScreenScreenShot=Shift+Print,Shift+Print,Capture Entire Desktop
 OpenWithoutScreenshot=none,none,Launch Spectacle without capturing
-RectangularRegionScreenShot=Meta+Shift+Print\tPrint,Meta+Shift+Print,Capture Rectangular Region
+RectangularRegionScreenShot=Meta+$\tMeta+Shift+Print\tPrint,Meta+Shift+Print,Capture Rectangular Region
 WindowUnderCursorScreenShot=Meta+Ctrl+Print,Meta+Ctrl+Print,Capture Window Under Cursor
 _k_friendly_name=Spectacle
 _launch=none,Print,Launch Spectacle
@@ -297,7 +301,7 @@ _k_friendly_name=Power Management
 
 [pcmanfm.desktop]
 _k_friendly_name=File Manager PCManFM
-_launch=Meta+Shift+F,none,File Manager PCManFM
+_launch=none,none,File Manager PCManFM
 
 [plasmashell]
 _k_friendly_name=Plasma
