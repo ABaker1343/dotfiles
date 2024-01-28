@@ -11,7 +11,7 @@ for opt in $@; do
 			keyword general:border_size 4;\
 			keyword master:no_gaps_when_only false"
             killall waybar
-            waybar --style ~/.config/waybar/pretty.css
+            waybar --config ~/.config/waybar/config-pretty.json --style ~/.config/waybar/pretty.css
 			;;
 		--no-pretty)
 			hyprctl --batch "\
