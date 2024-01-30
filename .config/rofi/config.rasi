@@ -9,6 +9,10 @@
     background-color: transparent;
 }
 
+inputbar {
+    text-color: inherit;
+}
+
 listview {
     background-color: transparent;
 }
@@ -22,10 +26,10 @@ element-text {
     vertical-align: 0.5;
 }
 
-element.normal.normal {
+element.normal.normal, element.alternate.normal {
     background-color: transparent;
 }
-element.alternate.normal {
+element.normal.active, element.alternate.active {
     background-color: transparent;
 }
 
@@ -38,7 +42,7 @@ window {
 }
 
 mainbox {
-    background-image: url("~/bg/bg1.png");
+    background-image: url("~/bg/bg1.png", both);
 }
 
 inputbar {
