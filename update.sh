@@ -43,6 +43,7 @@ cp -r ~/.spicetify/Themes/Sleek ./spicetify-themes/
 cp /bin/soundSelect.sh ./scripts/soundSelect.sh
 cp /bin/setbg ./scripts/setbg
 cp /bin/layoutSelect.sh ./scripts/layoutSelect.sh
+cp /bin/SteamLaunch.sh ./scripts/SteamLaunch.sh
 
 # sddm config
 cp -r /etc/sddm.conf.d/ ./sddm/

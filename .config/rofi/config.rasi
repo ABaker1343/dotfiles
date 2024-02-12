@@ -5,7 +5,7 @@
 @theme "~/.cache/wal/colors-rofi-dark.rasi"
 
 * {
-    font: "Roboto 16";
+    font: "GoMono Nerd Font Propo 16";
     background-color: transparent;
 }
 
@@ -15,6 +15,7 @@ inputbar {
 
 listview {
     background-color: transparent;
+    scrollbar: false;
 }
 element, element-text, element-icon {
     background-color: transparent;
@@ -24,6 +25,7 @@ element-icon {
 }
 element-text {
     vertical-align: 0.5;
+    text-color: @foreground;
 }
 
 element.normal.normal, element.alternate.normal {
@@ -34,19 +36,25 @@ element.normal.active, element.alternate.active {
 }
 
 window {
-    border-radius: 4px;
-    padding: 12px;
-    width: 1280;
-    height: 720;
+    border-radius: 24px;
+    border: 2px;
+    border-color: @foreground;
+    padding: 0px;
+    width: 65%;
+    height: 65%;
     transparency: true;
-}
-
-mainbox {
+    background-color: @foreground;
     background-image: url("~/bg/bg1.png", both);
 }
 
+mainbox {
+    margin: 45% 0 0 0%;
+    border: 0;
+    background-color: @background;
+    padding: 0;
+}
+
 inputbar {
-    border-radius: 16px;
 }
 
 configuration {

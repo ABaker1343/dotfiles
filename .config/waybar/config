@@ -8,8 +8,6 @@
         "modules-left" : ["wlr/workspaces", "wlr/taskbar", "privacy"],
         "modules-center" : ["clock"],
         "modules-right" : ["battery", "backlight", "cpu", "memory", "pulseaudio", "tray"],
-        "_width" : 1900,
-        "_margin-top" : 4,
 
         "_hyprland/workspaces" : {
             "format" : "{name}",
@@ -64,12 +62,14 @@
 
         "cpu" : {
             "interval" : 1,
-            "format" : "{}%"
+            "format" : "{}%",
+            "on-click" : "kitty -e htop",
         },
 
         "memory" : {
             "interval" : 1,
             "format" : "{used}/{total}",
+            "on-click" : "kitty -e htop",
         },
 
         "backlight" : {
@@ -78,12 +78,17 @@
 
         "pulseaudio" : {
             "format" : "🔊 {volume}%",
-            "onclick" : "soundSelect.sh",
+            "on-click" : "pavucontrol",
         },
 
         "tray" : {
             "icon-size" : 14,
             "spacing" : 5,
+        },
+
+        "custom/usb" : {
+            "format" : "Reset USB",
+            "on-click" : "pkexec usbreset.sh",
         },
 
     }

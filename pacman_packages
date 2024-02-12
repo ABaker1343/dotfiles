@@ -7,6 +7,7 @@ ranger
 htop
 unzip
 python-pywal
+xclock
 
 grub
 poppler
@@ -26,6 +27,7 @@ zathura
 zathura-pdf-poppler
 dunst
 wl-clipboard
+cliphist
 grim
 slurp
 lxappearance
@@ -34,6 +36,7 @@ imv
 bitwarden
 rofi
 dolphin
+pavucontrol
 
 hyprland
 sway

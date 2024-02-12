@@ -190,7 +190,7 @@
      #PanelUI-menu-button .toolbarbutton-icon { width: 1px !important; }
      #PanelUI-menu-button .toolbarbutton-badge-stack { padding: 0px !important; }
 
-     #reader-mode-button{ display: none !important; }
+     /*#reader-mode-button{ display: none !important; }*/
 
      /* tracking protection shield icon */
      #tracking-protection-icon-container { display: none !important; }
@@ -223,11 +223,12 @@
 :root {
 
     --uc-theme-colour:                          var(--window-colour,    var(--toolbar-bgcolor));
-    --uc-hover-colour:                          var(--color2);
+    --uc-hover-colour:                          var(--color4);
     --uc-inverted-colour:                       var(--inverted-colour,  var(--toolbar-color));
-    --uc-active-tab-colour:                     var(--color2);
-    --uc-inactive-tab-colour:                   var(--color3);
-    --uc-navbar-background-colour:              var(--color4);
+    /*--uc-active-tab-colour:                     var(--color4);*/
+    --uc-active-tab-colour:                     var(--color1);
+    --uc-inactive-tab-colour:                   var(--color8);
+    --uc-navbar-background-colour:              var(--color0);
 
     --button-bgcolor:                           var(--uc-theme-colour)    !important;
     --button-hover-bgcolor:                     var(--uc-hover-colour)    !important;
