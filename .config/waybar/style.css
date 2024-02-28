@@ -12,7 +12,8 @@
 * {
     padding: 1px;
     /*margin: 0px;*/
-    font-family: "GoMono Nerd Font", "Font Awesome 6 Free";
+    font-family: "Ubuntu Nerd Font", "GoMono Nerd Font", "Font Awesome 6 Free";
+    font-weight: bold;
 }
 
 .background > .horizontal {

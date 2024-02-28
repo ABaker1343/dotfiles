@@ -4,7 +4,7 @@ for opt in $@; do
 		--pretty)
 			hyprctl --batch "\
 			keyword animations:enabled true;\
-			keyword decoration:rounding 5;\
+			keyword decoration:rounding 8;\
 			keyword decoration:drop_shadow true;\
 			keyword general:gaps_in 4;\
 			keyword general:gaps_out 8;\
@@ -12,6 +12,18 @@ for opt in $@; do
 			keyword master:no_gaps_when_only false"
             killall waybar
             waybar --config ~/.config/waybar/config-pretty.json --style ~/.config/waybar/pretty.css
+			;;
+		--pretty-alt)
+			hyprctl --batch "\
+			keyword animations:enabled true;\
+			keyword decoration:rounding 5;\
+			keyword decoration:drop_shadow true;\
+			keyword general:gaps_in 4;\
+			keyword general:gaps_out 8;\
+			keyword general:border_size 4;\
+			keyword master:no_gaps_when_only false"
+            killall waybar
+            waybar --config ~/.config/waybar/config-pretty-alt.json --style ~/.config/waybar/pretty-alt.css
 			;;
 		--no-pretty)
 			hyprctl --batch "\

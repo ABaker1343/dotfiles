@@ -24,6 +24,8 @@ lspconfig.glslls.setup {
     }
 }
 
+lspconfig.rust_analyzer.setup {}
+
 lspconfig.ltex.setup {}
 
 --typescript-language-server

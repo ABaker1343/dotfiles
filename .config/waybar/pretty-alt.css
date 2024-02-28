@@ -1,0 +1,6 @@
+@import "style.css";
+
+#waybar {
+    background-color: @background;
+    border-radius: 12px;
+}

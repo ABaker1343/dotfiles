@@ -8,7 +8,9 @@ switch-to-activity-bd44d5d1-9e77-45c5-a4ed-3780a175e1a1=none,none,Switch to acti
 switch-to-activity-ea9bbb6e-4185-4574-866d-6012fe4e8c11=none,none,Switch to activity "Default"
 
 [KDE Keyboard Layout Switcher]
+Switch keyboard layout to English (Colemak-DH ISO)=none,none,Switch keyboard layout to English (Colemak-DH ISO)
 Switch keyboard layout to English (UK)=none,none,Switch keyboard layout to English (UK)
+Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
 Switch to Next Keyboard Layout=Meta+Alt+K,Meta+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
@@ -244,11 +246,11 @@ view_zoom_out=Meta+-,Meta+-,Zoom Out
 
 [mediacontrol]
 _k_friendly_name=Media Controller
-mediavolumedown=none,,Media volume down
-mediavolumeup=none,,Media volume up
+mediavolumedown=none,none,Media volume down
+mediavolumeup=none,none,Media volume up
 nextmedia=Media Next,Media Next,Media playback next
 pausemedia=Media Pause,Media Pause,Pause media playback
-playmedia=none,,Play media playback
+playmedia=none,none,Play media playback
 playpausemedia=Media Play,Media Play,Play/Pause media playback
 previousmedia=Media Previous,Media Previous,Media playback previous
 stopmedia=Media Stop,Media Stop,Stop media playback
@@ -302,6 +304,10 @@ _k_friendly_name=Power Management
 [pcmanfm.desktop]
 _k_friendly_name=File Manager PCManFM
 _launch=none,none,File Manager PCManFM
+
+[pkexec.desktop]
+_k_friendly_name=pkexec usbreset.sh
+_launch=Meta+Ctrl+Shift+U,none,pkexec usbreset.sh
 
 [plasmashell]
 _k_friendly_name=Plasma

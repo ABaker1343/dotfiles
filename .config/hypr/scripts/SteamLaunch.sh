@@ -9,4 +9,4 @@ if [ -z "$selection" ]; then
     return 0
 fi
 
-flatpak run com.valvesoftware.Steam "steam://launch/$(echo "$selection" | awk '{print $1}')"
+gamemoderun flatpak run com.valvesoftware.Steam "steam://launch/$(echo "$selection" | awk '{print $1}')"
