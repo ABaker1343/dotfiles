@@ -41,7 +41,7 @@ wk.register({
         name = "Code",
         d = { telescopeFuncs.diagnostics, "Diagnostics"},
         q = { telescopeFuncs.quickfix, "Quickfix"},
-        s = { telescopeFuncs.lsp_workspace_symbols, "Symbols"},
+        s = { telescopeFuncs.lsp_document_symbols, "Symbols"},
         t = { telescopeFuncs.treesitter, "Treesitter"},
         k = { vim.lsp.buf.hover, "Lsp Hover"},
         f = { vim.diagnostic.open_float, "Floating Diagnostics"},

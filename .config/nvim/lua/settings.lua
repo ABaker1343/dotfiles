@@ -24,7 +24,8 @@ vim.opt.guicursor="n-v-c:block,i:block"
 --vim.o.guifont="JetBrainsMono Nerd Font:h11"
 --vim.o.guifont="GoMono Nerd Font Mono:9"
 --vim.o.guifont="Ubuntu Nerd Font Propo"
-vim.o.guifont="InconsolataGo Nerd Font:h16"
+vim.o.guifont="InconsolataGo Nerd Font:h15"
 vim.g.neovide_refresh_rate = 60
+vim.g.neovide_remember_window_size = false
 
 vim.cmd[["set wrap smoothscroll"]]

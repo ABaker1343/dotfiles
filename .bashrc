@@ -18,6 +18,7 @@ alias hx='helix'
 alias gvim='neovide'
 alias clone='alacritty --working-directory $(pwd) & disown'
 alias neovide='WINIT_UNIX_BACKEND=x11 neovide'
+alias fullclear="printf '\E[H\E[3J'"
 #alias neovide='devour neovide'
 
 #PS1='\[\e[1;32m\]\w \[\e[1;34m\] >>\[\e[0m\] '

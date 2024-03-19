@@ -5,7 +5,9 @@
 # theme = "gruvbox"
 # theme = "night_owl"
 
-theme = "sonokai_default"
+# theme = "sonokai_default"
+theme = "catppuccin_mocha"
+# theme = "gruvbox"
 
 [editor]
 line-number = "relative"

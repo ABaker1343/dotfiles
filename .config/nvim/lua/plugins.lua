@@ -147,6 +147,7 @@ local plugins = {
     { 'embark-theme/vim', name = 'embark' },
     "AlexvZyl/nordic.nvim",
     'ishan9299/modus-theme-vim',
+    "ellisonleao/gruvbox.nvim",
 }
 
 lazy.setup(plugins, {})

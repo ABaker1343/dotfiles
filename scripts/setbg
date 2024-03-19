@@ -29,6 +29,7 @@ theme=""
 backend="wal"
 setTheme=true
 bgsetter=hyprpaper
+wallpaper_path=~/Wallpapers/active_wallpaper.png
 
 for arg in $@; do
     case $arg in
@@ -74,17 +75,16 @@ done
 
 # set wallpaper
 if [ "$file" != "" ]; then
-    #cp $file ~/bg/bg1.png
-    ffmpeg -nostdin -i $file ~/bg/bg1.png -y
+    ffmpeg -nostdin -i $file $wallpaper_path -y
     echo "new wallpaper: $file"
-    hyprctl hyprpaper unload ~/bg/bg1.png > /dev/null
-    hyprctl hyprpaper preload ~/bg/bg1.png > /dev/null
+    hyprctl hyprpaper unload "$wallpaper_path" > /dev/null
+    hyprctl hyprpaper preload "$wallpaper_path" > /dev/null
     for monitor in $(hyprctl monitors | grep Monitor | awk '{ print $2 }'); do
-	hyprctl hyprpaper wallpaper "$monitor,~/bg/bg1.png"
+	hyprctl hyprpaper wallpaper "$monitor,$wallpaper_path"
     done
 else 
     if [ "$bgColor" != "" ]; then
-	convert -size 1x1 xc:$bgColor ~/bg/bg1.png
+	convert -size 1x1 xc:$bgColor $wallpaper_path
         #killall swaybg
         #nohup swaybg -c "$bgColor" > /dev/null &
     fi

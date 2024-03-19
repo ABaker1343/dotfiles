@@ -4,7 +4,7 @@ for opt in $@; do
 		--pretty)
 			hyprctl --batch "\
 			keyword animations:enabled true;\
-			keyword decoration:rounding 8;\
+			keyword decoration:rounding 10;\
 			keyword decoration:drop_shadow true;\
 			keyword general:gaps_in 4;\
 			keyword general:gaps_out 8;\
@@ -16,7 +16,7 @@ for opt in $@; do
 		--pretty-alt)
 			hyprctl --batch "\
 			keyword animations:enabled true;\
-			keyword decoration:rounding 5;\
+			keyword decoration:rounding 10;\
 			keyword decoration:drop_shadow true;\
 			keyword general:gaps_in 4;\
 			keyword general:gaps_out 8;\

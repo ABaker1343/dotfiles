@@ -14,10 +14,11 @@ vim.g.material_style = 'deep ocean'
 vim.g.material_style = "palenight"
 vim.g.modus_termtrans_enable=0
 --vim.g.sonokai_transparent_background=1
+vim.o.background = "dark"
 
 
 vim.o.termguicolors = true;
---vim.cmd[[colorscheme catppuccin]]
+vim.cmd[[colorscheme catppuccin]]
 --vim.cmd[[colorscheme abscs]]
 --vim.cmd[[colorscheme nordfox]]
 --vim.cmd[[colorscheme material]]
@@ -32,6 +33,6 @@ vim.o.termguicolors = true;
 --vim.cmd [[colorscheme melange]]
 --vim.cmd [[colorscheme nordic]]
 --vim.cmd[[colorscheme modus-vivendi]]
-vim.cmd[[colorscheme monokai_pro]]
-
+--vim.cmd[[colorscheme monokai_pro]]
+--vim.cmd[[colorscheme gruvbox]]
 --vim.cmd[[colorscheme kanagawa-dragon]]

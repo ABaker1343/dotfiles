@@ -12,7 +12,6 @@ for opt in $@; do
 		-f | --fullscreen)
 			fullscreen=true
 			shift
-			echo "fullscreen"
 		;;
 		-o | --output)
 			shift
@@ -31,5 +30,7 @@ else
 	tee "$filepath" | \
 	wl-copy
 fi
+
+notify-send "Screenshot saved: $filepath" --icon $filepath
 
 exit 0

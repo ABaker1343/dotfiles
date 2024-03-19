@@ -1,3 +1,5 @@
+#1/bin/sh
+
 bottles=$(flatpak run --command=bottles-cli com.usebottles.bottles list bottles | \
     awk '{for(i=2;i<NF;i++) printf $i " "; print $NF}' | \
     tail -n +2
