@@ -11,7 +11,8 @@ telescope.setup {
             },
         },
         layout_config = {
-            prompt_position = 'top'
+            prompt_position = 'top',
+            horizontal = {width = 0.8},
         },
     },
 

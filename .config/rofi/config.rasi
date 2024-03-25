@@ -44,7 +44,7 @@ window {
     height: 65%;
     transparency: true;
     background-color: @foreground;
-    background-image: url("~/bg/bg1.png", both);
+    background-image: url("~/Wallpapers/active_wallpaper.png", both);
 }
 
 mainbox {

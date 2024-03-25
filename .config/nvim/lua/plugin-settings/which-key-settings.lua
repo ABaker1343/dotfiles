@@ -24,24 +24,24 @@ wk.register({
         ["<Up>"] = {"<C-w>10+", "Resize +y"},
         ["<Down>"] = {"<C-w>10-", "Resize -y"},
     },
+    f = {telescopeFuncs.find_files, "Find file"},
+    ["/"] = {telescopeFuncs.live_grep, "Live Grep"},
+    b = {
+        name = "Browse",
+        f = { "<cmd>Telescope file_browser<CR>", "File Browser"},
+        b = {telescopeFuncs.buffers, "Buffers"}
+    },
     t = {
         name = "Tab",
         n = {"<cmd>tabnew<CR>", "New"},
         l = {"<cmd>tabn<CR>", "Next"},
         h = {"<cmd>tabn<CR>", "Previous"},
     },
-    f = {
-        name = "File",
-        f = { telescopeFuncs.find_files, "Find File"},
-        b = { "<cmd>Telescope file_browser<CR>", "Browser"},
-        g = { telescopeFuncs.live_grep, "Live Grep"},
-        o = {telescopeFuncs.buffers, "Buffers"}
-    },
     c = {
         name = "Code",
         d = { telescopeFuncs.diagnostics, "Diagnostics"},
         q = { telescopeFuncs.quickfix, "Quickfix"},
-        s = { telescopeFuncs.lsp_workspace_symbols, "Symbols"},
+        s = { telescopeFuncs.lsp_document_symbols, "Symbols"},
         t = { telescopeFuncs.treesitter, "Treesitter"},
         k = { vim.lsp.buf.hover, "Lsp Hover"},
         f = { vim.diagnostic.open_float, "Floating Diagnostics"},

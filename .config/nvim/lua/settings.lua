@@ -1,5 +1,5 @@
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.scrolloff = 10
@@ -13,7 +13,7 @@ vim.opt.splitright = true
 
 vim.opt.linebreak = true
 
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
 
 --vim.opt.guicursor="n-v-c:block,i:blinkwait500-blinkon250-blinkoff120-hor55"
