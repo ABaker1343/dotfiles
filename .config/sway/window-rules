@@ -1,0 +1,13 @@
+for_window {
+    # steam rules
+    [class="^steam_app_*"] floating enable, fullscreen
+    [class="^gamescope*"] floating enable, fullscreen
+
+    [app_id="^mpv$"] floating enable
+
+    # floating windows
+    [app_id="^org.kde.polkit-kde-authentication-agent-1$"] floating enable, resize set 1920 1080
+    [app_id="xclock"] floating enable, resize set 1920 1080
+    [app_id="xdg-desktop-portal-gtk"] floating enable, resize set 1920 1080
+    [title="^(htop|btop)$"] floating enable, resize set 1920 1080
+}

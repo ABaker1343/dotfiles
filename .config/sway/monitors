@@ -3,17 +3,17 @@ set $monitor1 DP-2
 set $monitor2 HDMI-A-1
 
 output $monitor1 {
-    mode 1920x1080@144.000Hz
-    pos 1024 0
+    mode 2560x1440@144.000Hz
+    pos 1920 0
     adaptive_sync on
 }
 
 output $monitor2 {
-    mode 1024x768@60.000hz
+    mode 1920x1080@60.000hz
     pos 0 0
 }
 
-output * bg ~/bg/bg1.png fill
+output * bg ~/Wallpapers/active_wallpaper.png fill
 
 titlebar_border_thickness 0
 titlebar_padding 0 0
@@ -52,11 +52,5 @@ assign [class="^gamescope-brokey$"] $gamesWorkspace
 assign [class="^steam_app"] $gamesWorkspace
 assign [class="^discord$"] 9
 assign [class="^(spotify|Spotify)$"] 10
-
-for_window {
-    [class="^steam_app"] floating enable, fullscreen
-    [class="^gamescope"] floating enable, fullscreen
-}
-}
 
 focus $monitor1

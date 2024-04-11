@@ -9,17 +9,19 @@ set $right l
 set $term kitty
 set $menu rofi -show run -m 1
 set $browser flatpak run io.gitlab.librewolf-community
-set $music flatpak run com.spotify.Client
-set $games flatpak run com.valvesoftware.Steam
-set $audioSelect soundSelect.sh
-set $chat flatpak run com.discordapp.Discord
+#set $music flatpak run com.spotify.Client
+set $music ~/.config/sway/scripts/SpecialWorkspaces.sh --spotify
+#set $games flatpak run com.valvesoftware.Steam
+set $games ~/.config/sway/scripts/SpecialWorkspaces.sh --steam
+#set $chat flatpak run com.discordapp.Discord
+set $chat ~/.config/sway/scripts/SpecialWorkspaces.sh --discord
 set $mail flatpak run org.mozilla.Thunderbird
-set $text neovide --novsync --multigrid
+set $text neovide
 # set $text $term -e nvim
 set $lock swaylock -c 000000
 set $files pcmanfm
 set $altFiles $term -e ranger
-set $sysMonitor $term -e htop
+set $sysMonitor $term -e btop
 
 
 ### Key bindings
@@ -56,6 +58,8 @@ set $controlMod $mod+Control
     bindsym $launchMod+b exec $browser
     bindsym $launchMod+s exec $music
     bindsym $launchMod+g exec $games
+    bindsym $controlMod+g exec ~/.config/sway/scripts/SteamLaunch.sh
+    bindsym $controlMod+w exec ~/.config/sway/scripts/BottlesLaunch.sh
     bindsym $launchMod+a exec $audioSelect
     bindsym $launchMod+d exec $chat
     bindsym $launchMod+m exec $mail

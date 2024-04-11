@@ -2,6 +2,7 @@
 include ./monitors
 include ./inputs
 include ./bindings
+include ./window-rules
 
 # keep colors included before bar as bar uses the colors
 include ./colors

@@ -6,8 +6,10 @@
 # theme = "night_owl"
 
 # theme = "sonokai_default"
-theme = "catppuccin_mocha"
+# theme = "catppuccin_mocha"
 # theme = "gruvbox"
+# theme = "kanagawa"
+theme = "molokai"
 
 [editor]
 line-number = "relative"
@@ -19,5 +21,5 @@ C-y = "scroll_up"
 esc = ["collapse_selection", "keep_primary_selection"]
 
 [keys.normal."space"]
-c = ":run-shell-command kitty"
-C = ":run-shell-command make"
+C = ":run-shell-command cmake --build build"
+c = ":run-shell-command make"

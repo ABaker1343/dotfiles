@@ -1,7 +1,7 @@
 --monokai = require('monokai').setup {}
 --vim.cmd[[colorscheme duskfox]]
 
---vim.cmd[[colorscheme colors-wal]]
+vim.cmd[[colorscheme colors-wal]]
 
 --monokai = require("monokai").setup {}
 --require('tokyonight').setup {}
@@ -18,14 +18,14 @@ vim.o.background = "dark"
 
 
 vim.o.termguicolors = true;
-vim.cmd[[colorscheme catppuccin]]
+--vim.cmd[[colorscheme catppuccin]]
 --vim.cmd[[colorscheme abscs]]
 --vim.cmd[[colorscheme nordfox]]
 --vim.cmd[[colorscheme material]]
 --vim.cmd[[colorscheme kanagawa]]
 --vim.cmd[[colorscheme tokyonight-night]]
 --vim.cmd[[colorscheme sonokai]]
---vim.cmd[[colorscheme nvimgelion]]
+vim.cmd[[colorscheme nvimgelion]]
 --vim.cmd[[colorscheme dracula]]
 --vim.cmd [[colorscheme PaperColor]]
 --vim.cmd [[colorscheme zephyr]]
@@ -36,3 +36,4 @@ vim.cmd[[colorscheme catppuccin]]
 --vim.cmd[[colorscheme monokai_pro]]
 --vim.cmd[[colorscheme gruvbox]]
 --vim.cmd[[colorscheme kanagawa-dragon]]
+--vim.cmd[[colorscheme modus-vivendi]]

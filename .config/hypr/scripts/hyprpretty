@@ -12,7 +12,7 @@ for opt in $@; do
 			keyword master:no_gaps_when_only false;\
       keyword decoration:dim_inactive true;\
       keyword decoration:active_opacity 1.0;\
-      keyword decoration:inactive_opacity 0.85;\
+      keyword decoration:inactive_opacity 0.90;\
       keyword decoration:fullscreen_opacity 1.0"
 
       killall waybar
@@ -27,9 +27,9 @@ for opt in $@; do
 			keyword general:gaps_out 8;\
 			keyword general:border_size 6;\
 			keyword master:no_gaps_when_only false;\
-      keyword decoration:dim_inactive true;\
+      keyword decoration:dim_inactive false;\
       keyword decoration:active_opacity 1.0;\
-      keyword decoration:inactive_opacity 0.85;\
+      keyword decoration:inactive_opacity 1.0;\
       keyword decoration:fullscreen_opacity 1.0"
 
       killall waybar
