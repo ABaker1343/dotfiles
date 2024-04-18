@@ -18,10 +18,12 @@ set $chat ~/.config/sway/scripts/SpecialWorkspaces.sh --discord
 set $mail flatpak run org.mozilla.Thunderbird
 set $text neovide
 # set $text $term -e nvim
-set $lock swaylock -c 000000
+set $lock hyprlock
 set $files pcmanfm
 set $altFiles $term -e ranger
 set $sysMonitor $term -e btop
+set $audioManager ~/.config/sway/scripts/SoundSelect.sh
+set $bluetoothManager blueberry
 
 
 ### Key bindings
@@ -60,7 +62,7 @@ set $controlMod $mod+Control
     bindsym $launchMod+g exec $games
     bindsym $controlMod+g exec ~/.config/sway/scripts/SteamLaunch.sh
     bindsym $controlMod+w exec ~/.config/sway/scripts/BottlesLaunch.sh
-    bindsym $launchMod+a exec $audioSelect
+    bindsym $launchMod+a exec $audioManager
     bindsym $launchMod+d exec $chat
     bindsym $launchMod+m exec $mail
     bindsym $launchMod+n exec $text
@@ -77,6 +79,11 @@ set $controlMod $mod+Control
     bindsym XF86AudioPlay exec playerctl -p spotify play-pause
     bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+
+    bindsym XF86MonBrightnessDown exec ~/.config/sway/scripts/brightness --set-min
+    bindsym XF86MonBrightnessUp exec ~/.config/sway/scripts/brightness --set-max
+    bindsym Shift+XF86MonBrightnessDown exec ~/.config/sway/scripts/brightness --lower
+    bindsym Shift+XF86MonBrightnessUp exec ~/.config/sway/scripts/brightness --higher
 
 #
 # Moving around:

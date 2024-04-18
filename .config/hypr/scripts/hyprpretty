@@ -16,7 +16,7 @@ for opt in $@; do
       keyword decoration:fullscreen_opacity 1.0"
 
       killall waybar
-      waybar --config ~/.config/waybar/config-pretty.json --style ~/.config/waybar/pretty.css
+      waybar --config ~/.config/waybar/config-pretty.json --style ~/.config/waybar/pretty.css &
 			;;
 		--pretty-alt)
 			hyprctl --batch "\
@@ -33,7 +33,7 @@ for opt in $@; do
       keyword decoration:fullscreen_opacity 1.0"
 
       killall waybar
-      waybar --config ~/.config/waybar/config-pretty-alt.json --style ~/.config/waybar/pretty-alt.css
+      waybar --config ~/.config/waybar/config-pretty-alt.json --style ~/.config/waybar/pretty-alt.css &
 			;;
 		--no-pretty)
 			hyprctl --batch "\
@@ -50,8 +50,26 @@ for opt in $@; do
       keyword decoration:fullscreen_opacity 1.0"
 
       killall waybar
-      waybar --style ~/.config/waybar/plain.css
+      waybar --style ~/.config/waybar/plain.css &
 			;;
+
+    --no-pretty-alt)
+			hyprctl --batch "\
+			keyword animations:enabled false;\
+			keyword decoration:rounding 0;\
+			keyword decoration:drop_shadow false;\
+			keyword general:gaps_in 4;\
+			keyword general:gaps_out 8;\
+			keyword general:border_size 2;\
+			keyword master:no_gaps_when_only false;\
+      keyword decoration:dim_inactive false;\
+      keyword decoration:active_opacity 1.0;\
+      keyword decoration:inactive_opacity 1.0;\
+      keyword decoration:fullscreen_opacity 1.0"
+
+      killall waybar
+      waybar --style ~/.config/waybar/plain.css &
+    ;;
 	esac
 done
 			

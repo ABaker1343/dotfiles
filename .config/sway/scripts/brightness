@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+for arg in $@; do
+    case $arg in
+        --set-max)
+            ddcutil setvcp 0x10 100 -d 1
+            ddcutil setvcp 0x10 100 -d 2
+            ;;
+        --set-min)
+            ddcutil setvcp 0x10 0 -d 1
+            ddcutil setvcp 0x10 0 -d 2
+            ;;
+        --lower)
+            ddcutil setvcp 0x10 - 20 -d 1
+            ddcutil setvcp 0x10 - 20 -d 2
+            ;;
+        --higher)
+            ddcutil setvcp 0x10 + 20 -d 1
+            ddcutil setvcp 0x10 + 20 -d 2
+            ;;
+    esac
+done

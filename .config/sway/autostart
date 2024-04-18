@@ -8,7 +8,8 @@ exec corectrl --minimize-systray
 exec blueberry-tray
 exec wl-paste --watch cliphist store
 exec wlsunset -t 4000
-exec xrandr --output DP-2 --primary
+
+exec ~/.config/sway/scripts/pretty.sh --pretty
 
 # exec swayidle -w \
 #          timeout 300 'swaylock -f -c 000000' \
