@@ -1,7 +1,8 @@
+prev_state_file=~/.config/hypr/prev_state
 
-for opt in $@; do
-	case $opt in
-		--pretty)
+set_state () {
+	case $1 in
+		pretty)
 			hyprctl --batch "\
 			keyword animations:enabled true;\
 			keyword decoration:rounding 10;\
@@ -10,7 +11,7 @@ for opt in $@; do
 			keyword general:gaps_out 8;\
 			keyword general:border_size 6;\
 			keyword master:no_gaps_when_only false;\
-      keyword decoration:dim_inactive true;\
+      keyword decoration:dim_inactive false;\
       keyword decoration:active_opacity 1.0;\
       keyword decoration:inactive_opacity 0.90;\
       keyword decoration:fullscreen_opacity 1.0"
@@ -18,7 +19,7 @@ for opt in $@; do
       killall waybar
       waybar --config ~/.config/waybar/config-pretty.json --style ~/.config/waybar/pretty.css &
 			;;
-		--pretty-alt)
+		pretty-alt)
 			hyprctl --batch "\
 			keyword animations:enabled true;\
 			keyword decoration:rounding 10;\
@@ -35,7 +36,7 @@ for opt in $@; do
       killall waybar
       waybar --config ~/.config/waybar/config-pretty-alt.json --style ~/.config/waybar/pretty-alt.css &
 			;;
-		--no-pretty)
+		no-pretty)
 			hyprctl --batch "\
 			keyword animations:enabled false;\
 			keyword decoration:rounding 0;\
@@ -53,7 +54,7 @@ for opt in $@; do
       waybar --style ~/.config/waybar/plain.css &
 			;;
 
-    --no-pretty-alt)
+    no-pretty-alt)
 			hyprctl --batch "\
 			keyword animations:enabled false;\
 			keyword decoration:rounding 0;\
@@ -71,5 +72,17 @@ for opt in $@; do
       waybar --style ~/.config/waybar/plain.css &
     ;;
 	esac
-done
-			
+}
+
+restore_previous () {
+  prev_state=$(cat $prev_state_file)
+  set_state prev_state
+}
+
+if [ -z "$1"]; then
+  restore_previous
+else
+  set_state $1
+  echo $1 > $prev_state_file
+fi
+

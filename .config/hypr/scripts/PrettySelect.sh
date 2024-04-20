@@ -5,4 +5,4 @@ no-pretty-alt"
 
 selection=$(echo "$choices" | rofi -dmenu)
 
-~/.config/hypr/scripts/hyprpretty --"$selection"
+~/.config/hypr/scripts/hyprpretty "$selection"
