@@ -96,13 +96,13 @@ func main () {
     textColors.Color6 = CalculateTextColor(data.Colors.Color6)
     textColors.Color7 = CalculateTextColor(data.Colors.Color7)
 
-    genColorsAlacritty(data, waldir)
-    genColorsWaybar(data, waldir, textColors)
-    genColorsHyprland(data, waldir)
-
+    genColorsAlacritty(data, waldir + "colors-alacritty.yml")
+    genColorsWaybar(data, waldir + "colors-waybar.css", textColors)
+    genColorsHyprland(data, waldir + "colors-hyprland.conf")
+    genColorsDunst(data, textColors, userHome + "/.config/dunst/dunstrc.d/99-colors.conf")
 }
 
-func genColorsAlacritty(data walStruct, waldir string) {
+func genColorsAlacritty(data walStruct, filepath string) {
     alacrittyColors := "colors:\n" +
     "  primary:\n" +
     "    background: '" + data.Special.Background + "'\n" +
@@ -135,10 +135,10 @@ func genColorsAlacritty(data walStruct, waldir string) {
     "    cyan: '" + data.Colors.Color6 + "'\n" +
     "    white: '" + data.Colors.Color7 + "'\n"
 
-    os.WriteFile(waldir + "colors-alacritty.yml", []byte(alacrittyColors), 0664)
+    os.WriteFile(filepath, []byte(alacrittyColors), 0664)
 }
 
-func genColorsWaybar(data walStruct, waldir string, textColors Colors) {
+func genColorsWaybar(data walStruct, filepath string, textColors Colors) {
     waybarColors :=
     "@define-color background " + data.Special.Background  + ";\n" +
     "@define-color foreground " + data.Special.Foreground + ";\n" +
@@ -160,10 +160,10 @@ func genColorsWaybar(data walStruct, waldir string, textColors Colors) {
     "@define-color tcolor6 " + textColors.Color6 + ";\n" +
     "@define-color tcolor7 " + textColors.Color7 + ";\n"
 
-    os.WriteFile(waldir + "colors-waybar.css", []byte(waybarColors), 0664)
+    os.WriteFile(filepath, []byte(waybarColors), 0664)
 }
 
-func genColorsHyprland(data walStruct, waldir string) {
+func genColorsHyprland(data walStruct, filepath string) {
     data.Colors.Color0 = strings.Replace(data.Colors.Color0, "#", "", 1)
     data.Colors.Color1 = strings.Replace(data.Colors.Color1, "#", "", 1)
     data.Colors.Color2 = strings.Replace(data.Colors.Color2, "#", "", 1)
@@ -187,5 +187,17 @@ func genColorsHyprland(data walStruct, waldir string) {
     "$color6 = 0xff" + data.Colors.Color6 + "\n" +
     "$color7 = 0xff" + data.Colors.Color7 + "\n"
 
-    os.WriteFile(waldir + "colors-hyprland.conf", []byte(hyprlandColors), 0664)
+    os.WriteFile(filepath, []byte(hyprlandColors), 0664)
+}
+
+func genColorsDunst(data walStruct, textColors Colors, filepath string) {
+    dunstColors :=
+    "[urgency_low]\n" +
+    "    background = \"" + data.Colors.Color1 + "\"\n" +
+    "    foreground = \"" + textColors.Color1 + "\"\n" +
+    "[urgency_normal]\n" +
+    "    background = \"" + data.Colors.Color1 + "\"\n" +
+    "    foreground = \"" + textColors.Color1 + "\"\n"
+
+    os.WriteFile(filepath, []byte(dunstColors), 0664)
 }

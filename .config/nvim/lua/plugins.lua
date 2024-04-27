@@ -121,6 +121,20 @@ local plugins = {
         end,
     },
 
+    -- nice nvim
+    {
+      "folke/noice.nvim",
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+        "rcarriga/nvim-notify",
+      },
+      init = function()
+        require('plugin-settings.noice-settings')
+      end,
+      config = function()
+      end,
+    },
+
     -- floating terminal
     {
         "voldikss/vim-floaterm",

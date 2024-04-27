@@ -76,7 +76,7 @@ set_state () {
 
 restore_previous () {
   prev_state=$(cat $prev_state_file)
-  set_state prev_state
+  set_state $prev_state
 }
 
 if [ -z "$1"]; then

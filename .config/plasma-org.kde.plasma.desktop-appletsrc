@@ -167,8 +167,8 @@ plugin=org.kde.plasma.kickoff
 
 [Containments][55][Applets][58][Configuration]
 PreloadWeight=100
-popupHeight=524
-popupWidth=683
+popupHeight=720
+popupWidth=892
 
 [Containments][55][Applets][58][Configuration][General]
 favoritesPortedToKAstats=true

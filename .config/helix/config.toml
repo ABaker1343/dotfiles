@@ -8,8 +8,8 @@
 # theme = "sonokai_default"
 # theme = "catppuccin_mocha"
 # theme = "gruvbox"
-# theme = "kanagawa"
-theme = "molokai"
+theme = "kanagawa"
+# theme = "molokai"
 
 [editor]
 line-number = "relative"
@@ -19,6 +19,7 @@ auto-format = false
 C-e = "scroll_down"
 C-y = "scroll_up"
 esc = ["collapse_selection", "keep_primary_selection"]
+C-t = [":new", ":insert-output bash", ":buffer-close!", ":redraw"]
 
 [keys.normal."space"]
 C = ":run-shell-command cmake --build build"

@@ -36,5 +36,10 @@ vim.o.termguicolors = true;
 --vim.cmd[[colorscheme monokai_pro]]
 --vim.cmd[[colorscheme gruvbox]]
 --vim.cmd[[colorscheme kanagawa-dragon]]
-vim.cmd[[colorscheme kanagawa-wave]]
 --vim.cmd[[colorscheme modus-vivendi]]
+vim.cmd[[colorscheme kanagawa-wave]]
+
+vim.cmd[[highlight Normal ctermbg=none]]
+vim.cmd[[highlight NonText ctermbg=none]]
+vim.cmd[[highlight Normal guibg=none]]
+vim.cmd[[highlight Normal guibg=none]]

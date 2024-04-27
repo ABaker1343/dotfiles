@@ -3,7 +3,7 @@
         "position" : "top",
         "layer" : "top",
         "height" : 36,
-        "start_hidden" : true,
+        "start_hidden" : false,
 
         "modules-left" : ["privacy", "wlr/workspaces", "wlr/taskbar"],
         "modules-center" : ["clock"],

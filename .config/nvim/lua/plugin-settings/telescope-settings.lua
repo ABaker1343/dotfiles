@@ -14,6 +14,9 @@ telescope.setup {
             prompt_position = 'top',
             horizontal = {width = 0.8},
         },
+        file_ignore_patterns = {
+          "build/"
+        }
     },
 
     pickers = {
