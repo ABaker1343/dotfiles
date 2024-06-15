@@ -100,6 +100,7 @@ func main () {
     genColorsWaybar(data, waldir + "colors-waybar.css", textColors)
     genColorsHyprland(data, waldir + "colors-hyprland.conf")
     genColorsDunst(data, textColors, userHome + "/.config/dunst/dunstrc.d/99-colors.conf")
+    genColorsHelix(data, textColors, userHome + "/.config/helix/themes/wal.toml")
 }
 
 func genColorsAlacritty(data walStruct, filepath string) {
@@ -200,4 +201,88 @@ func genColorsDunst(data walStruct, textColors Colors, filepath string) {
     "    foreground = \"" + textColors.Color1 + "\"\n"
 
     os.WriteFile(filepath, []byte(dunstColors), 0664)
+}
+
+func genColorsHelix(data walStruct, textColors Colors, filepath string) {
+    helixColors :=
+    "inherits = \"base16_default\"" +
+    "\n[pallete]\n\n" +
+    "default = \"" + data.Colors.Color0 + "\"\n" +
+    "black = \"" + data.Colors.Color1 + "\"\n" +
+    "red = \"" + data.Colors.Color2 + "\"\n" +
+    "green = \"" + data.Colors.Color3 + "\"\n" +
+    "yellow = \"" + data.Colors.Color4 + "\"\n" +
+    "blue = \"" + data.Colors.Color5 + "\"\n" +
+    "magenta = \"" + data.Colors.Color6 + "\"\n" +
+    "cyan = \"" + data.Colors.Color7 + "\"\n" +
+    "gray = \"" + data.Colors.Color8 + "\"\n" +
+    "light-red = \"" + data.Colors.Color9 + "\"\n" +
+    "light-green = \"" + data.Colors.Color10 + "\"\n" +
+    "light-yellow = \"" + data.Colors.Color11 + "\"\n" +
+    "light-blue = \"" + data.Colors.Color12 + "\"\n" +
+    "light-magenta = \"" + data.Colors.Color13 + "\"\n" +
+    "light-cyan = \"" + data.Colors.Color14 + "\"\n"
+    //"white = \"" + data.Colors.Color15 + "\"\n"
+
+    // "\"type\" = \"color1\"" + "\n" +
+    // "\"constant\" = \"color2\"" + "\n" +
+    // "\"constant.numeric\" = \"color2\"" + "\n" +
+    // "\"constant.character.escape\" = \"color2\"" + "\n" +
+    // "\"string\" = \"color2\"" + "\n" +
+    // "\"comment\" = \"color0\"" + "\n" +
+    // "\"variable\" = \"color3\"" + "\n" +
+    // "\"variable.builtin\" = \"color3\"" + "\n" +
+    // "\"variable.parameter\" = \"color3\"" + "\n" +
+    // "\"variable.other.member\" = \"color3\"" + "\n" +
+    // "\"label\" = \"color4\"" + "\n" +
+    // "\"puncuation\" = \"color5\"" + "\n" +
+    // "\"puncuation.delimiter\" = \"color5\"" + "\n" +
+    // "\"puncuation.bracket\" = \"color5\"" + "\n" +
+    // "\"keyword\" = \"color6\"" + "\n" +
+    // "\"keyword.directive\" = \"color6\"" + "\n" +
+    // "\"operator\" = \"color7\"" + "\n" +
+
+    // "\n" +
+
+    // "\"ui.background\" = {}\n" +
+    // "\"ui.background.separator\" = \"color1\"\n" +
+    // "\"ui.cursor\" = { fg = \"color7\", bg = \"color7\" }\n" +
+    // "\"ui.cursor.match\" = { fg = \"color7\", bg = \"color7\" }\n" +
+    // "\"ui.cursor.insert\" = { fg = \"color7\", bg = \"color7\" }\n" +
+    // "\"ui.cursor.select\" = { fg = \"color7\", bg = \"color7\" }\n" +
+    // "\"ui.cursorline.primary\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.cursorline.secondary\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.selection\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.linenr\" = \"color1\"\n" +
+    // "\"ui.linenr.selected\" = \"color1\"\n" +
+    // "\"ui.statusline\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.statusline.inactive\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.statusline.normal\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.statusline.insert\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.statusline.select\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.bufferline\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.bufferline.active\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.popup\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.window\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.help\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.text\" = \"color1\"\n" +
+    // "\"ui.text.focus\" = \"color1\"\n" +
+    // "\"ui.menu\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.menu.selected\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.virtual.whitespace\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.virtual.indent-guide\" = { fg = \"color1\", bg = \"color1\" }\n" +
+    // "\"ui.virtual.ruler\" = { fg = \"color1\", bg = \"color1\" }\n" +
+
+    // "\n[pallete]\n\n" +
+    // "color0 = \"" + data.Colors.Color0 + "\"\n" +
+    // "color1 = \"" + data.Colors.Color1 + "\"\n" +
+    // "color2 = \"" + data.Colors.Color2 + "\"\n" +
+    // "color3 = \"" + data.Colors.Color3 + "\"\n" +
+    // "color4 = \"" + data.Colors.Color4 + "\"\n" +
+    // "color5 = \"" + data.Colors.Color5 + "\"\n" +
+    // "color6 = \"" + data.Colors.Color6 + "\"\n" +
+    // "color7 = \"" + data.Colors.Color7 + "\"\n" +
+    // "color8 = \"" + data.Colors.Color8 + "\"\n"
+
+    os.WriteFile(filepath, []byte(helixColors), 0664)
 }

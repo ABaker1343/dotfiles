@@ -5,18 +5,22 @@ for arg in $@; do
         --set-max)
             ddcutil setvcp 0x10 100 -d 1
             ddcutil setvcp 0x10 100 -d 2
+            notify-send "Brightness Maximum"
             ;;
         --set-min)
             ddcutil setvcp 0x10 0 -d 1
             ddcutil setvcp 0x10 0 -d 2
+            notify-send "Brightness Minimum"
             ;;
         --lower)
             ddcutil setvcp 0x10 - 20 -d 1
             ddcutil setvcp 0x10 - 20 -d 2
+            notify-send "Brightness -20"
             ;;
         --higher)
             ddcutil setvcp 0x10 + 20 -d 1
             ddcutil setvcp 0x10 + 20 -d 2
+            notify-send "Brightness +20"
             ;;
     esac
 done

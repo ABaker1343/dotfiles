@@ -1,51 +1,90 @@
 #!/bin/sh
-cp .bashrc ~/.bashrc
-cp .bash_profile ~/.bash_profile
-cp .xinitrc ~/.xinitrc
-cp .zshrc ~/.zshrc
-cp .zprofile ~/.zprofile
-cp .vimrc ~/.vimrc
 
-cp -r .config/kitty ~/.config/
-cp -r .config/alacritty ~/.config/
-cp -r .config/nvim ~/.config/
-cp -r .config/helix ~/.config/
-cp -r .config/ranger ~/.config/
-cp -r .config/lf/ ~/.config/
-cp -r .config/zathura ~/.config/
-cp -r .config/tmux ~/.config/
-cp -r .config/powerline ~/.config/
-cp -r .config/rofi ~/.config/
-cp -r .config/waybar/ ~/.config/
-cp -r .config/dunst/ ~/.config/
+# exit if no operation given
+if [ -z "$1" ]; then
+    echo "No operation specified please choose one of: install, update"
+    exit
+fi
 
-cp -r .config/i3 ~/.config/
-cp -r .config/i3status ~/.config/
-cp -r .config/sway/ ~/.config/
-cp -r .config/xdg-desktop-portal/ ~/.config/
+case $1 in
+    "install" | "Install")
+        operation="Installing"
+        from_dir="$(pwd)/.config"
+        to_dir="$HOME/.config"
+        ;;
+    "update" | "Update")
+        operation="Updating"
+        from_dir="$HOME/.config"
+        to_dir="$(pwd)/.config"
+        ;;
+    *)
+        echo "unrecognised operation please choose one of: install, update"
+        exit
+        ;;
+esac
 
-cp -r .config/awesome ~/.config/
-cp -r .config/hypr/ ~/.config/
-cp -r .config/gammastep/ ~/.config/
+echo "$operation bash configs"
+case "$operation" in
+    "Installing")
+        echo "Installing will overwrite config directories, make sure you have made backups!"
+        echo "Would you like to continue? (y/n)"
+        read res
+        if [ "$res" != "y" ]; then
+            exit
+        fi
 
-cp -r .config/kglobalshortcutsrc ~/.config/
-cp -r .config/plasmashellr ~/.config/
-cp -r .config/plasma-org.kde.plasma.desktop-appletsrc ~/.config/
+        cp .bashrc ~/.bashrc
+        cp .bash_profile ~/.bash_profile
+        ;;
+    "Updating")
+        cp ~/.bashrc ./.bashrc
+        cp ~/.bash_profile ./.bash_profile
+        ;;
+esac
 
-cp -r .config/picom ~/.config/
+
+echo "$operation tui program configs (kitty, ranger, neovim, ,etc...)"
+cp -r "$from_dir/kitty" "$to_dir"
+cp -r "$from_dir/alacritty" "$to_dir"
+cp -r "$from_dir/nvim" "$to_dir"
+cp -r "$from_dir/helix" "$to_dir"
+cp -r "$from_dir/ranger" "$to_dir"
+cp -r "$from_dir/zathura" "$to_dir"
+cp -r "$from_dir/tmux" "$to_dir"
+
+echo "$operation window manager configs (i3, hyprland, dunst, etc...)"
+cp -r "$from_dir/i3" "$to_dir"
+cp -r "$from_dir/i3status" "$to_dir"
+cp -r "$from_dir/sway" "$to_dir"
+cp -r "$from_dir/waybar" "$to_dir"
+cp -r "$from_dir/hypr" "$to_dir"
+cp -r "$from_dir/rofi" "$to_dir"
+cp -r "$from_dir/dunst" "$to_dir"
+cp -r "$from_dir/xdg-desktop-portal" "$to_dir"
+
+echo "$operation kde configs"
+cp -r "$from_dir/kglobalshortcutsrc" "$to_dir"
+cp -r "$from_dir/plasmashellr" "$to_dir"
+cp -r "$from_dir/plasma-org.kde.plasma.desktop-appletsrc" "$to_dir"
+
+echo "$operation sddm configs (root permission needed)"
+#case "$operation" in 
+    #"Installing")
+        #sudo cp -r sddm/sddm.conf.d/ /etc/
+        #sudo cp -r sddm/sddm-wal-theme/ /usr/share/sddm/themes/
+        #;;
+#esac
+
+echo "$operation scripts (root permission needed)"
+case "$operation" in
+    #"Installing")
+        #sudo cp scripts/setbg /bin/setbg
+        #sudo cp scripts/pywal-extender/pywal-extender /bin/pywal-extender
+        #;;
+    "Updating")
+        cp /bin/setbg scripts/setbg
+        ;;
+esac
 
 echo "userChrome.css will have to be installed manually"
 
-cp -r spicetify-themes/* ~/.spicetify/Themes
-
-sudo cp scripts/soundSelect.sh /bin/soundSelect.sh
-sudo cp scripts/setbg /bin/setbg
-sudo cp scripts/layoutSelect.sh /bin/layoutSelect.sh
-sudo cp scripts/pywal-extender/pywal-extender /bin/pywal-extender
-sudo cp scripts/SteamLaunch.sh /bin/SteamLaunch.sh
-sudo cp -r sddm/sddm.conf.d/ /etc/
-sudo cp -r sddm/sddm-wal-theme/ /usr/share/sddm/themes/
-
-# emacs
-cp .config/emacs/init.el ~/.config/emacs/init.el
-cp .config/emacs/config.org ~/.config/emacs/config.org

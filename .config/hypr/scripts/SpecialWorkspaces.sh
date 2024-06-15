@@ -22,7 +22,8 @@ for arg in $@; do
             shift
             pid=$(pidof steam)
             if [ -z "$pid" ]; then 
-                gamemoderun flatpak run com.valvesoftware.Steam &
+                # gamescope -W 2560 -H 1440 -f -e -F fsr -- steam
+                steam
             else
                 hyprctl dispatch workspace 5
             fi

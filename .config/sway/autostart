@@ -1,15 +1,29 @@
+# sway stuff to set the desktop
+exec systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment DISPLAY \
+                                         SWAYSOCK \
+                                         WAYLAND_DISPLAY \
+                                         XDG_CURRENT_DESKTOP
+
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY \
+                                                  SWAYSOCK \
+                                                  XDG_CURRENT_DESKTOP=sway \
+                                                  WAYLAND_DISPLAY
+
 exec xdg-desktop-portal-wlr
-exec /usr/lib/polkit-kde-authentication-agent-1
+# exec /usr/lib/polkit-kde-authentication-agent-1
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec nm-applet
 exec dunst
 exec xrandr --output DP-2 --primary
 exec export XDG_CURRENT_DESKTOP=sway
-exec corectrl --minimize-systray
+# exec corectrl --minimize-systray
 exec blueberry-tray
 exec wl-paste --watch cliphist store
-exec wlsunset -t 4000
+exec wlsunset -t 3000 -l 52.0 -L -2.0
 
-exec ~/.config/sway/scripts/pretty.sh --pretty
+exec ~/.config/sway/scripts/pretty.sh --restore
 
 # exec swayidle -w \
 #          timeout 300 'swaylock -f -c 000000' \

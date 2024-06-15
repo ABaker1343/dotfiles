@@ -8,9 +8,6 @@ lspconfig.lua_ls.setup {}
 
 lspconfig.pyright.setup {}
 
---markdown lsp
-lspconfig.marksman.setup {}
-
 lspconfig.texlab.setup {}
 
 lspconfig.glslls.setup {
@@ -26,10 +23,20 @@ lspconfig.glslls.setup {
 
 lspconfig.rust_analyzer.setup {}
 
-lspconfig.ltex.setup {}
+lspconfig.ltex.setup {
+    enabled = {
+        { "bib", "gitcommit", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "quarto", "rmd", "context", "html", "xhtml", "mail", "text" }
+    }
+}
+
+--markdown lsp
+lspconfig.marksman.setup {}
 
 --typescript-language-server
 lspconfig.tsserver.setup {}
 
 --css-languageserver
 lspconfig.cssls.setup {}
+
+-- godot script
+lspconfig.gdscript.setup {}

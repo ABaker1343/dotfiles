@@ -5,24 +5,23 @@ for arg in $@; do
             pid="$(pidof Discord)"
             if [ -z "$pid" ]; then 
                 flatpak run com.discordapp.Discord &
-            else
-                swaymsg workspace number 9
             fi
+            swaymsg workspace number 9
             ;;
         --spotify)
             shift
             pid="$(pidof spotify)"
             if [ -z "$pid" ]; then 
                 flatpak run com.spotify.Client &
-            else
-                swaymsg workspace number 10
             fi
+            swaymsg workspace number 10
             ;;
         --steam)
             shift
             pid=$(pidof steam)
             if [ -z "$pid" ]; then 
-                gamemoderun flatpak run com.valvesoftware.Steam &
+                # gamescope -W 2560 -H 1440 -f -e -F fsr -r 144 -- steam
+                steam -steamos3
             else
                 swaymsg workspace number 5
             fi

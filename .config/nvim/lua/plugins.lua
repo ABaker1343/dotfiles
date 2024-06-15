@@ -55,7 +55,12 @@ local plugins = {
     },
 
     -- surround support
-    "kylechui/nvim-surround",
+    {
+        "kylechui/nvim-surround",
+        config = function()
+            require('nvim-surround').setup {}
+        end
+    },
 
     -- nvim filetree
     {
@@ -107,6 +112,13 @@ local plugins = {
         dependencies = {
             'nvim-lua/plenary.nvim'
         }
+    },
+
+    {
+        "ggandor/leap.nvim",
+        config = function()
+            require('leap').create_default_mappings()
+        end
     },
 
     -- which key to show key mappings
@@ -162,6 +174,7 @@ local plugins = {
     "AlexvZyl/nordic.nvim",
     'ishan9299/modus-theme-vim',
     "ellisonleao/gruvbox.nvim",
+    "mbrea-c/wal-colors.nvim"
 }
 
 lazy.setup(plugins, {})

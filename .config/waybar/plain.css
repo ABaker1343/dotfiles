@@ -1,5 +1,7 @@
-@import "style.css";
+/*@import "style.css";*/
+@import "/home/alex/.cache/wal/colors-waybar.css";
 
+/*
 @define-color background #000000;
 @define-color foreground #b2d5d7;
 @define-color color0 #000000;
@@ -18,24 +20,31 @@
 @define-color tcolor5 #ffffff;
 @define-color tcolor6 #ffffff;
 @define-color tcolor7 #ffffff;
+*/
 
 /* {
     border-radius: 10px;
 }*/
 
 * {
-    padding: 1px;
+    /*padding: 1px;*/
     /*margin: 0px;*/
 }
 
 #waybar {
     background: @background;
+    color: @tcolor0;
     /*background-color: transparent; */
     padding: 0px;
     /*border-radius: 20px;*/
+    font-size: 14px
 }
 
 .background {
     /*background-color: transparent;*/
 }
 
+#workspaces .active {
+    background: @color1;
+    color: @tcolor1;
+}

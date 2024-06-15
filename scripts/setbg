@@ -1,6 +1,6 @@
 #!/bin/bash
 
-printUsage() {
+PrintUsage() {
 echo "setbg script for setting wallpaper and colorscheme
 
 Example usage
@@ -22,20 +22,62 @@ Dependancies:
 "
 }
 
+SetWallpaper() {
+    wallpaper_path=~/Wallpapers/active_wallpaper.png
+
+    filepath=$1
+
+    # make sure wallpaper gets encoded as png
+    ffmpeg -nostdin -i $filepath $wallpaper_path -y
+    echo "new wallpaper: $filepath"
+
+    # if hyprpaper is running then use that otherwise use sway
+    hyprpaper_pid="$(pidof hyprpaper)"
+    if [ "$hyprpaper_pid" != "" ]; then 
+        # load the wallpaper in hyprpaper and unload old one
+        hyprctl hyprpaper unload "$wallpaper_path" > /dev/null
+        hyprctl hyprpaper preload "$wallpaper_path" > /dev/null
+
+        # set the wallpaper on every monitor
+        for monitor in $(hyprctl monitors | grep Monitor | awk '{ print $2 }'); do
+            hyprctl hyprpaper wallpaper "$monitor,$wallpaper_path"
+        done
+    else # use sway
+	swaymsg "output * background ~/Wallpaper/active_wallpaper.png fill"
+    fi
+}
+
+SetTheme() {
+    backend="wal"
+
+    theme=$1
+    
+    # set the colorscheme with pywal
+    if [ "$theme" == "" ]; then
+    	wal -n -i $file --saturate $saturation --backend $backend
+    else
+    	wal -n --theme "$theme" --saturate $saturation --backend $backend
+    fi
+
+    # run extension for programs not included with pywal
+    pywal-extender
+}
+
+# Logic
+
 saturation=0.6
 file=""
 bgColor=""
 theme=""
-backend="wal"
 setTheme=true
 bgsetter=hyprpaper
-wallpaper_path=~/Wallpapers/active_wallpaper.png
 
 for arg in $@; do
     case $arg in
         -f | --file)
             shift
             file=$1
+            echo "file from -f $file"
             shift
             ;;
         -s | --saturation)
@@ -65,39 +107,32 @@ for arg in $@; do
         --no-theme)
             shift
             setTheme=false
+            ;;
     esac
 done
 
-#if [ "$file" == "" ] && [ "$theme" ==  "" ]; then
-    #echo "no file or theme selected"
-    #exit 1
-#fi
+if [ $# == 1 ]; then
+    file=$1
+fi
+
+if [ -z "$file" ]; then
+    echo "No file Specified (use -f or --file)"
+    if [ -z "$theme" ]; then
+	echo "No theme Specified (use -t or --theme)"
+	exit 1
+    fi
+fi
 
 # set wallpaper
 if [ "$file" != "" ]; then
-    ffmpeg -nostdin -i $file $wallpaper_path -y
-    echo "new wallpaper: $file"
-    hyprctl hyprpaper unload "$wallpaper_path" > /dev/null
-    hyprctl hyprpaper preload "$wallpaper_path" > /dev/null
-    for monitor in $(hyprctl monitors | grep Monitor | awk '{ print $2 }'); do
-	hyprctl hyprpaper wallpaper "$monitor,$wallpaper_path"
-    done
-else 
-    if [ "$bgColor" != "" ]; then
-	convert -size 1x1 xc:$bgColor $wallpaper_path
-        #killall swaybg
-        #nohup swaybg -c "$bgColor" > /dev/null &
-    fi
+    SetWallpaper $file
+else
+    echo "not file specified"
 fi
 
 # set colorscheme
 if [ "$setTheme" == "true" ]; then
-    if [ "$theme" == "" ]; then
-    	wal -n -i $file --saturate $saturation --backend $backend
-    else
-    	wal -n --theme "$theme" --saturate $saturation --backend $backend
-    fi
-    pywal-extender
+    SetTheme $theme
 fi
 
 if [ -n "$(type -p spicetify)"]; then
@@ -105,7 +140,11 @@ if [ -n "$(type -p spicetify)"]; then
 fi
 
 # restart any desktop elements that are using the colorscheme
-killall waybar
-nohup waybar > /dev/null &
+waybar_pid=$"(pidof waybar)"
+if [ "$waybar_pid" != "" ]; then 
+    killall waybar
+    nohup waybar > /dev/null &
+fi
+
 echo "finished setting wallpaper and colorscheme\n"
 

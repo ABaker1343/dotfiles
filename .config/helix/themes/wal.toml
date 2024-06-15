@@ -1,0 +1,18 @@
+inherits = "base16_default"
+[pallete]
+
+default = "#160f1b"
+black = "#a02852"
+red = "#be2f41"
+green = "#d4a553"
+yellow = "#c731c0"
+blue = "#57cdd5"
+magenta = "#dec07e"
+cyan = "#c6f5f5"
+gray = "#8aabab"
+light-red = "#a02852"
+light-green = "#be2f41"
+light-yellow = "#d4a553"
+light-blue = "#c731c0"
+light-magenta = "#57cdd5"
+light-cyan = "#dec07e"

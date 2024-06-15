@@ -269,7 +269,7 @@ toggle do not disturb=none,,Toggle do not disturb
 [services][BottlesLaunch.sh-2.desktop]
 _launch=Meta+Ctrl+W
 
-[services][SteamLaunch.sh.desktop]
+[services][UniversalLaunch.sh.desktop]
 _launch=Meta+Ctrl+G
 
 [services][com.discordapp.Discord.desktop]
@@ -291,11 +291,11 @@ new-private-window=Meta+Shift+P
 [services][kitty.desktop]
 _launch=Meta+Shift+Return
 
-[services][neovide.desktop]
+[services][neovide-3.desktop]
 _launch=Meta+Shift+N
 
 [services][org.kde.dolphin.desktop]
-_launch=Meta+Shift+F\tMeta+E
+_launch=Meta+E\tMeta+Shift+F
 
 [services][org.kde.krunner.desktop]
 _launch=Alt+F2\tSearch\tAlt+Space
@@ -310,6 +310,9 @@ _launch=Meta+Shift+M
 
 [services][pkexec.desktop]
 _launch=Meta+Ctrl+Shift+U
+
+[services][steam.desktop]
+Library=Meta+Shift+G
 
 [wacomtablet]
 Map to fullscreen=Meta+Ctrl+F,Meta+Ctrl+F,Map to fullscreen

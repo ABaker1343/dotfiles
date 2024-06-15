@@ -1,23 +1,28 @@
-set $gamesWorkspace 5
-
-assign [class="^steam$"] $gamesWorkspace
-assign [class="^gamescope-brokey$"] $gamesWorkspace
-assign [class="^steam_app"] $gamesWorkspace
-assign [class="^discord$"] 9
-assign [class="^(spotify|Spotify)$"] 10
-
 for_window {
     # steam rules
-    [app_id="^steam_app_*"] floating enable, fullscreen
-    [app_id="^gamescope*"] floating enable, fullscreen
+    [class="^steam_app_"] floating enable, fullscreen
+    [app_id="^gamescope"] floating enable, fullscreen
 
     [app_id="^mpv$"] floating enable
 
     # floating windows
     [app_id="^org.kde.polkit-kde-authentication-agent-1$"] floating enable, resize set 1920 1080
-    [app_id="xclock"] floating enable, resize set 1920 1080
     [app_id="xdg-desktop-portal-gtk"] floating enable, resize set 1920 1080
     [app_id="pavucontrol"] floating enable, resize set 1920 1080
     [app_id="blueberry"] floating enable, resize set 1920 1080
-    [title="^(htop|btop)$"] floating enable, resize set 1920 1080
+    [app_id="^kitty$" title="^btop$"] floating enable, resize set 1920 1080
+    [class="^XClock$"] floating enable
+
+    # flameshot window
+    [class="^flameshot$"] floating enable
 }
+
+assign [class="^steam$"] workspace $gamesWorkspace
+assign [class="^steam_app_"] workspace $gamesWorkspace
+assign [app_id="^gamescope$"] workspace $gamesWorkspace
+assign [class="\.exe$"] workspace $gamesWorkspace
+
+assign [class="^discord$"] workspace 9
+assign [class="^(spotify|Spotify)$"] workspace 10
+
+assign [class="^flameshot$"] output left

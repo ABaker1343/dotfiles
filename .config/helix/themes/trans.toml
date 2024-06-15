@@ -1,0 +1,5 @@
+# inherits = "kanagawa"
+# inherits = "catppuccin_mocha"
+inherits = "catppuccin_frappe"
+# inherits = "gruvbox_dark_soft"
+"ui.background" = {}
