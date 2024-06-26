@@ -3,8 +3,8 @@
 for arg in $@; do
     case $arg in
         --set-max)
-            ddcutil setvcp 0x10 100 -d 1
-            ddcutil setvcp 0x10 100 -d 2
+            ddcutil setvcp 0x10 60 -d 1
+            ddcutil setvcp 0x10 60 -d 2
             notify-send "Brightness Maximum"
             ;;
         --set-min)

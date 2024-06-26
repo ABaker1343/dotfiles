@@ -1,3 +1,4 @@
+local flash = require('flash')
 vim.g.mapleader=' '
 
 -- key remaps
@@ -14,6 +15,11 @@ vim.keymap.set('t', "<Esc>", "<C-\\><C-n>:q<CR>", {noremap = {true}})
 vim.keymap.set('t', "<C-p>", "<cmd>FloatermPrev<CR>", {noremap = true});
 vim.keymap.set('t', "<C-n>", "<cmd>FloatermNext<CR>", {noremap = true});
 vim.keymap.set('t', "<C-k>", "<cmd>FloatermKill<CR>", {noremap = true});
+
+--vim.keymap.set('n', "s", "<Plug>(leap-forward)", {noremap = true});
+--vim.keymap.set('n', "S", "<Plug>(leap-backward)", {noremap = true});
+
+vim.keymap.set('n', "s", flash.jump, {noremap = true});
 
 if vim.g.neovide then
     -- NEOVIDE_CURRENT_FONT_SIZE defined in settings.lua

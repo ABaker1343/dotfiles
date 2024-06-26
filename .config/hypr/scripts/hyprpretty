@@ -5,6 +5,7 @@ set_state () {
 		pretty)
 			hyprctl --batch "\
 			keyword animations:enabled true;\
+            keyword animations:animation workspaces,1,2,default,slidefade;\
 			keyword decoration:rounding 10;\
 			keyword decoration:drop_shadow true;\
 			keyword general:gaps_in 4;\
@@ -17,9 +18,9 @@ set_state () {
 	      	keyword decoration:fullscreen_opacity 1.0"
 
 	      	killall waybar
-	      	waybar --config ~/.config/waybar/config-pretty.json --style ~/.config/waybar/pretty.css &
+	      	waybar --config ~/.config/waybar/pretty/config.json --style ~/.config/waybar/pretty/style.css &
 			;;
-		pretty-alt)
+		floating-bar)
 			hyprctl --batch "\
 			keyword animations:enabled true;\
 			keyword decoration:rounding 10;\
@@ -34,9 +35,9 @@ set_state () {
       		keyword decoration:fullscreen_opacity 1.0"
 
       		killall waybar
-      		waybar --config ~/.config/waybar/config-pretty-alt.json --style ~/.config/waybar/pretty-alt.css &
+      		waybar --config ~/.config/waybar/floating-bar/config.json --style ~/.config/waybar/floating-bar/style.css &
 			;;
-		no-pretty)
+		minimal)
 			hyprctl --batch "\
 			keyword animations:enabled false;\
 			keyword decoration:rounding 0;\
@@ -51,10 +52,9 @@ set_state () {
       		keyword decoration:fullscreen_opacity 1.0"
 
       		killall waybar
-      		waybar --config ~/.config/waybar/config-minimal.json --style ~/.config/waybar/plain.css &
+      		waybar --config ~/.config/waybar/minimal/config.json --style ~/.config/waybar/minimal/style.css &
 			;;
-
-    	no-pretty-alt)
+    	minimal-gaps)
 			hyprctl --batch "\
 			keyword animations:enabled false;\
 			keyword decoration:rounding 0;\
@@ -69,9 +69,26 @@ set_state () {
       		keyword decoration:fullscreen_opacity 1.0"
 
       		killall waybar
-      		waybar --config ~/.config/waybar/config-minimal.json --style ~/.config/waybar/plain.css &
-      		# waybar --style ~/.config/waybar/plain.css &
-    ;;
+            waybar --config ~/.config/waybar/minimal/config.json --style ~/.config/waybar/minimal/style.css &
+            ;;
+    	rectangular)
+			hyprctl --batch "\
+			keyword animations:enabled true;
+            keyword animations:animation workspaces,1,2,default,slidefadevert;\
+			keyword decoration:rounding 0;\
+			keyword decoration:drop_shadow false;\
+			keyword general:gaps_in 4;\
+			keyword general:gaps_out 8;\
+			keyword general:border_size 4;\
+			keyword master:no_gaps_when_only false;\
+      		keyword decoration:dim_inactive false;\
+      		keyword decoration:active_opacity 1.0;\
+      		keyword decoration:inactive_opacity 1.0;\
+      		keyword decoration:fullscreen_opacity 1.0"
+
+      		killall waybar
+            waybar --config ~/.config/waybar/rectangular/config.json --style ~/.config/waybar/rectangular/style.css &
+            ;;
 	esac
 }
 

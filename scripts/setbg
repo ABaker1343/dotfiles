@@ -40,7 +40,7 @@ SetWallpaper() {
 
         # set the wallpaper on every monitor
         for monitor in $(hyprctl monitors | grep Monitor | awk '{ print $2 }'); do
-            hyprctl hyprpaper wallpaper "$monitor,$wallpaper_path"
+            hyprctl hyprpaper wallpaper "$monitor,contain:$wallpaper_path"
         done
     else # use sway
 	swaymsg "output * background ~/Wallpaper/active_wallpaper.png fill"
@@ -61,6 +61,14 @@ SetTheme() {
 
     # run extension for programs not included with pywal
     pywal-extender
+}
+
+RestartProgram() {
+    program=$1
+    program_pid="$(pidof $program)"
+    if ! [ -z "$program_pid" ]; then
+	killall $program && nohup $program > /dev/null &
+    fi
 }
 
 # Logic
@@ -101,7 +109,7 @@ for arg in $@; do
             shift
             ;;
         -h | --help)
-            printUsage
+            PrintUsage
             exit 0
             ;;
         --no-theme)
@@ -140,11 +148,8 @@ if [ -n "$(type -p spicetify)"]; then
 fi
 
 # restart any desktop elements that are using the colorscheme
-waybar_pid=$"(pidof waybar)"
-if [ "$waybar_pid" != "" ]; then 
-    killall waybar
-    nohup waybar > /dev/null &
-fi
+RestartProgram waybar
+RestartProgram rofi
 
 echo "finished setting wallpaper and colorscheme\n"
 

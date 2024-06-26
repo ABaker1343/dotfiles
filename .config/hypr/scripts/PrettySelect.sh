@@ -1,7 +1,7 @@
 choices="pretty
-pretty-alt
-no-pretty
-no-pretty-alt"
+floating-bar
+rectangular
+minimal"
 
 selection=$(echo "$choices" | rofi -dmenu)
 

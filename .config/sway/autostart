@@ -23,7 +23,8 @@ exec blueberry-tray
 exec wl-paste --watch cliphist store
 exec wlsunset -t 3000 -l 52.0 -L -2.0
 
-exec ~/.config/sway/scripts/pretty.sh --restore
+exec_always ~/.config/sway/scripts/pretty.sh --restore
+#exec ~/.config/sway/scipts/FullscreenVRR.sh
 
 # exec swayidle -w \
 #          timeout 300 'swaylock -f -c 000000' \

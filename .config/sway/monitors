@@ -1,12 +1,13 @@
 output $monitor1 {
     mode 2560x1440@144.000Hz
     pos 1920 0
-    adaptive_sync on
+    adaptive_sync off
 }
 
 output $monitor2 {
     mode 1920x1080@60.000hz
     pos 0 0
+    adaptive_sync off
 }
 
 output * bg ~/Wallpapers/active_wallpaper.png fill

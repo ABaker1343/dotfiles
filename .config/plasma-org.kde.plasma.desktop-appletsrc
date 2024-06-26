@@ -353,7 +353,6 @@ ToolBoxButtonX=704
 
 [Containments][81][Wallpaper][org.kde.image][General]
 Image=/home/alex/Wallpapers/active_wallpaper.png
-PreviewImage=/home/alex/Wallpapers/active_wallpaper.png
 SlidePaths=/home/alex/.local/share/wallpapers/,/usr/share/wallpapers/
 
 [Containments][82]

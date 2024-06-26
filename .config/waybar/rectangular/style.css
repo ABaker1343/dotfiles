@@ -1,0 +1,26 @@
+@import "../style.css";
+
+#waybar {
+    background-color: @background;
+    border-radius: 0px;
+    padding: 12px;
+}
+
+.modules-left > * > * {
+    border-radius: 0px;
+    opacity: 1;
+}
+
+.modules-center > * > * {
+    border-radius: 0px;
+    opacity: 1;
+}
+
+.modules-right > * > * {
+    border-radius: 0px;
+    opacity: 1;
+}
+
+#taskbar button {
+    border-radius: 0px;
+}

@@ -17,6 +17,10 @@ case $1 in
         from_dir="$HOME/.config"
         to_dir="$(pwd)/.config"
         ;;
+    "help" | "--help")
+        echo "use one of: install, update, (install to install config files and update to update this repo with your config files)"
+        exit
+        ;;
     *)
         echo "unrecognised operation please choose one of: install, update"
         exit
@@ -49,6 +53,7 @@ cp -r "$from_dir/alacritty" "$to_dir"
 cp -r "$from_dir/nvim" "$to_dir"
 cp -r "$from_dir/helix" "$to_dir"
 cp -r "$from_dir/ranger" "$to_dir"
+cp -r "$from_dir/yazi" "$to_dir"
 cp -r "$from_dir/zathura" "$to_dir"
 cp -r "$from_dir/tmux" "$to_dir"
 

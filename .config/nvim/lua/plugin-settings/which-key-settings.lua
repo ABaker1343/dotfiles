@@ -2,7 +2,7 @@ local wk = require('which-key')
 local telescopeFuncs = require("telescope.builtin")
 local harpoonUI = require('harpoon.ui');
 local harpoonMark = require('harpoon.mark');
-local leap = require('leap')
+--local leap = require('leap')
 
 -- leader keys
 wk.register({
