@@ -1,21 +1,13 @@
-@import "../style.css";
+@import "../fonts.css";
+@import "../colorful.css";
+@import "../padding.css";
+@import "../rounding.css";
 
 #waybar {
     background-color: rgba(0, 0, 0, 0);
     border-radius: 20px;
     /* filter: blur(8px); */
 }
-
-/*.background {
-    background-color: @background;
-}*/
-
-/* .modules-left, .modules-right, .modules-center { */
-  /* background-color: @foreground; */
-  /* border-radius: 20px; */
-  /* padding-left: 2px; */
-  /* padding-right: 2px; */
-/* } */
 
 .modules-left > * > * {
   background-color: @foreground;

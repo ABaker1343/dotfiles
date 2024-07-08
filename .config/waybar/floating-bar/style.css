@@ -1,6 +1,6 @@
-@import "../style.css";
+@import "../fonts.css";
+@import "../colorful.css";
+@import "../padding.css";
+@import "../rounding.css";
+@import "../animations.css";
 
-#waybar {
-    background-color: @background;
-    border-radius: 12px;
-}

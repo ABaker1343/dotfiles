@@ -1,0 +1,17 @@
+@keyframes expand-width {
+    from {
+        font-size: 0px;
+    }
+    to {
+        font-size: 12px;
+    }
+}
+
+#taskbar button {
+    font-size: 0px;
+}
+
+#taskbar button.active {
+    animation: expand-width 0.3s;
+    font-size: 12px
+}

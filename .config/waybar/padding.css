@@ -1,0 +1,43 @@
+* {
+    padding: 1px;
+}
+
+.background > .horizontal {
+    padding: 2px;
+    opacity: 1.0;
+}
+
+.modules-left > * > * {
+    margin-left: 4px;
+    padding: 0px;
+}
+
+.modules-center > * > * {
+    padding: 0px;
+}
+
+.modules-right > * > * {
+    margin-right: 8px;
+    padding: 0px;
+}
+
+#pulseaudio,
+#clock,
+#battery,
+#backlight,
+#cpu,
+#memory,
+#tray,
+#bluetooth,
+#custom-usb
+{
+    padding-right: 12px;
+    padding-left: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#taskbar button {
+    padding-right: 1px;
+    margin-right: 8px;
+}

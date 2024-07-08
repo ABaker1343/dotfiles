@@ -8,8 +8,8 @@ function GetFocusedWindow {
 
 function GetWindowWorkspace {
     local window_class=$1
-    regex="class: $window_class"
-    info="$(hyprctl clients | grep -e "$regex" -B 3)"
+    regex="class: $window_class$"
+    info="$(hyprctl clients | grep -e "$regex" -B 4)"
     workspace=$(echo "$info" | head -n 1 | awk '{print $2}')
     echo "$workspace"
 }

@@ -1,0 +1,13 @@
+#waybar,
+.modules-left > * > *,
+.modules-center > * > *,
+.modules-right > * > *,
+.workspaces .active
+{
+    border-radius: 12px;
+    padding: 0px;
+}
+
+#taskbar button {
+    border-radius: 10px;
+}

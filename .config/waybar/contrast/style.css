@@ -1,0 +1,25 @@
+@import "../fonts.css";
+@import "../colorful.css";
+@import "../padding.css";
+@import "../animations.css";
+
+#waybar {
+    background-color: @foreground;
+}
+
+#pulseaudio,
+#clock,
+#workspace,
+#taskbar button,
+#battery,
+#backlight,
+#cpu,
+#memory,
+#tray,
+#bluetooth,
+#privacy,
+#custom-usb
+{
+    border: 2px solid @background;
+}
+

@@ -1,5 +1,51 @@
 #!/bin/sh
 
+function CopyConfig ()
+{
+    local from=$1
+    local to=$2
+    shift; shift
+    local config_dirs=("$@")
+
+    if ! [ -d $to ]; then
+        mkdir "$to"
+    fi
+
+    for dir in "${config_dirs[@]}"
+    do
+        echo "installing $dir config files"
+        cp -r "$from/$dir" "$to"
+    done
+}
+
+SHELL_FILES=(
+    ".bashrc"
+    ".bash_profile"
+    ".zshrc"
+)
+
+CONFIG_DIRS=(
+    "kitty"
+    "alacritty"
+    "nvim"
+    "helix"
+    "ranger"
+    "yazi"
+    "zathura"
+    "tmux"
+    "i3"
+    "i3status"
+    "sway"
+    "waybar"
+    "hypr"
+    "rofi"
+    "dunst"
+    "xdg"-desktop-portal
+    "globalshortcutsrc"
+    "plasmashellr"
+    "plasma"-org.kde.plasma.desktop.appletsrc
+)
+
 # exit if no operation given
 if [ -z "$1" ]; then
     echo "No operation specified please choose one of: install, update"
@@ -9,85 +55,40 @@ fi
 case $1 in
     "install" | "Install")
         operation="Installing"
-        from_dir="$(pwd)/.config"
-        to_dir="$HOME/.config"
-        ;;
-    "update" | "Update")
-        operation="Updating"
-        from_dir="$HOME/.config"
-        to_dir="$(pwd)/.config"
-        ;;
-    "help" | "--help")
-        echo "use one of: install, update, (install to install config files and update to update this repo with your config files)"
-        exit
-        ;;
-    *)
-        echo "unrecognised operation please choose one of: install, update"
-        exit
-        ;;
-esac
-
-echo "$operation bash configs"
-case "$operation" in
-    "Installing")
-        echo "Installing will overwrite config directories, make sure you have made backups!"
-        echo "Would you like to continue? (y/n)"
+        echo "Installing configs, please make sure that you have made backups of current configs\n Continue? [y/n]"
         read res
         if [ "$res" != "y" ]; then
             exit
         fi
 
-        cp .bashrc ~/.bashrc
-        cp .bash_profile ~/.bash_profile
+        echo "Installing configuration files..."
+        CopyConfig $(pwd)/.config" "$HOME/.config" "${CONFIG_DIRS[@]}"
+        CopyConfig $(pwd)/" "$HOME/" "${SHELL_FILES}"
         ;;
-    "Updating")
-        cp ~/.bashrc ./.bashrc
-        cp ~/.bash_profile ./.bash_profile
-        ;;
-esac
 
-
-echo "$operation tui program configs (kitty, ranger, neovim, ,etc...)"
-cp -r "$from_dir/kitty" "$to_dir"
-cp -r "$from_dir/alacritty" "$to_dir"
-cp -r "$from_dir/nvim" "$to_dir"
-cp -r "$from_dir/helix" "$to_dir"
-cp -r "$from_dir/ranger" "$to_dir"
-cp -r "$from_dir/yazi" "$to_dir"
-cp -r "$from_dir/zathura" "$to_dir"
-cp -r "$from_dir/tmux" "$to_dir"
-
-echo "$operation window manager configs (i3, hyprland, dunst, etc...)"
-cp -r "$from_dir/i3" "$to_dir"
-cp -r "$from_dir/i3status" "$to_dir"
-cp -r "$from_dir/sway" "$to_dir"
-cp -r "$from_dir/waybar" "$to_dir"
-cp -r "$from_dir/hypr" "$to_dir"
-cp -r "$from_dir/rofi" "$to_dir"
-cp -r "$from_dir/dunst" "$to_dir"
-cp -r "$from_dir/xdg-desktop-portal" "$to_dir"
-
-echo "$operation kde configs"
-cp -r "$from_dir/kglobalshortcutsrc" "$to_dir"
-cp -r "$from_dir/plasmashellr" "$to_dir"
-cp -r "$from_dir/plasma-org.kde.plasma.desktop-appletsrc" "$to_dir"
-
-echo "$operation sddm configs (root permission needed)"
-#case "$operation" in 
-    #"Installing")
-        #sudo cp -r sddm/sddm.conf.d/ /etc/
-        #sudo cp -r sddm/sddm-wal-theme/ /usr/share/sddm/themes/
-        #;;
-#esac
-
-echo "$operation scripts (root permission needed)"
-case "$operation" in
-    #"Installing")
-        #sudo cp scripts/setbg /bin/setbg
-        #sudo cp scripts/pywal-extender/pywal-extender /bin/pywal-extender
-        #;;
-    "Updating")
+    "update" | "Update")
+        operation="Updating"
+        echo "Updating configuration files..."
+        CopyConfig "$HOME/.config" "$(pwd)/.config" "${CONFIG_DIRS[@]}"
+        CopyConfig "$HOME/" "$(pwd)/" "${SHELL_FILES}"
         cp /bin/setbg scripts/setbg
+        ;;
+
+    "scripts" | "Scripts")
+        echo "Installing scripts requires root permissions"
+        cp scripts/setbg /bin/setbg
+        cp scripts/pywal-extender/pywal-extender /bin/pywal-extender
+        exit
+        ;;
+
+    "help" | "--help")
+        echo "use one of: install, update, (install to install config files and update to update this repo with your config files)"
+        exit
+        ;;
+
+    *)
+        echo "unrecognised operation please choose one of: install, update"
+        exit
         ;;
 esac
 

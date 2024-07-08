@@ -1,94 +1,123 @@
 prev_state_file=~/.config/hypr/prev_state
 
+function SetAnimations {
+    style=$1
+    case "$style" in
+        "vertical")
+            hyprctl --batch "\
+            keyword animation:enabled true;\
+            keyword animation workspaces,1,2,default,slidefadevert"
+            ;;
+        "horizontal")
+            hyprctl --batch "\
+            keyword animation:enabled true;\
+            keyword animation workspaces,1,2,default,slidefade"
+            ;;
+        "none")
+            hyprctl "keyword animations:enabled false"
+            ;;
+    esac
+}
+
+function SetGaps {
+    size=$1
+    case "$size" in
+        "large")
+            hyprctl --batch "\
+            keyword general:gaps_out 8;\
+            keyword general:gaps_in 4;\
+            keyword general:border_size 4;\
+            keyword master:no_gaps_when_only false;"
+            ;;
+        "none")
+            hyprctl --batch "\
+			keyword general:gaps_in 0;\
+			keyword general:gaps_out 0;\
+            keyword general:border_size 0;"
+            ;;
+    esac
+}
+
+function SetDimming {
+    enabled=$1
+    if ! $enabled; then
+        hyprctl --batch "\
+        keyword decoration:dim_inactive false;\
+        keyword decoration:inactive_opacity 1.0"
+        return
+    fi
+
+    strength=$2
+    hyprctl --batch "\
+    keyword decoration:dim_inactive true;\
+    keyword decoration:inactive_opacity $strength"
+}
+
+function SetRounding {
+    enabled=$1
+    if $enabled; then
+		hyprctl "keyword decoration:rounding 10"
+    else
+		hyprctl "keyword decoration:rounding 0"
+    fi
+}
+
+function SetBorderColorOverride {
+    color=$1
+
+    override="$(cat ~/.cache/wal/colors-hyprland.conf | grep $color | awk '{print $3}')"
+    hyprctl "keyword general:col.active_border $override"
+}
+
 set_state () {
 	case $1 in
 		pretty)
-			hyprctl --batch "\
-			keyword animations:enabled true;\
-            keyword animations:animation workspaces,1,2,default,slidefade;\
-			keyword decoration:rounding 10;\
-			keyword decoration:drop_shadow true;\
-			keyword general:gaps_in 4;\
-			keyword general:gaps_out 8;\
-			keyword general:border_size 6;\
-			keyword master:no_gaps_when_only false;\
-	      	keyword decoration:dim_inactive false;\
-	      	keyword decoration:active_opacity 1.0;\
-	      	keyword decoration:inactive_opacity 0.90;\
-	      	keyword decoration:fullscreen_opacity 1.0"
+            SetAnimations horizontal
+            SetRounding true
+            SetGaps large
+            SetDimming true 0.85
 
 	      	killall waybar
 	      	waybar --config ~/.config/waybar/pretty/config.json --style ~/.config/waybar/pretty/style.css &
 			;;
 		floating-bar)
-			hyprctl --batch "\
-			keyword animations:enabled true;\
-			keyword decoration:rounding 10;\
-			keyword decoration:drop_shadow true;\
-			keyword general:gaps_in 4;\
-			keyword general:gaps_out 8;\
-			keyword general:border_size 6;\
-			keyword master:no_gaps_when_only false;\
-      		keyword decoration:dim_inactive false;\
-      		keyword decoration:active_opacity 1.0;\
-      		keyword decoration:inactive_opacity 1.0;\
-      		keyword decoration:fullscreen_opacity 1.0"
+            SetAnimations horizontal
+            SetRounding true
+            SetGaps large
+            SetDimming false
+            SetBorderColorOverride color1
 
       		killall waybar
       		waybar --config ~/.config/waybar/floating-bar/config.json --style ~/.config/waybar/floating-bar/style.css &
 			;;
 		minimal)
-			hyprctl --batch "\
-			keyword animations:enabled false;\
-			keyword decoration:rounding 0;\
-			keyword decoration:drop_shadow false;\
-			keyword general:gaps_in 0;\
-			keyword general:gaps_out 0;\
-			keyword general:border_size 2;\
-			keyword master:no_gaps_when_only true;\
-      		keyword decoration:dim_inactive false;\
-      		keyword decoration:active_opacity 1.0;\
-      		keyword decoration:inactive_opacity 1.0;\
-      		keyword decoration:fullscreen_opacity 1.0"
+            SetAnimations none
+            SetRounding false
+            SetGaps none
+            SetDimming false
 
       		killall waybar
       		waybar --config ~/.config/waybar/minimal/config.json --style ~/.config/waybar/minimal/style.css &
 			;;
-    	minimal-gaps)
-			hyprctl --batch "\
-			keyword animations:enabled false;\
-			keyword decoration:rounding 0;\
-			keyword decoration:drop_shadow false;\
-			keyword general:gaps_in 4;\
-			keyword general:gaps_out 8;\
-			keyword general:border_size 4;\
-			keyword master:no_gaps_when_only false;\
-      		keyword decoration:dim_inactive false;\
-      		keyword decoration:active_opacity 1.0;\
-      		keyword decoration:inactive_opacity 1.0;\
-      		keyword decoration:fullscreen_opacity 1.0"
-
-      		killall waybar
-            waybar --config ~/.config/waybar/minimal/config.json --style ~/.config/waybar/minimal/style.css &
-            ;;
     	rectangular)
-			hyprctl --batch "\
-			keyword animations:enabled true;
-            keyword animations:animation workspaces,1,2,default,slidefadevert;\
-			keyword decoration:rounding 0;\
-			keyword decoration:drop_shadow false;\
-			keyword general:gaps_in 4;\
-			keyword general:gaps_out 8;\
-			keyword general:border_size 4;\
-			keyword master:no_gaps_when_only false;\
-      		keyword decoration:dim_inactive false;\
-      		keyword decoration:active_opacity 1.0;\
-      		keyword decoration:inactive_opacity 1.0;\
-      		keyword decoration:fullscreen_opacity 1.0"
+            SetAnimations vertical
+            SetRounding false
+            SetGaps large
+            SetDimming false
 
       		killall waybar
             waybar --config ~/.config/waybar/rectangular/config.json --style ~/.config/waybar/rectangular/style.css &
             ;;
+		contrast)
+            SetAnimations horizontal
+            SetRounding false
+            SetGaps large
+            SetDimming false
+            SetBorderColorOverride colorForeground
+
+      		killall waybar
+      		waybar --config ~/.config/waybar/contrast/config.json --style ~/.config/waybar/contrast/style.css &
+			;;
 	esac
 }
 

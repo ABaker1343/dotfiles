@@ -24,12 +24,16 @@ vim.keymap.set('n', "s", flash.jump, {noremap = true});
 if vim.g.neovide then
     -- NEOVIDE_CURRENT_FONT_SIZE defined in settings.lua
     function zoom(delta)
-      NEOVIDE_CURRENT_FONT_SIZE = NEOVIDE_CURRENT_FONT_SIZE + delta;
-      vim.o.guifont = "InconsolataGo Nerd Font Mono:h" .. tostring(NEOVIDE_CURRENT_FONT_SIZE) .. ":b"
+        NEOVIDE_CURRENT_FONT_SIZE = NEOVIDE_CURRENT_FONT_SIZE + delta;
+        if NEOVIDE_FONT_BOLD then
+            vim.o.guifont = NEOVIDE_FONT .. ":h" .. tostring(NEOVIDE_CURRENT_FONT_SIZE) .. ":b"
+        else
+            vim.o.guifont = NEOVIDE_FONT .. ":h" .. tostring(NEOVIDE_CURRENT_FONT_SIZE)
+        end
     end
 
-    vim.keymap.set('n', "<C-=>", function() zoom(2) end, {noremap = {true}})
-    vim.keymap.set('n', "<C-->", function() zoom(-2) end, {noremap = {true}})
-end
+        vim.keymap.set('n', "<C-=>", function() zoom(2) end, {noremap = {true}})
+        vim.keymap.set('n', "<C-->", function() zoom(-2) end, {noremap = {true}})
+    end
 
 

@@ -1,0 +1,91 @@
+@import "/home/alex/.cache/wal/colors-waybar.css";
+
+#waybar {
+    background-color: @background;
+}
+
+#pulseaudio,
+#clock,
+#workspace,
+#taskbar button,
+#battery,
+#backlight,
+#cpu,
+#memory,
+#tray,
+#bluetooth,
+#privacy,
+#custom-usb
+{
+    border: 2px solid @foreground;
+}
+
+#clock {
+    background: @background;
+    color: @tcolor0;
+}
+
+#pulseaudio {
+    background: @color1;
+    color: @tcolor1;
+}
+
+#workspaces {
+    background: @color1;
+    color: @tcolor1;
+}
+
+#workspaces .active {
+    background: @color3;
+    color: @tcolor3;
+}
+
+#taskbar button {
+    background: @color3;
+    color: @tcolor3;
+}
+
+#taskbar button .active {
+    background: @color1;
+    color: @tcolor1;
+}
+
+#battery {
+    background: @color2;
+    color: @tcolor2;
+}
+
+#backlight {
+    background: @color6;
+    color: @tcolor6;
+}
+
+#cpu {
+    background: @color4;
+    color: @tcolor4;
+}
+
+#memory {
+    background: @color6;
+    color: @tcolor6;
+}
+
+#tray {
+    background: @color5;
+    color: @tcolor5;
+}
+
+#bluetooth {
+    background: @color3;
+    color: @tcolor3;
+}
+
+#privacy {
+    background: @color6;
+    color: @tcolor6;
+}
+
+#custom-usb {
+    background: @color3;
+    color: @tcolor3;
+}
