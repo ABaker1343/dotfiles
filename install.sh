@@ -64,6 +64,9 @@ case $1 in
         echo "Installing configuration files..."
         CopyConfig $(pwd)/.config" "$HOME/.config" "${CONFIG_DIRS[@]}"
         CopyConfig $(pwd)/" "$HOME/" "${SHELL_FILES}"
+        echo "Installing scripts"
+        cp scripts/setbg /usr/local/bin/
+        echo "userChrome.css will have to be installed manually"
         ;;
 
     "update" | "Update")
@@ -71,7 +74,7 @@ case $1 in
         echo "Updating configuration files..."
         CopyConfig "$HOME/.config" "$(pwd)/.config" "${CONFIG_DIRS[@]}"
         CopyConfig "$HOME/" "$(pwd)/" "${SHELL_FILES}"
-        cp /bin/setbg scripts/setbg
+        cp /usr/local/bin/setbg scripts/
         ;;
 
     "scripts" | "Scripts")
@@ -79,6 +82,16 @@ case $1 in
         cp scripts/setbg /bin/setbg
         cp scripts/pywal-extender/pywal-extender /bin/pywal-extender
         exit
+        ;;
+
+    "packages" | "Packages")
+        echo "Installing packages requires root permissions"
+        pacman -Syu $(cat ./pacman_packages)
+        ;;
+
+    "flatpak" | "Flatpak")
+        echo "Installing flatpak packages"
+        flatpak install $(cat flatpak_packages)
         ;;
 
     "help" | "--help")
@@ -91,6 +104,4 @@ case $1 in
         exit
         ;;
 esac
-
-echo "userChrome.css will have to be installed manually"
 

@@ -1,11 +1,12 @@
 com.github.tchx84.Flatseal
+
 com.discordapp.Discord
-com.spotify.Spotify
-com.usebottles.bottles
-com.valvesoftware.Steam
-com.valvesoftware.Steam.CompatibilityTool.Proton
-com.valvesoftware.Steam.CompatibilityTool.Proton-GE
+com.spotify.Client
+
+net.lutris.Lutris
 org.freedesktop.Platform.VulkanLayer.gamescope
+
 io.gitlab.librewolf-community
 org.mozilla.Thunderbird
+
 com.bitwarden.desktop

@@ -76,6 +76,7 @@ set_state () {
             SetRounding true
             SetGaps large
             SetDimming true 0.85
+            SetBorderColorOverride color1
 
 	      	killall waybar
 	      	waybar --config ~/.config/waybar/pretty/config.json --style ~/.config/waybar/pretty/style.css &
@@ -95,6 +96,7 @@ set_state () {
             SetRounding false
             SetGaps none
             SetDimming false
+            SetBorderColorOverride color1
 
       		killall waybar
       		waybar --config ~/.config/waybar/minimal/config.json --style ~/.config/waybar/minimal/style.css &
@@ -104,6 +106,7 @@ set_state () {
             SetRounding false
             SetGaps large
             SetDimming false
+            SetBorderColorOverride color1
 
       		killall waybar
             waybar --config ~/.config/waybar/rectangular/config.json --style ~/.config/waybar/rectangular/style.css &
