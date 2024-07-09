@@ -79,8 +79,8 @@ case $1 in
 
     "scripts" | "Scripts")
         echo "Installing scripts requires root permissions"
-        cp scripts/setbg /bin/setbg
-        cp scripts/pywal-extender/pywal-extender /bin/pywal-extender
+        cp scripts/setbg /usr/local/bin/setbg
+        cp scripts/pywal-extender/pywal-extender /usr/local/bin/pywal-extender
         exit
         ;;
 
