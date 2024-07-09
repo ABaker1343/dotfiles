@@ -62,8 +62,8 @@ case $1 in
         fi
 
         echo "Installing configuration files..."
-        CopyConfig $(pwd)/.config" "$HOME/.config" "${CONFIG_DIRS[@]}"
-        CopyConfig $(pwd)/" "$HOME/" "${SHELL_FILES}"
+        CopyConfig "$(pwd)/.config" "$HOME/.config" "${CONFIG_DIRS[@]}"
+        CopyConfig "$(pwd)/" "$HOME/" "${SHELL_FILES}"
         echo "Installing scripts"
         cp scripts/setbg /usr/local/bin/
         echo "userChrome.css will have to be installed manually"
