@@ -1,5 +1,7 @@
 #!/bin/sh
 
+operation="installing"
+
 function CopyConfig ()
 {
     local from=$1
@@ -13,7 +15,7 @@ function CopyConfig ()
 
     for dir in "${config_dirs[@]}"
     do
-        echo "installing $dir config files"
+        echo "$operation $dir config files"
         cp -r "$from/$dir" "$to"
     done
 }
@@ -40,10 +42,11 @@ CONFIG_DIRS=(
     "hypr"
     "rofi"
     "dunst"
-    "xdg"-desktop-portal
-    "globalshortcutsrc"
-    "plasmashellr"
-    "plasma"-org.kde.plasma.desktop.appletsrc
+    "xdg-desktop-portal"
+    "kglobalshortcutsrc"
+    "kwinrulesrc"
+    "plasmashellrc"
+    "plasma-org.kde.plasma.desktop-appletsrc"
 )
 
 # exit if no operation given
@@ -64,8 +67,6 @@ case $1 in
         echo "Installing configuration files..."
         CopyConfig "$(pwd)/.config" "$HOME/.config" "${CONFIG_DIRS[@]}"
         CopyConfig "$(pwd)/" "$HOME/" "${SHELL_FILES}"
-        echo "Installing scripts"
-        cp scripts/setbg /usr/local/bin/
         echo "userChrome.css will have to be installed manually"
         ;;
 
@@ -78,8 +79,13 @@ case $1 in
         ;;
 
     "scripts" | "Scripts")
-        echo "Installing scripts requires root permissions"
+        if ! [ $(id -u) == 0 ]; then
+            echo "Installing scripts requires root permissions"
+            exit
+        fi
+        echo "Installing setbg script"
         cp scripts/setbg /usr/local/bin/setbg
+        echo "Installing pywal extension script"
         cp scripts/pywal-extender/pywal-extender /usr/local/bin/pywal-extender
         exit
         ;;
