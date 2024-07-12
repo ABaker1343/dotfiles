@@ -13,12 +13,15 @@ set $term kitty
 # set $term alacritty
 set $menu rofi -show drun -m 1
 set $browser flatpak run io.gitlab.librewolf-community
-#set $music flatpak run com.spotify.Client
-set $music ~/.config/sway/scripts/SpecialWorkspaces.sh --spotify
-#set $games flatpak run com.valvesoftware.Steam
-set $games ~/.config/sway/scripts/SpecialWorkspaces.sh --steam
-#set $chat flatpak run com.discordapp.Discord
-set $chat ~/.config/sway/scripts/SpecialWorkspaces.sh --discord
+# set $music flatpak run com.spotify.Client
+# set $music ~/.config/sway/scripts/SpecialWorkspaces.sh --spotify
+# set $games flatpak run com.valvesoftware.Steam
+# set $games ~/.config/sway/scripts/SpecialWorkspaces.sh --steam
+# set $chat flatpak run com.discordapp.Discord
+# set $chat ~/.config/sway/scripts/SpecialWorkspaces.sh --discord
+set $chat ~/.config/sway/scripts/detect_workspace.py discord 9 discord "flatpak run com.discordapp.Discord"
+set $music ~/.config/sway/scripts/detect_workspace.py Spotify 10 spotify "flatpak run com.spotify.Client"
+set $games ~/.config/sway/scripts/detect_workspace.py steam 5 steam "steam"
 set $mail flatpak run org.mozilla.Thunderbird
 set $text neovide
 # set $text $term -e nvim

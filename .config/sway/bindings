@@ -25,6 +25,7 @@
     bindsym $mod+r exec $menu
     bindsym $launchMod+Return exec $term
     bindsym $launchMod+b exec $browser
+    bindsym $launchMod+o exec $browser --new-window "https://www.monkeytype.com"
     bindsym $launchMod+s exec $music
     bindsym $launchMod+g exec $games
     bindsym $controlMod+g exec ~/.config/hypr/scripts/UniversalLaunch.sh

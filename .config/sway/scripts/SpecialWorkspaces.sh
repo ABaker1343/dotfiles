@@ -21,8 +21,6 @@ for arg in $@; do
             pid=$(pidof steam)
             if [ -z "$pid" ]; then 
                 steam
-                # gamescope -e -W 2560 -H 1440 -S stretch -F fsr -- steam -tenfoot -steamos
-                # gamescope -e -W 2560 -H 1440 -S stretch -F fsr -- steam -steamos
             else
                 swaymsg workspace number 5
             fi

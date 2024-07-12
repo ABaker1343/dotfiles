@@ -3,6 +3,10 @@
 @import "../padding.css";
 @import "../rounding.css";
 
+* {
+    font-size: 16px;
+}
+
 #waybar {
     background-color: rgba(0, 0, 0, 0);
     border-radius: 20px;

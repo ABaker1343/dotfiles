@@ -24,4 +24,8 @@ bar {
     bindsym button1 exec kitty -e btop
     bindsym button2 exec blueberry
     bindsym button3 exec pavucontrol
+
+    tray_bindsym button1 Activate
+    tray_bindsym button2 SecondaryActivate
+    tray_bindsym button3 ContextMenu
 }

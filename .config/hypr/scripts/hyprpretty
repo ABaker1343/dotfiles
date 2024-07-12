@@ -5,12 +5,12 @@ function SetAnimations {
     case "$style" in
         "vertical")
             hyprctl --batch "\
-            keyword animation:enabled true;\
+            keyword animations:enabled true;\
             keyword animation workspaces,1,2,default,slidefadevert"
             ;;
         "horizontal")
             hyprctl --batch "\
-            keyword animation:enabled true;\
+            keyword animations:enabled true;\
             keyword animation workspaces,1,2,default,slidefade"
             ;;
         "none")
@@ -23,6 +23,13 @@ function SetGaps {
     size=$1
     case "$size" in
         "large")
+            hyprctl --batch "\
+            keyword general:gaps_out 16;\
+            keyword general:gaps_in 8;\
+            keyword general:border_size 4;\
+            keyword master:no_gaps_when_only false;"
+            ;;
+        "small")
             hyprctl --batch "\
             keyword general:gaps_out 8;\
             keyword general:gaps_in 4;\
@@ -84,7 +91,7 @@ set_state () {
 		floating-bar)
             SetAnimations horizontal
             SetRounding true
-            SetGaps large
+            SetGaps small
             SetDimming false
             SetBorderColorOverride color1
 
@@ -104,7 +111,7 @@ set_state () {
     	rectangular)
             SetAnimations vertical
             SetRounding false
-            SetGaps large
+            SetGaps small
             SetDimming false
             SetBorderColorOverride color1
 
@@ -114,7 +121,7 @@ set_state () {
 		contrast)
             SetAnimations horizontal
             SetRounding false
-            SetGaps large
+            SetGaps small
             SetDimming false
             SetBorderColorOverride colorForeground
 

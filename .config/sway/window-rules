@@ -4,6 +4,7 @@ for_window {
     [app_id="^gamescope"] floating enable, fullscreen enable
 
     [app_id="^mpv$"] floating enable
+    [app_id="^imv$"] floating enable
 
     # floating windows
     [app_id="^org.kde.polkit-kde-authentication-agent-1$"] floating enable, resize set 1920 1080
