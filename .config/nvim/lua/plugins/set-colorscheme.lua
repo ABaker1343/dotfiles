@@ -54,7 +54,7 @@ local function SetColorscheme(colorscheme)
     end
 end
 
-local PREFERED_COLORSCHEME = "gruvbox"
+local PREFERED_COLORSCHEME = "nordic"
 
 if not vim.g.neovide then
     --SetWalColors()

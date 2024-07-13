@@ -12,18 +12,22 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
                                                   WAYLAND_DISPLAY
 
 exec xdg-desktop-portal-wlr
-# exec /usr/lib/polkit-kde-authentication-agent-1
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec nm-applet
 exec dunst
-exec xrandr --output DP-2 --primary
+# exec xrandr --output DP-2 --primary
 exec export XDG_CURRENT_DESKTOP=sway
-# exec corectrl --minimize-systray
+exec corectrl --minimize-systray
 exec blueberry-tray
 exec wl-paste --watch cliphist store
 exec wlsunset -t 3000 -l 52.0 -L -2.0
+exec flameshot
 
 exec_always ~/.config/sway/scripts/pretty.sh --restore
+
+exec_always xrandr --output HDMI-A-1 --pos 2560x1440
+exec_always xrandr --output DP-2 --primary --pos 0x0
+# exec_always ~/.config/sway/scripts/SetPrimaryDisplay.sh
 #exec ~/.config/sway/scipts/FullscreenVRR.sh
 
 # exec swayidle -w \

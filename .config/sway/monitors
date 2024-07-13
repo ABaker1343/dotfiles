@@ -16,18 +16,6 @@ titlebar_border_thickness 0
 titlebar_padding 0 0
 font JetBrainsMono 8
 
-#default_border pixel 1
-#gaps inner 0
-#gaps outer 0
-#smart_gaps off
-#smart_borders on
-
-#default_border pixel 4
-#gaps inner 4
-#gaps outer 4
-#smart_gaps off
-#smart_borders off
-
 tiling_drag enable
 
 workspace 1 output $monitor1

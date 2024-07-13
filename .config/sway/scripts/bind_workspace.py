@@ -23,8 +23,8 @@ except:
 try:
     pidof_message = subprocess.check_output(["pidof", PROCESS])
 except subprocess.CalledProcessError: # if not spawn it and exit
-    subprocess.run(COMMAND.split())
     subprocess.run(["swaymsg", "workspace", WORKSPACE])
+    subprocess.run(COMMAND.split())
     exit()
 
 message : bytes = subprocess.check_output(["swaymsg", "-t", "get_tree"]);

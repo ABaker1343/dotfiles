@@ -1,4 +1,13 @@
-prev_state_file=~/.config/hypr/prev_state
+PREV_STATE_FILE=~/.config/hypr/prev_state
+
+function ChoosePretty {
+    choices=$'pretty\nfloating-bar\nrectangular\ncontrast\nminimal\nindependant'
+
+    selection=$(echo "$choices" | rofi -dmenu)
+
+    set_state "$selection"
+}
+
 
 function SetAnimations {
     style=$1
@@ -87,6 +96,7 @@ set_state () {
 
 	      	killall waybar
 	      	waybar --config ~/.config/waybar/pretty/config.json --style ~/.config/waybar/pretty/style.css &
+            echo $1 > $PREV_STATE_FILE
 			;;
 		floating-bar)
             SetAnimations horizontal
@@ -97,6 +107,7 @@ set_state () {
 
       		killall waybar
       		waybar --config ~/.config/waybar/floating-bar/config.json --style ~/.config/waybar/floating-bar/style.css &
+            echo $1 > $PREV_STATE_FILE
 			;;
 		minimal)
             SetAnimations none
@@ -107,6 +118,7 @@ set_state () {
 
       		killall waybar
       		waybar --config ~/.config/waybar/minimal/config.json --style ~/.config/waybar/minimal/style.css &
+            echo $1 > $PREV_STATE_FILE
 			;;
     	rectangular)
             SetAnimations vertical
@@ -117,6 +129,7 @@ set_state () {
 
       		killall waybar
             waybar --config ~/.config/waybar/rectangular/config.json --style ~/.config/waybar/rectangular/style.css &
+            echo $1 > $PREV_STATE_FILE
             ;;
 		contrast)
             SetAnimations horizontal
@@ -127,19 +140,43 @@ set_state () {
 
       		killall waybar
       		waybar --config ~/.config/waybar/contrast/config.json --style ~/.config/waybar/contrast/style.css &
+            echo $1 > $PREV_STATE_FILE
+			;;
+        independant)
+            SetAnimations horizontal
+            SetRounding true
+            SetGaps small
+            SetDimming false
+            SetBorderColorOverride color1
+
+      		killall waybar
+      		waybar --config ~/.config/waybar/independant/config.json --style ~/.config/waybar/independant/style.css &
+            echo $1 > $PREV_STATE_FILE
 			;;
 	esac
 }
 
 restore_previous () {
-  prev_state=$(cat $prev_state_file)
+  prev_state=$(cat $PREV_STATE_FILE)
   set_state $prev_state
 }
 
-if [ -z "$1"]; then
+# if no args then restore
+if [ -z "$1" ]; then
   restore_previous
-else
-  set_state $1
-  echo $1 > $prev_state_file
+  exit
 fi
 
+for arg in $@; do
+    case $arg in
+        --choose)
+            ChoosePretty
+            shift
+            ;;
+        --string)
+            shift
+            arg=$1
+            set_state $arg
+            ;;
+    esac
+done

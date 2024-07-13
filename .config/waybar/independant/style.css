@@ -1,0 +1,53 @@
+@define-color background #2e3440;
+@define-color foreground #434c5e;
+@define-color activeColor #d8dee9;
+
+* {
+    font-weight: bold;
+}
+
+#waybar
+{
+    background: @background;
+    padding-bottom: 24px;
+}
+
+.modules-left > * > *,
+.modules-center > * > *,
+.modules-right > * > *
+{
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+#pulseaudio,
+#clock,
+#workspace,
+#taskbar button,
+#battery,
+#backlight,
+#cpu,
+#memory,
+#tray,
+#bluetooth,
+#privacy,
+#custom-usb
+{
+    background: @foreground;
+    border-radius: 24px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 4px;
+    margin-top: 4px
+}
+
+#taskbar button
+{
+    font-size: 0px;
+    margin-right: 8px;
+}
+
+#taskbar button.active
+{
+    background: @activeColor;
+}

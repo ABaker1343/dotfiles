@@ -16,6 +16,7 @@ for_window {
 
     # flameshot window
     [class="^flameshot$"] floating enable
+    [class="^flameshot$"] fullscreen disable
 }
 
 assign [class="^steam$"] workspace $gamesWorkspace
@@ -27,4 +28,4 @@ assign [class="\.exe$"] workspace $gamesWorkspace
 assign [class="^discord$"] workspace 9
 assign [class="^(spotify|Spotify)$"] workspace 10
 
-assign [class="^flameshot$"] output left
+# assign [class="^flameshot$"] output left
