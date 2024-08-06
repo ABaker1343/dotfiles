@@ -139,17 +139,18 @@ else
 fi
 
 # set colorscheme
-if [ "$setTheme" == "true" ]; then
+if $setTheme; then
     SetTheme $theme
+    
+    # restart any desktop elements that are using the colorscheme
+    RestartProgram waybar
+    RestartProgram dunst
 fi
 
 if [ -n "$(type -p spicetify)"]; then
     ~/.spicetify/spicetify apply
 fi
 
-# restart any desktop elements that are using the colorscheme
-RestartProgram waybar
-RestartProgram rofi
 
 echo "finished setting wallpaper and colorscheme\n"
 

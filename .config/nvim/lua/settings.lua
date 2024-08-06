@@ -19,9 +19,18 @@ vim.opt.cursorcolumn = false
 vim.opt.guicursor="n-v-c:block,i:block"
 
 --NEOVIDE_FONT = "InconsolataGo Nerd Font Mono"
+--NEOVIDE_FONT_BOLD = false
+--
 NEOVIDE_FONT = "FiraCode Nerd Font"
-NEOVIDE_CURRENT_FONT_SIZE = 16
 NEOVIDE_FONT_BOLD = false
+--
+--NEOVIDE_FONT = "JetBrainsMono Nerd Font"
+--NEOVIDE_FONT_BOLD = false
+--
+--NEOVIDE_FONT = "BlexMono Nerd Font"
+--NEOVIDE_FONT_BOLD = true
+
+NEOVIDE_CURRENT_FONT_SIZE = 16
 
 if vim.g.neovide then
     if NEOVIDE_FONT_BOLD then

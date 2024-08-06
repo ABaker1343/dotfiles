@@ -75,13 +75,6 @@ screenrule=3
 wmclass=discord
 wmclassmatch=1
 
-[410c62cc-5a66-46ff-911e-31d455dd91dd]
-Description=New window settings
-screen=1
-screenrule=3
-types=1
-wmclassmatch=1
-
 [5]
 Description=kitty
 ignoregeometry=true
@@ -158,8 +151,8 @@ wmclass=neovide
 wmclassmatch=1
 
 [General]
-count=7
-rules=410c62cc-5a66-46ff-911e-31d455dd91dd,1,2,3,4,5,6
+count=6
+rules=1,2,3,4,5,6
 
 [aa5157dd-ad96-4759-b967-8481f6697a76]
 Description=Settings for (steam|steam_app)

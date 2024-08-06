@@ -13,7 +13,6 @@ type walStruct struct {
     Alpha string
     Special Special
     Colors Colors
-
 }
 
 type Special struct {
@@ -60,15 +59,16 @@ func CalculateTextColor(_inColor string) string {
         panic("failed to parse blue value of string: " + _inColor)
     }
 
+    // calculate luminosity (brightness)
     fmt.Println(redVal, ", ", greenVal, ", ", blueVal, ", ");
     luminosity := (0.21 * float32(redVal)) + (0.72 * float32(greenVal)) + (0.07 * float32(blueVal))
 
     fmt.Println("in color: ", _inColor, " out color: ", luminosity);
 
-    if luminosity < 120 {
-        return "#ffffff"
+    if luminosity < 120 { // if color is dark
+        return "#ffffff" // white
     } else {
-        return "#000000"
+        return "#000000" // else black
     }
 }
 
@@ -95,12 +95,14 @@ func main () {
     textColors.Color5 = CalculateTextColor(data.Colors.Color5)
     textColors.Color6 = CalculateTextColor(data.Colors.Color6)
     textColors.Color7 = CalculateTextColor(data.Colors.Color7)
+    textColors.Color8 = CalculateTextColor(data.Colors.Color8)
 
     genColorsAlacritty(data, waldir + "colors-alacritty.yml")
     genColorsWaybar(data, waldir + "colors-waybar.css", textColors)
     genColorsHyprland(data, waldir + "colors-hyprland.conf")
     genColorsDunst(data, textColors, userHome + "/.config/dunst/dunstrc.d/99-colors.conf")
     genColorsHelix(data, textColors, userHome + "/.config/helix/themes/wal.toml")
+    genColorsSpicetify(data, textColors, userHome + "/.source/spicetify/Themes/wal/color.ini")
 }
 
 func genColorsAlacritty(data walStruct, filepath string) {
@@ -151,6 +153,7 @@ func genColorsWaybar(data walStruct, filepath string, textColors Colors) {
     "@define-color color5 " + data.Colors.Color5 + ";\n" +
     "@define-color color6 " + data.Colors.Color6 + ";\n" +
     "@define-color color7 " + data.Colors.Color7 + ";\n" +
+    "@define-color color8 " + data.Colors.Color8 + ";\n" +
 
     "@define-color tcolor0 " + textColors.Color0 + ";\n" +
     "@define-color tcolor1 " + textColors.Color1 + ";\n" +
@@ -159,7 +162,8 @@ func genColorsWaybar(data walStruct, filepath string, textColors Colors) {
     "@define-color tcolor4 " + textColors.Color4 + ";\n" +
     "@define-color tcolor5 " + textColors.Color5 + ";\n" +
     "@define-color tcolor6 " + textColors.Color6 + ";\n" +
-    "@define-color tcolor7 " + textColors.Color7 + ";\n"
+    "@define-color tcolor7 " + textColors.Color7 + ";\n" +
+    "@define-color tcolor8 " + textColors.Color8 + ";\n"
 
     os.WriteFile(filepath, []byte(waybarColors), 0664)
 }
@@ -194,11 +198,11 @@ func genColorsHyprland(data walStruct, filepath string) {
 func genColorsDunst(data walStruct, textColors Colors, filepath string) {
     dunstColors :=
     "[urgency_low]\n" +
-    "    background = \"" + data.Colors.Color1 + "\"\n" +
-    "    foreground = \"" + textColors.Color1 + "\"\n" +
+    "    background = \"" + data.Special.Background + "\"\n" +
+    "    foreground = \"" + data.Special.Foreground + "\"\n" +
     "[urgency_normal]\n" +
-    "    background = \"" + data.Colors.Color1 + "\"\n" +
-    "    foreground = \"" + textColors.Color1 + "\"\n"
+    "    background = \"" + data.Special.Background + "\"\n" +
+    "    foreground = \"" + data.Special.Foreground + "\"\n"
 
     os.WriteFile(filepath, []byte(dunstColors), 0664)
 }
@@ -222,67 +226,26 @@ func genColorsHelix(data walStruct, textColors Colors, filepath string) {
     "light-blue = \"" + data.Colors.Color12 + "\"\n" +
     "light-magenta = \"" + data.Colors.Color13 + "\"\n" +
     "light-cyan = \"" + data.Colors.Color14 + "\"\n"
-    //"white = \"" + data.Colors.Color15 + "\"\n"
-
-    // "\"type\" = \"color1\"" + "\n" +
-    // "\"constant\" = \"color2\"" + "\n" +
-    // "\"constant.numeric\" = \"color2\"" + "\n" +
-    // "\"constant.character.escape\" = \"color2\"" + "\n" +
-    // "\"string\" = \"color2\"" + "\n" +
-    // "\"comment\" = \"color0\"" + "\n" +
-    // "\"variable\" = \"color3\"" + "\n" +
-    // "\"variable.builtin\" = \"color3\"" + "\n" +
-    // "\"variable.parameter\" = \"color3\"" + "\n" +
-    // "\"variable.other.member\" = \"color3\"" + "\n" +
-    // "\"label\" = \"color4\"" + "\n" +
-    // "\"puncuation\" = \"color5\"" + "\n" +
-    // "\"puncuation.delimiter\" = \"color5\"" + "\n" +
-    // "\"puncuation.bracket\" = \"color5\"" + "\n" +
-    // "\"keyword\" = \"color6\"" + "\n" +
-    // "\"keyword.directive\" = \"color6\"" + "\n" +
-    // "\"operator\" = \"color7\"" + "\n" +
-
-    // "\n" +
-
-    // "\"ui.background\" = {}\n" +
-    // "\"ui.background.separator\" = \"color1\"\n" +
-    // "\"ui.cursor\" = { fg = \"color7\", bg = \"color7\" }\n" +
-    // "\"ui.cursor.match\" = { fg = \"color7\", bg = \"color7\" }\n" +
-    // "\"ui.cursor.insert\" = { fg = \"color7\", bg = \"color7\" }\n" +
-    // "\"ui.cursor.select\" = { fg = \"color7\", bg = \"color7\" }\n" +
-    // "\"ui.cursorline.primary\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.cursorline.secondary\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.selection\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.linenr\" = \"color1\"\n" +
-    // "\"ui.linenr.selected\" = \"color1\"\n" +
-    // "\"ui.statusline\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.statusline.inactive\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.statusline.normal\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.statusline.insert\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.statusline.select\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.bufferline\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.bufferline.active\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.popup\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.window\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.help\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.text\" = \"color1\"\n" +
-    // "\"ui.text.focus\" = \"color1\"\n" +
-    // "\"ui.menu\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.menu.selected\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.virtual.whitespace\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.virtual.indent-guide\" = { fg = \"color1\", bg = \"color1\" }\n" +
-    // "\"ui.virtual.ruler\" = { fg = \"color1\", bg = \"color1\" }\n" +
-
-    // "\n[pallete]\n\n" +
-    // "color0 = \"" + data.Colors.Color0 + "\"\n" +
-    // "color1 = \"" + data.Colors.Color1 + "\"\n" +
-    // "color2 = \"" + data.Colors.Color2 + "\"\n" +
-    // "color3 = \"" + data.Colors.Color3 + "\"\n" +
-    // "color4 = \"" + data.Colors.Color4 + "\"\n" +
-    // "color5 = \"" + data.Colors.Color5 + "\"\n" +
-    // "color6 = \"" + data.Colors.Color6 + "\"\n" +
-    // "color7 = \"" + data.Colors.Color7 + "\"\n" +
-    // "color8 = \"" + data.Colors.Color8 + "\"\n"
 
     os.WriteFile(filepath, []byte(helixColors), 0664)
+}
+
+func genColorsSpicetify(data walStruct, textColors Colors, filepath string) {
+    spicetifyColors :=
+    "[Wal]" + "\n" +
+    "main = " + data.Special.Background[1:] + "\n" +
+    "accent = " + data.Colors.Color1[1:] + "\n" +
+    "accent-active = " + data.Colors.Color1[1:] + "\n" +
+    "accent-inactive = " + data.Special.Foreground[1:] + "\n" +
+    "banner = " + data.Colors.Color1[1:] + "\n" +
+    "border-active = " + data.Colors.Color1[1:] + "\n" +
+    "border-inactive = " + data.Special.Foreground[1:] + "\n" +
+    "header = " + data.Special.Background[1:] + "\n" +
+    "highlight = " + data.Colors.Color1[1:] + "\n" +
+    "notification = " + data.Special.Background[1:] + "\n" +
+    "notification-error = " + data.Special.Foreground[1:] + "\n" +
+    "subtext = " + textColors.Color0[1:] + "\n" +
+    "text = " + textColors.Color0[1:] + "\n"
+
+    os.WriteFile(filepath, []byte(spicetifyColors), 0664)
 }

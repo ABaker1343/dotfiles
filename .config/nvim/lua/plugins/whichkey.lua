@@ -3,113 +3,140 @@ function ConfigureWhichKey ()
     local telescopeFuncs = require("telescope.builtin")
     local harpoonUI = require('harpoon.ui');
     local harpoonMark = require('harpoon.mark');
+    local flash = require('flash')
 
-    -- leader keys
-    wk.register({
-        w = {
-            name = "Window",
-            s = {"<cmd>split<CR>", "Horizontal Split"},
-            v = {"<cmd>vsplit<CR>", "Vertical Split"},
-            c = {"<C-w>c", "Close"},
-            h = {"<C-w>h", "Left"},
-            l = {"<C-w>l", "Right"},
-            j = {"<C-w>j", "Down"},
-            k = {"<C-w>k", "Up"},
-            H = {"<C-w>H", "Move Left"},
-            L = {"<C-w>L", "Move Right"},
-            J = {"<C-w>J", "Move Down"},
-            K = {"<C-w>K", "Move Up"},
-            f = {"<cmd>NvimTreeToggle<CR>", "File Tree"},
-            ["<Left>"] = {"<C-w>20<", "Resize -x"},
-            ["<Right>"] = {"<C-w>20>", "Resize +x"},
-            ["<Up>"] = {"<C-w>10+", "Resize +y"},
-            ["<Down>"] = {"<C-w>10-", "Resize -y"},
+    wk.add(
+    {
+        mode = {"n"},
+        -- raw commands
+        { "<leader>f", telescopeFuncs.find_files, desc = "Find Files"},
+        { "<leader>/", telescopeFuncs.live_grep, desc = "Live Grep"},
+
+        -- window keys
+        {
+            group = "Window",
+            { "<leader>ws", "<cmd>split<CR>", desc = "Horizontal Split"},
+            { "<leader>wv", "<cmd>vsplit<CR>", desc = "Vertical Split"},
+            { "<leader>wc", "<C-w>c", desc = "Close"},
+            { "<leader>wh", "<C-w>h", desc = "Left"},
+            { "<leader>wl", "<C-w>l", desc = "Right"},
+            { "<leader>wj", "<C-w>j", desc = "Down"},
+            { "<leader>wk", "<C-w>k", desc = "Up"},
+            { "<leader>wH", "<C-w>H", desc = "Move Left"},
+            { "<leader>wL", "<C-w>L", desc = "Move Right"},
+            { "<leader>wJ", "<C-w>J", desc = "Move Down"},
+            { "<leader>wK", "<C-w>K", desc = "Move Up"},
+            { "<leader>w<Left>", "<C-w>20<", desc = "Resize -x"},
+            { "<leader>w<Right>", "<C-w>20>", desc = "Resize +x"},
+            { "<leader>w<Up>", "<C-w>10+", desc = "Resize +y"},
+            { "<leader>w<Down>", "<C-w>10-", desc = "Resize -y"},
         },
-        f = {telescopeFuncs.find_files, "Find file"},
-        ["/"] = {telescopeFuncs.live_grep, "Live Grep"},
-        b = {
-            name = "Browse",
-            f = { "<cmd>Telescope file_browser<CR>", "File Browser"},
-            b = {telescopeFuncs.buffers, "Buffers"}
+
+        -- browse
+        {
+            group = "Browse",
+            { "<leader>bb", telescopeFuncs.buffers, desc = "Buffers"},
+            { "<leader>bf", "<cmd>Telescope file_browser<CR>", desc = "File Browser"},
+            --{ "<leader>bf", telescopeFuncs.file_browser, desc = "File Browser"},
         },
-        t = {
-            name = "Tab",
-            n = {"<cmd>tabnew<CR>", "New"},
-            l = {"<cmd>tabn<CR>", "Next"},
-            h = {"<cmd>tabn<CR>", "Previous"},
+
+        -- tabs
+        {
+            group = "Tab",
+            { "<leader>tn", "<cmd>tabnew<CR>", desc = "New"},
+            { "<leader>tl", "<cmd>tabn<CR>", desc = "Next"},
+            { "<leader>th", "<cmd>tabn<CR>", desc = "Previous"},
         },
-        c = {
-            name = "Code",
-            d = { telescopeFuncs.diagnostics, "Diagnostics"},
-            q = { telescopeFuncs.quickfix, "Quickfix"},
-            s = { telescopeFuncs.lsp_document_symbols, "Symbols"},
-            t = { telescopeFuncs.treesitter, "Treesitter"},
-            k = { vim.lsp.buf.hover, "Lsp Hover"},
-            f = { vim.diagnostic.open_float, "Floating Diagnostics"},
-            c = { "<cmd>FloatermNew make<CR>", "Run Makefile"},
-            C = { "<cmd>FloatermNew cmake --build build<CR>", "Cmake build"},
+
+        -- code
+        {
+            group = "Code",
+            { "<leader>cd", telescopeFuncs.diagnostics, desc = "Diagnostics"},
+            { "<leader>cq", telescopeFuncs.quickfix, desc = "Quickfix"},
+            { "<leader>cs", telescopeFuncs.lsp_document_symbols, desc = "Symbols"},
+            { "<leader>ct", telescopeFuncs.treesitter, desc = "Treesitter"},
+            { "<leader>ck", vim.lsp.buf.hover, desc = "Lsp Hover"},
+            { "<leader>cf", vim.diagnostic.open_float, desc = "Floating Diagnostics"},
+            { "<leader>cc", "<cmd>FloatermNew make<CR>", desc = "Run Makefile"},
+            { "<leader>cC", "<cmd>FloatermNew cmake --build build<CR>", desc = "Cmake build"},
         },
-        r = {
-            name = "Replace",
-            a = {":%s/", "Replace All"},
-            r = {":s/", "Replace Single"},
-            s = {vim.lsp.buf.rename, "Rename Symbol"},
+
+        -- replace
+        {
+            group = "Replace",
+            { "<leader>ra", ":%s/", desc = "Replace All"},
+            { "<leader>rr", ":s/", desc = "Replace Single"},
+            { "<leader>rs", vim.lsp.buf.rename, desc = "Rename Symbol"}, 
         },
-        h = {
-            name = "Harpoon",
-            a = { harpoonMark.add_file, "Add"},
-            l = { harpoonUI.nav_next, "Next"},
-            h = { harpoonUI.nav_next, "Previous"},
-            m = { harpoonUI.toggle_quick_menu, "Menu"},
-            ["1"] = { "<cmd> lua require('harpoon.ui').nav_file(1)<CR>", "Harpoon 1"},
-            ["2"] = { "<cmd> lua require('harpoon.ui').nav_file(2)<CR>", "Harpoon 2"},
-            ["3"] = { "<cmd> lua require('harpoon.ui').nav_file(3)<CR>", "Harpoon 3"},
-            ["4"] = { "<cmd> lua require('harpoon.ui').nav_file(4)<CR>", "Harpoon 4"},
+
+        -- harpoon
+        {
+            group = "Harpoon",
+            { "<leader>ha", harpoonMark.add_file, desc = "Add"},
+            { "<leader>hl", harpoonUI.nav_next, desc = "Next"},
+            { "<leader>hh", harpoonUI.nav_next, desc = "Previous"},
+            { "<leader>hm", harpoonUI.toggle_quick_menu, desc = "Menu"},
+            { "<leader>h1", "<cmd> lua require('harpoon.ui').nav_file(1)<CR>", desc = "Harpoon 1"},
+            { "<leader>h2", "<cmd> lua require('harpoon.ui').nav_file(2)<CR>", desc = "Harpoon 2"},
+            { "<leader>h3", "<cmd> lua require('harpoon.ui').nav_file(3)<CR>", desc = "Harpoon 3"},
+            { "<leader>h4", "<cmd> lua require('harpoon.ui').nav_file(4)<CR>", desc = "Harpoon 4"},
         },
-        s = {
-            name = "Shell",
-            t = {"<cmd>tabnew<CR><cmd>terminal<CR>A", "New Tab"},
-            n = {"<cmd>FloatermNew<CR>", "New Floating"},
-            s = {"<cmd>FloatermToggle<CR>", "Toggle Floating"},
-            c = {"<cmd>FloatermKill<CR>", "Kill Floating"}
+
+        -- shell
+        {
+            group = "Shell",
+            { "<leader>st","<cmd>tabnew<CR><cmd>terminal<CR>A", desc = "New Tab"},
+            { "<leader>sn","<cmd>FloatermNew<CR>", desc = "New Floating"},
+            { "<leader>ss","<cmd>FloatermToggle<CR>", desc = "Toggle Floating"},
+            { "<leader>sc","<cmd>FloatermKill<CR>", desc = "Kill Floating"},
+            { "<leader>.c",telescopeFuncs.colorScheme, desc = "Kill Floating"},
         },
-        ["."] = {
-            c ={ telescopeFuncs.colorscheme, "Colorscheme"},
+
+        -- goto
+        {
+            group = "Goto",
+            { "gr", telescopeFuncs.lsp_references, desc = "Goto References"},
+            { "gi", telescopeFuncs.lsp_implementations, desc = "Goto Implementations"},
+            { "gd", telescopeFuncs.lsp_definitions, desc = "Goto Definitions"},
+            {
+                mode = {"n", "v"},
+                { "gl", "$", desc = "Goto End of Line"},
+                { "gh", "^", desc = "Goto Start of Line"},
+            }
+        },
+
+        -- regular mappings
+        { "n", "nzzNn" }, -- next will center
+        { "G", "Gzz" }, -- go to end of file will center
+        { "<leader>nh", "<cmd>nohl<CR>" }, -- remove all highlights
+        { "/", "/\\c" }, -- default search case insensitive
+
+        { "<C-u>", "<C-y>" }, -- ctrl u scrolls up
+        { "<C-y>", "<C-u>" },
+
+        { "s", flash.jump, desc = "flash jump" },
+
+        {
+            mode = {"t"},
+            { "<Esc>", "<C-\\><C-n>:q<CR>" }, -- escape to exit terminal
+            { "<C-p>", "<cmd>FloatermPrev<CR>" }, -- previous float terminal
+            { "<C-n>", "<cmd>FloatermNext<CR>" }, -- next float terminal
+            { "<C-k>", "<cmd>FloatermKill<CR>" }, -- kill float terminal
         }
-    },
-    {
-        prefix = "<leader>"
-    })
-
-    wk.register({
-        r = { telescopeFuncs.lsp_references, "Goto References"},
-        i = { telescopeFuncs.lsp_implementations, "Goto Implementations"},
-        d = { telescopeFuncs.lsp_definitions, "Goto Definitions"},
-        l = { "$", "Goto End of Line"},
-        h = { "^", "Goto Start of Line"},
-    },
-    {
-        prefix = "g"
-    })
-
-    wk.register({
-        l = { "$", "Goto End of Line"},
-        h = { "^", "Goto Start of Line"},
-    },
-    {
-        prefix = "g",
-        mode = "v"
-    })
+    }
+    )
 end
 
 return
 {
     {
         "folke/which-key.nvim",
-        init = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-        end,
-        config = ConfigureWhichKey
+        lazy = false,
+        --init = function()
+            --vim.o.timeout = true
+            --vim.o.timeoutlen = 100
+        --end,
+        --config = ConfigureWhichKey
+        init = ConfigureWhichKey
     },
 }

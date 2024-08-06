@@ -17,20 +17,20 @@ local lazy  = require('lazy')
 
 -- list all plugins
 local plugins = {
-
     require('plugins/lsp'),
+    require('plugins/treesitter'),
     require('plugins/autopairs'),
     require('plugins/surround'),
     require('plugins/nvim-tree'),
     require('plugins/telescope'),
-    require('plugins/treesitter'),
     require('plugins/lualine'),
     require('plugins/harpoon'),
-    require('plugins/whichkey'),
+    require('plugins/completion'),
     require('plugins/noice'),
+    --require('plugins/whichkey'),
     "folke/flash.nvim",
     "voldikss/vim-floaterm",
-    'mfussenegger/nvim-dap',
+    --'mfussenegger/nvim-dap',
 
     -- colorschemes
     'tanvirtin/monokai.nvim',
@@ -54,7 +54,11 @@ local plugins = {
     "mbrea-c/wal-colors.nvim"
 }
 
-lazy.setup(plugins, {})
+lazy.setup(plugins, {
+    spec = {
+        {import = "plugins"},
+    }
+})
 
 require('plugins/set-colorscheme')
 

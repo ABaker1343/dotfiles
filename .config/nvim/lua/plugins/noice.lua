@@ -18,13 +18,11 @@ return
 {
     {
       "folke/noice.nvim",
+      lazy = false,
       dependencies = {
         "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",
       },
-      --init = function()
-        --require('plugin-settings.noice-settings')
-      --end,
       config = ConfigureNoice
     },
 }

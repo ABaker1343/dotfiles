@@ -17,6 +17,7 @@ return
 {
     {
         'kyazdani42/nvim-tree.lua',
+        lazy = true,
         config = ConfigureNvimTree,
         dependencies = {
             'kyazdani42/nvim-web-devicons'

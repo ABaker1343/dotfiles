@@ -39,7 +39,8 @@
                     "type" : "screenshare",
                     "tooltip" : true,
                 },
-            ]
+            ],
+            "on-click" : "playerctl -p spotify play-pause"
         },
 
         "clock" : {

@@ -16,7 +16,8 @@ function ConfigureTelescope ()
                 horizontal = {width = 0.8},
             },
             file_ignore_patterns = {
-              "build/"
+              "build/",
+              "debug/"
             }
         },
 
@@ -35,6 +36,7 @@ return
 {
     {
         'nvim-telescope/telescope.nvim',
+        lazy = false,
         config = ConfigureTelescope,
         dependencies = {
             'nvim-lua/plenary.nvim',

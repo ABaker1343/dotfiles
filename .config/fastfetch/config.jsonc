@@ -1,0 +1,38 @@
+{
+    "modules":
+    [
+        {
+            "type" : "Title"
+        },
+        {
+            "type" : "OS"
+        },
+        {
+            "type" : "Kernel"
+        },
+        {
+            "type" : "packages"
+        },
+        {
+            "type" : "DE"
+        },
+        {
+            "type" : "WM"
+        },
+        {
+            "type" : "CPU"
+        },
+        {
+            "type" : "Memory"
+        },
+        {
+            "type" : "GPU"
+        },
+        {
+            "type" : "Terminal"
+        },
+        {
+            "type" : "Colors"
+        }
+    ]
+}

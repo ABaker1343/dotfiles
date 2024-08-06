@@ -1,6 +1,4 @@
-@define-color background #2e3440;
-@define-color foreground #434c5e;
-@define-color activeColor #d8dee9;
+@import "/home/alex/.cache/wal/colors-waybar.css";
 
 * {
     font-weight: bold;
@@ -33,7 +31,7 @@
 #privacy,
 #custom-usb
 {
-    background: @foreground;
+    background: @color8;
     border-radius: 24px;
     padding-left: 8px;
     padding-right: 8px;
@@ -49,5 +47,5 @@
 
 #taskbar button.active
 {
-    background: @activeColor;
+    background: @foreground;
 }

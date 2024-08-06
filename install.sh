@@ -42,6 +42,7 @@ CONFIG_DIRS=(
     "hypr"
     "rofi"
     "dunst"
+    "fastfetch"
     "xdg-desktop-portal"
     "kglobalshortcutsrc"
     "kwinrulesrc"

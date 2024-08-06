@@ -47,6 +47,7 @@ return
 {
     {
         'neovim/nvim-lspconfig',
+        lazy = false,
         config = ConfigureLsp,
         dependencies = {
             require('plugins/completion'),
