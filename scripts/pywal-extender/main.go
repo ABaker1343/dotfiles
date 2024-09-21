@@ -102,7 +102,8 @@ func main () {
     genColorsHyprland(data, waldir + "colors-hyprland.conf")
     genColorsDunst(data, textColors, userHome + "/.config/dunst/dunstrc.d/99-colors.conf")
     genColorsHelix(data, textColors, userHome + "/.config/helix/themes/wal.toml")
-    genColorsSpicetify(data, textColors, userHome + "/.source/spicetify/Themes/wal/color.ini")
+    genColorsSpicetify(data, textColors, userHome + "/.config/spicetify/Themes/wal/color.ini")
+    genCssTextColors(textColors, userHome + "/.cache/wal/colors-text.css")
 }
 
 func genColorsAlacritty(data walStruct, filepath string) {
@@ -249,3 +250,28 @@ func genColorsSpicetify(data walStruct, textColors Colors, filepath string) {
 
     os.WriteFile(filepath, []byte(spicetifyColors), 0664)
 }
+
+func genCssTextColors(textColors Colors, filepath string) {
+    cssTextColors :=
+    ":root {\n" +
+    "    --tcolor0: " + textColors.Color0 + ";\n" +
+    "    --tcolor1: " + textColors.Color1 + ";\n" +
+    "    --tcolor2: " + textColors.Color2 + ";\n" +
+    "    --tcolor3: " + textColors.Color3 + ";\n" +
+    "    --tcolor4: " + textColors.Color4 + ";\n" +
+    "    --tcolor5: " + textColors.Color5 + ";\n" +
+    "    --tcolor6: " + textColors.Color6 + ";\n" +
+    "    --tcolor7: " + textColors.Color7 + ";\n" +
+    "    --tcolor8: " + textColors.Color8 + ";\n" +
+    "    --tcolor9: " + textColors.Color9 + ";\n" +
+    "    --tcolor10: " + textColors.Color10 + ";\n" +
+    "    --tcolor11: " + textColors.Color11 + ";\n" +
+    "    --tcolor12: " + textColors.Color12 + ";\n" +
+    "    --tcolor13: " + textColors.Color13 + ";\n" +
+    "    --tcolor14: " + textColors.Color14 + ";\n" +
+    "    --tcolor15: " + textColors.Color15 + ";\n" +
+    "}"
+
+    os.WriteFile(filepath, []byte(cssTextColors), 0664)
+}
+

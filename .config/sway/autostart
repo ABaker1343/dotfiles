@@ -25,10 +25,9 @@ exec flameshot
 
 exec_always ~/.config/sway/scripts/pretty.sh --restore
 
-exec_always xrandr --output HDMI-A-1 --pos 2560x1440
-exec_always xrandr --output DP-2 --primary --pos 0x0
+exec_always xrandr --output DP-2 --primary
 # exec_always ~/.config/sway/scripts/SetPrimaryDisplay.sh
-#exec ~/.config/sway/scipts/FullscreenVRR.sh
+# exec ~/.config/sway/scipts/FullscreenVRR.sh
 
 # exec swayidle -w \
 #          timeout 300 'swaylock -f -c 000000' \

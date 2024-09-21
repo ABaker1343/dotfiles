@@ -43,7 +43,7 @@ SetWallpaper() {
             hyprctl hyprpaper wallpaper "$monitor,contain:$wallpaper_path"
         done
     else # use sway
-	swaymsg "output * background ~/Wallpaper/active_wallpaper.png fill"
+	swaymsg "output * background ~/Wallpapers/active_wallpaper.png fill"
     fi
 }
 
@@ -147,9 +147,9 @@ if $setTheme; then
     RestartProgram dunst
 fi
 
-if [ -n "$(type -p spicetify)"]; then
-    ~/.spicetify/spicetify apply
-fi
+# if [ -n "$(type -p spicetify)" ]; then
+    # spicetify apply
+# fi
 
 
 echo "finished setting wallpaper and colorscheme\n"

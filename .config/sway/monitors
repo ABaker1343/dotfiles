@@ -1,7 +1,7 @@
 output $monitor1 {
     mode 2560x1440@144.000Hz
     pos 1920 0
-    adaptive_sync off
+    adaptive_sync on
 }
 
 output $monitor2 {

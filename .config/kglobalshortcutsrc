@@ -285,6 +285,9 @@ _launch=Meta+Shift+S
 [services][com.valvesoftware.Steam.desktop]
 Library=Meta+Shift+G
 
+[services][flatpak-3.desktop]
+_launch=Meta+Shift+O
+
 [services][io.gitlab.librewolf-community.desktop]
 _launch=Meta+Shift+B
 new-private-window=Meta+Shift+P
@@ -304,7 +307,7 @@ _launch=Alt+F2\tSearch\tAlt+Space
 [services][org.kde.spectacle.desktop]
 RecordRegion=Meta+R
 RecordWindow=none
-RectangularRegionScreenShot=Print\tMeta+Shift+Print
+RectangularRegionScreenShot=Meta+Shift+Print\tPrint
 _launch=none
 
 [services][org.mozilla.Thunderbird.desktop]

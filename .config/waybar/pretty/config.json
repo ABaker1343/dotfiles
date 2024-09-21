@@ -9,7 +9,7 @@
         "modules-left" : ["privacy", "wlr/workspaces", "wlr/taskbar"],
         "modules-center" : ["clock"],
         "modules-right" : ["bluetooth", "battery", "backlight", "cpu", "memory", "pulseaudio", "tray"],
-        "width" : 2560,
+        "width" : 2400,
         "margin-top" : 0,
 
         "_hyprland/workspaces" : {

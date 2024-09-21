@@ -167,8 +167,8 @@ plugin=org.kde.plasma.kickoff
 
 [Containments][55][Applets][58][Configuration]
 PreloadWeight=100
-popupHeight=720
-popupWidth=892
+popupHeight=719
+popupWidth=890
 
 [Containments][55][Applets][58][Configuration][General]
 favoritesPortedToKAstats=true
@@ -187,8 +187,8 @@ plugin=org.kde.plasma.notifications
 
 [Containments][55][Applets][74][Configuration]
 PreloadWeight=100
-popupHeight=432
-popupWidth=324
+popupHeight=433
+popupWidth=320
 
 [Containments][55][Applets][75]
 immutability=1
@@ -215,8 +215,8 @@ immutability=1
 lastScreen=0
 location=6
 plugin=org.kde.plasma.private.systemtray
-popupHeight=439
-popupWidth=440
+popupHeight=432
+popupWidth=432
 wallpaperplugin=org.kde.image
 
 [Containments][60][Applets][61]
@@ -246,7 +246,7 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][60][Applets][65][Configuration]
-PreloadWeight=90
+PreloadWeight=100
 
 [Containments][60][Applets][66]
 immutability=1
@@ -353,6 +353,7 @@ ToolBoxButtonX=704
 
 [Containments][81][Wallpaper][org.kde.image][General]
 Image=/home/alex/Wallpapers/active_wallpaper.png
+PreviewImage=/home/alex/Wallpapers/active_wallpaper.png
 SlidePaths=/home/alex/.local/share/wallpapers/,/usr/share/wallpapers/
 
 [Containments][82]
