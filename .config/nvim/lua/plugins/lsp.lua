@@ -1,7 +1,22 @@
 function ConfigureLsp ()
     local lspconfig = require('lspconfig')
 
-    lspconfig.clangd.setup {}
+    lspconfig.clangd.setup {
+        --arguments = {
+            --"--header-insertion=never",
+            --"--limit-references=100",
+            --"--limit-results=20",
+        --}
+        cmd = {
+            "clangd",
+            "--clang-tidy",
+            "--header-insertion=never",
+            "--background-index",
+            "--pch-storage=memory",
+            "--limit-references=50",
+            "--limit-results=50"
+        }
+    }
 
     lspconfig.gopls.setup {}
 
@@ -34,13 +49,23 @@ function ConfigureLsp ()
     lspconfig.marksman.setup {}
 
     --typescript-language-server
-    lspconfig.tsserver.setup {}
+    lspconfig.ts_ls.setup {}
 
     --css-languageserver
     lspconfig.cssls.setup {}
 
     -- godot script
     lspconfig.gdscript.setup {}
+end
+
+function ConfigureSignature()
+    local lsp_sig = require("lsp_signature")
+
+    local config = {
+
+    }
+
+    lsp_sig.setup()
 end
 
 return
@@ -53,6 +78,10 @@ return
             require('plugins/completion'),
             require('plugins/func-signature')
         }
+    },
+    {
+        "ray-x/lsp_signature.nvim",
+        config = ConfigureSignature
     }
 
 }

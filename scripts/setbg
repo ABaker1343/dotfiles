@@ -48,15 +48,24 @@ SetWallpaper() {
 }
 
 SetTheme() {
+    walpath="$(whereis wal)"
+    notify-send "walpath: $walpath"
+    echo "walpath: $walpath"
+    if [ "$walpath" == "wal:" ]; then
+        walpath="$HOME/.local/bin/wal"
+    else
+        walpath=${walpath#"wal:"}
+    fi
+
     backend="wal"
 
     theme=$1
     
     # set the colorscheme with pywal
     if [ "$theme" == "" ]; then
-    	wal -n -i $file --saturate $saturation --backend $backend
+    	$walpath -n -i $file --saturate $saturation --backend $backend
     else
-    	wal -n --theme "$theme" --saturate $saturation --backend $backend
+    	$walpath -n --theme "$theme" --saturate $saturation --backend $backend
     fi
 
     # run extension for programs not included with pywal
@@ -153,4 +162,5 @@ fi
 
 
 echo "finished setting wallpaper and colorscheme\n"
+
 

@@ -100,6 +100,9 @@ function ConfigureTreesitter ()
                 --["function.call"] = "TSFunction"
             --},
         },
+        indent = {
+            enable = true,
+        },
         playground = {
             enable = true,
         },

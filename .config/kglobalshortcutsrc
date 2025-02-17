@@ -1,5 +1,6 @@
 [ActivityManager]
 _k_friendly_name=Activity Manager
+switch-to-activity-1ff9a057-e779-4ca2-bd5d-c102ffb96ec1=none,none,Switch to activity "Default"
 switch-to-activity-435cf9c8-d893-4db6-a05a-eb7507454aa7=none,none,Switch to activity "Default"
 switch-to-activity-5b5f9033-996d-45bc-a0de-9d36add638df=none,none,Switch to activity "Default"
 switch-to-activity-8f200be0-8157-43d2-88d5-313d8521f2d9=none,none,Switch to activity "Default"
@@ -11,7 +12,8 @@ switch-to-activity-ea9bbb6e-4185-4574-866d-6012fe4e8c11=none,none,Switch to acti
 Switch keyboard layout to English (Colemak-DH ISO)=none,none,Switch keyboard layout to English (Colemak-DH ISO)
 Switch keyboard layout to English (UK)=none,none,Switch keyboard layout to English (UK)
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
-Switch to Last-Used Keyboard Layout=Meta+Alt+L,Meta+Alt+L,
+Switch keyboard layout to English (US, intl., AltGr Unicode combining)=none,none,Switch keyboard layout to English (US\\, intl.\\, AltGr Unicode combining)
+Switch to Last-Used Keyboard Layout=Meta+Alt+L,Meta+Alt+L,Switch to Last-Used Keyboard Layout
 Switch to Next Keyboard Layout=Meta+Alt+K,Meta+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
@@ -43,7 +45,7 @@ mute=Volume Mute,Volume Mute,Mute
 [ksmserver]
 Halt Without Confirmation=none,,Shut Down Without Confirmation
 Lock Session=Meta+L\tScreensaver,Meta+L\tScreensaver,Lock Session
-Log Out=Meta+Ctrl+Shift+E\tCtrl+Alt+Del,Ctrl+Alt+Del,Show Logout Prompt
+Log Out=Meta+Ctrl+Shift+E\tCtrl+Alt+Del,Ctrl+Alt+Del,Show Logout Screen
 Log Out Without Confirmation=none,,Log Out Without Confirmation
 LogOut=none,,Log Out
 Reboot=none,,Reboot
@@ -65,7 +67,7 @@ Grid View=Meta+G,Meta+G,Toggle Grid View
 Increase Opacity=none,,Increase Opacity of Active Window by 5%
 Kill Window=Meta+Ctrl+Esc,Meta+Ctrl+Esc,Kill Window
 Move Tablet to Next Output=none,none,Move the tablet to the next output
-MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Center
+MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Centre
 MoveMouseToFocus=Meta+F5,Meta+F5,Move Mouse to Focus
 MoveZoomDown=none,none,Move Zoomed Area Downwards
 MoveZoomLeft=none,none,Move Zoomed Area to Left
@@ -136,12 +138,12 @@ Window Fullscreen=Meta+F,,Make Window Fullscreen
 Window Grow Horizontal=none,,Expand Window Horizontally
 Window Grow Vertical=none,,Expand Window Vertically
 Window Lower=none,,Lower Window
-Window Maximize=Meta+PgUp,Meta+PgUp,Maximize Window
-Window Maximize Horizontal=none,,Maximize Window Horizontally
-Window Maximize Vertical=none,,Maximize Window Vertically
-Window Minimize=Meta+PgDown,Meta+PgDown,Minimize Window
+Window Maximize=Meta+PgUp,Meta+PgUp,Maximise Window
+Window Maximize Horizontal=none,,Maximise Window Horizontally
+Window Maximize Vertical=none,,Maximise Window Vertically
+Window Minimize=Meta+PgDown,Meta+PgDown,Minimise Window
 Window Move=none,,Move Window
-Window Move Center=none,,Move Window to the Center
+Window Move Center=none,,Move Window to the Centre
 Window No Border=none,,Toggle Window Titlebar and Frame
 Window On All Desktops=none,,Keep Window on All Desktops
 Window One Desktop Down=Meta+Ctrl+Shift+Down,Meta+Ctrl+Shift+Down,Window One Desktop Down
@@ -211,11 +213,11 @@ view_zoom_out=Meta+-,Meta+-,Zoom Out
 _k_friendly_name=Media Controller
 mediavolumedown=none,,Media volume down
 mediavolumeup=none,,Media volume up
-nextmedia=none,Media Next,Media playback next
+nextmedia=Media Next,Media Next,Media playback next
 pausemedia=Media Pause,Media Pause,Pause media playback
 playmedia=none,,Play media playback
-playpausemedia=none,Media Play,Play/Pause media playback
-previousmedia=none,Media Previous,Media playback previous
+playpausemedia=Media Play,Media Play,Play/Pause media playback
+previousmedia=Media Previous,Media Previous,Media playback previous
 stopmedia=Media Stop,Media Stop,Stop media playback
 
 [org_kde_powerdevil]
@@ -231,7 +233,7 @@ PowerOff=Power Off,Power Off,Power Off
 Sleep=Sleep,Sleep,Suspend
 Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,Toggle Keyboard Backlight
 Turn Off Screen=Meta+Ctrl+Shift+L,none,Turn Off Screen
-_k_friendly_name=KDE Power Management System
+_k_friendly_name=Power Management
 powerProfile=Battery\tMeta+B,Battery\tMeta+B,Switch Power Profile
 
 [plasmashell]
@@ -296,6 +298,12 @@ new-private-window=Meta+Shift+P
 _launch=Meta+Shift+Return
 
 [services][neovide-3.desktop]
+_launch=Meta+Shift+N
+
+[services][net.local.flatpak.desktop]
+_launch=Meta+Shift+O
+
+[services][net.local.neovide.desktop]
 _launch=Meta+Shift+N
 
 [services][org.kde.dolphin.desktop]

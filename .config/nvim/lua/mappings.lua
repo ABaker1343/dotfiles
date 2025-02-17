@@ -1,7 +1,9 @@
 local telescopeFuncs = require("telescope.builtin")
 local harpoonUI = require('harpoon.ui');
 local harpoonMark = require('harpoon.mark');
+local snipe = require('snipe')
 local flash = require('flash')
+local tree = require('nvim-tree')
 
 vim.g.mapleader=' '
 
@@ -28,6 +30,7 @@ vim.keymap.set('n', "<leader>/", telescopeFuncs.live_grep, {noremap = {true}})
 -- window keys
 vim.keymap.set('n', "<leader>ws", "<cmd>split<CR>", {noremap = {true}})
 vim.keymap.set('n', "<leader>wv", "<cmd>vsplit<CR>", {noremap = {true}})
+vim.keymap.set('n', "<leader>wt", ":NvimTreeToggle<CR>", {noremap = {true}})
 vim.keymap.set('n', "<leader>wc", "<C-w>c", {noremap = {true}})
 vim.keymap.set('n', "<leader>wh", "<C-w>h", {noremap = {true}})
 vim.keymap.set('n', "<leader>wl", "<C-w>l", {noremap = {true}})
@@ -67,21 +70,25 @@ vim.keymap.set('n', "<leader>rr", ":s/", {noremap = {true}})
 vim.keymap.set('n', "<leader>rs", vim.lsp.buf.rename, {noremap = {true}})
 
 -- harpoon
-vim.keymap.set('n', "<leader>ha", harpoonMark.add_file, {noremap = {true}})
-vim.keymap.set('n', "<leader>hl", harpoonUI.nav_next, {noremap = {true}})
-vim.keymap.set('n', "<leader>hh", harpoonUI.nav_next, {noremap = {true}})
-vim.keymap.set('n', "<leader>hm", harpoonUI.toggle_quick_menu, {noremap = {true}})
-vim.keymap.set('n', "<leader>h1", "<cmd> lua require('harpoon.ui').nav_file(1)<CR>", {noremap = {true}})
-vim.keymap.set('n', "<leader>h2", "<cmd> lua require('harpoon.ui').nav_file(2)<CR>", {noremap = {true}})
-vim.keymap.set('n', "<leader>h3", "<cmd> lua require('harpoon.ui').nav_file(3)<CR>", {noremap = {true}})
-vim.keymap.set('n', "<leader>h4", "<cmd> lua require('harpoon.ui').nav_file(4)<CR>", {noremap = {true}})
+--vim.keymap.set('n', "<leader>ha", harpoonMark.add_file, {noremap = {true}})
+--vim.keymap.set('n', "<leader>hl", harpoonUI.nav_next, {noremap = {true}})
+--vim.keymap.set('n', "<leader>hh", harpoonUI.nav_next, {noremap = {true}})
+--vim.keymap.set('n', "<leader>hm", harpoonUI.toggle_quick_menu, {noremap = {true}})
+--vim.keymap.set('n', "<leader>h1", "<cmd> lua require('harpoon.ui').nav_file(1)<CR>", {noremap = {true}})
+--vim.keymap.set('n', "<leader>h2", "<cmd> lua require('harpoon.ui').nav_file(2)<CR>", {noremap = {true}})
+--vim.keymap.set('n', "<leader>h3", "<cmd> lua require('harpoon.ui').nav_file(3)<CR>", {noremap = {true}})
+--vim.keymap.set('n', "<leader>h4", "<cmd> lua require('harpoon.ui').nav_file(4)<CR>", {noremap = {true}})
+
+-- snipe
+
+vim.keymap.set('n', "<leader>h", snipe.open_buffer_menu, {noremap = {true}})
 
 -- shell
 vim.keymap.set('n', "<leader>st","<cmd>tabnew<CR><cmd>terminal<CR>A", {noremap = {true}})
 vim.keymap.set('n', "<leader>sn","<cmd>FloatermNew<CR>", {noremap = {true}})
 vim.keymap.set('n', "<leader>ss","<cmd>FloatermToggle<CR>", {noremap = {true}})
 vim.keymap.set('n', "<leader>sc","<cmd>FloatermKill<CR>", {noremap = {true}})
---vim.keymap.set('n', "<leader>.c", telescopeFuncs.colorScheme, {noremap = {true}})
+--vim.keymap.set('n', "<leader>", telescopeFuncs.colorScheme, {noremap = {true}})
 
 -- goto
 vim.keymap.set('n', "gr", telescopeFuncs.lsp_references, {noremap = {true}})

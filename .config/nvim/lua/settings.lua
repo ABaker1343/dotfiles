@@ -16,27 +16,33 @@ vim.opt.linebreak = true
 vim.opt.cursorline = false
 vim.opt.cursorcolumn = false
 
-vim.opt.guicursor="n-v-c:block,i:block"
+--vim.opt.guicursor="n-v-c:block,i:block"
+vim.opt.guicursor="n-v-c:block,i:ver36"
 
---NEOVIDE_FONT = "InconsolataGo Nerd Font Mono"
---NEOVIDE_FONT_BOLD = false
---
-NEOVIDE_FONT = "FiraCode Nerd Font"
+vim.opt.timeoutlen = 10000
+
+--NEOVIDE_FONT = "JetBrainsMono"
+--NEOVIDE_FONT = "MonaspiceAr NF"
+--NEOVIDE_FONT = "Mononoki Nerd Font"
+--NEOVIDE_FONT = "0xProto Nerd Font Mono"
+--NEOVIDE_FONT = "Source Code Pro"
+--NEOVIDE_FONT = "FiraMono Nerd Font"
+--NEOVIDE_FONT = "monospace"
+--NEOVIDE_CURRENT_FONT_SIZE = 14
+--NEOVIDE_FONT = "Monofur Nerd Font"
+--NEOVIDE_CURRENT_FONT_SIZE = 16
+
+--NEOVIDE_FONT = { font = "Monofur Nerd Font", size = 18 }
+NEOVIDE_FONT = { font = "Hack Nerd Font", size = 16 }
+
 NEOVIDE_FONT_BOLD = false
---
---NEOVIDE_FONT = "JetBrainsMono Nerd Font"
---NEOVIDE_FONT_BOLD = false
---
---NEOVIDE_FONT = "BlexMono Nerd Font"
---NEOVIDE_FONT_BOLD = true
-
-NEOVIDE_CURRENT_FONT_SIZE = 16
 
 if vim.g.neovide then
     if NEOVIDE_FONT_BOLD then
-        vim.o.guifont=NEOVIDE_FONT .. ":h".. tostring(NEOVIDE_CURRENT_FONT_SIZE) .. ":b"
+        vim.o.guifont=NEOVIDE_FONT.font .. ":h".. tostring(NEOVIDE_FONT.size) .. ":b"
     else
-        vim.o.guifont=NEOVIDE_FONT .. ":h".. tostring(NEOVIDE_CURRENT_FONT_SIZE)
+        --vim.o.guifont=NEOVIDE_FONT .. ":h".. tostring(NEOVIDE_CURRENT_FONT_SIZE)
+        vim.o.guifont=NEOVIDE_FONT.font .. ":h".. tostring(NEOVIDE_FONT.size)
     end
     vim.g.neovide_remember_window_size = false
     --vim.g.neovide_transparency = 0.8

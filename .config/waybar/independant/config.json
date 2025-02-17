@@ -1,13 +1,17 @@
 {
+        "include" : [
+            "~/.config/waybar/modules/usb-reset.json",
+            "~/.config/waybar/modules/brighness.json"
+        ],
         "output" : ["DP-2", "eDP-1"],
         "position" : "top",
         "layer" : "top",
         "height" : 36,
         "start_hidden" : false,
 
-        "modules-left" : ["privacy", "wlr/workspaces", "wlr/taskbar"],
+        "modules-left" : ["privacy", "hyprland/workspaces", "wlr/taskbar"],
         "modules-center" : ["clock"],
-        "modules-right" : ["bluetooth", "battery", "backlight", "cpu", "memory", "pulseaudio", "tray"],
+        "modules-right" : ["custom/brightness", "bluetooth", "battery", "backlight", "cpu", "memory", "pulseaudio", "tray"],
         "margin-top" : 0,
 
         "_hyprland/workspaces" : {
@@ -94,11 +98,5 @@
         "bluetooth" : {
             "format" : "{status} : {icon} : {num_connections}",
             "on-click" : "blueberry"
-        },
-
-        "custom/usb" : {
-            "format" : "Reset USB",
-            "on-click" : "pkexec usbreset.sh"
         }
-
     }

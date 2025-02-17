@@ -1,11 +1,42 @@
 #!/bin/bash
 
 fullscreen=false
+screenshot_taken=false
+
 filepath="$(xdg-user-dir PICTURES)/Screenshots/$(date +%Y-%m-%d-%R:%S)_grim.png"
 
 if [ ! -d "$(xdg-user-dir PICTURES)/Screenshots/" ]; then
     mkdir -p "$(xdg-user-dir PICTURES)/Screenshots/"
 fi
+
+function screenshot_area {
+    hyprpicker -r -z &
+    HYPRPICKER_PID=$!
+    sleep 0.1
+
+    region="$(slurp)"
+    slurp_ret=$?
+
+    if [ $slurp_ret == 0 ]; then
+	    grim -g "$region" - | \
+	    tee "$filepath" | \
+	    wl-copy
+        
+        notify-send "Screenshot saved: $filepath" --icon $filepath
+    else
+        notify-send --expire-time=1000 "Screenshot cancelled"
+    fi
+
+    kill $HYPRPICKER_PID
+}
+
+function screenshot_fullscreen {
+	grim - |\
+	tee "$filepath" |\
+	wl-copy
+
+    notify-send "Screenshot saved: $filepath" --icon $filepath
+}
 
 for opt in $@; do
 	case $opt in
@@ -22,15 +53,10 @@ for opt in $@; do
 done
 
 if [ "$fullscreen" = "true" ]; then
-	grim - |\
-	tee "$filepath" |\
-	wl-copy
+    screenshot_fullscreen
 else
-	grim -g "$(slurp)" - | \
-	tee "$filepath" | \
-	wl-copy
+    screenshot_area
 fi
 
-notify-send "Screenshot saved: $filepath" --icon $filepath
 
 exit 0

@@ -1,26 +1,33 @@
 #!/usr/bin/env bash
 
+function get_current_brightness {
+    value=$(ddcutil getvcp 0x10 | awk '{print $9}')
+    echo "$value"
+}
+
 for arg in $@; do
     case $arg in
         --set-max)
             ddcutil setvcp 0x10 60 -d 1
             ddcutil setvcp 0x10 60 -d 2
-            notify-send "Brightness Maximum"
+            notify-send "Brightness 60%"
             ;;
         --set-min)
             ddcutil setvcp 0x10 0 -d 1
             ddcutil setvcp 0x10 0 -d 2
             notify-send "Brightness Minimum"
             ;;
-        --lower)
+        --lower | --decrease)
             ddcutil setvcp 0x10 - 20 -d 1
             ddcutil setvcp 0x10 - 20 -d 2
             notify-send "Brightness -20"
+            # notify-send "Current Brighness: $(get_current_brightness)"
             ;;
-        --higher)
+        --higher | --increase)
             ddcutil setvcp 0x10 + 20 -d 1
             ddcutil setvcp 0x10 + 20 -d 2
             notify-send "Brightness +20"
+            # notify-send "Current Brighness: $(get_current_brightness)"
             ;;
     esac
 done

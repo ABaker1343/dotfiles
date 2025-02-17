@@ -41,6 +41,14 @@ process=$1
 window_class=$2
 command=$3
 prefered_workspace=$4
+wildcard=$5
+
+if $wildcard ; then
+    if [ "$(hyprctl clients | grep "workspace: $prefered_workspace")" != "" ]; then
+        hyprctl dispatch workspace $prefered_workspace
+        exit
+    fi
+fi
 
 process_pid="$(pidof $process)"
 if [ -z "$process_pid" ]; then

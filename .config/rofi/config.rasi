@@ -5,7 +5,8 @@
 @theme "~/.cache/wal/colors-rofi-dark.rasi"
 
 * {
-    font: "GoMono Nerd Font Propo 16";
+    //font: "UbuntuNerdFont Bold 16";
+    font: "0xProto Nerd Font Mono 16";
     background-color: transparent;
 }
 
@@ -40,15 +41,15 @@ window {
     border: 2px;
     border-color: @foreground;
     padding: 0px;
-    width: 65%;
-    height: 65%;
+    width: 50%;
+    height: 50%;
     transparency: true;
     background-color: @foreground;
     background-image: url("~/Wallpapers/active_wallpaper.png", both);
 }
 
 mainbox {
-    margin: 45% 0 0 0%;
+    margin: 35% 0 0 0%;
     border: 0;
     background-color: @background;
     padding: 0;

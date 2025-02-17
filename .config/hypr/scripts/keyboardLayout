@@ -1,0 +1,19 @@
+PREV_STATE_FILE=~/.config/hypr/prev_keyboard_layout
+
+LayoutChoices=$'gb\nus'
+
+function SetLayout
+{
+    layout=$1
+    hyprctl "keyword input:kb_layout $layout"
+    echo $selection > $PREV_STATE_FILE
+}
+
+if [ "$1" == "--prev" ]; then
+    SetLayout $(cat $PREV_STATE_FILE)
+    exit
+fi
+
+selection=$(echo "$LayoutChoices" | rofi -dmenu)
+
+SetLayout $selection

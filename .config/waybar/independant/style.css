@@ -1,13 +1,15 @@
 @import "/home/alex/.cache/wal/colors-waybar.css";
+@import "/home/alex/.config/waybar/fonts.css";
 
 * {
     font-weight: bold;
+    color: @tcolor8
 }
 
 #waybar
 {
     background: @background;
-    padding-bottom: 24px;
+    padding-bottom: 0;
 }
 
 .modules-left > * > *,
@@ -20,7 +22,7 @@
 
 #pulseaudio,
 #clock,
-#workspace,
+#workspaces,
 #taskbar button,
 #battery,
 #backlight,
@@ -29,7 +31,8 @@
 #tray,
 #bluetooth,
 #privacy,
-#custom-usb
+#custom-usb,
+#custom-brightness
 {
     background: @color8;
     border-radius: 24px;
@@ -48,4 +51,16 @@
 #taskbar button.active
 {
     background: @foreground;
+}
+
+#workspaces
+{
+    padding: 0px;
+}
+
+#workspaces .active
+{
+    background: @color1;
+    color: @tcolor1;
+    border-radius: 24px;
 }

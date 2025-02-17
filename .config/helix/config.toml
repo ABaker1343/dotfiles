@@ -7,11 +7,14 @@
 
 # theme = "sonokai_default"
 # theme = "catppuccin_mocha"
-# theme = "gruvbox"
-theme = "nord"
+theme = "gruvbox"
 # theme = "molokai"
 # theme = "trans"
 # theme = "wal"
+# theme = "hex_steel"
+# theme = "nord"
+# theme = "nord-opaque"
+# theme = "nord-night"
 
 [editor]
 line-number = "relative"

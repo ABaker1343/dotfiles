@@ -22,6 +22,11 @@ function SetAnimations {
             keyword animations:enabled true;\
             keyword animation workspaces,1,2,default,slidefade"
             ;;
+        "fade")
+            hyprctl --batch "\
+            keyword animations:enabled true;\
+            keyword animation workspaces,1,2,default,fade"
+            ;;
         "none")
             hyprctl "keyword animations:enabled false"
             ;;
@@ -49,7 +54,8 @@ function SetGaps {
             hyprctl --batch "\
 			keyword general:gaps_in 0;\
 			keyword general:gaps_out 0;\
-            keyword general:border_size 0;"
+            keyword general:border_size 2;\
+            keyword master:no_gaps_when_only true;"
             ;;
     esac
 }
@@ -90,7 +96,7 @@ set_state () {
 		pretty)
             SetAnimations horizontal
             SetRounding true
-            SetGaps large
+            SetGaps small
             SetDimming true 0.85
             SetBorderColorOverride color1
 
@@ -121,7 +127,7 @@ set_state () {
             echo $1 > $PREV_STATE_FILE
 			;;
     	rectangular)
-            SetAnimations vertical
+            SetAnimations none
             SetRounding false
             SetGaps small
             SetDimming false
@@ -143,7 +149,7 @@ set_state () {
             echo $1 > $PREV_STATE_FILE
 			;;
         independant)
-            SetAnimations horizontal
+            SetAnimations fade
             SetRounding true
             SetGaps small
             SetDimming false

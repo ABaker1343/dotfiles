@@ -1,0 +1,7 @@
+{
+    "custom/usb" : {
+        "format" : "Reset USB",
+        "on-click" : "pkexec usbreset.sh"
+    }
+
+}

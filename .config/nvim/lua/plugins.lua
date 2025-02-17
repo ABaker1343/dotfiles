@@ -17,7 +17,7 @@ local lazy  = require('lazy')
 
 -- list all plugins
 local plugins = {
-    require('plugins/lsp'),
+    --require('plugins/lsp'),
     require('plugins/treesitter'),
     require('plugins/autopairs'),
     require('plugins/surround'),
@@ -25,12 +25,14 @@ local plugins = {
     require('plugins/telescope'),
     require('plugins/lualine'),
     require('plugins/harpoon'),
-    require('plugins/completion'),
+    require('plugins/snipe'),
+    --require('plugins/completion'),
     require('plugins/noice'),
     --require('plugins/whichkey'),
     "folke/flash.nvim",
     "voldikss/vim-floaterm",
     --'mfussenegger/nvim-dap',
+    --"sbdchd/neoformat",
 
     -- colorschemes
     'tanvirtin/monokai.nvim',
@@ -51,6 +53,7 @@ local plugins = {
     "AlexvZyl/nordic.nvim",
     'ishan9299/modus-theme-vim',
     "ellisonleao/gruvbox.nvim",
+    "darkvoid-theme/darkvoid.nvim",
     "mbrea-c/wal-colors.nvim"
 }
 

@@ -6,6 +6,7 @@ function ConfigureTelescope ()
 
     telescope.setup {
         defaults = {
+            sorting_stategy = "ascending",
             mappings = {
                 i = {
                     ["<C-h>"] = "which_key",
@@ -23,7 +24,7 @@ function ConfigureTelescope ()
 
         pickers = {
             find_files = {
-
+                theme="dropdown"
             },
         },
 

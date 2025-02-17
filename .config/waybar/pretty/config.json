@@ -10,7 +10,7 @@
         "modules-center" : ["clock"],
         "modules-right" : ["bluetooth", "battery", "backlight", "cpu", "memory", "pulseaudio", "tray"],
         "width" : 2400,
-        "margin-top" : 0,
+        "margin-top" : 4,
 
         "_hyprland/workspaces" : {
             "format" : "{name}",

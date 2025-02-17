@@ -97,7 +97,7 @@ wmclassmatch=1
 
 [6]
 Description=Settings for (steam|steam_app)
-desktops=c7ceacfd-b018-490d-b227-81dc4876daec
+desktops=e8400cb7-6947-482a-a22a-eb411024636c
 desktopsrule=3
 ignoregeometry=true
 size=1920,1080
@@ -150,9 +150,16 @@ sizerule=3
 wmclass=neovide
 wmclassmatch=1
 
+[99cbeae0-990e-4605-bee2-a7cf5c5d1184]
+Description=neovide
+size=1920,1080
+sizerule=3
+wmclass=neovide
+wmclassmatch=1
+
 [General]
-count=6
-rules=1,2,3,4,5,6
+count=7
+rules=1,2,3,4,5,6,99cbeae0-990e-4605-bee2-a7cf5c5d1184
 
 [aa5157dd-ad96-4759-b967-8481f6697a76]
 Description=Settings for (steam|steam_app)
