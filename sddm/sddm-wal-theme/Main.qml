@@ -83,7 +83,7 @@ Pane {
             id: form
 
             height: virtualKeyboard.state == "invisible" ? parent.height - virtualKeyboard.implicitHeight : parent.height
-            width: parent.width / 6
+            width: parent.width / 5
             anchors.horizontalCenter: config.FormPosition == "center" ? parent.horizontalCenter : undefined
             anchors.left: config.FormPosition == "left" ? parent.left : undefined
             anchors.right: config.FormPosition == "right" ? parent.right : undefined

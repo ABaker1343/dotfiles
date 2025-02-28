@@ -14,7 +14,7 @@ poppler
 zathura
 zathura-pdf-poppler
 
-xclock
+xorg-xclock
 
 grub
 v4l2loopback-dkms
@@ -30,6 +30,7 @@ libnotify
 flatpak
 linux-headers
 gvfs
+gbfs-mtp
 ddcutil
 bluez
 blueman
@@ -41,7 +42,8 @@ cliphist
 grim
 slurp
 lxappearance
-rofi
+rofi-wayland
+fzf
 
 mpv
 imv
@@ -50,13 +52,24 @@ bitwarden
 dolphin
 
 hyprland
+hyprpaper
+hyprlock
+hyprpicker
+hyprpolkitagent
 sway
 swaybg
 swaylock
+thunar
+thunar-archive-plugin
+tumbler
+papirus-icon-theme
+materia-gtk-theme
+ark
 sddm
 waybar
 noto-fonts-emoji
 python-pywal
+qt5
 
 python
 lua-language-server
