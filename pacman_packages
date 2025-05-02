@@ -2,7 +2,9 @@ alacritty
 
 neovim
 neovide
+tree-sitter-cli
 
+kitty
 yazi
 htop
 btop
@@ -30,7 +32,7 @@ libnotify
 flatpak
 linux-headers
 gvfs
-gbfs-mtp
+gvfs-mtp
 ddcutil
 bluez
 blueman
