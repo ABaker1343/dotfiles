@@ -1,6 +1,6 @@
 {
     "custom/brightness" : {
-        "format"  : "brightness",
+        "format"  : " brightness ",
         "on-click" : "~/.config/hypr/scripts/brightness --increase",
         "on-click-right" : "~/.config/hypr/scripts/brightness --decrease"
     }

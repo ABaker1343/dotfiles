@@ -6,7 +6,8 @@
 
 * {
     //font: "UbuntuNerdFont Bold 16";
-    font: "0xProto Nerd Font Mono 16";
+    //font: "0xProto Nerd Font Mono 16";
+    font: "Adwaita Mono 16";
     background-color: transparent;
 }
 

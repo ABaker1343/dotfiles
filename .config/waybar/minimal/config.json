@@ -1,13 +1,17 @@
 {
+        "include" : [
+            "~/.config/waybar/modules/usb-reset.json",
+            "~/.config/waybar/modules/brighness.json"
+        ],
         "output" : ["DP-2", "eDP-1"],
         "position" : "top",
         "layer" : "top",
         "height" : 0,
-        "start_hidden" : true,
+        "start_hidden" : false,
 
         "modules-left" : ["hyprland/workspaces"],
         "modules-center" : [],
-        "modules-right" : ["clock", "battery", "backlight", "cpu", "memory", "pulseaudio", "tray"],
+        "modules-right" : ["clock", "custom/brightness", "custom/spacer", "battery", "backlight", "cpu", "memory", "pulseaudio", "tray"],
 
         "hyprland/workspaces" : {
             "format" : "{name}",
@@ -66,7 +70,7 @@
 
         "cpu" : {
             "interval" : 1,
-            "format" : "{}% | ",
+            "format" : " {}% | ",
             "on-click" : "kitty -e htop",
         },
 
@@ -98,6 +102,10 @@
         "custom/usb" : {
             "format" : "Reset USB",
             "on-click" : "pkexec usbreset.sh",
+        },
+
+        "custom/spacer" : {
+            "format" : "|",
         },
 
     }

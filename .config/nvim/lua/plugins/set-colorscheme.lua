@@ -67,14 +67,12 @@ local PREFERED_COLORSCHEME = ""
 local PREFERED_NEOVIDE_COLORSCHEME = ""
 
 -- vim.o.background = "light"
-local PREFERED_COLORSCHEME = "mbc"
---local PREFERED_COLORSCHEME = "gruvbox"
---local PREFERED_COLORSCHEME = "material"
+--local PREFERED_COLORSCHEME = "mbc"
 --local PREFERED_NEOVIDE_COLORSCHEME = "darkvoid"
-local PREFERED_NEOVIDE_COLORSCHEME = "kanagawa-wave"
+--local PREFERED_NEOVIDE_COLORSCHEME = "kanagawa-wave"
 --local PREFERED_NEOVIDE_COLORSCHEME = "gruvbox"
 --local PREFERED_NEOVIDE_COLORSCHEME = "nordfox"
---local PREFERED_NEOVIDE_COLORSCHEME = "monokai_pro"
+local PREFERED_NEOVIDE_COLORSCHEME = "monokai_pro"
 --local PREFERED_NEOVIDE_COLORSCHEME = "material"
 
 if (PREFERED_NEOVIDE_COLORSCHEME == "") then

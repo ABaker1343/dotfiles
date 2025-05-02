@@ -2,6 +2,7 @@
 _k_friendly_name=Activity Manager
 switch-to-activity-1ff9a057-e779-4ca2-bd5d-c102ffb96ec1=none,none,Switch to activity "Default"
 switch-to-activity-435cf9c8-d893-4db6-a05a-eb7507454aa7=none,none,Switch to activity "Default"
+switch-to-activity-591eb985-bdbc-4966-b64b-daa3b92f058e=none,none,Switch to activity "Default"
 switch-to-activity-5b5f9033-996d-45bc-a0de-9d36add638df=none,none,Switch to activity "Default"
 switch-to-activity-8f200be0-8157-43d2-88d5-313d8521f2d9=none,none,Switch to activity "Default"
 switch-to-activity-92401c7a-4cbf-40f3-9050-ca847f2585da=none,none,Switch to activity "Default"
@@ -25,7 +26,7 @@ _k_friendly_name=Accessibility
 [kcm_touchpad]
 Disable Touchpad=Touchpad Off,Touchpad Off,Disable Touchpad
 Enable Touchpad=Touchpad On,Touchpad On,Enable Touchpad
-Toggle Touchpad=Touchpad Toggle,Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku,Toggle Touchpad
+Toggle Touchpad=Touchpad Toggle,Touchpad Toggle\tTouchpad Toggle\tMeta+Ctrl+Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku,Toggle Touchpad
 _k_friendly_name=Touchpad
 
 [khotkeys]
@@ -304,6 +305,9 @@ new-private-window=Meta+Shift+P
 _launch=Meta+Shift+Return
 
 [services][neovide-3.desktop]
+_launch=Meta+Shift+N
+
+[services][neovide.desktop]
 _launch=Meta+Shift+N
 
 [services][net.local.flatpak.desktop]

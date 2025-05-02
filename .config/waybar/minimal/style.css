@@ -13,3 +13,7 @@
     background: @color1;
     color: @tcolor1;
 }
+
+#custom-brightness {
+    padding-right: 10px;
+}

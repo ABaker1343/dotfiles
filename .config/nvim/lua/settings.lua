@@ -21,19 +21,22 @@ vim.opt.guicursor="n-v-c:block,i:ver36"
 
 vim.opt.timeoutlen = 10000
 
---NEOVIDE_FONT = "JetBrainsMono"
---NEOVIDE_FONT = "MonaspiceAr NF"
---NEOVIDE_FONT = "Mononoki Nerd Font"
---NEOVIDE_FONT = "0xProto Nerd Font Mono"
---NEOVIDE_FONT = "Source Code Pro"
---NEOVIDE_FONT = "FiraMono Nerd Font"
---NEOVIDE_FONT = "monospace"
---NEOVIDE_CURRENT_FONT_SIZE = 14
---NEOVIDE_FONT = "Monofur Nerd Font"
---NEOVIDE_CURRENT_FONT_SIZE = 16
-
 --NEOVIDE_FONT = { font = "Monofur Nerd Font", size = 18 }
-NEOVIDE_FONT = { font = "Hack Nerd Font", size = 16 }
+--NEOVIDE_FONT = { font = "Hack Nerd Font", size = 16 }
+--NEOVIDE_FONT = { font = "Adwaita Mono", size = 16 }
+
+local NEOVIDE_FONT = { font = "", size = 16 }
+
+font_file_path = os.getenv("HOME") .. "/.config/nvim/prefered_font"
+local font_file = io.open(font_file_path)
+
+if not font_file then
+    NEOVIDE_FONT.font = "monospace"
+else
+    NEOVIDE_FONT.font = font_file:read("*a")
+    NEOVIDE_FONT.font = string.gsub(NEOVIDE_FONT.font, '\n', "")
+    font_file.close()
+end
 
 NEOVIDE_FONT_BOLD = false
 

@@ -15,7 +15,8 @@
 #tray,
 #bluetooth,
 #privacy,
-#custom-usb
+#custom-usb,
+#custom-brightness
 {
     border: 2px solid @foreground;
 }
@@ -25,47 +26,40 @@
     color: @tcolor0;
 }
 
-#pulseaudio {
+#pulseaudio,
+#workspaces,
+#taskbar button,
+#custom-brightness
+{
     background: @color1;
     color: @tcolor1;
 }
 
-#workspaces {
-    background: @color1;
-    color: @tcolor1;
-}
-
-#workspaces .active {
-    background: @color3;
-    color: @tcolor3;
-}
-
-#taskbar button {
-    background: @color3;
-    color: @tcolor3;
-}
-
-#taskbar button .active {
-    background: @color1;
-    color: @tcolor1;
-}
-
-#battery {
+#battery
+{
     background: @color2;
     color: @tcolor2;
 }
 
-#backlight {
-    background: @color6;
-    color: @tcolor6;
+#workspaces .active,
+#taskbar button,
+#custom-usb,
+#bluetooth
+{
+    background: @color3;
+    color: @tcolor3;
 }
 
-#cpu {
+#cpu
+{
     background: @color4;
     color: @tcolor4;
 }
 
-#memory {
+#backlight,
+#memory,
+#privacy 
+{
     background: @color6;
     color: @tcolor6;
 }
@@ -73,19 +67,4 @@
 #tray {
     background: @color5;
     color: @tcolor5;
-}
-
-#bluetooth {
-    background: @color3;
-    color: @tcolor3;
-}
-
-#privacy {
-    background: @color6;
-    color: @tcolor6;
-}
-
-#custom-usb {
-    background: @color3;
-    color: @tcolor3;
 }
