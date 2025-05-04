@@ -75,8 +75,8 @@ inputbar {
 }
 
 entry, prompt, case-indicator {
-    text-font: inherit;
-    text-color:inherit;
+    //text-font: inherit;
+    //text-color:inherit;
 }
 
 prompt {

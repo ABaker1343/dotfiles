@@ -3,12 +3,11 @@
 
 @theme "./rounded-nord-dark.rasi"
 @theme "~/.cache/wal/colors-rofi-dark.rasi"
+@import "./font.rasi"
 
 * {
-    //font: "UbuntuNerdFont Bold 16";
-    //font: "0xProto Nerd Font Mono 16";
-    font: "Adwaita Mono 16";
     background-color: transparent;
+    //font: "GoMono Nerd Font 16";
 }
 
 inputbar {

@@ -86,8 +86,19 @@ case $1 in
         fi
         echo "Installing setbg script"
         cp scripts/setbg /usr/local/bin/setbg
+        chmod o-w /usr/local/bin/setbg
+        chmod o+x /usr/local/bin/setbg
+
         echo "Installing pywal extension script"
         cp scripts/pywal-extender/pywal-extender /usr/local/bin/pywal-extender
+        chmod o-w /usr/local/bin/pywal-extender
+        chmod o+x /usr/local/bin/pywal-extender
+
+        echo "Installing setfont script"
+        cp scripts/setfont /usr/local/bin/set-desktop-font
+        chmod o-x /usr/local/bin/set-desktop-font
+        chmod o+x-w /usr/local/bin/set-desktop-font
+
         exit
         ;;
 
