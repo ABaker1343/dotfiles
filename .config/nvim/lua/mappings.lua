@@ -52,7 +52,7 @@ vim.keymap.set('n', "<leader>bf", "<cmd>Telescope file_browser<CR>", {noremap = 
 -- tabs
 vim.keymap.set('n', "<leader>tn", "<cmd>tabnew<CR>", {noremap = {true}})
 vim.keymap.set('n', "<leader>tl", "<cmd>tabn<CR>", {noremap = {true}})
-vim.keymap.set('n', "<leader>th", "<cmd>tabn<CR>", {noremap = {true}})
+vim.keymap.set('n', "<leader>th", "<cmd>tabp<CR>", {noremap = {true}})
 
 -- code
 vim.keymap.set('n', "<leader>cd", telescopeFuncs.diagnostics, {noremap = {true}})

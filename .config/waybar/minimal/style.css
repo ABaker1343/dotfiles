@@ -12,6 +12,7 @@
 #workspaces .active {
     background: @color1;
     color: @tcolor1;
+    border-radius: 0;
 }
 
 #custom-brightness {

@@ -40,22 +40,19 @@ function SetGaps {
             hyprctl --batch "\
             keyword general:gaps_out 16;\
             keyword general:gaps_in 8;\
-            keyword general:border_size 4;\
-            keyword master:no_gaps_when_only false;"
+            keyword general:border_size 8;"
             ;;
         "small")
             hyprctl --batch "\
-            keyword general:gaps_out 8;\
-            keyword general:gaps_in 4;\
-            keyword general:border_size 4;\
-            keyword master:no_gaps_when_only false;"
+            keyword general:gaps_out 4;\
+            keyword general:gaps_in 2;\
+            keyword general:border_size 6;"
             ;;
         "none")
             hyprctl --batch "\
 			keyword general:gaps_in 0;\
 			keyword general:gaps_out 0;\
-            keyword general:border_size 2;\
-            keyword master:no_gaps_when_only true;"
+            keyword general:border_size 4;"
             ;;
     esac
 }
@@ -78,7 +75,7 @@ function SetDimming {
 function SetRounding {
     enabled=$1
     if $enabled; then
-		hyprctl "keyword decoration:rounding 10"
+		hyprctl "keyword decoration:rounding 6"
     else
 		hyprctl "keyword decoration:rounding 0"
     fi
@@ -91,17 +88,23 @@ function SetBorderColorOverride {
     hyprctl "keyword general:col.active_border $override"
 }
 
+function SetWaybar {
+    killall waybar
+    config=$1
+	waybar --config ~/.config/waybar/$config/config.json --style ~/.config/waybar/$config/style.css &
+}
+
 set_state () {
 	case $1 in
 		pretty)
             SetAnimations horizontal
             SetRounding true
             SetGaps small
-            SetDimming true 0.85
+            #SetDimming true 0.85
+            SetDimming false 1
             SetBorderColorOverride color1
 
-	      	killall waybar
-	      	waybar --config ~/.config/waybar/pretty/config.json --style ~/.config/waybar/pretty/style.css &
+            SetWaybar pretty
             echo $1 > $PREV_STATE_FILE
 			;;
 		floating-bar)
@@ -111,8 +114,7 @@ set_state () {
             SetDimming false
             SetBorderColorOverride color1
 
-      		killall waybar
-      		waybar --config ~/.config/waybar/floating-bar/config.json --style ~/.config/waybar/floating-bar/style.css &
+            SetWaybar floating-bar
             echo $1 > $PREV_STATE_FILE
 			;;
 		minimal)
@@ -122,8 +124,7 @@ set_state () {
             SetDimming false
             SetBorderColorOverride color1
 
-      		killall waybar
-      		waybar --config ~/.config/waybar/minimal/config.json --style ~/.config/waybar/minimal/style.css &
+            SetWaybar minimal
             echo $1 > $PREV_STATE_FILE
 			;;
     	rectangular)
@@ -133,8 +134,7 @@ set_state () {
             SetDimming false
             SetBorderColorOverride color1
 
-      		killall waybar
-            waybar --config ~/.config/waybar/rectangular/config.json --style ~/.config/waybar/rectangular/style.css &
+            SetWaybar rectangular
             echo $1 > $PREV_STATE_FILE
             ;;
 		contrast)
@@ -144,19 +144,18 @@ set_state () {
             SetDimming false
             SetBorderColorOverride colorForeground
 
-      		killall waybar
-      		waybar --config ~/.config/waybar/contrast/config.json --style ~/.config/waybar/contrast/style.css &
+            SetWaybar contrast
             echo $1 > $PREV_STATE_FILE
 			;;
         independant)
-            SetAnimations fade
+            # SetAnimations fade
+            SetAnimations vertical
             SetRounding true
             SetGaps small
             SetDimming false
             SetBorderColorOverride color1
 
-      		killall waybar
-      		waybar --config ~/.config/waybar/independant/config.json --style ~/.config/waybar/independant/style.css &
+            SetWaybar independant
             echo $1 > $PREV_STATE_FILE
 			;;
 	esac

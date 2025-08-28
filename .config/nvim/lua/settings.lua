@@ -25,7 +25,7 @@ vim.opt.timeoutlen = 10000
 --NEOVIDE_FONT = { font = "Hack Nerd Font", size = 16 }
 --NEOVIDE_FONT = { font = "Adwaita Mono", size = 16 }
 
-local NEOVIDE_FONT = { font = "", size = 16 }
+local NEOVIDE_FONT = { font = "", size = 15 }
 
 font_file_path = os.getenv("HOME") .. "/.config/nvim/prefered_font"
 local font_file = io.open(font_file_path)

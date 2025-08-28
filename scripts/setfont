@@ -14,9 +14,12 @@ echo "exec = gsettings set org.gnome.desktop.interface font-name \"$font\"" > ~/
 echo "*{font-family: \"$font\"; font-weight: bold;}" > ~/.config/waybar/fonts.css
 echo -e "* {\n    font: \"$font 16\";\n}" > ~/.config/rofi/font.rasi
 
+browser_profile_path="$(find ~/.var/app/io.gitlab.librewolf-community/.librewolf/ -name '*.default-default')"
+echo "browser profile path: $browser_profile_path"
+
 echo -e \
 "user_pref(\"font.name.monospace.x-western\", \"$font\");\n\
 user_pref(\"font.name.sans-serif.x-western\", \"$font\");\n\
 user_pref(\"font.name.serif.x-western\", \"$font\");\n\
 "\
-> ~/.var/app/io.gitlab.librewolf-community/.librewolf/01qc2nnx.default-default/user.js
+> $browser_profile_path/user.js

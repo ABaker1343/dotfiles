@@ -7,7 +7,7 @@
 
 # theme = "sonokai_default"
 # theme = "catppuccin_mocha"
-theme = "gruvbox"
+# theme = "gruvbox"
 # theme = "molokai"
 # theme = "trans"
 # theme = "wal"
@@ -15,12 +15,15 @@ theme = "gruvbox"
 # theme = "nord"
 # theme = "nord-opaque"
 # theme = "nord-night"
+# theme = "amberwood"
+# theme = "ayu_dark"
+theme = "ayu_mirage"
 
 [editor]
 line-number = "relative"
 auto-format = false
 cursorline = false
-bufferline = "never"
+bufferline = "multiple"
 
 [keys.normal]
 C-e = "scroll_down"
@@ -32,5 +35,12 @@ C-t = [":new", ":insert-output bash", ":buffer-close!", ":redraw"]
 C = ":run-shell-command cmake --build build"
 c = ":run-shell-command make"
 
+[keys.normal.t]
+l = ":buffer-next"
+n = ":buffer-next"
+h = ":buffer-previous"
+p = ":buffer-previous"
+c = ":buffer-close"
+
 [editor.soft-wrap]
-enable = true
+enable = false

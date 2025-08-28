@@ -17,20 +17,20 @@ local lazy  = require('lazy')
 
 -- list all plugins
 local plugins = {
-    --require('plugins/lsp'),
-    require('plugins/treesitter'),
-    require('plugins/autopairs'),
-    require('plugins/surround'),
-    require('plugins/nvim-tree'),
-    require('plugins/telescope'),
-    require('plugins/lualine'),
-    require('plugins/harpoon'),
+    require('plugins/lsp'), -- lsp
+    require('plugins/treesitter'), -- treesitter
+    require('plugins/autopairs'), -- auto bracket pairing
+    require('plugins/surround'), -- surround
+    require('plugins/nvim-tree'), -- file tree
+    require('plugins/telescope'), -- telescope
+    require('plugins/lualine'), -- line at the bottom
+    require('plugins/harpoon'), -- 
     require('plugins/snipe'),
-    --require('plugins/completion'),
     require('plugins/noice'),
-    --require('plugins/whichkey'),
     "folke/flash.nvim",
     "voldikss/vim-floaterm",
+    --require('plugins/whichkey'),
+    --require('plugins/completion'),
     --'mfussenegger/nvim-dap',
     --"sbdchd/neoformat",
 
