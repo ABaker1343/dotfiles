@@ -1,12 +1,9 @@
-alacritty
-
 neovim
 neovide
 tree-sitter-cli
 
 kitty
 yazi
-htop
 btop
 
 unzip
@@ -52,13 +49,13 @@ mpv
 imv
 
 bitwarden
-dolphin
 
 hyprland
 hyprpaper
 hyprlock
 hyprpicker
 hyprpolkitagent
+xde-desktop-portal-hyprland
 sway
 swaybg
 swaylock
