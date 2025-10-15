@@ -40,13 +40,13 @@ function SetGaps {
             hyprctl --batch "\
             keyword general:gaps_out 16;\
             keyword general:gaps_in 8;\
-            keyword general:border_size 8;"
+            keyword general:border_size 6;"
             ;;
         "small")
             hyprctl --batch "\
             keyword general:gaps_out 4;\
             keyword general:gaps_in 2;\
-            keyword general:border_size 6;"
+            keyword general:border_size 4;"
             ;;
         "none")
             hyprctl --batch "\

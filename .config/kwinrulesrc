@@ -97,7 +97,7 @@ wmclassmatch=1
 
 [6]
 Description=Settings for (steam|steam_app)
-desktops=6ba43022-1538-4f14-a58d-5eea67a04033
+desktops=a821e9a2-7e81-44c2-b630-895300c4a2a9
 desktopsrule=3
 ignoregeometry=true
 size=1920,1080

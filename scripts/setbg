@@ -31,20 +31,46 @@ SetWallpaper() {
     ffmpeg -nostdin -i $filepath $wallpaper_path -y
     echo "new wallpaper: $filepath"
 
-    # if hyprpaper is running then use that otherwise use sway
-    hyprpaper_pid="$(pidof hyprpaper)"
-    if [ "$hyprpaper_pid" != "" ]; then 
-        # load the wallpaper in hyprpaper and unload old one
-        hyprctl hyprpaper unload "$wallpaper_path" > /dev/null
-        hyprctl hyprpaper preload "$wallpaper_path" > /dev/null
+    case $bgsetter in
+        "hyprpaper")
+            echo "Setting wallpaper with hyprpaper"
+            hyprpaper_pid="$(pidof hyprpaper)"
+            if [ "$hyprpaper_pid" != "" ]; then 
+                # load the wallpaper in hyprpaper and unload old one
+                hyprctl hyprpaper unload "$wallpaper_path" > /dev/null
+                hyprctl hyprpaper preload "$wallpaper_path" > /dev/null
 
-        # set the wallpaper on every monitor
-        for monitor in $(hyprctl monitors | grep Monitor | awk '{ print $2 }'); do
-            hyprctl hyprpaper wallpaper "$monitor,contain:$wallpaper_path"
-        done
-    else # use sway
-	swaymsg "output * background ~/Wallpapers/active_wallpaper.png fill"
-    fi
+                # set the wallpaper on every monitor
+                for monitor in $(hyprctl monitors | grep Monitor | awk '{ print $2 }'); do
+                    hyprctl hyprpaper wallpaper "$monitor,contain:$wallpaper_path"
+                done
+            fi
+            ;;
+        "swaybg")
+            echo "Setting wallpaper with swaybg"
+            killall swaybg
+            wait $
+            nohup swaybg -i $wallpaper_path -m fill > /dev/null &
+            ;;
+    esac
+
+
+    # if hyprpaper is running then use that otherwise use sway
+    #if [ $bgsetter == "hyprpaper" ]; then
+        #hyprpaper_pid="$(pidof hyprpaper)"
+        #if [ "$hyprpaper_pid" != "" ]; then 
+            # load the wallpaper in hyprpaper and unload old one
+            #hyprctl hyprpaper unload "$wallpaper_path" > /dev/null
+            #hyprctl hyprpaper preload "$wallpaper_path" > /dev/null
+
+            # set the wallpaper on every monitor
+            #for monitor in $(hyprctl monitors | grep Monitor | awk '{ print $2 }'); do
+                #hyprctl hyprpaper wallpaper "$monitor,contain:$wallpaper_path"
+            #done
+        #else # use sway
+    	#swaymsg "output * background ~/Wallpapers/active_wallpaper.png fill"
+        #fi
+    #fi
 }
 
 SetTheme() {
@@ -87,7 +113,7 @@ file=""
 bgColor=""
 theme=""
 setTheme=true
-bgsetter=hyprpaper
+bgsetter=swaybg
 
 for arg in $@; do
     case $arg in

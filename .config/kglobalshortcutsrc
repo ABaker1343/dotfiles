@@ -8,6 +8,7 @@ switch-to-activity-8f200be0-8157-43d2-88d5-313d8521f2d9=none,none,Switch to acti
 switch-to-activity-92401c7a-4cbf-40f3-9050-ca847f2585da=none,none,Switch to activity "Default"
 switch-to-activity-968e6439-7bcb-4966-953e-da5619853db2=none,none,Switch to activity "Default"
 switch-to-activity-bd44d5d1-9e77-45c5-a4ed-3780a175e1a1=none,none,Switch to activity "Default"
+switch-to-activity-bfded6a7-dcfc-4b65-9f1a-a92ba613f1f4=none,none,Switch to activity "Default"
 switch-to-activity-ea9bbb6e-4185-4574-866d-6012fe4e8c11=none,none,Switch to activity "Default"
 
 [KDE Keyboard Layout Switcher]
@@ -63,7 +64,7 @@ Grid View=Meta+G,Meta+G,Toggle Grid View
 Increase Opacity=none,,Increase Opacity of Active Window by 5%
 Kill Window=Meta+Ctrl+Esc,Meta+Ctrl+Esc,Kill Window
 Move Tablet to Next Output=none,none,Move the tablet to the next output
-MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Center
+MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Centre
 MoveMouseToFocus=Meta+F5,Meta+F5,Move Mouse to Focus
 MoveZoomDown=none,none,Move Zoomed Area Downwards
 MoveZoomLeft=none,none,Move Zoomed Area to Left
@@ -138,12 +139,12 @@ Window Fullscreen=Meta+F,,Make Window Fullscreen
 Window Grow Horizontal=none,,Expand Window Horizontally
 Window Grow Vertical=none,,Expand Window Vertically
 Window Lower=none,,Lower Window
-Window Maximize=Meta+PgUp,Meta+PgUp,Maximize Window
-Window Maximize Horizontal=none,,Maximize Window Horizontally
-Window Maximize Vertical=none,,Maximize Window Vertically
-Window Minimize=Meta+PgDown,Meta+PgDown,Minimize Window
+Window Maximize=Meta+PgUp,Meta+PgUp,Maximise Window
+Window Maximize Horizontal=none,,Maximise Window Horizontally
+Window Maximize Vertical=none,,Maximise Window Vertically
+Window Minimize=Meta+PgDown,Meta+PgDown,Minimise Window
 Window Move=none,,Move Window
-Window Move Center=none,,Move Window to the Center
+Window Move Center=none,,Move Window to the Centre
 Window No Border=none,,Toggle Window Titlebar and Frame
 Window On All Desktops=none,,Keep Window on All Desktops
 Window One Desktop Down=Meta+Ctrl+Shift+Down,Meta+Ctrl+Shift+Down,Window One Desktop Down
@@ -308,6 +309,9 @@ _launch=Meta+Shift+N
 _launch=Meta+Shift+O
 
 [services][net.local.neovide.desktop]
+_launch=Meta+Shift+N
+
+[services][nvim.desktop]
 _launch=Meta+Shift+N
 
 [services][org.kde.dolphin.desktop]

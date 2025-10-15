@@ -12,6 +12,10 @@ function ConfigureNoice ()
         enabled = false,
       }
     })
+
+    require("nvim-notify").setup({
+        background_color = "#ffffff"
+    })
 end
 
 return

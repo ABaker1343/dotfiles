@@ -1,0 +1,3 @@
+inherits = "nord"
+"ui.linenr" = "magenta"
+"ui.linenr.selected" = "gray"

@@ -26,7 +26,7 @@ local plugins = {
     require('plugins/lualine'), -- line at the bottom
     require('plugins/harpoon'), -- 
     require('plugins/snipe'),
-    require('plugins/noice'),
+    --require('plugins/noice'),
     "folke/flash.nvim",
     "voldikss/vim-floaterm",
     --require('plugins/whichkey'),

@@ -17,7 +17,8 @@
 # theme = "nord-night"
 # theme = "amberwood"
 # theme = "ayu_dark"
-theme = "ayu_mirage"
+# theme = "ayu_mirage"
+theme = "bill"
 
 [editor]
 line-number = "relative"

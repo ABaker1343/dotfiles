@@ -19,11 +19,13 @@ grim
 slurp
 lxappearance
 pcmanfm
-nautilis
+nautilus
 thunar-archive-plugin
 gvfs
 gvfs-mtp
 rofi-wayland
+zathura
+zathura-pdf-poppler
 
 flatpak
 mpv
@@ -36,3 +38,6 @@ ffmpegthumbs
 ffmpegthumbnailer
 
 arc-theme
+
+helix
+clangd
