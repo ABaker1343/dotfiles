@@ -38,8 +38,8 @@ plugin=org.kde.plasma.kickoff
 
 [Containments][55][Applets][58][Configuration]
 PreloadWeight=100
-popupHeight=709
-popupWidth=878
+popupHeight=701
+popupWidth=870
 
 [Containments][55][Applets][58][Configuration][General]
 favoritesPortedToKAstats=true
@@ -51,8 +51,8 @@ immutability=1
 lastScreen=0
 location=6
 plugin=org.kde.plasma.systemtray
-popupHeight=436
-popupWidth=436
+popupHeight=432
+popupWidth=432
 wallpaperplugin=org.kde.image
 
 [Containments][55][Applets][59][Applets][60]
@@ -172,7 +172,7 @@ immutability=1
 plugin=org.kde.plasma.brightness
 
 [Containments][55][Applets][59][Applets][87][Configuration]
-PreloadWeight=0
+PreloadWeight=15
 
 [Containments][55][Applets][59][ConfigDialog]
 DialogHeight=540
@@ -182,8 +182,8 @@ DialogWidth=720
 PreloadWeight=100
 
 [Containments][55][Applets][59][General]
-extraItems=org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.manage-inputmethod,org.kde.plasma.brightness,org.kde.plasma.cameraindicator,org.kde.plasma.networkmanagement,org.kde.plasma.printmanager,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.keyboardindicator,org.kde.kscreen,org.kde.plasma.weather,org.kde.kdeconnect
-knownItems=org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.manage-inputmethod,org.kde.plasma.brightness,org.kde.plasma.cameraindicator,org.kde.plasma.networkmanagement,org.kde.plasma.printmanager,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.keyboardindicator,org.kde.kscreen,org.kde.plasma.weather,org.kde.kdeconnect
+extraItems=org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.manage-inputmethod,org.kde.plasma.brightness,org.kde.plasma.cameraindicator,org.kde.plasma.networkmanagement,org.kde.plasma.printmanager,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.keyboardindicator,org.kde.kscreen,org.kde.plasma.weather
+knownItems=org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.manage-inputmethod,org.kde.plasma.brightness,org.kde.plasma.cameraindicator,org.kde.plasma.networkmanagement,org.kde.plasma.printmanager,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.keyboardindicator,org.kde.kscreen,org.kde.plasma.weather
 
 [Containments][55][Applets][74]
 immutability=1
@@ -212,11 +212,10 @@ DialogWidth=168
 [Containments][55][General]
 AppletOrder=58;80;75;59;56;74
 
-[Containments][90]
-ItemGeometries-1920x1080=
+[Containments][92]
 ItemGeometries-2560x1440=
 ItemGeometriesHorizontal=
-activityId=bfded6a7-dcfc-4b65-9f1a-a92ba613f1f4
+activityId=0ebf1871-f70d-4a0f-b2ff-2ac61c660ef0
 formfactor=0
 immutability=1
 lastScreen=0
@@ -224,19 +223,19 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
-[Containments][90][ConfigDialog]
+[Containments][92][ConfigDialog]
 DialogHeight=540
 DialogWidth=720
 
-[Containments][90][General]
-positions={"1920x1080":[],"2560x1440":[]}
+[Containments][92][General]
+positions={"2560x1440":[]}
 
-[Containments][90][Wallpaper][org.kde.image][General]
+[Containments][92][Wallpaper][org.kde.image][General]
 Image=/home/alex/Wallpapers/active_wallpaper.png
-SlidePaths=/usr/share/wallpapers/
+SlidePaths=/home/alex/.local/share/wallpapers/,/usr/share/wallpapers/
 
-[Containments][91]
-activityId=bfded6a7-dcfc-4b65-9f1a-a92ba613f1f4
+[Containments][93]
+activityId=0ebf1871-f70d-4a0f-b2ff-2ac61c660ef0
 formfactor=0
 immutability=1
 lastScreen=1
@@ -244,12 +243,16 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
-[Containments][91][General]
+[Containments][93][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][93][General]
 positions={"1920x1080":[]}
 
-[Containments][91][Wallpaper][org.kde.image][General]
+[Containments][93][Wallpaper][org.kde.image][General]
 Image=/home/alex/Wallpapers/active_wallpaper.png
-SlidePaths=/usr/share/wallpapers/
+SlidePaths=/home/alex/.local/share/wallpapers/,/usr/share/wallpapers/
 
 [ScreenMapping]
 itemsOnDisabledScreens=

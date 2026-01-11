@@ -32,6 +32,7 @@ end
 --local PREFERED_COLORSCHEME = "catppuccin"
 local PREFERED_COLORSCHEME = "nordfox"
 --local PREFERED_COLORSCHEME = "gruvbox"
+--local PREFERED_COLORSCHEME = "darkvoid"
 
 local PREFERED_NEOVIDE_COLORSCHEME = ""
 local TRANSPARENT_BACKGROUND = false

@@ -68,7 +68,10 @@ case $1 in
         echo "Installing configuration files..."
         CopyConfig "$(pwd)/.config" "$HOME/.config" "${CONFIG_DIRS[@]}"
         CopyConfig "$(pwd)/" "$HOME/" "${SHELL_FILES}"
-        echo "userChrome.css will have to be installed manually"
+        #echo "userChrome.css will have to be installed manually"
+
+        browser_profile_path="$(find ~/.var/app/io.gitlab.librewolf-community/.librewolf/ -name '*.default-default')"
+        cp chrome/ $browser_profile_path -r
         ;;
 
     "update" | "Update")

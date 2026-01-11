@@ -1,10 +1,12 @@
 neovim
 neovide
 tree-sitter-cli
+baobab
 
 kitty
 yazi
 btop
+zsh
 
 unzip
 ffmpegthumbs
@@ -21,6 +23,7 @@ v4l2loopback-dkms
 networkmanager
 network-manager-applet
 pipewire
+pipewire-pulse
 os-prober
 upower
 pavucontrol
@@ -55,7 +58,7 @@ hyprpaper
 hyprlock
 hyprpicker
 hyprpolkitagent
-xde-desktop-portal-hyprland
+xdg-desktop-portal-hyprland
 sway
 swaybg
 swaylock
