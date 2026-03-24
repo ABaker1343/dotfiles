@@ -18,8 +18,8 @@ SetNoPretty() {
     swaymsg gaps inner all set 0;
     swaymsg gaps inner 0;
     swaymsg smart_borders on;
-    swaymsg default_border pixel 1
-    swaymsg border pixel 1
+    swaymsg default_border pixel 2
+    swaymsg border pixel 2
 
     echo "no-pretty" > $prev_state_file
 }

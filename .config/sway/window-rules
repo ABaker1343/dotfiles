@@ -3,7 +3,7 @@ for_window {
     [class="^steam_app_"] floating enable, fullscreen enable
     [app_id="^gamescope"] floating enable, fullscreen enable
 
-    [app_id="^mpv$"] floating enable
+    [app_id="^mpv$"] floating enable, resize set 2048 1152
     [app_id="^imv$"] floating enable
 
     # floating windows
@@ -15,8 +15,10 @@ for_window {
     [class="^XClock$"] floating enable
 
     # flameshot window
-    [class="^flameshot$"] floating enable
-    [class="^flameshot$"] fullscreen disable
+    [app_id="^flameshot$"] floating enable
+    [app_id="^flameshot$"] fullscreen disable
+    [app_id="^flameshot$"] output left
+    # [app_id="^flameshot$"] position 0x0
 }
 
 assign [class="^steam$"] workspace $gamesWorkspace
@@ -28,4 +30,3 @@ assign [class="\.exe$"] workspace $gamesWorkspace
 assign [class="^discord$"] workspace 9
 assign [class="^(spotify|Spotify)$"] workspace 10
 
-# assign [class="^flameshot$"] output left

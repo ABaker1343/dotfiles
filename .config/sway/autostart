@@ -1,4 +1,4 @@
-# sway stuff to set the desktop
+# sway stuff to set the desktop to start the portal
 exec systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
 exec systemctl --user import-environment DISPLAY \
                                          SWAYSOCK \
@@ -12,16 +12,17 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
                                                   WAYLAND_DISPLAY
 
 exec xdg-desktop-portal-wlr
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/bin/lxpolkit
 exec nm-applet
 exec dunst
-# exec xrandr --output DP-2 --primary
-exec export XDG_CURRENT_DESKTOP=sway
-exec corectrl --minimize-systray
+exec xrandr --output DP-2 --primary
+# exec export XDG_CURRENT_DESKTOP=sway
+# exec corectrl --minimize-systray
 exec blueberry-tray
 exec wl-paste --watch cliphist store
-exec wlsunset -t 3000 -l 52.0 -L -2.0
-exec flameshot
+# exec wlsunset -t 3000 -l 52.0 -L -2.0
+# exec flameshot
 
 exec_always ~/.config/sway/scripts/pretty.sh --restore
 
@@ -33,4 +34,11 @@ exec_always xrandr --output DP-2 --primary
 #          timeout 300 'swaylock -f -c 000000' \
 #          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 #          before-sleep 'swaylock -f -c 000000'
+
+
+# Theming
+exec_always gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-BL-LB-Dark"
+exec_always gsettings set org.gnome.desktop.interface icon-theme "Catppuccin-Mocha"   # for GTK3 apps
+exec_always gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"   # for GTK4 apps
+exec_always xdg-mime default thunar.desktop inode/director application
 

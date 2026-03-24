@@ -1,9 +1,9 @@
 local telescopeFuncs = require("telescope.builtin")
-local harpoonUI = require('harpoon.ui');
-local harpoonMark = require('harpoon.mark');
+--local harpoonUI = require('harpoon.ui');
+--local harpoonMark = require('harpoon.mark');
 local snipe = require('snipe')
 local flash = require('flash')
-local tree = require('nvim-tree')
+--local tree = require('nvim-tree')
 
 vim.g.mapleader=' '
 
@@ -30,7 +30,8 @@ vim.keymap.set('n', "<leader>/", telescopeFuncs.live_grep, {noremap = {true}})
 -- window keys
 vim.keymap.set('n', "<leader>ws", "<cmd>split<CR>", {noremap = {true}})
 vim.keymap.set('n', "<leader>wv", "<cmd>vsplit<CR>", {noremap = {true}})
-vim.keymap.set('n', "<leader>wt", ":NvimTreeToggle<CR>", {noremap = {true}})
+vim.keymap.set('n', "<leader>wt", "<cmd>split<CR><cmd>Explore<CR>", {noremap = {true}})
+vim.keymap.set('n', "<leader>we", "<cmd>Explore<CR>", {noremap = {true}})
 vim.keymap.set('n', "<leader>wc", "<C-w>c", {noremap = {true}})
 vim.keymap.set('n', "<leader>wh", "<C-w>h", {noremap = {true}})
 vim.keymap.set('n', "<leader>wl", "<C-w>l", {noremap = {true}})

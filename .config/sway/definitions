@@ -14,13 +14,13 @@ set $term kitty
 set $menu rofi -show drun -m 1
 set $browser flatpak run io.gitlab.librewolf-community
 set $chat ~/.config/sway/scripts/bind_workspace.py discord 9 Discord "flatpak run com.discordapp.Discord"
-set $music ~/.config/sway/scripts/bind_workspace.py Spotify 10 spotify "flatpak run com.spotify.Client"
+set $music ~/.config/sway/scripts/bind_workspace.py spotify 10 spotify "flatpak run com.spotify.Client"
 set $games ~/.config/sway/scripts/bind_workspace.py steam 5 steam "steam"
 set $mail flatpak run org.mozilla.Thunderbird
-set $text neovide
-# set $text $term -e nvim
+# set $text neovide
+set $text $term -e nvim
 set $lock hyprlock
-set $files pcmanfm
+set $files thunar
 set $altFiles $term -e yazi
 set $sysMonitor $term -e btop
 set $audioManager ~/.config/sway/scripts/SoundSelect.sh
@@ -28,6 +28,6 @@ set $bluetoothManager blueberry
 set $clock ~/.config/sway/scripts/ShowClock.sh
 
 set $monitor1 DP-2
-set $monitor2 HDMI-A-1
+set $monitor2 HDMI-A-2
 
 set $gamesWorkspace 5

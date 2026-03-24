@@ -21,14 +21,15 @@ local plugins = {
     require('plugins/treesitter'), -- treesitter
     require('plugins/autopairs'), -- auto bracket pairing
     require('plugins/surround'), -- surround
-    require('plugins/nvim-tree'), -- file tree
     require('plugins/telescope'), -- telescope
-    require('plugins/lualine'), -- line at the bottom
-    require('plugins/harpoon'), -- 
     require('plugins/snipe'),
-    --require('plugins/noice'),
-    "folke/flash.nvim",
+    require('plugins/indent-blankline'),
     "voldikss/vim-floaterm",
+    "folke/flash.nvim",
+    --require('plugins/harpoon'), -- 
+    --require('plugins/lualine'), -- line at the bottom
+    --require('plugins/nvim-tree'), -- file tree
+    --require('plugins/noice'),
     --require('plugins/whichkey'),
     --require('plugins/completion'),
     --'mfussenegger/nvim-dap',

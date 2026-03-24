@@ -6,7 +6,7 @@ bar {
     # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
     status_command while date +'%a %b %d %H:%M'; do sleep 1; done
     status_padding 0
-    font JetBrainsMono 10
+    font 0xProto Nerd Font
 
     colors {
         statusline $foreground
@@ -19,7 +19,7 @@ bar {
 
     output $monitor1
     tray_padding 5px
-    mode invisible
+    # mode invisible
 
     bindsym button1 exec kitty -e btop
     bindsym button2 exec blueberry

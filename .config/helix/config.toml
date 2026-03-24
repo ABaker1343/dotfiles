@@ -6,7 +6,7 @@
 # theme = "night_owl"
 
 # theme = "sonokai_default"
-# theme = "catppuccin_mocha"
+theme = "catppuccin_mocha"
 # theme = "gruvbox"
 # theme = "molokai"
 # theme = "trans"
@@ -18,13 +18,18 @@
 # theme = "amberwood"
 # theme = "ayu_dark"
 # theme = "ayu_mirage"
-theme = "bill"
+# theme = "bill"
 
 [editor]
 line-number = "relative"
 auto-format = false
 cursorline = false
 bufferline = "multiple"
+
+[editor.indent-guides]
+render = true
+character = "|"
+skip-levels = 1
 
 [keys.normal]
 C-e = "scroll_down"

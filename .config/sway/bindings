@@ -35,11 +35,17 @@
     bindsym $launchMod+m exec $mail
     bindsym $launchMod+n exec $text
     bindsym $launchMod+f exec $files
-    bindsym $launchMod+r exec $altFiles
+    bindsym $launchMod+ exec $altFiles
     bindsym $launchMod+t exec $sysMonitor
     bindsym $launchMod+c exec $clock
 
     bindsym $dangerMod+u exec pkexec usbreset.sh > /dev/null
+    
+    bindsym $dangerMod+v exec swaymsg output DP-2 adaptive_sync 1 && notify-send "adaptive_sync enabled"
+    bindsym $controlMod+v exec swaymsg output DP-2 adaptive_sync 0 && notify-send "adaptive_sync disabled"
+
+    bindsym $dangerMod+t exec swaymsg output DP-2 allow_tearing yes && notify-send "tearing enabled"
+    bindsym $controlMod+t exec swaymsg output DP-2 allow_tearing no && notify-send "tearing disabled"
 
 #
 # Media

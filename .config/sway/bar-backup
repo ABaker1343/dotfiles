@@ -1,0 +1,31 @@
+bar {
+    position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    status_command while date +'%a %b %d %H:%M'; do sleep 1; done
+    status_padding 0
+    # font JetBrainsMono 10
+
+    colors {
+        statusline $foreground
+        background $background
+
+        # border | background | text
+        focused_workspace $color1 $color1 $background
+        inactive_workspace $color2 $color2 $foreground
+    }
+
+    output $monitor1
+    tray_padding 5px
+    # mode invisible
+
+    bindsym button1 exec kitty -e btop
+    bindsym button2 exec blueberry
+    bindsym button3 exec pavucontrol
+
+    tray_bindsym button1 Activate
+    tray_bindsym button2 SecondaryActivate
+    tray_bindsym button3 ContextMenu
+}

@@ -39,17 +39,22 @@ def CheckContainer(container):
     if GLOBAL_WINDOW_FOUND:
         return
 
-    if not "window_properties" in container:
+    if "window_properties" not in container and "app_id" not in container:
         for subcontainer in container["nodes"]:
             if not GLOBAL_WINDOW_FOUND:
                 CheckContainer(subcontainer)
 
     else:
-        if container["window_properties"]["class"] != WINDOW_CLASS: # if window doesnt match go next
-            return
-        else:
-            GLOBAL_WINDOW_FOUND = True
+        if "window_properties" in container:
+            if container["window_properties"]["class"] == WINDOW_CLASS:
+                GLOBAL_WINDOW_FOUND = True
+        elif "app_id" in container:
+            if container["app_id"] == WINDOW_CLASS:
+                GLOBAL_WINDOW_FOUND = True
 
+        if not GLOBAL_WINDOW_FOUND:
+            return
+        
         # the window has been found
         current_workspace = workspace["name"]
 
