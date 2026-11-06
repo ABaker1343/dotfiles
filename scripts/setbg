@@ -42,7 +42,7 @@ SetWallpaper() {
 
                 # set the wallpaper on every monitor
                 for monitor in $(hyprctl monitors | grep Monitor | awk '{ print $2 }'); do
-                    hyprctl hyprpaper wallpaper "$monitor,contain:$wallpaper_path"
+                    hyprctl hyprpaper wallpaper "$monitor,fill:$wallpaper_path"
                 done
             fi
             ;;
@@ -50,7 +50,7 @@ SetWallpaper() {
             echo "Setting wallpaper with swaybg"
             killall swaybg
             wait $
-            nohup swaybg -i $wallpaper_path -m fill > /dev/null &
+            nohup swaybg -i $wallpaper_path -m stretch > /dev/null &
             ;;
     esac
 

@@ -2,6 +2,7 @@ function ConfigureLsp ()
     local lspconfig = require('lspconfig')
     vim.lsp.enable("clangd")
     vim.lsp.enable("rust_analyzer")
+    vim.lsp.enable("ols")
 end
 
 function ConfigureSignature()

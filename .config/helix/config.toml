@@ -26,6 +26,9 @@ auto-format = false
 cursorline = false
 bufferline = "multiple"
 
+[editor.soft-wrap]
+enable = true
+
 [editor.indent-guides]
 render = true
 character = "|"
@@ -47,6 +50,3 @@ n = ":buffer-next"
 h = ":buffer-previous"
 p = ":buffer-previous"
 c = ":buffer-close"
-
-[editor.soft-wrap]
-enable = false

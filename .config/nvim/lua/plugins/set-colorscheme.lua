@@ -29,9 +29,10 @@ function SetLineNumberColors()
     vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#f2cdcd', bold=true })
 end
 
-local PREFERED_COLORSCHEME = "catppuccin-mocha"
+--local PREFERED_COLORSCHEME = "catppuccin-mocha"
+--local PREFERED_COLORSCHEME = "rose-pine"
 --local PREFERED_COLORSCHEME = "nordfox"
---local PREFERED_COLORSCHEME = "gruvbox"
+local PREFERED_COLORSCHEME = "gruvbox"
 --local PREFERED_COLORSCHEME = "darkvoid"
 
 local PREFERED_NEOVIDE_COLORSCHEME = ""

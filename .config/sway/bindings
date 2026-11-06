@@ -40,6 +40,7 @@
     bindsym $launchMod+c exec $clock
 
     bindsym $dangerMod+u exec pkexec usbreset.sh > /dev/null
+    bindsym $controlMod+k exec ~/.config/sway/scripts/ChangeKeyboardLayout.sh
     
     bindsym $dangerMod+v exec swaymsg output DP-2 adaptive_sync 1 && notify-send "adaptive_sync enabled"
     bindsym $controlMod+v exec swaymsg output DP-2 adaptive_sync 0 && notify-send "adaptive_sync disabled"

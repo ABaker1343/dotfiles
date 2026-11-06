@@ -10,7 +10,7 @@ function GetWindowWorkspace {
     local window_class=$1
     regex="class: $window_class$"
     info="$(hyprctl clients | grep -e "$regex" -B 4)"
-    workspace=$(echo "$info" | head -n 1 | awk '{print $2}')
+    workspace=$(echo "$info" | grep workspace | awk '{print $2}')
     echo "$workspace"
 }
 
@@ -20,7 +20,6 @@ function MoveClassToWorkspace {
     local current_workspace="$(GetWindowWorkspace "$window_class")"
 
     active_window_class="$(GetFocusedWindow)"
-    windo
 
     # if window is focused move it to the prefered workspace
     if [ "$active_window_class" == "$window_class" ]; then

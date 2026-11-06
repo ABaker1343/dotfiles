@@ -99,7 +99,7 @@ set_state () {
 		pretty)
             SetAnimations horizontal
             SetRounding true
-            SetGaps small
+            SetGaps large
             #SetDimming true 0.85
             SetDimming false 1
             SetBorderColorOverride color1

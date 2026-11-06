@@ -1,0 +1,36 @@
+output $monitor1 {
+    mode 2560x1440@144.000Hz
+    pos 1920 0
+    adaptive_sync on
+    allow_tearing yes
+    max_render_time off
+}
+
+output $monitor2 {
+    mode 1920x1080@60.000hz
+    pos 0 0
+    adaptive_sync off
+    allow_tearing no
+}
+
+output * bg ~/Wallpapers/active_wallpaper.png fill
+
+titlebar_border_thickness 0
+titlebar_padding 0 0
+font JetBrainsMono 8
+
+tiling_drag enable
+
+workspace 1 output $monitor1
+workspace 2 output $monitor1
+workspace 3 output $monitor1
+workspace 4 output $monitor1
+workspace 5 output $monitor1
+workspace 6 output $monitor1
+workspace 7 output $monitor1
+
+workspace 8 output $monitor2
+workspace 9 output $monitor2
+workspace 10 output $monitor2
+
+focus $monitor1

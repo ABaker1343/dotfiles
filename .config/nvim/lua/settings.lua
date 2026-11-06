@@ -6,8 +6,12 @@ vim.opt.scrolloff = 10
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
 
 vim.opt.smartindent = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
 vim.opt.splitright = true
 
@@ -20,6 +24,8 @@ vim.opt.cursorcolumn = false
 vim.opt.guicursor="n-v-c:block,i:ver36"
 
 vim.opt.timeoutlen = 10000
+
+vim.opt.iskeyword:append("-")
 
 --NEOVIDE_FONT = { font = "Monofur Nerd Font", size = 18 }
 --NEOVIDE_FONT = { font = "Hack Nerd Font", size = 16 }
@@ -49,6 +55,21 @@ if vim.g.neovide then
     end
     vim.g.neovide_remember_window_size = false
     --vim.g.neovide_transparency = 0.8
+end
+
+if vim.g.neovide then
+    -- NEOVIDE_CURRENT_FONT_SIZE defined in settings.lua
+    function zoom(delta)
+        NEOVIDE_FONT.size = NEOVIDE_FONT.size + delta;
+        if NEOVIDE_FONT_BOLD then
+            vim.o.guifont = NEOVIDE_FONT.font .. ":h" .. tostring(NEOVIDE_FONT.size) .. ":b"
+        else
+            vim.o.guifont = NEOVIDE_FONT.font .. ":h" .. tostring(NEOVIDE_FONT.size)
+        end
+    end
+
+        vim.keymap.set('n', "<C-=>", function() zoom(2) end, {noremap = {true}})
+        vim.keymap.set('n', "<C-->", function() zoom(-2) end, {noremap = {true}})
 end
 
 vim.cmd[["set wrap smoothscroll"]]

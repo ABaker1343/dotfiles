@@ -3,25 +3,9 @@ local telescopeFuncs = require("telescope.builtin")
 --local harpoonMark = require('harpoon.mark');
 local snipe = require('snipe')
 local flash = require('flash')
---local tree = require('nvim-tree')
+local tree = require('nvim-tree.api')
 
 vim.g.mapleader=' '
-
-if vim.g.neovide then
-    -- NEOVIDE_CURRENT_FONT_SIZE defined in settings.lua
-    function zoom(delta)
-        NEOVIDE_CURRENT_FONT_SIZE = NEOVIDE_CURRENT_FONT_SIZE + delta;
-        if NEOVIDE_FONT_BOLD then
-            vim.o.guifont = NEOVIDE_FONT .. ":h" .. tostring(NEOVIDE_CURRENT_FONT_SIZE) .. ":b"
-        else
-            vim.o.guifont = NEOVIDE_FONT .. ":h" .. tostring(NEOVIDE_CURRENT_FONT_SIZE)
-        end
-    end
-
-        vim.keymap.set('n', "<C-=>", function() zoom(2) end, {noremap = {true}})
-        vim.keymap.set('n', "<C-->", function() zoom(-2) end, {noremap = {true}})
-    end
-
 
 -- raw commands
 vim.keymap.set('n', "<leader>f", telescopeFuncs.find_files, {noremap = {true}})
@@ -30,8 +14,10 @@ vim.keymap.set('n', "<leader>/", telescopeFuncs.live_grep, {noremap = {true}})
 -- window keys
 vim.keymap.set('n', "<leader>ws", "<cmd>split<CR>", {noremap = {true}})
 vim.keymap.set('n', "<leader>wv", "<cmd>vsplit<CR>", {noremap = {true}})
-vim.keymap.set('n', "<leader>wt", "<cmd>split<CR><cmd>Explore<CR>", {noremap = {true}})
-vim.keymap.set('n', "<leader>we", "<cmd>Explore<CR>", {noremap = {true}})
+--vim.keymap.set('n', "<leader>wt", "<cmd>split<CR><cmd>Explore<CR>", {noremap = {true}})
+--vim.keymap.set('n', "<leader>we", "<cmd>Explore<CR>", {noremap = {true}})
+vim.keymap.set('n', "<leader>we", tree.tree.toggle, {noremap = {true}})
+vim.keymap.set('n', "<leader>wt", "<cmd>split<CR><cmd>terminal<CR>", {noremap = {true}})
 vim.keymap.set('n', "<leader>wc", "<C-w>c", {noremap = {true}})
 vim.keymap.set('n', "<leader>wh", "<C-w>h", {noremap = {true}})
 vim.keymap.set('n', "<leader>wl", "<C-w>l", {noremap = {true}})
@@ -104,14 +90,14 @@ vim.keymap.set('v', "gh", "^", {noremap = {true}})
 vim.keymap.set('n', "n", "nzzNn", {noremap = {true}}) -- next will center
 vim.keymap.set('n', "G", "Gzz", {noremap = {true}}) -- go to end of file will center
 vim.keymap.set('n', "<leader>nh", "<cmd>nohl<CR>", {noremap = {true}}) -- remove all highlights
-vim.keymap.set('n', "/", "/\\c", {noremap = {true}}) -- default search case insensitive
+--vim.keymap.set('n', "/", "/\\c", {noremap = {true}}) -- default search case insensitive
 vim.keymap.set('n', "<C-u>", "<C-y>", {noremap = {true}}) -- ctrl u scrolls up
 vim.keymap.set('n', "<C-y>", "<C-u>", {noremap = {true}})
 vim.keymap.set('n', "s", flash.jump, {noremap = {true}})
 vim.keymap.set('v', "s", "S", {noremap = {false}}) -- change s to surround in visual mode
 
 -- terminal mappings
-vim.keymap.set('t', "<Esc>", "<C-\\><C-n>:q<CR>", {noremap = {true}}) -- escape to exit terminal
+vim.keymap.set('t', "<C-Esc>", "<C-\\><C-n>:q<CR>", {noremap = {true}}) -- escape to exit terminal
 vim.keymap.set('t', "<C-p>", "<cmd>FloatermPrev<CR>", {noremap = {true}}) -- previous float terminal
 vim.keymap.set('t', "<C-n>", "<cmd>FloatermNext<CR>", {noremap = {true}}) -- next float terminal
 vim.keymap.set('t', "<C-k>", "<cmd>FloatermKill<CR>", {noremap = {true}}) -- kill float terminal

@@ -22,13 +22,14 @@ local plugins = {
     require('plugins/autopairs'), -- auto bracket pairing
     require('plugins/surround'), -- surround
     require('plugins/telescope'), -- telescope
+    require('plugins/nvim-tree'), -- file tree
     require('plugins/snipe'),
     require('plugins/indent-blankline'),
+    require('plugins/markdown'), -- markdown plugins
     "voldikss/vim-floaterm",
     "folke/flash.nvim",
     --require('plugins/harpoon'), -- 
     --require('plugins/lualine'), -- line at the bottom
-    --require('plugins/nvim-tree'), -- file tree
     --require('plugins/noice'),
     --require('plugins/whichkey'),
     --require('plugins/completion'),
@@ -55,7 +56,8 @@ local plugins = {
     'ishan9299/modus-theme-vim',
     "ellisonleao/gruvbox.nvim",
     "darkvoid-theme/darkvoid.nvim",
-    "mbrea-c/wal-colors.nvim"
+    "mbrea-c/wal-colors.nvim",
+    { "rose-pine/neovim", name = "rose-pine" }
 }
 
 lazy.setup(plugins, {

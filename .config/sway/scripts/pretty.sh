@@ -1,10 +1,10 @@
 prev_state_file=~/.config/sway/prev_pretty_state
 
 SetPretty() {
-    swaymsg gaps outer all set 4;
-    swaymsg gaps outer 4;
-    swaymsg gaps inner all set 4;
-    swaymsg gaps inner 4;
+    swaymsg gaps outer all set 8;
+    swaymsg gaps outer 8;
+    swaymsg gaps inner all set 8;
+    swaymsg gaps inner 8;
     swaymsg smart_borders off;
     swaymsg default_border pixel 4
     swaymsg border pixel 4

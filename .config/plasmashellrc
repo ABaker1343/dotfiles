@@ -7,6 +7,7 @@ floating=1
 panelLengthMode=0
 panelOpacity=1
 panelVisibility=2
+shell=org.kde.plasma.desktop
 
 [PlasmaViews][Panel 55][Defaults]
 floating=0

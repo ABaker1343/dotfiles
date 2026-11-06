@@ -13,6 +13,7 @@ for_window {
     [app_id="blueberry"] floating enable, resize set 1920 1080
     [app_id="^kitty$" title="^btop$"] floating enable, resize set 1920 1080
     [class="^XClock$"] floating enable
+    [title="^Extension:" app_id="librewolf"] floating enable
 
     # flameshot window
     [app_id="^flameshot$"] floating enable

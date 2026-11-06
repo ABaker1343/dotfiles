@@ -55,8 +55,7 @@ Description=spotify
 desktops=\\0
 desktopsrule=3
 screen=1
-wmclass=spotify Spotify
-wmclasscomplete=true
+wmclass=spotify
 wmclassmatch=1
 
 [35dca169-ff75-45cd-a064-ce67fbfa0ab8]
@@ -97,7 +96,7 @@ wmclassmatch=1
 
 [6]
 Description=Settings for (steam|steam_app)
-desktops=a821e9a2-7e81-44c2-b630-895300c4a2a9
+desktops=1caaac1e-6c55-411f-87f2-00ef036b7259
 desktopsrule=3
 ignoregeometry=true
 size=1920,1080

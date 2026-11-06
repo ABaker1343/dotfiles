@@ -45,6 +45,10 @@ plugin=org.kde.plasma.kickoff
 popupHeight=701
 popupWidth=870
 
+[Containments][55][Applets][58][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
 [Containments][55][Applets][58][Configuration][General]
 favoritesPortedToKAstats=true
 
@@ -141,9 +145,6 @@ plugin=org.kde.kdeconnect
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
-[Containments][55][Applets][59][Applets][84][Configuration]
-PreloadWeight=0
-
 [Containments][55][Applets][59][Applets][87]
 immutability=1
 plugin=org.kde.plasma.brightness
@@ -161,8 +162,8 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][55][Applets][74][Configuration]
-popupHeight=434
-popupWidth=322
+popupHeight=430
+popupWidth=319
 
 [Containments][55][Applets][75]
 immutability=1
@@ -202,6 +203,7 @@ DialogWidth=720
 positions={"1920x1080":[],"2560x1440":[]}
 
 [Containments][94][Wallpaper][org.kde.image][General]
+FillMode=0
 Image=file:///home/alex/Wallpapers/active_wallpaper.png
 SlidePaths=/usr/share/wallpapers/
 
